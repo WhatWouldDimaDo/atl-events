@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0c14" />
+  <meta name="description" content="LLM-scored Atlanta event intelligence. S-tier electronic shows, family picks, date nights — all ranked by personal taste profile." />
+  <title>ATL Event Intelligence — Apr–Sep 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4/dist/chart.umd.min.js"></script>
+
+  <style>
+    /* ============================================================
+       RESET & TOKENS
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #8B5CF6;
+      --purple-dim:   #7C3AED;
+      --purple-glow:  rgba(139,92,246,0.15);
+      --purple-soft:  rgba(139,92,246,0.08);
+      --amber:        #F59E0B;
+      --amber-glow:   rgba(245,158,11,0.18);
+      --teal:         #2DD4BF;
+      --red:          #EF4444;
+      --red-glow:     rgba(239,68,68,0.15);
+      --green:        #10B981;
+      --bg:           #0c0c14;
+      --bg-card:      #13131f;
+      --bg-card-2:    #1a1a2e;
+      --bg-elevated:  #21213a;
+      --text:         #E2E8F0;
+      --text-muted:   #94A3B8;
+      --text-dim:     #4B5563;
+      --border:       rgba(255,255,255,0.07);
+      --border-hi:    rgba(255,255,255,0.13);
+      --max-w:        1100px;
+      --section-pad:  100px 24px;
+      --radius:       14px;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% 0%, rgba(139,92,246,0.07) 0%, transparent 68%);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,12,20,0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      height: 60px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .nav-brand {
+      font-size: 14px; font-weight: 700; color: var(--purple);
+      text-decoration: none; letter-spacing: -0.01em; white-space: nowrap;
+    }
+    .nav-brand span { color: var(--text-muted); font-weight: 400; margin: 0 5px; font-size: 12px; }
+    .nav-links {
+      display: flex; gap: 2px; list-style: none;
+      flex-wrap: wrap; justify-content: flex-end;
+    }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500;
+      padding: 6px 10px; border-radius: 7px; transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-links a.active { color: var(--purple); }
+
+    /* progress */
+    .progress-bar {
+      position: fixed; top: 60px; left: 0; height: 2px;
+      width: 0%; background: linear-gradient(90deg, var(--purple), var(--teal));
+      z-index: 99; transition: width 0.08s linear;
+    }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: var(--section-pad); }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(30px, 5vw, 52px); font-weight: 800;
+      letter-spacing: 0.01em; line-height: 1.05;
+      margin-bottom: 16px; text-transform: uppercase;
+    }
+    .section-body {
+      color: var(--text-muted); font-size: clamp(15px, 1.7vw, 18px);
+      line-height: 1.8; max-width: 680px; margin-bottom: 40px;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 86vh; min-height: 86dvh;
+      display: flex; align-items: center;
+      background:
+        radial-gradient(ellipse 75% 55% at 50% 0%, rgba(139,92,246,0.1) 0%, transparent 65%),
+        var(--bg);
+      padding: 80px 24px 60px;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; width: 100%; }
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--purple);
+    }
+    .hero-headline {
+      font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 9.5vw, 115px); font-weight: 400;
+      line-height: 0.93; letter-spacing: 0.02em;
+      margin-bottom: 28px; max-width: 1050px;
+      animation: slideIn 0.85s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .hero-headline em { color: var(--purple); font-style: normal; }
+    .hero-headline .line-city { color: var(--amber); }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 19px); color: var(--text-muted);
+      max-width: 580px; margin-bottom: 56px; line-height: 1.65;
+      animation: slideIn 0.85s 0.1s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      animation: slideIn 0.85s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border-hi);
+      border-radius: var(--radius); padding: 26px 22px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stat-card:hover { border-color: rgba(139,92,246,0.3); background: var(--bg-card-2); }
+    .stat-number {
+      font-size: clamp(40px, 6vw, 66px); font-weight: 700;
+      letter-spacing: -0.04em; line-height: 1; color: #fff; margin-bottom: 8px;
+    }
+    .stat-number .acc { color: var(--purple); }
+    .stat-number .acc-amber { color: var(--amber); }
+    .stat-number .acc-red { color: var(--red); }
+    .stat-label { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.01em; }
+    .stat-sublabel { font-size: 11px; color: var(--text-dim); margin-top: 3px; }
+
+    /* ============================================================
+       ACT NOW
+    ============================================================ */
+    .urgent-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .urgent-card {
+      background: var(--bg-card); border: 1px solid rgba(239,68,68,0.25);
+      border-top: 3px solid var(--red); border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 0 24px rgba(239,68,68,0.06);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .urgent-card:hover {
+      border-color: rgba(239,68,68,0.5);
+      box-shadow: 0 0 36px rgba(239,68,68,0.12);
+    }
+    .urgent-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--red);
+      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25);
+      border-radius: 4px; padding: 3px 8px; margin-bottom: 14px;
+    }
+    .urgent-badge::before { content: '⚠'; font-size: 10px; }
+    .urgent-title { font-size: 20px; font-weight: 700; line-height: 1.2; margin-bottom: 5px; color: #fff; }
+    .urgent-venue { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+    .urgent-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; }
+    .urgent-date { font-size: 12px; font-weight: 600; color: var(--amber); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+    .btn-ticket {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--red); color: #fff; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 7px; text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: 0.02em;
+    }
+    .btn-ticket:hover { background: #dc2626; transform: translateY(-1px); }
+    .btn-ticket-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid rgba(239,68,68,0.4); color: var(--red);
+      background: transparent; font-size: 13px; font-weight: 600;
+      padding: 8px 16px; border-radius: 7px; text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-ticket-ghost:hover { background: rgba(239,68,68,0.08); border-color: var(--red); }
+
+    /* ============================================================
+       EVENTS GRID
+    ============================================================ */
+    .filter-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;
+      align-items: center;
+    }
+    .filter-label { font-size: 11px; font-weight: 700; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-right: 4px; }
+    .chip {
+      font-size: 12px; font-weight: 600; padding: 6px 14px;
+      border-radius: 20px; border: 1px solid var(--border);
+      color: var(--text-muted); background: var(--bg-card);
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
+      letter-spacing: 0.02em; user-select: none;
+    }
+    .chip:hover { border-color: var(--purple); color: var(--text); }
+    .chip.active { background: var(--purple); border-color: var(--purple); color: #fff; }
+    .chip.chip-tier-S.active { background: var(--amber); border-color: var(--amber); color: #000; }
+    .chip.chip-tier-A.active { background: var(--purple); }
+    .chip.chip-tier-B.active { background: var(--teal); border-color: var(--teal); color: #000; }
+
+    .sort-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+    .sort-btn {
+      font-size: 11px; font-weight: 600; padding: 4px 12px;
+      border-radius: 5px; border: 1px solid var(--border);
+      color: var(--text-dim); background: none; cursor: pointer;
+      transition: all 0.15s; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .sort-btn.active { color: var(--purple); border-color: var(--purple); background: var(--purple-soft); }
+
+    .events-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+
+    .event-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: default;
+    }
+    .event-card:hover {
+      border-color: var(--border-hi); background: var(--bg-card-2);
+      transform: translateY(-2px);
+    }
+    .event-card.tier-S { border-top: 2px solid var(--amber); }
+    .event-card.tier-A { border-top: 2px solid var(--purple); }
+    .event-card.tier-B { border-top: 2px solid var(--teal); }
+    .event-card.tier-C { border-top: 2px solid var(--text-dim); }
+    .event-card.urgent-event { box-shadow: 0 0 20px rgba(239,68,68,0.07); }
+
+    .event-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+
+    .tier-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.04em;
+    }
+    .tier-badge.S { background: rgba(245,158,11,0.2); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+    .tier-badge.A { background: rgba(139,92,246,0.2); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
+    .tier-badge.B { background: rgba(45,212,191,0.15); color: var(--teal); border: 1px solid rgba(45,212,191,0.25); }
+    .tier-badge.C { background: rgba(75,85,99,0.2); color: var(--text-dim); border: 1px solid rgba(75,85,99,0.2); }
+
+    .event-meta { flex: 1; }
+    .event-date { font-size: 11px; font-weight: 700; color: var(--purple); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .event-date.amber { color: var(--amber); }
+    .event-title { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 2px; }
+    .event-subtitle { font-size: 12px; color: var(--text-muted); font-style: italic; }
+    .event-venue { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+    .event-note { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+    .event-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+      border: 1px solid var(--border); color: var(--text-dim);
+    }
+    .tag.free { color: var(--green); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
+    .tag.urgent { color: var(--red); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.08); }
+    .tag.age { color: var(--text-muted); }
+
+    .score-bar-wrap { display: flex; align-items: center; gap: 10px; }
+    .score-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
+    .score-bar-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+    .score-bar-fill.S { background: linear-gradient(90deg, var(--amber), #fcd34d); }
+    .score-bar-fill.A { background: linear-gradient(90deg, var(--purple), #a78bfa); }
+    .score-bar-fill.B { background: linear-gradient(90deg, var(--teal), #5eead4); }
+    .score-bar-fill.C { background: var(--text-dim); }
+    .score-num { font-size: 12px; font-weight: 700; color: var(--text-muted); width: 30px; text-align: right; flex-shrink: 0; }
+
+    .event-invite { font-size: 11px; color: var(--text-dim); }
+    .event-invite span { color: var(--text-muted); }
+
+    .event-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; }
+    .btn-sm {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 700; padding: 7px 14px;
+      border-radius: 7px; text-decoration: none; transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .btn-buy { background: var(--purple); color: #fff; }
+    .btn-buy:hover { background: var(--purple-dim); transform: translateY(-1px); }
+    .btn-buy.amber { background: var(--amber); color: #000; }
+    .btn-buy.amber:hover { background: #d97706; }
+    .btn-link { border: 1px solid var(--border); color: var(--text-muted); background: none; }
+    .btn-link:hover { border-color: var(--purple); color: var(--purple); background: var(--purple-soft); }
+
+    .event-card.hidden { display: none; }
+
+    /* no results */
+    .no-results {
+      grid-column: 1/-1; text-align: center; padding: 60px 24px;
+      color: var(--text-dim); font-size: 15px;
+    }
+
+    /* ============================================================
+       CHART SECTION
+    ============================================================ */
+    .chart-container { position: relative; width: 100%; }
+    .chart-canvas { width: 100% !important; }
+
+    /* ============================================================
+       CONFLICTS
+    ============================================================ */
+    .conflict-card {
+      background: var(--bg-card); border: 1px solid rgba(245,158,11,0.25);
+      border-radius: var(--radius); padding: 28px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+    }
+    .conflict-option {
+      padding: 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--bg-card-2);
+    }
+    .conflict-option.recommended {
+      border-color: var(--amber); background: rgba(245,158,11,0.06);
+    }
+    .conflict-option-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .conflict-option-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .conflict-option-sub { font-size: 12px; color: var(--text-muted); }
+
+    /* ============================================================
+       VENUES
+    ============================================================ */
+    .venue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .venue-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .venue-card:hover { border-color: var(--border-hi); background: var(--bg-card-2); }
+    .venue-rank {
+      font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--text-dim);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .venue-rank.top { color: var(--amber); }
+    .venue-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .venue-cap { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+    .venue-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .venue-events { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+    .venue-event-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+      background: var(--purple-soft); color: var(--purple); border: 1px solid rgba(139,92,246,0.2);
+    }
+
+    /* ============================================================
+       EVERGREEN
+    ============================================================ */
+    .tab-nav { display: flex; gap: 4px; margin-bottom: 28px; flex-wrap: wrap; }
+    .tab-btn {
+      font-size: 12px; font-weight: 600; padding: 7px 16px;
+      border-radius: 8px; border: 1px solid var(--border);
+      color: var(--text-muted); background: none; cursor: pointer;
+      transition: all 0.15s; letter-spacing: 0.04em;
+    }
+    .tab-btn.active { background: var(--bg-card); border-color: var(--border-hi); color: var(--text); }
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .evergreen-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+      transition: border-color 0.15s;
+    }
+    .evergreen-card:hover { border-color: var(--border-hi); }
+    .evergreen-name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .evergreen-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .evergreen-tag { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 8px; }
+
+    /* ============================================================
+       TASTE PROFILE
+    ============================================================ */
+    .tier-legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
+    .tier-box {
+      padding: 20px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+    .tier-box-label {
+      font-family: 'Bebas Neue', sans-serif; font-size: 42px; line-height: 1; margin-bottom: 8px;
+    }
+    .tier-box-label.S { color: var(--amber); }
+    .tier-box-label.A { color: var(--purple); }
+    .tier-box-label.B { color: var(--teal); }
+    .tier-box-label.C { color: var(--text-dim); }
+    .tier-box-range { font-size: 11px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .tier-box-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .tier-box-examples { margin-top: 10px; font-size: 12px; color: var(--text-dim); font-style: italic; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 24px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 12px; color: var(--text-dim); flex-wrap: wrap;
+    }
+    .footer-inner a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+    .footer-inner a:hover { color: var(--purple); }
+    .footer-sep { color: var(--border-hi); }
+    .footer-right { margin-left: auto; display: flex; gap: 12px; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .urgent-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: 1fr; }
+      .conflict-card { grid-template-columns: 1fr; }
+      .venue-grid { grid-template-columns: repeat(2, 1fr); }
+      .tab-content.active { grid-template-columns: repeat(2, 1fr); }
+      .tier-legend { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .venue-grid { grid-template-columns: 1fr; }
+      .tab-content.active { grid-template-columns: 1fr; }
+      .tier-legend { grid-template-columns: 1fr; }
+      :root { --section-pad: 60px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="progress-bar" id="progress"></div>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">ATL<span>/</span>Events<span>·</span>Intelligence</a>
+    <ul class="nav-links">
+      <li><a href="#act-now">Act Now</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#venues">Venues</a></li>
+      <li><a href="#evergreen">Evergreen</a></li>
+      <li><a href="#taste">Scoring</a></li>
+      <li><a href="https://dimadimadima.com" target="_blank" rel="noopener">dimadimadima.com</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Atlanta, GA &nbsp;·&nbsp; Apr–Sep 2026</div>
+    <h1 class="hero-headline">
+      <em>ATL</em><br>
+      <span class="line-city">Event</span><br>
+      Intelligence
+    </h1>
+    <p class="hero-sub">
+      LLM-scored event discovery. Every show, festival, and family pick ranked against a personal taste profile — so you never miss the S-tier ones or waste a babysitter on a B.
+    </p>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number"><span class="acc">13</span></div>
+        <div class="stat-label">Upcoming Events</div>
+        <div class="stat-sublabel">Apr – Sep 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><span class="acc-amber">95</span></div>
+        <div class="stat-label">Top Score</div>
+        <div class="stat-sublabel">Disclosure + Sub Focus</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><span class="acc-red">3</span></div>
+        <div class="stat-label">Buy Now</div>
+        <div class="stat-sublabel">Time-sensitive tickets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><span class="acc">5</span></div>
+        <div class="stat-label">Tier S + A Shows</div>
+        <div class="stat-sublabel">Electronic / live / fest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     ACT NOW
+============================================================ -->
+<section id="act-now">
+  <div class="container">
+    <div class="section-label">Buy Before They're Gone</div>
+    <h2 class="section-title">Act Now</h2>
+    <p class="section-body">Three events with limited capacity or closing ticket windows. Each deserves a decision today, not next week.</p>
+
+    <div class="urgent-grid">
+
+      <!-- Sub Focus -->
+      <div class="urgent-card">
+        <div class="urgent-date">Thu May 15, 2026 · 9 PM</div>
+        <div class="urgent-badge">LIMITED CAPACITY</div>
+        <div class="urgent-title">Sub Focus — 360° Set</div>
+        <div class="urgent-venue">Underground Atlanta — The Gallery</div>
+        <div class="urgent-note">
+          Funktion-One 4-corner surround system. First ATL show since 2018. Liquid D&amp;B at its most immersive. Support: BLOSSOM, Ghost in Real Life, D:RC. <strong>Scores 95.</strong> Sells out this week.
+        </div>
+        <a href="https://www.ticketfairy.com/event/sub-focus-360" target="_blank" rel="noopener" class="btn-ticket">Buy Ticket →</a>
+      </div>
+
+      <!-- Disclosure -->
+      <div class="urgent-card">
+        <div class="urgent-date">Fri May 1, 2026 · 8 PM</div>
+        <div class="urgent-badge">VENUE CAPS ~1,000</div>
+        <div class="urgent-title">Disclosure LIVE</div>
+        <div class="urgent-venue">The Eastern</div>
+        <div class="urgent-note">
+          Full live band — not a DJ set. Latch, White Noise, You &amp; Me with live instrumentation. Two-night run; go night one. Last day of Lahzo All Hands. <strong>Scores 95.</strong>
+        </div>
+        <a href="https://www.axs.com/events/1281830/disclosure-live-tickets" target="_blank" rel="noopener" class="btn-ticket">Buy Ticket →</a>
+      </div>
+
+      <!-- Shake the Lake -->
+      <div class="urgent-card">
+        <div class="urgent-date">Sat Apr 25, 2026</div>
+        <div class="urgent-badge">~30 TICKETS LEFT</div>
+        <div class="urgent-title">Shake the Lake</div>
+        <div class="urgent-venue">Lake Lanier (Beats on the Lake)</div>
+        <div class="urgent-note">
+          Matt Silliman outdoor electronic set. Cash bar, BYOB ok, afters planned. Adults only. Invite Craig, Arjun, Davis. Buy via @mattsilliman_dj bio now.
+        </div>
+        <div class="btn-ticket-ghost">Via @mattsilliman_dj IG bio</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     EVENTS GRID
+============================================================ -->
+<section id="events">
+  <div class="container">
+    <div class="section-label">Apr – Sep 2026</div>
+    <h2 class="section-title">All Events</h2>
+    <p class="section-body">Every scored event in the calendar — filtered by type, sorted by date or score. Tier and urgency baked in.</p>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <span class="filter-label">Type:</span>
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="music">Music</button>
+      <button class="chip" data-filter="family">Family</button>
+      <button class="chip" data-filter="group">Group Night</button>
+      <button class="chip" data-filter="date">Date Night</button>
+      <button class="chip" data-filter="free">Free</button>
+    </div>
+    <div class="filter-bar" style="margin-top:-16px;">
+      <span class="filter-label">Tier:</span>
+      <button class="chip chip-tier chip-tier-all active" data-tier="all">All Tiers</button>
+      <button class="chip chip-tier chip-tier-S" data-tier="S">S · 90+</button>
+      <button class="chip chip-tier chip-tier-A" data-tier="A">A · 75–89</button>
+      <button class="chip chip-tier chip-tier-B" data-tier="B">B · 60–74</button>
+    </div>
+    <div class="sort-bar">
+      <span class="filter-label">Sort:</span>
+      <button class="sort-btn active" id="sort-date">By Date</button>
+      <button class="sort-btn" id="sort-score">By Score</button>
+    </div>
+
+    <!-- Events grid (populated by JS) -->
+    <div class="events-grid" id="events-grid"></div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     SCORE CHART
+============================================================ -->
+<section id="chart">
+  <div class="container">
+    <div class="section-label">Score Distribution</div>
+    <h2 class="section-title">Event Rankings</h2>
+    <p class="section-body">
+      All 13 events plotted by taste-profile score. Gold = S-tier (buy now), purple = A-tier (strong interest), teal = B-tier (situational).
+    </p>
+    <div class="chart-container" style="height: 280px;">
+      <canvas id="scoreChart" class="chart-canvas"></canvas>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     CONFLICTS
+============================================================ -->
+<section id="conflicts">
+  <div class="container">
+    <div class="section-label">May 1 Decision</div>
+    <h2 class="section-title">Stacked Night — Pick One</h2>
+    <p class="section-body">May 1 is stacked. Three shows in ATL, all worth considering. The Eastern is the correct call unless Disclosure sells out before you act.</p>
+
+    <div class="conflict-card">
+      <div class="conflict-option recommended">
+        <div class="conflict-option-badge">★ Recommended</div>
+        <div class="conflict-option-title">Disclosure LIVE @ The Eastern</div>
+        <div class="conflict-option-sub">8 PM · All ages · Score 95<br>Full live band. Unique experience. Buy before Thursday.</div>
+      </div>
+      <div class="conflict-option">
+        <div class="conflict-option-badge">Fallback</div>
+        <div class="conflict-option-title">Supertask @ Terminal West</div>
+        <div class="conflict-option-sub">9 PM · All ages · Score 78<br>Good backup if Disclosure sells out. Check Terminal West box office.</div>
+      </div>
+      <div class="conflict-option">
+        <div class="conflict-option-badge">Least unique</div>
+        <div class="conflict-option-title">Disclosure DJ Set @ District</div>
+        <div class="conflict-option-sub">10 PM · 21+ · Score 80<br>DJ set vs. live band — clearly secondary option. Same artist, less special.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     VENUES
+============================================================ -->
+<section id="venues">
+  <div class="container">
+    <div class="section-label">Atlanta</div>
+    <h2 class="section-title">Venue Rankings</h2>
+    <p class="section-body">Five venues that consistently deliver. Ranked by sound quality, capacity, and reliability for electronic and live shows.</p>
+
+    <div class="venue-grid">
+
+      <div class="venue-card">
+        <div class="venue-rank top">01</div>
+        <div class="venue-name">The Eastern</div>
+        <div class="venue-cap">~1,000 cap · All ages · Grant Park</div>
+        <div class="venue-desc">Best sound system in ATL. Intimate enough to feel like a warehouse, large enough for real production. Disclosure territory.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">Disclosure LIVE</span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-rank top">02</div>
+        <div class="venue-name">Terminal West</div>
+        <div class="venue-cap">~850 cap · All ages · West Midtown</div>
+        <div class="venue-desc">Intimate with great sound. Premium sightlines, indoor/outdoor flexibility. The go-to for mid-size live acts.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">DWTD + Magic Sword</span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-rank">03</div>
+        <div class="venue-name">The Gallery (Underground ATL)</div>
+        <div class="venue-cap">~600 cap · 18+ · Downtown</div>
+        <div class="venue-desc">Immersive club format. Sub Focus's custom 4-corner Funktion-One surround system makes this the most technical setup in the city for that show.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">Sub Focus 360°</span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-rank">04</div>
+        <div class="venue-name">District Atlanta</div>
+        <div class="venue-cap">~2,000 cap · 21+ · Downtown</div>
+        <div class="venue-desc">Larger club format. Good for peak-time house/techno with room to move. Best for late-night group nights.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">Patrick Topping</span>
+          <span class="venue-event-tag">Vintage Culture</span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-rank">05</div>
+        <div class="venue-name">Piedmont Park</div>
+        <div class="venue-cap">Outdoor · All ages · Midtown</div>
+        <div class="venue-desc">The city's living room. Jazz Fest, Shaky Knees, Streets Alive — reliable outdoor anchor for groups and families.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">Shaky Knees</span>
+          <span class="venue-event-tag">Jazz Fest</span>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-rank">06</div>
+        <div class="venue-name">The Masquerade</div>
+        <div class="venue-cap">Multi-room · All ages · Beltline</div>
+        <div class="venue-desc">Storied ATL venue with three rooms (Heaven, Hell, Purgatory). Solid for mid-tier indie / electronic acts.</div>
+        <div class="venue-events">
+          <span class="venue-event-tag">Chet Faker</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     EVERGREEN ACTIVITIES
+============================================================ -->
+<section id="evergreen">
+  <div class="container">
+    <div class="section-label">No Ticket Required</div>
+    <h2 class="section-title">Evergreen ATL</h2>
+    <p class="section-body">High-value repeatable experiences that don't require weeks of planning. Organized by who you're going with.</p>
+
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="kids">With Dean</button>
+      <button class="tab-btn" data-tab="date">Date Night</button>
+      <button class="tab-btn" data-tab="group">Group / Social</button>
+      <button class="tab-btn" data-tab="solo">Solo Reset</button>
+    </div>
+
+    <div class="tab-content active" id="tab-kids">
+      <div class="evergreen-card">
+        <div class="evergreen-name">Atlanta Botanical Garden</div>
+        <div class="evergreen-desc">Sensory trail, Japanese garden, seasonal blooms. ABG member — no ticket needed. Great for toddlers.</div>
+        <div class="evergreen-tag">MEMBER ACCESS · TODDLER-SAFE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Fernbank Museum</div>
+        <div class="evergreen-desc">Dinosaur hall. Dean is obsessed. Giant T-Rex lobby. Rainy day perfect.</div>
+        <div class="evergreen-tag">DINOS · INDOOR</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Beltline + Krog Street Market</div>
+        <div class="evergreen-desc">Stroller on the trail, snack stop at Krog. Easy afternoon, Dean loves the "train ride."</div>
+        <div class="evergreen-tag">WALKABLE · FREE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Stone Mountain</div>
+        <div class="evergreen-desc">Hiking, splash pad in summer, skyline views. 20 min east of Inman Park.</div>
+        <div class="evergreen-tag">OUTDOOR · SUMMER SPLASH</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Chattahoochee Nature Center</div>
+        <div class="evergreen-desc">Wildlife rehab encounters, easy boardwalks, raptors. A quiet, educational escape.</div>
+        <div class="evergreen-tag">WILDLIFE · EASY HIKE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Sloomoo Institute</div>
+        <div class="evergreen-desc">High sensory joy — slime, color, texture. Dean would be absolutely losing it in a good way.</div>
+        <div class="evergreen-tag">SENSORY · INTERACTIVE</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-date">
+      <div class="evergreen-card">
+        <div class="evergreen-name">Bacchanalia</div>
+        <div class="evergreen-desc">ATL's flagship fine dining. Prix-fixe. Book 2+ weeks out. Special occasions only — worth every penny.</div>
+        <div class="evergreen-tag">FINE DINING · BOOK 2 WEEKS</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Little Bear</div>
+        <div class="evergreen-desc">Beltline casual fine. Fresh, seasonal, intimate. 1-week reservation window. Great for a weeknight reset.</div>
+        <div class="evergreen-tag">BELTLINE · 1 WEEK LEAD</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Fox Theatre</div>
+        <div class="evergreen-desc">Broadway touring productions, spectacular venue. Best for a real "occasion" — book when the right show lands.</div>
+        <div class="evergreen-tag">BROADWAY · ICONIC VENUE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Fernbank After Dark</div>
+        <div class="evergreen-desc">Adults-only science night. Cocktails, live music, hands-on demos in the museum after hours. Jeannie would love this.</div>
+        <div class="evergreen-tag">21+ · MONTHLY FRIDAYS</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Ponce City Market Rooftop</div>
+        <div class="evergreen-desc">Mini golf, cocktails, skyline views. Carnival rides. Easy date, low-planning, high payoff.</div>
+        <div class="evergreen-tag">ROOFTOP · NO RESERVATION</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Pigalle Cabaret & Speakeasy</div>
+        <div class="evergreen-desc">Underground Atlanta. Bohemian Paris-themed theater, burlesque, jazz, absinthe. Unusual and memorable.</div>
+        <div class="evergreen-tag">UNDERGROUND ATL · 21+</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-group">
+      <div class="evergreen-card">
+        <div class="evergreen-name">Krog Street Market (Evening)</div>
+        <div class="evergreen-desc">Fire pit patio, outdoor seating, food hall. Oct–Apr fire pit season is best. Easy last-minute neighbor hang.</div>
+        <div class="evergreen-tag">NEIGHBORHOOD · LAST MINUTE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Ormsby's</div>
+        <div class="evergreen-desc">Billiards, bocce, shuffleboard. West Midtown. Perfect group format — parallel socializing with games.</div>
+        <div class="evergreen-tag">BILLIARDS · GROUP</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Axe Throwing (The Battery)</div>
+        <div class="evergreen-desc">High social energy. Requires advance booking. Good for birthdays or group bonding. 6–10 person format works well.</div>
+        <div class="evergreen-tag">ACTIVITY · BOOK AHEAD</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Lake Claire Drum Circle</div>
+        <div class="evergreen-desc">Full moon celebrations at Land Trust. High community vibe. Bring a drum or just show up. Free, open.</div>
+        <div class="evergreen-tag">FULL MOON · FREE</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Beltline Food Tour</div>
+        <div class="evergreen-desc">Guided culinary walk. Good for visiting friends who've never done ATL properly. 3-hour format.</div>
+        <div class="evergreen-tag">GUIDED · 3HR</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Ladybird Grove &amp; Mess Hall</div>
+        <div class="evergreen-desc">Outdoor patio on the Beltline. Casual group dinner format. No rush, dog-friendly, tiki-bar energy.</div>
+        <div class="evergreen-tag">BELTLINE PATIO · CASUAL</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-solo">
+      <div class="evergreen-card">
+        <div class="evergreen-name">Sol Dance (Ecstatic Dance)</div>
+        <div class="evergreen-desc">Non-verbal connection, high energy, sober or not. Bi-weekly Sundays. Physical reset without equipment.</div>
+        <div class="evergreen-tag">BIWEEKLY SUN · NO ALCOHOL</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">ABG Quiet Hours (Early AM)</div>
+        <div class="evergreen-desc">Early member access to the Japanese Garden before crowds arrive. Meditative. Quiet time in a beautiful space.</div>
+        <div class="evergreen-tag">MEMBER ACCESS · MORNING</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">High Museum — Second Sundays</div>
+        <div class="evergreen-desc">Free admission for members + community. Best enjoyed solo for quiet immersion in the galleries.</div>
+        <div class="evergreen-tag">FREE · SOLO IMMERSION</div>
+      </div>
+      <div class="evergreen-card">
+        <div class="evergreen-name">Indoor Rock Climbing</div>
+        <div class="evergreen-desc">The Overlook or Stone Summit. Physical reset, focused, no prep. Go early morning for quiet walls.</div>
+        <div class="evergreen-tag">PHYSICAL RESET</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     TASTE PROFILE
+============================================================ -->
+<section id="taste">
+  <div class="container">
+    <div class="section-label">Scoring System</div>
+    <h2 class="section-title">How Events Get Scored</h2>
+    <p class="section-body">
+      Each event is scored 0–100 against a personal taste profile weighted toward electronic music, live experiences, and venue quality. Tier determines urgency of action.
+    </p>
+
+    <div class="tier-legend">
+      <div class="tier-box">
+        <div class="tier-box-label S">S</div>
+        <div class="tier-box-range">Score 90–100</div>
+        <div class="tier-box-desc">Buy tickets immediately, no debate. These are the reason to be in Atlanta.</div>
+        <div class="tier-box-examples">Disclosure · Sub Focus 360°</div>
+      </div>
+      <div class="tier-box">
+        <div class="tier-box-label A">A</div>
+        <div class="tier-box-range">Score 75–89</div>
+        <div class="tier-box-desc">Strong interest — check lineup, coordinate group, act within 1–2 weeks.</div>
+        <div class="tier-box-examples">DWTD + Magic Sword · Vintage Culture · Shaky Knees</div>
+      </div>
+      <div class="tier-box">
+        <div class="tier-box-label B">B</div>
+        <div class="tier-box-range">Score 60–74</div>
+        <div class="tier-box-desc">Situational. Depends on who's free, energy levels, and competing options.</div>
+        <div class="tier-box-examples">Shake the Lake · Chet Faker · Jazz Fest</div>
+      </div>
+      <div class="tier-box">
+        <div class="tier-box-label C">C</div>
+        <div class="tier-box-range">Score 0–59</div>
+        <div class="tier-box-desc">Pass unless there's a strong social hook (friend visiting, birthday event, etc.)</div>
+        <div class="tier-box-examples">Most pop shows · country · sports (unless ATL United)</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);">
+      <div class="section-label" style="margin-bottom: 10px;">Signal Amplifiers</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 14px; color: var(--text-muted);">
+        <div><strong style="color: var(--text);">Venue quality</strong><br>The Eastern or Terminal West adds 5–10 points automatically. Sound quality is non-negotiable.</div>
+        <div><strong style="color: var(--text);">Format rarity</strong><br>Live band vs. DJ set, 360° immersive vs. standard stage — format uniqueness gets weighted heavily.</div>
+        <div><strong style="color: var(--text);">Social alignment</strong><br>The right show with the right group elevates every tier. Invite matrix is baked into action plans.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <span>Atlanta, GA</span>
+    <span class="footer-sep">·</span>
+    <span>Apr–Sep 2026</span>
+    <span class="footer-sep">·</span>
+    <span>Updated Apr 21, 2026</span>
+    <div class="footer-right">
+      <a href="https://dimadimadima.com/projects/atl-events" target="_blank" rel="noopener">dimadimadima.com/projects/atl-events</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+/* ─── DATA ─────────────────────────────────────────────────── */
+const EVENTS = [
+  {
+    id: 1,
+    date: "2026-04-24",
+    dateStr: "Fri Apr 24",
+    title: "Patrick Topping",
+    subtitle: null,
+    venue: "District Atlanta",
+    score: 80,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Drumcode techno", "house"],
+    age: "21+",
+    time: "Fri, 9 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Arjun"],
+    ticketUrl: null,
+    free: false,
+    note: "Drumcode artist and Defected heavyweight. Groove-led techno and peak-time house — a serious selector. Short planning window."
+  },
+  {
+    id: 2,
+    date: "2026-04-25",
+    dateStr: "Sat Apr 25",
+    title: "Shake the Lake",
+    subtitle: "Beats on the Lake — Matt Silliman",
+    venue: "Lake Lanier",
+    score: 78,
+    tier: "B",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Electronic", "outdoor"],
+    age: "21+",
+    time: "Sat, afternoon",
+    urgent: true,
+    urgentNote: "~30 tickets left — buy via @mattsilliman_dj BIO",
+    invite: ["Craig", "Arjun", "Davis"],
+    ticketUrl: null,
+    free: false,
+    note: "Outdoor electronic set on the lake. Cash bar, BYOB, afters planned. Adults only. Short window — act now."
+  },
+  {
+    id: 3,
+    date: "2026-04-25",
+    dateStr: "Sat Apr 25",
+    title: "Inman Park Festival",
+    subtitle: null,
+    venue: "Inman Park",
+    score: 74,
+    tier: "B",
+    slots: ["FAMILY_OUT"],
+    category: "family",
+    genres: ["Street fair", "outdoor"],
+    age: "All ages",
+    time: "Sat",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Davis+fam", "Craig+Shannon", "Shubh"],
+    ticketUrl: null,
+    free: true,
+    note: "Free street fair, food, music, local vendors. Stroller-friendly, Beltline-adjacent. Perfect Saturday with Dean. ⭐ Recommended family Saturday."
+  },
+  {
+    id: 4,
+    date: "2026-04-25",
+    dateStr: "Sat Apr 25",
+    title: "Dino Fest",
+    subtitle: null,
+    venue: "Stone Mountain Park",
+    score: 70,
+    tier: "B",
+    slots: ["FAMILY_OUT"],
+    category: "family",
+    genres: ["Kids", "outdoor", "educational"],
+    age: "All ages",
+    time: "Sat",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Davis+fam", "Shubh"],
+    ticketUrl: null,
+    free: false,
+    note: "Dean is obsessed with dinosaurs. Outdoor event at Stone Mountain. Pair with Inman Park Festival or do as separate day trip."
+  },
+  {
+    id: 5,
+    date: "2026-05-01",
+    dateStr: "Fri May 1",
+    title: "Disclosure LIVE",
+    subtitle: "Full live band — not a DJ set",
+    venue: "The Eastern",
+    score: 95,
+    tier: "S",
+    slots: ["GROUP_NIGHT", "DATE_NIGHT"],
+    category: "music",
+    genres: ["UK house", "electronic", "live band"],
+    age: "All ages",
+    time: "Fri, 8 PM",
+    urgent: true,
+    urgentNote: "Venue caps ~1,000. Will sell out. Buy this week.",
+    invite: ["David", "Craig", "Davis", "Arjun", "Cole"],
+    ticketUrl: "https://www.axs.com/events/1281830/disclosure-live-tickets",
+    free: false,
+    note: "UK house duo performing as a FULL LIVE BAND. Latch, White Noise, You & Me with full instrumentation. Two-night run — go night one. Last day of Lahzo All Hands onsite."
+  },
+  {
+    id: 6,
+    date: "2026-05-07",
+    dateStr: "Wed May 7",
+    title: "Dance With The Dead + Magic Sword",
+    subtitle: "The Face Off Tour 2026",
+    venue: "Terminal West",
+    score: 88,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Synthwave", "electronic rock", "cinematic"],
+    age: "All ages",
+    time: "Wed, 8 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Arjun", "Cole"],
+    ticketUrl: "https://www.axs.com/events/1236462/dance-with-the-dead-magic-sword-tickets",
+    free: false,
+    note: "Magic Sword: three masked musicians playing epic fantasy-cinematic synthwave. DWTD brings horror-influenced electronic rock. Rare double headliner in the genre."
+  },
+  {
+    id: 7,
+    date: "2026-05-08",
+    dateStr: "Thu May 8",
+    title: "Vintage Culture",
+    subtitle: null,
+    venue: "District Atlanta",
+    score: 82,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Melodic house", "deep house"],
+    age: "21+",
+    time: "Thu, 9 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Arjun"],
+    ticketUrl: null,
+    free: false,
+    note: "Brazilian melodic house/deep house — smooth, warm groove with rich bass and vocal chops. Similar energy to Lane 8 and Nora En Pure with a Brazilian flavor."
+  },
+  {
+    id: 8,
+    date: "2026-05-15",
+    dateStr: "Thu May 15",
+    title: "Sub Focus — 360° Set",
+    subtitle: "Funktion-One 4-corner surround / The Gallery",
+    venue: "Underground Atlanta",
+    score: 95,
+    tier: "S",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Drum & bass", "liquid D&B", "electronic"],
+    age: "18+",
+    time: "Thu, 9 PM",
+    urgent: true,
+    urgentNote: "LIMITED CAPACITY. First ATL show since 2018. Sells out this week.",
+    invite: ["Craig", "Arjun", "Cole", "David"],
+    ticketUrl: "https://www.ticketfairy.com/event/sub-focus-360",
+    free: false,
+    note: "Fully immersive 360° set inside The Gallery — custom 4-corner Funktion-One surround system by Beware Productions. Support: BLOSSOM, Ghost in Real Life, D:RC, RUNNA, PLATEZ."
+  },
+  {
+    id: 9,
+    date: "2026-05-18",
+    dateStr: "Sun May 18",
+    title: "Chet Faker",
+    subtitle: null,
+    venue: "The Masquerade",
+    score: 76,
+    tier: "B",
+    slots: ["GROUP_NIGHT", "DATE_NIGHT"],
+    category: "music",
+    genres: ["Electronic", "R&B", "soul"],
+    age: "All ages",
+    time: "Sun",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Jeannie"],
+    ticketUrl: null,
+    free: false,
+    note: "Soulful electronic/R&B from the 'Hidden' artist. Solid option as a Sunday date night or mellow group show."
+  },
+  {
+    id: 10,
+    date: "2026-05-23",
+    dateStr: "Sat May 23",
+    title: "Atlanta Jazz Festival",
+    subtitle: "Free outdoor · Memorial Day Weekend",
+    venue: "Piedmont Park",
+    score: 74,
+    tier: "B",
+    slots: ["FAMILY_OUT", "GROUP_NIGHT"],
+    category: "family",
+    genres: ["Jazz", "outdoor", "free"],
+    age: "All ages",
+    time: "Sat, Memorial Day Weekend",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Davis+fam", "Shubh"],
+    ticketUrl: null,
+    free: true,
+    note: "Free outdoor jazz festival in Piedmont Park. Memorial Day Weekend. Family-friendly — good with Dean and a picnic blanket."
+  },
+  {
+    id: 11,
+    date: "2026-05-31",
+    dateStr: "Sun May 31",
+    title: "Atlanta Streets Alive",
+    subtitle: "West End to Grant Park",
+    venue: "Atlanta City Streets",
+    score: 68,
+    tier: "B",
+    slots: ["FAMILY_OUT"],
+    category: "family",
+    genres: ["Outdoor", "bikes", "free", "recurring"],
+    age: "All ages",
+    time: "Sun",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Davis", "Craig"],
+    ticketUrl: null,
+    free: true,
+    note: "Car-free streets across ATL. Bikes + strollers + kids. Recurring city event — also runs Jun 14, Sep 27, Oct 18, Nov 8."
+  },
+  {
+    id: 12,
+    date: "2026-09-13",
+    dateStr: "Sun Sep 13",
+    title: "Empire of the Sun",
+    subtitle: "Ask That God: Afterlife North American Tour",
+    venue: "Ameris Bank Amphitheatre",
+    score: 75,
+    tier: "B",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Electronic pop", "art-rock"],
+    age: "All ages",
+    time: "Sun, 7:30 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Davis", "Nik"],
+    ticketUrl: null,
+    free: false,
+    note: "\"Ask That God\" tour at Ameris Bank Amphitheatre in Alpharetta. Outdoor amphitheater format. Good late-summer group show."
+  },
+  {
+    id: 13,
+    date: "2026-09-18",
+    dateStr: "Fri–Sun Sep 18–20",
+    title: "Shaky Knees 2026",
+    subtitle: "Gorillaz · LCD Soundsystem · Wu-Tang · The Strokes",
+    venue: "Piedmont Park",
+    score: 80,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Multi-genre festival", "rock", "hip-hop"],
+    age: "All ages",
+    time: "Fri–Sun, Sep 18–20",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Davis", "Nikita"],
+    ticketUrl: "https://shakykneesmusic.com",
+    free: false,
+    note: "Gorillaz, LCD Soundsystem, Wu-Tang, The Strokes (Fri). Twenty One Pilots, The Prodigy, Blood Orange (Sat). Gorillaz headline Sunday. 3-day pass recommended."
+  }
+];
+
+/* ─── RENDER ────────────────────────────────────────────────── */
+function tierColor(t) {
+  return { S: 'amber', A: '', B: 'teal', C: 'dim' }[t] || '';
+}
+
+function renderCard(ev) {
+  const dateColor = ev.tier === 'S' ? 'amber' : '';
+  const urgTag = ev.urgent ? `<span class="tag urgent">Act Now</span>` : '';
+  const freeTag = ev.free ? `<span class="tag free">Free</span>` : '';
+  const ageTag = `<span class="tag age">${ev.age}</span>`;
+  const genreTags = ev.genres.slice(0, 2).map(g => `<span class="tag">${g}</span>`).join('');
+
+  const btnHtml = ev.ticketUrl
+    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener" class="btn-sm btn-buy${ev.tier==='S'?' amber':''}">${ev.tier==='S'?'Buy S-Tier →':'Buy Ticket →'}</a>`
+    : `<span style="font-size:11px;color:var(--text-dim);">${ev.time}</span>`;
+
+  const inviteStr = ev.invite.slice(0, 3).join(', ') + (ev.invite.length > 3 ? ' +' + (ev.invite.length - 3) : '');
+
+  const pct = ev.score;
+
+  return `
+    <div class="event-card tier-${ev.tier}${ev.urgent ? ' urgent-event' : ''}" data-id="${ev.id}" data-category="${ev.category}" data-slots="${ev.slots.join(',')}" data-tier="${ev.tier}" data-free="${ev.free}" data-score="${ev.score}" data-date="${ev.date}">
+      <div class="event-card-head">
+        <div class="event-meta">
+          <div class="event-date ${dateColor}">${ev.dateStr}${ev.time && !ev.time.includes('–') ? ' · ' + ev.time.split(',')[1]?.trim() || '' : ''}</div>
+          <div class="event-title">${ev.title}</div>
+          ${ev.subtitle ? `<div class="event-subtitle">${ev.subtitle}</div>` : ''}
+          <div class="event-venue">${ev.venue}</div>
+        </div>
+        <div class="tier-badge ${ev.tier}">${ev.tier}</div>
+      </div>
+
+      <div class="event-note">${ev.note}</div>
+
+      <div class="event-tags">${urgTag}${freeTag}${ageTag}${genreTags}</div>
+
+      <div class="score-bar-wrap">
+        <div class="score-bar-track">
+          <div class="score-bar-fill ${ev.tier}" style="width:${pct}%"></div>
+        </div>
+        <div class="score-num">${ev.score}</div>
+      </div>
+
+      <div class="event-footer">
+        <div class="event-invite">Invite: <span>${inviteStr}</span></div>
+        ${btnHtml}
+      </div>
+    </div>
+  `;
+}
+
+function renderGrid(events) {
+  const grid = document.getElementById('events-grid');
+  if (!events.length) {
+    grid.innerHTML = '<div class="no-results">No events match the current filters.</div>';
+    return;
+  }
+  grid.innerHTML = events.map(renderCard).join('');
+}
+
+/* ─── FILTER + SORT ─────────────────────────────────────────── */
+let activeFilter = 'all';
+let activeTier = 'all';
+let activeSort = 'date';
+
+function applyFilters() {
+  let filtered = EVENTS.filter(ev => {
+    // type filter
+    if (activeFilter === 'music' && ev.category !== 'music') return false;
+    if (activeFilter === 'family' && ev.category !== 'family') return false;
+    if (activeFilter === 'group' && !ev.slots.includes('GROUP_NIGHT')) return false;
+    if (activeFilter === 'date' && !ev.slots.includes('DATE_NIGHT')) return false;
+    if (activeFilter === 'free' && !ev.free) return false;
+    // tier filter
+    if (activeTier !== 'all' && ev.tier !== activeTier) return false;
+    return true;
+  });
+
+  if (activeSort === 'score') {
+    filtered = filtered.sort((a, b) => b.score - a.score);
+  } else {
+    filtered = filtered.sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  renderGrid(filtered);
+}
+
+/* ─── CHIPS ─────────────────────────────────────────────────── */
+document.querySelectorAll('.chip[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chip[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.chip-tier[data-tier]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chip-tier').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTier = btn.dataset.tier;
+    applyFilters();
+  });
+});
+
+document.getElementById('sort-date').addEventListener('click', () => {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sort-date').classList.add('active');
+  activeSort = 'date';
+  applyFilters();
+});
+
+document.getElementById('sort-score').addEventListener('click', () => {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sort-score').classList.add('active');
+  activeSort = 'score';
+  applyFilters();
+});
+
+/* ─── TABS ──────────────────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById('tab-' + btn.dataset.tab);
+    if (target) target.classList.add('active');
+  });
+});
+
+/* ─── CHART ─────────────────────────────────────────────────── */
+function initChart() {
+  const sorted = [...EVENTS].sort((a, b) => b.score - a.score);
+  const labels = sorted.map(e => e.title.length > 18 ? e.title.slice(0,16)+'…' : e.title);
+  const scores = sorted.map(e => e.score);
+  const colors = sorted.map(e => {
+    if (e.tier === 'S') return 'rgba(245,158,11,0.85)';
+    if (e.tier === 'A') return 'rgba(139,92,246,0.85)';
+    if (e.tier === 'B') return 'rgba(45,212,191,0.75)';
+    return 'rgba(75,85,99,0.6)';
+  });
+  const borderColors = sorted.map(e => {
+    if (e.tier === 'S') return '#F59E0B';
+    if (e.tier === 'A') return '#8B5CF6';
+    if (e.tier === 'B') return '#2DD4BF';
+    return '#4B5563';
+  });
+
+  const ctx = document.getElementById('scoreChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Taste Score',
+        data: scores,
+        backgroundColor: colors,
+        borderColor: borderColors,
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` Score: ${ctx.raw}  |  Tier: ${sorted[ctx.dataIndex].tier}`,
+            title: ctx => sorted[ctx[0].dataIndex].title,
+          },
+          backgroundColor: '#1a1a2e',
+          borderColor: 'rgba(255,255,255,0.08)',
+          borderWidth: 1,
+          titleColor: '#fff',
+          bodyColor: '#94A3B8',
+          padding: 12,
+        },
+        annotation: {
+          annotations: {
+            s_tier: {
+              type: 'line',
+              yMin: 90, yMax: 90,
+              borderColor: 'rgba(245,158,11,0.4)',
+              borderWidth: 1,
+              borderDash: [4, 4],
+              label: { display: true, content: 'S-Tier', color: '#F59E0B', font: { size: 10 }, position: 'end', backgroundColor: 'transparent' }
+            },
+            a_tier: {
+              type: 'line',
+              yMin: 75, yMax: 75,
+              borderColor: 'rgba(139,92,246,0.3)',
+              borderWidth: 1,
+              borderDash: [4, 4],
+              label: { display: true, content: 'A-Tier', color: '#8B5CF6', font: { size: 10 }, position: 'end', backgroundColor: 'transparent' }
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#94A3B8',
+            font: { size: 11 },
+            maxRotation: 45,
+            minRotation: 30
+          },
+          grid: { color: 'rgba(255,255,255,0.04)' }
+        },
+        y: {
+          min: 50,
+          max: 100,
+          ticks: { color: '#4B5563', font: { size: 11 } },
+          grid: { color: 'rgba(255,255,255,0.04)' }
+        }
+      }
+    }
+  });
+}
+
+/* ─── PROGRESS BAR ──────────────────────────────────────────── */
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  document.getElementById('progress').style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+/* ─── NAV ACTIVE ────────────────────────────────────────────── */
+function updateNavActive() {
+  const sections = ['act-now', 'events', 'venues', 'evergreen', 'taste'];
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  }
+  links.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}
+window.addEventListener('scroll', updateNavActive, { passive: true });
+
+/* ─── INIT ──────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  applyFilters();
+  initChart();
+});
+</script>
+
+</body>
+</html>

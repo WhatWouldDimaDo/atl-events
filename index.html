@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0/dist/chartjs-plugin-annotation.min.js"></script>
 
   <style>
     /* ============================================================
@@ -43,6 +44,8 @@
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    section[id], footer { scroll-margin-top: 70px; }
 
     body {
       background: var(--bg);
@@ -144,9 +147,15 @@
       line-height: 0.93; letter-spacing: 0.02em;
       margin-bottom: 28px; max-width: 1050px;
       animation: slideIn 0.85s cubic-bezier(0.16,1,0.3,1) both;
+      text-shadow: 0 0 80px rgba(139,92,246,0.12);
     }
     .hero-headline em { color: var(--purple); font-style: normal; }
-    .hero-headline .line-city { color: var(--amber); }
+    .hero-headline .line-city {
+      background: linear-gradient(90deg, var(--amber) 0%, #fcd34d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     @keyframes slideIn {
       from { opacity: 0; transform: translateY(28px); }
@@ -171,7 +180,7 @@
     }
     .stat-card:hover { border-color: rgba(139,92,246,0.3); background: var(--bg-card-2); }
     .stat-number {
-      font-size: clamp(40px, 6vw, 66px); font-weight: 700;
+      font-size: clamp(52px, 7.5vw, 80px); font-weight: 700;
       letter-spacing: -0.04em; line-height: 1; color: #fff; margin-bottom: 8px;
     }
     .stat-number .acc { color: var(--purple); }
@@ -260,18 +269,23 @@
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
     }
 
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     .event-card {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 24px;
       display: flex; flex-direction: column; gap: 12px;
       transition: border-color 0.2s, background 0.2s, transform 0.15s;
       cursor: default;
+      animation: cardIn 0.45s cubic-bezier(0.16,1,0.3,1) both;
     }
     .event-card:hover {
       border-color: var(--border-hi); background: var(--bg-card-2);
       transform: translateY(-2px);
     }
-    .event-card.tier-S { border-top: 2px solid var(--amber); }
+    .event-card.tier-S { border-top: 2px solid var(--amber); box-shadow: 0 0 28px rgba(245,158,11,0.08); }
     .event-card.tier-A { border-top: 2px solid var(--purple); }
     .event-card.tier-B { border-top: 2px solid var(--teal); }
     .event-card.tier-C { border-top: 2px solid var(--text-dim); }
@@ -310,7 +324,15 @@
 
     .score-bar-wrap { display: flex; align-items: center; gap: 10px; }
     .score-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
-    .score-bar-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+    .score-bar-fill {
+      height: 100%; border-radius: 2px;
+      width: 0%;
+      animation: scoreBarIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @keyframes scoreBarIn {
+      from { width: 0%; }
+      to   { width: var(--score-w); }
+    }
     .score-bar-fill.S { background: linear-gradient(90deg, var(--amber), #fcd34d); }
     .score-bar-fill.A { background: linear-gradient(90deg, var(--purple), #a78bfa); }
     .score-bar-fill.B { background: linear-gradient(90deg, var(--teal), #5eead4); }
@@ -365,7 +387,10 @@
     }
     .conflict-option-badge {
       font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 8px;
+      color: var(--text-dim); margin-bottom: 8px;
+    }
+    .conflict-option.recommended .conflict-option-badge {
+      color: var(--amber);
     }
     .conflict-option-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
     .conflict-option-sub { font-size: 12px; color: var(--text-muted); }
@@ -458,6 +483,7 @@
        RESPONSIVE
     ============================================================ */
     @media (max-width: 768px) {
+      :root { --section-pad: 72px 20px; }
       .stat-grid { grid-template-columns: repeat(2, 1fr); }
       .urgent-grid { grid-template-columns: 1fr; }
       .events-grid { grid-template-columns: 1fr; }
@@ -511,7 +537,7 @@
     </p>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-number"><span class="acc">13</span></div>
+        <div class="stat-number"><span class="acc" data-stat="total">15</span></div>
         <div class="stat-label">Upcoming Events</div>
         <div class="stat-sublabel">Apr – Sep 2026</div>
       </div>
@@ -526,7 +552,7 @@
         <div class="stat-sublabel">Time-sensitive tickets</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number"><span class="acc">5</span></div>
+        <div class="stat-number"><span class="acc" data-stat="tier-sa">12</span></div>
         <div class="stat-label">Tier S + A Shows</div>
         <div class="stat-sublabel">Electronic / live / fest</div>
       </div>
@@ -637,7 +663,7 @@
     <div class="section-label">Score Distribution</div>
     <h2 class="section-title">Event Rankings</h2>
     <p class="section-body">
-      All 13 events plotted by taste-profile score. Gold = S-tier (buy now), purple = A-tier (strong interest), teal = B-tier (situational).
+      All 15 events plotted by taste-profile score. Gold = S-tier (buy now), purple = A-tier (strong interest), teal = B-tier (situational).
     </p>
     <div class="chart-container" style="height: 280px;">
       <canvas id="scoreChart" class="chart-canvas"></canvas>
@@ -922,13 +948,13 @@
         <div class="tier-box-label A">A</div>
         <div class="tier-box-range">Score 75–89</div>
         <div class="tier-box-desc">Strong interest — check lineup, coordinate group, act within 1–2 weeks.</div>
-        <div class="tier-box-examples">DWTD + Magic Sword · Vintage Culture · Shaky Knees</div>
+        <div class="tier-box-examples">DWTD + Magic Sword · Vintage Culture · Shaky Knees · Chet Faker</div>
       </div>
       <div class="tier-box">
         <div class="tier-box-label B">B</div>
         <div class="tier-box-range">Score 60–74</div>
         <div class="tier-box-desc">Situational. Depends on who's free, energy levels, and competing options.</div>
-        <div class="tier-box-examples">Shake the Lake · Chet Faker · Jazz Fest</div>
+        <div class="tier-box-examples">Jazz Fest · Streets Alive · Dino Fest</div>
       </div>
       <div class="tier-box">
         <div class="tier-box-label C">C</div>
@@ -1002,7 +1028,7 @@ const EVENTS = [
     subtitle: "Beats on the Lake — Matt Silliman",
     venue: "Lake Lanier",
     score: 78,
-    tier: "B",
+    tier: "A",
     slots: ["GROUP_NIGHT"],
     category: "music",
     genres: ["Electronic", "outdoor"],
@@ -1056,6 +1082,48 @@ const EVENTS = [
     ticketUrl: null,
     free: false,
     note: "Dean is obsessed with dinosaurs. Outdoor event at Stone Mountain. Pair with Inman Park Festival or do as separate day trip."
+  },
+  {
+    id: 14,
+    date: "2026-05-01",
+    dateStr: "Fri May 1",
+    title: "Supertask",
+    subtitle: null,
+    venue: "Terminal West",
+    score: 78,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["Electronic", "techno"],
+    age: "All ages",
+    time: "Fri, 9 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Arjun"],
+    ticketUrl: null,
+    free: false,
+    note: "Backup option if Disclosure sells out. Same night as Disclosure LIVE and Disclosure DJ Set. Check Terminal West box office."
+  },
+  {
+    id: 15,
+    date: "2026-05-01",
+    dateStr: "Fri May 1",
+    title: "Disclosure DJ Set",
+    subtitle: "Night 2 at District Atlanta",
+    venue: "District Atlanta",
+    score: 80,
+    tier: "A",
+    slots: ["GROUP_NIGHT"],
+    category: "music",
+    genres: ["UK house", "electronic", "DJ set"],
+    age: "21+",
+    time: "Fri, 10 PM",
+    urgent: false,
+    urgentNote: null,
+    invite: ["Craig", "Arjun"],
+    ticketUrl: null,
+    free: false,
+    note: "Disclosure DJ set at District — the second option on a stacked May 1. Same artist, far less special than the live band show at The Eastern. Go only if LIVE show sells out."
   },
   {
     id: 5,
@@ -1149,7 +1217,7 @@ const EVENTS = [
     subtitle: null,
     venue: "The Masquerade",
     score: 76,
-    tier: "B",
+    tier: "A",
     slots: ["GROUP_NIGHT", "DATE_NIGHT"],
     category: "music",
     genres: ["Electronic", "R&B", "soul"],
@@ -1212,7 +1280,7 @@ const EVENTS = [
     subtitle: "Ask That God: Afterlife North American Tour",
     venue: "Ameris Bank Amphitheatre",
     score: 75,
-    tier: "B",
+    tier: "A",
     slots: ["GROUP_NIGHT"],
     category: "music",
     genres: ["Electronic pop", "art-rock"],
@@ -1253,7 +1321,7 @@ function tierColor(t) {
   return { S: 'amber', A: '', B: 'teal', C: 'dim' }[t] || '';
 }
 
-function renderCard(ev) {
+function renderCard(ev, idx) {
   const dateColor = ev.tier === 'S' ? 'amber' : '';
   const urgTag = ev.urgent ? `<span class="tag urgent">Act Now</span>` : '';
   const freeTag = ev.free ? `<span class="tag free">Free</span>` : '';
@@ -1268,11 +1336,12 @@ function renderCard(ev) {
 
   const pct = ev.score;
 
+  const delay = Math.min(idx * 0.04, 0.4);
   return `
-    <div class="event-card tier-${ev.tier}${ev.urgent ? ' urgent-event' : ''}" data-id="${ev.id}" data-category="${ev.category}" data-slots="${ev.slots.join(',')}" data-tier="${ev.tier}" data-free="${ev.free}" data-score="${ev.score}" data-date="${ev.date}">
+    <div class="event-card tier-${ev.tier}${ev.urgent ? ' urgent-event' : ''}" style="animation-delay:${delay}s" data-id="${ev.id}" data-category="${ev.category}" data-slots="${ev.slots.join(',')}" data-tier="${ev.tier}" data-free="${ev.free}" data-score="${ev.score}" data-date="${ev.date}">
       <div class="event-card-head">
         <div class="event-meta">
-          <div class="event-date ${dateColor}">${ev.dateStr}${ev.time && !ev.time.includes('–') ? ' · ' + ev.time.split(',')[1]?.trim() || '' : ''}</div>
+          <div class="event-date ${dateColor}">${ev.dateStr}${ev.time && !ev.time.includes('–') && ev.time.includes(',') ? ' · ' + (ev.time.split(',')[1]?.trim() || '') : ''}</div>
           <div class="event-title">${ev.title}</div>
           ${ev.subtitle ? `<div class="event-subtitle">${ev.subtitle}</div>` : ''}
           <div class="event-venue">${ev.venue}</div>
@@ -1286,7 +1355,7 @@ function renderCard(ev) {
 
       <div class="score-bar-wrap">
         <div class="score-bar-track">
-          <div class="score-bar-fill ${ev.tier}" style="width:${pct}%"></div>
+          <div class="score-bar-fill ${ev.tier}" style="--score-w:${pct}%"></div>
         </div>
         <div class="score-num">${ev.score}</div>
       </div>
@@ -1305,7 +1374,7 @@ function renderGrid(events) {
     grid.innerHTML = '<div class="no-results">No events match the current filters.</div>';
     return;
   }
-  grid.innerHTML = events.map(renderCard).join('');
+  grid.innerHTML = events.map((ev, i) => renderCard(ev, i)).join('');
 }
 
 /* ─── FILTER + SORT ─────────────────────────────────────────── */
@@ -1497,6 +1566,12 @@ window.addEventListener('scroll', updateNavActive, { passive: true });
 
 /* ─── INIT ──────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Sync hero stats dynamically
+  const totalEl = document.querySelector('[data-stat="total"]');
+  const tierEl  = document.querySelector('[data-stat="tier-sa"]');
+  if (totalEl) totalEl.textContent = EVENTS.length;
+  if (tierEl)  tierEl.textContent  = EVENTS.filter(e => e.tier === 'S' || e.tier === 'A').length;
+
   applyFilters();
   initChart();
 });

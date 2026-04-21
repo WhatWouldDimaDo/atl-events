@@ -3,7 +3,47 @@
    Wizard · Agenda Calendar · Events Grid + Drawers · Map · Evergreen
 ============================================================ */
 
-const SITE_TODAY = new Date('2026-04-21');
+const SITE_TODAY = new Date();
+
+// ─── MODE DETECTION ───────────────────────────────────────────────────────
+const INTERNAL = new URLSearchParams(location.search).get('mode') === 'internal';
+if (INTERNAL) document.documentElement.classList.add('internal');
+
+// ─── RSVP SIGNALS (localStorage, internal only) ──────────────────────────
+function getRSVP(id) {
+  if (!INTERNAL) return null;
+  return localStorage.getItem(`rsvp_${id}`);
+}
+
+function setRSVP(id, signal) {
+  if (!INTERNAL) return;
+  const current = getRSVP(id);
+  if (current === signal) {
+    localStorage.removeItem(`rsvp_${id}`);
+  } else {
+    localStorage.setItem(`rsvp_${id}`, signal);
+  }
+  // Re-render buttons in drawer
+  const container = document.getElementById(`rsvp-${id}`);
+  if (container) container.innerHTML = rsvpButtonsHTML(id);
+  // Update card badge
+  const card = document.querySelector(`.event-card[data-id="${id}"]`);
+  if (card) {
+    const newSignal = getRSVP(id);
+    card.classList.remove('rsvp-in', 'rsvp-maybe', 'rsvp-pass');
+    if (newSignal) card.classList.add(`rsvp-${newSignal}`);
+  }
+  updateHeroStats();
+}
+
+function rsvpButtonsHTML(id) {
+  const current = getRSVP(id);
+  return `<div class="rsvp-row">
+    <button class="rsvp-btn${current==='in'?' active':''}" onclick="setRSVP(${id},'in');event.stopPropagation()">I'm In</button>
+    <button class="rsvp-btn${current==='maybe'?' active':''}" onclick="setRSVP(${id},'maybe');event.stopPropagation()">Maybe</button>
+    <button class="rsvp-btn${current==='pass'?' active':''}" onclick="setRSVP(${id},'pass');event.stopPropagation()">Pass</button>
+  </div>`;
+}
 
 // ─── WIZARD STATE ──────────────────────────────────────────────────────────
 const wizard = { when: null, who: null, vibe: null };
@@ -20,7 +60,13 @@ function wizardEventFilter(ev) {
       const diff = (evDate - SITE_TODAY) / 86400000;
       if (diff < 0 || diff > 3) return false;
     } else if (wizard.when === 'weekend') {
-      if (ev.date < '2026-04-25' || ev.date > '2026-04-26') return false;
+      const dow = SITE_TODAY.getDay();
+      const satOff = dow === 0 ? -1 : 6 - dow;
+      const sat = new Date(SITE_TODAY); sat.setDate(sat.getDate() + satOff);
+      const sun = new Date(sat); sun.setDate(sun.getDate() + 1);
+      const satStr = sat.toISOString().slice(0, 10);
+      const sunStr = sun.toISOString().slice(0, 10);
+      if (ev.date < satStr || ev.date > sunStr) return false;
     }
   }
   if (wizard.who) {
@@ -144,10 +190,16 @@ function renderEventCard(ev, idx) {
   const catEmoji = CAT_EMOJI[ev.category] || '📍';
   const catLabel = CAT_LABEL[ev.category] || ev.category;
 
-  // Image strip: YouTube thumbnail or styled poster fallback
-  const imgHtml = ev.youtubeId
-    ? `<div class="ev-img-wrap"><img class="ev-img" src="https://img.youtube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="${ev.title}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="ev-img-fallback cat-${ev.category}" style="display:none">${catEmoji}</div></div>`
+  // Image strip: local image → YouTube thumbnail → styled poster fallback
+  const imgHtml = ev.imageUrl
+    ? `<div class="ev-img-wrap"><img class="ev-img" src="${ev.imageUrl}" alt="${ev.title}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="ev-img-fallback cat-${ev.category}" style="display:none">${catEmoji}</div></div>`
+    : ev.youtubeId
+    ? `<div class="ev-img-wrap"><img class="ev-img" src="https://img.youtube.com/vi/${ev.youtubeId}/maxresdefault.jpg" alt="${ev.title}" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${ev.youtubeId}/hqdefault.jpg'"><div class="ev-img-fallback cat-${ev.category}" style="display:none">${catEmoji}</div></div>`
     : `<div class="ev-img-poster cat-${ev.category}"><div class="ev-poster-content"><div class="ev-poster-emoji">${catEmoji}</div><div class="ev-poster-title">${ev.title}</div><div class="ev-poster-venue">${ev.venue}</div></div></div>`;
+
+  // RSVP badge class
+  const rsvpSignal = getRSVP(ev.id);
+  const rsvpClass = rsvpSignal ? ` rsvp-${rsvpSignal}` : '';
 
   // Tags with emojis
   const urgTag  = ev.urgent ? `<span class="tag urgent">⚡ Act Now</span>` : '';
@@ -200,8 +252,17 @@ function renderEventCard(ev, idx) {
 
   const noteInDrawer = `<div class="drawer-note">${ev.note}</div>`;
 
+  const rsvpSection = INTERNAL ? `
+    <div>
+      <div class="drawer-section-label">Going?</div>
+      <div id="rsvp-${ev.id}">${rsvpButtonsHTML(ev.id)}</div>
+    </div>` : '';
+
+  const shareText = `${ev.title} — ${ev.dateStr} @ ${ev.venue}`.replace(/'/g, "\\'");
+  const shareBtn = `<button class="share-btn" onclick="navigator.clipboard.writeText('${shareText}');this.textContent='Copied!';setTimeout(()=>this.textContent='Share',1200);event.stopPropagation()">Share</button>`;
+
   return `
-    <div class="event-card tier-${ev.tier}${ev.urgent?' urgent-ev':''}"
+    <div class="event-card tier-${ev.tier}${ev.urgent?' urgent-ev':''}${rsvpClass}"
          style="animation-delay:${delay}s; cursor:pointer;"
          data-id="${ev.id}" data-category="${ev.category}"
          data-slots="${ev.slots.join(',')}" data-tier="${ev.tier}"
@@ -238,11 +299,13 @@ function renderEventCard(ev, idx) {
       <div class="ev-drawer" id="drawer-${ev.id}">
         <div class="ev-drawer-inner">
           ${noteInDrawer}
+          ${rsvpSection}
           ${ytSection}
           ${lineupSection}
           ${radarSection}
           ${linksSection}
           ${ev.recurringNote ? `<div class="recurring-note">↺ ${ev.recurringNote}</div>` : ''}
+          <div class="drawer-footer">${shareBtn}</div>
         </div>
       </div>
     </div>`;
@@ -443,16 +506,28 @@ function initCalendarNav() {
   const nextBtn = document.getElementById('cal-next');
   if (!prevBtn || !nextBtn) return;
 
+  function updateCalNavState() {
+    prevBtn.disabled = (calYear === 2026 && calMonth <= 3);
+    nextBtn.disabled = (calYear === 2026 && calMonth >= 8);
+    prevBtn.classList.toggle('cal-nav-disabled', prevBtn.disabled);
+    nextBtn.classList.toggle('cal-nav-disabled', nextBtn.disabled);
+  }
+
   prevBtn.addEventListener('click', () => {
+    if (prevBtn.disabled) return;
     calMonth--;
     if (calMonth < 0) { calMonth = 11; calYear--; }
     buildCalendar();
+    updateCalNavState();
   });
   nextBtn.addEventListener('click', () => {
+    if (nextBtn.disabled) return;
     calMonth++;
     if (calMonth > 11) { calMonth = 0; calYear++; }
     buildCalendar();
+    updateCalNavState();
   });
+  updateCalNavState();
 }
 
 function applyCalendarHighlight() {
@@ -638,7 +713,9 @@ function initSearchModal() {
       html += `<div class="search-section-label">Upcoming Events</div>`;
       evMatches.forEach((ev, i) => {
         const bg = tierBg[ev.tier]||tierBg.C;
-        const img = ev.youtubeId
+        const img = ev.imageUrl
+          ? `<img class="search-result-img" src="${ev.imageUrl}" alt="" loading="lazy">`
+          : ev.youtubeId
           ? `<img class="search-result-img" src="https://img.youtube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="" loading="lazy">`
           : `<div class="search-result-fallback cat-${ev.category}">${CAT_EMOJI[ev.category]||'📍'}</div>`;
         html += `<div class="search-result-item" data-idx="${i}" onclick="selectSearchResult(${i})">${img}<div class="search-result-info"><div class="search-result-title">${ev.title}</div><div class="search-result-sub">${ev.venue} · ${ev.dateStr}</div></div><span class="search-result-badge" style="background:${bg.split(';')[0]};${bg.split(';')[1]}">${ev.tier} ${ev.score}</span></div>`;
@@ -722,7 +799,9 @@ function buildWizardPreview() {
 
   strip.style.display = 'flex';
   strip.innerHTML = matched.map(ev => {
-    const imgContent = ev.youtubeId
+    const imgContent = ev.imageUrl
+      ? `<img class="wiz-mini-img" src="${ev.imageUrl}" alt="" loading="lazy">`
+      : ev.youtubeId
       ? `<img class="wiz-mini-img" src="https://img.youtube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="" loading="lazy">`
       : `<div class="wiz-mini-img-fallback cat-${ev.category}">${CAT_EMOJI[ev.category]||'📍'}</div>`;
     return `<div class="wiz-mini-card" onclick="jumpToEvent(${ev.id})">
@@ -789,6 +868,18 @@ function updateHeroStats() {
   // S+A tier
   const elSA = document.getElementById('stat-sa-count');
   if (elSA) elSA.textContent = upcoming.filter(e => e.tier==='S'||e.tier==='A').length;
+
+  // RSVP count (internal only)
+  if (INTERNAL) {
+    const rsvpIn = upcoming.filter(e => getRSVP(e.id) === 'in').length;
+    const elRsvp = document.getElementById('stat-rsvp-count');
+    const elRsvpSub = document.getElementById('stat-rsvp-sub');
+    if (elRsvp) elRsvp.textContent = rsvpIn;
+    if (elRsvpSub) {
+      const maybe = upcoming.filter(e => getRSVP(e.id) === 'maybe').length;
+      elRsvpSub.textContent = maybe ? `${maybe} maybe` : 'Mark events below';
+    }
+  }
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────

@@ -31,7 +31,7 @@
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
-section[id], footer { scroll-margin-top: 64px; }
+section[id], footer, .cal-widget { scroll-margin-top: 72px; }
 body {
   background: var(--bg);
   background-image: radial-gradient(ellipse 90% 55% at 50% 0%, rgba(139,92,246,0.06) 0%, transparent 68%);
@@ -1216,6 +1216,87 @@ footer { border-top: 1px solid var(--border); }
 .drawer-note { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
 
 /* ============================================================
+   INTERNAL MODE
+============================================================ */
+.internal-badge {
+  display: none;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--purple);
+  border: 1px solid rgba(139,92,246,0.4);
+  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
+  vertical-align: middle;
+}
+.internal .internal-badge { display: inline; }
+.internal-only { display: none !important; }
+.internal .internal-only { display: block !important; }
+.stat-grid .internal-only { display: none !important; }
+.internal .stat-grid .internal-only { display: block !important; }
+.stat-number .c-green { color: var(--green); }
+
+/* ============================================================
+   RSVP SIGNALS
+============================================================ */
+.rsvp-row {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.rsvp-btn {
+  flex: 1; min-width: 72px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-hi);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 12px; font-weight: 600; font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.rsvp-btn:hover {
+  border-color: var(--purple); color: var(--purple);
+  background: var(--purple-soft);
+}
+.rsvp-btn.active {
+  background: rgba(139,92,246,0.15);
+  border-color: var(--purple); color: var(--purple);
+}
+
+/* RSVP badge dots on card face */
+.event-card.rsvp-in::after,
+.event-card.rsvp-maybe::after {
+  content: '';
+  position: absolute; top: 12px; right: 12px; z-index: 5;
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.event-card { position: relative; }
+.event-card.rsvp-in::after { background: var(--green); box-shadow: 0 0 8px rgba(16,185,129,0.5); }
+.event-card.rsvp-maybe::after { background: var(--amber); box-shadow: 0 0 8px rgba(245,158,11,0.4); }
+
+/* ============================================================
+   SHARE BUTTON
+============================================================ */
+.drawer-footer {
+  display: flex; justify-content: flex-end; padding-top: 4px;
+}
+.share-btn {
+  font-size: 11px; font-weight: 600; color: var(--text-dim);
+  background: none; border: 1px solid var(--border);
+  border-radius: 5px; padding: 4px 12px; cursor: pointer;
+  font-family: inherit; letter-spacing: 0.04em;
+  transition: all 0.15s;
+}
+.share-btn:hover { color: var(--purple); border-color: var(--purple); }
+
+/* ============================================================
+   CALENDAR NAV DISABLED STATE
+============================================================ */
+.cal-nav-btn.cal-nav-disabled {
+  opacity: 0.25; cursor: not-allowed;
+}
+.cal-nav-btn.cal-nav-disabled:hover {
+  border-color: var(--border-hi); color: var(--text-muted);
+  background: none;
+}
+
+/* ============================================================
    RESPONSIVE
 ============================================================ */
 @media (max-width: 900px) {
@@ -1241,4 +1322,10 @@ footer { border-top: 1px solid var(--border); }
   .nav-links a { font-size: 11px; padding: 4px 7px; }
   .wizard-wrap { padding: 20px; }
   #atl-map { height: 340px; }
+  .wiz-btn { min-height: 44px; padding: 10px 16px; }
+  .cal-ev-pill { font-size: 0; width: 6px; height: 6px; padding: 0; border-radius: 50%; display: inline-block; margin: 1px; min-width: 6px; }
+  .cal-cell { min-height: 38px; padding: 4px 3px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .yt-wrap { padding-bottom: 56.25%; }
+  .rsvp-btn { min-height: 44px; }
 }

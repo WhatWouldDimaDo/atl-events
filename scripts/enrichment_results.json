@@ -1,0 +1,99 @@
+{
+  "3": {
+    "ticketUrl": "https://inmanparkfestival.org"
+  },
+  "18": {
+    "ticketUrl": "https://high.org",
+    "imageUrl": "images/high_museum_second_sunday.jpg"
+  },
+  "10": {
+    "ticketUrl": "https://www.atlantajazzfestival.com",
+    "imageUrl": "images/atlanta_jazz_festival.jpg"
+  },
+  "11": {
+    "ticketUrl": "https://www.atlstreetsalive.com",
+    "imageUrl": "images/atlanta_streets_alive.jpg"
+  },
+  "23": {
+    "ticketUrl": "https://atlstreetsalive.com"
+  },
+  "29": {
+    "ticketUrl": "https://atlstreetsalive.com"
+  },
+  "16": {
+    "imageUrl": "images/center_for_puppetry_arts.gif",
+    "ticketUrl": "https://puppet.org/visit/"
+  },
+  "17": {
+    "imageUrl": "images/sol_dance_ecstatic_dance.jpg",
+    "ticketUrl": "https://momence.com/u/sol-dance-movement-EKesBe"
+  },
+  "19": {
+    "imageUrl": "images/dad_s_garage_adventure_playhouse.png",
+    "ticketUrl": "https://dadsgarage.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp"
+  },
+  "24": {
+    "imageUrl": "images/chattahoochee_tubing.png",
+    "ticketUrl": "https://fareharbor.com/embeds/book/coolrivertubingcompany/?full-items=yes"
+  },
+  "30": {
+    "imageUrl": "images/dad_s_garage_road_trip.png",
+    "ticketUrl": "https://dadsgarage.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp"
+  },
+  "21": {
+    "imageUrl": "images/strawberry_picking.jpg"
+  },
+  "22": {
+    "ticketUrl": "https://www.fernbankmuseum.org/visit/get-tickets/",
+    "imageUrl": "images/fernbank_after_dark.jpg"
+  },
+  "26": {
+    "ticketUrl": "https://atlantabg.org/tickets/",
+    "imageUrl": "images/abg_summer_nights.jpg"
+  },
+  "1": {
+    "ticketUrl": "https://www.eventbrite.com/e/patrick-topping-friday-april-24th-2026-district-atlanta-tickets-1982883574148",
+    "officialUrl": "https://districtatlanta.com/events/2026/patrick-topping-therapy-sessions-friday-april-24th-2026.php"
+  },
+  "7": {
+    "ticketUrl": "https://www.eventbrite.com/e/vintage-culture-friday-may-8th-2026-district-atlanta-tickets-1981787423532",
+    "officialUrl": "https://districtatlanta.com/events/2026/vintage-culture-therapy-sessions-friday-may-8th-2026.php",
+    "imageUrl": "images/vintage_culture.jpg"
+  },
+  "15": {
+    "ticketUrl": "https://www.eventbrite.com/e/disclosure-dj-set-friday-may-1st-2026-district-atlanta-tickets-1984145780441",
+    "officialUrl": "https://districtatlanta.com/events/2026/disclosure-with-stefan-ringer-dj-set-friday-may-1st-2026.php"
+  },
+  "14": {
+    "ticketUrl": "https://www.ticketmaster.com/supertask-atlanta-05-01-2026/event/Z7r9jZ1A7qM7k",
+    "officialUrl": "https://www.axs.com/events/1180694/supertask-tickets"
+  },
+  "9": {
+    "ticketUrl": "https://www.ticketmaster.com/chet-faker-atlanta-georgia-05-18-2026/event/0E006356FA8FA07B",
+    "officialUrl": "https://www.masqueradeatlanta.com/events/chet-faker/"
+  },
+  "27": {
+    "ticketUrl": "https://www.ticketmaster.com/empire-of-the-sun-ask-that-alpharetta-georgia-09-13-2026/event/0E006466AAAEAAE3",
+    "officialUrl": "https://www.livenation.com/event/vvG1zZ_kQnlnlN/empire-of-the-sun-ask-that-god-afterlife-north-american-tour"
+  },
+  "2": {
+    "officialUrl": "https://www.beatsonthelake.com/",
+    "ticketUrl": "https://www.facebook.com/events/harbor-landing-at-lake-lanier/beats-on-the-lake-presents-shake-the-lake-2026-matt-silliman-brendon-lee-curtis-/1598757727826811/",
+    "imageUrl": "images/shake_the_lake.png"
+  },
+  "4": {
+    "officialUrl": "https://stonemountainpark.com/activity/events/dino-fest/",
+    "ticketUrl": "https://stonemountainpark.com/tickets-specials/",
+    "imageUrl": "images/dino_fest.png"
+  },
+  "20": {
+    "officialUrl": "https://www.lcclt.org/new-events/7sljklmp5l9fba2",
+    "imageUrl": "images/lake_claire_full_moon_drum_circle.jpg"
+  },
+  "25": {
+    "ticketUrl": "https://landing.letsdothis.com/2026-northsideprr-registration"
+  },
+  "28": {
+    "imageUrl": "images/shaky_knees_2026.png"
+  }
+}

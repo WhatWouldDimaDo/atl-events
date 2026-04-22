@@ -1,0 +1,279 @@
+{
+  "scan_date": "2026-04-21",
+  "account": "dperkis@gmail.com",
+  "search_queries": [
+    "eventbrite OR tickets OR RSVP Atlanta",
+    "museum OR aquarium OR zoo Atlanta",
+    "farmers market OR farm OR nature Atlanta",
+    "festival OR fair OR concert Atlanta",
+    "workshop OR class kids Atlanta",
+    "reservation OR booking Atlanta"
+  ],
+  "findings": [
+    {
+      "name": "SweetWater 420 Fest",
+      "venue": "SweetWater Brewery / outdoor festival grounds, Atlanta",
+      "type": "annual",
+      "category": "festival",
+      "notes": "Annual music + craft beer festival. Dima purchased tickets Apr 2026. Typically held in April around 4/20.",
+      "source_email_id": "19d9df781720407d",
+      "source_subject": "Order Confirmation for SweetWater 420 Fest",
+      "source_sender": "Eventbrite <noreply@order.eventbrite.com>",
+      "email_date": "2026-04-18"
+    },
+    {
+      "name": "The Moth Mainstage — American Dreams Tour",
+      "venue": "TBD Atlanta venue (touring show)",
+      "type": "recurring_touring",
+      "category": "storytelling / spoken word",
+      "notes": "The Moth is extending their American Dreams Mainstage tour. Added June 2026 dates due to demand. Recurring touring show that comes through Atlanta periodically.",
+      "source_email_id": "19d97916db9f07ba",
+      "source_subject": "The Dream Continues This June",
+      "source_sender": "The Moth <info@mail.themoth.org>",
+      "email_date": "2026-04-16"
+    },
+    {
+      "name": "Comedy Bang! Bang! Ground Beefing Tour 2026",
+      "venue": "Atlanta (ATL confirmed in Ticketmaster order)",
+      "type": "one_time",
+      "category": "comedy / live show",
+      "notes": "Dima purchased tickets. Comedy Bang! Bang! live tour. Order #13-21598/ATL.",
+      "source_email_id": "19d702a631c0becd",
+      "source_subject": "You Got Tickets To Comedy Bang! Bang! Ground Beefing Tour 2026",
+      "source_sender": "Ticketmaster <customer_support@email.ticketmaster.com>",
+      "email_date": "2026-04-08"
+    },
+    {
+      "name": "VERDANT — Sol Dance Outdoor 2nd Sunday",
+      "venue": "Outdoor location, Atlanta (Sol Dance movement)",
+      "type": "recurring_monthly",
+      "category": "dance / movement",
+      "notes": "Sol Dance's 2nd Sunday outdoor event series. VERDANT described as their first outdoor 2nd Sunday of the year. Runs 12PM–4PM. Community ecstatic dance format. Recurring monthly (2nd Sunday).",
+      "source_email_id": "19d6d3379e54dc75",
+      "source_subject": "VERDANT We dance outdoors this Sunday!",
+      "source_sender": "Sol Dance <info@soldancemovement.com>",
+      "email_date": "2026-04-08"
+    },
+    {
+      "name": "Sol Dance — Monthly 2nd Sunday Dance",
+      "venue": "Various Atlanta venues (Va-Hi area, indoor/outdoor rotation)",
+      "type": "recurring_monthly",
+      "category": "dance / movement",
+      "notes": "Sol Dance runs regular community dance events on 2nd Sundays. Also hosts special events: NYE Celebration (THRESHOLD at Ambient+Studios), June multi-venue events. Longstanding community touchstone.",
+      "source_email_id": "197888fdac7d1f8e",
+      "source_subject": "Tons of June dance events + New venue for July!",
+      "source_sender": "Sol Dance <info@soldancemovement.com>",
+      "email_date": "2025-07"
+    },
+    {
+      "name": "Sol Dance NYE — THRESHOLD",
+      "venue": "Ambient + Studios, Atlanta",
+      "type": "annual",
+      "category": "dance / new year's event",
+      "notes": "Sol Dance's annual NYE celebration. 2024 edition called 'THRESHOLD — the Last Dance of 2024 + the First Dance of 2025'. Ambient + Studios venue.",
+      "source_email_id": "193da339cb6cd64e",
+      "source_subject": "Ring in the New Year with Sol Dance!",
+      "source_sender": "Sol Dance <info@soldancemovement.com>",
+      "email_date": "2024-12-18"
+    },
+    {
+      "name": "Fernbank Museum of Natural History",
+      "venue": "Fernbank Museum of Natural History, Atlanta",
+      "type": "recurring_institution",
+      "category": "museum / family",
+      "notes": "Dima & Jeanne hold active Family Explorer Membership (Mar 2026). Upcoming exhibit: Orkin Discovery Zone (new hands-on kids exhibit, member preview). Established membership with regular programming.",
+      "source_email_id": "19d6e19375fdb806",
+      "source_subject": "Be among the first to experience the Orkin Discovery Zone!",
+      "source_sender": "Fernbank Museum",
+      "email_date": "2026-04-08"
+    },
+    {
+      "name": "Fernbank — Orkin Discovery Zone",
+      "venue": "Fernbank Museum of Natural History, Atlanta",
+      "type": "seasonal_exhibit",
+      "category": "museum / kids exhibit",
+      "notes": "New hands-on, high-energy exhibit at Fernbank. Member-only preview offered. Interactive/curiosity-focused exhibit for kids.",
+      "source_email_id": "19d6e19375fdb806",
+      "source_subject": "Be among the first to experience the Orkin Discovery Zone!",
+      "source_sender": "Fernbank Museum",
+      "email_date": "2026-04-08"
+    },
+    {
+      "name": "Atlanta History Center — Spring Fest",
+      "venue": "Atlanta History Center, Buckhead",
+      "type": "annual",
+      "category": "family / outdoor festival",
+      "notes": "Annual spring festival at Atlanta History Center. Tickets available Feb 2026 for spring event.",
+      "source_email_id": "19c305c640392687",
+      "source_subject": "Get your tickets now for SPRING FEST!",
+      "source_sender": "Atlanta History Center <enews@atlantahistorycenter.com>",
+      "email_date": "2026-02-06"
+    },
+    {
+      "name": "Atlanta History Center — Seasonal Celebration (Spring/Bloom)",
+      "venue": "Atlanta History Center, Buckhead",
+      "type": "annual",
+      "category": "family / seasonal event",
+      "notes": "New seasonal celebration at AHC described as 'blooming'. Jan 2026 email. Also hosts MLK Day programming, NFL legacy exhibit.",
+      "source_email_id": "19bc43743bc21fc5",
+      "source_subject": "A New Seasonal Celebration Blooming at AHC!",
+      "source_sender": "Atlanta History Center <enews@atlantahistorycenter.com>",
+      "email_date": "2026-01-16"
+    },
+    {
+      "name": "Atlanta History Center — More Perfect Union (Civil War Exhibition)",
+      "venue": "Atlanta History Center, Buckhead",
+      "type": "seasonal_exhibit",
+      "category": "museum / history",
+      "notes": "New Civil War exhibition opening July 2026. Long-term exhibit. Atlanta History Center is a regular venue for family activities.",
+      "source_email_id": "19c7875a5831e1ba",
+      "source_subject": "More Perfect Union: Atlanta History Center's New Exhibition",
+      "source_sender": "Atlanta History Center <enews@atlantahistorycenter.com>",
+      "email_date": "2026-02-20"
+    },
+    {
+      "name": "Atlanta History Center — Atlanta Sports! Exhibition",
+      "venue": "Atlanta History Center, Buckhead",
+      "type": "seasonal_exhibit",
+      "category": "museum / sports / kids",
+      "notes": "'Exciting new experience for kids coming this summer.' Sports-themed exhibit at AHC. Jan–Feb 2026 promotional emails.",
+      "source_email_id": "19c0c4ff2c14c19b",
+      "source_subject": "Join us for ATLANTA SPORTS!",
+      "source_sender": "Atlanta History Center <enews@atlantahistorycenter.com>",
+      "email_date": "2026-01-30"
+    },
+    {
+      "name": "Chefs + Farmers Market at Pullman Yards",
+      "venue": "Pullman Yards, Atlanta",
+      "type": "recurring_weekly",
+      "category": "farmers market / food",
+      "notes": "Pullman Yards launched weekly Chefs & Farmers Market starting Saturday March 16, 2024. Described as 'new and permanent extension' of their Chefs programming. Ongoing weekly Saturday market.",
+      "source_email_id": "18e0ef219362a8be",
+      "source_subject": "Weekly Chefs + Farmers Market at Pullman Yards",
+      "source_sender": "Pullman Yards <info@pullmanyards.com>",
+      "email_date": "2024-03-05"
+    },
+    {
+      "name": "Highland Yoga",
+      "venue": "Highland Yoga, Atlanta (Virginia-Highland area)",
+      "type": "recurring_institution",
+      "category": "wellness / yoga",
+      "notes": "Active community with weekly newsletter. Hosted Arden's Garden coffee pop-up, connected to new Farmer's Market. Fall retreats. Community yoga studio with regular events beyond just classes.",
+      "source_email_id": "191db625b44a17a0",
+      "source_subject": "HY Times — Our Weekly Community Newsletter (Coffee Pop-Up, New Farmer's Market, Fall Retreats)",
+      "source_sender": "Highland Yoga <community@highland-yoga.com>",
+      "email_date": "2024-09-10"
+    },
+    {
+      "name": "Switchyards Atlanta — Co-Working Locations",
+      "venue": "Multiple: Virginia-Highland, Toco Hills, Old Fourth Ward",
+      "type": "recurring_institution",
+      "category": "co-working / community space",
+      "notes": "Dima is an active member (rejoined Mar 2026). Locations: Va-Hi (Virginia-Highland), Toco Hills, Old Fourth Ward. Uses phone booths. Also potential venue for community events.",
+      "source_email_id": "19ce23762675f251",
+      "source_subject": "Welcome back to the club!",
+      "source_sender": "Switchyards <hey@switchyards.com>",
+      "email_date": "2026-03-11"
+    },
+    {
+      "name": "Fulton County Library System — Monthly Programming",
+      "venue": "Fulton County Library System, multiple Atlanta branches",
+      "type": "recurring_monthly",
+      "category": "library / kids / family",
+      "notes": "Active email subscriber. Regular monthly event newsletters covering kids programs, workshops, community events. April 2026 edition highlighted spring events. Free/low-cost programming.",
+      "source_email_id": "19d9dd95ec1c97ef",
+      "source_subject": "This Week at Fulcolibrary! — April Events",
+      "source_sender": "Fulton County Library System <fulcolibrary.pr@fultoncountyga.gov>",
+      "email_date": "2026-04-17"
+    },
+    {
+      "name": "Jewish Federation of Greater Atlanta — YLD & Community Events",
+      "venue": "Various Atlanta Jewish venues",
+      "type": "recurring_institution",
+      "category": "community / cultural / Jewish",
+      "notes": "Dima receives Young Leadership Division (YLD) and Federation newsletters. Regular community events including Purim, community leadership programming, and cultural events.",
+      "source_email_id": "19c7c01334a67f45",
+      "source_subject": "From Poland to Purim: A Month That Moves Us",
+      "source_sender": "Young Leadership Division <youngleadership@jewishatlanta.org>",
+      "email_date": "2026-02-20"
+    },
+    {
+      "name": "Duke Atlanta Alumni — Business Breakfasts",
+      "venue": "Various Atlanta venues (Duke alumni events)",
+      "type": "recurring_periodic",
+      "category": "networking / alumni",
+      "notes": "Duke Atlanta alumni chapter hosts periodic business breakfasts. Apr 15, 2026 event: Duke Business Breakfast with Jamie Gregory MBA'03 (CFO Pinnacle Financial). 7:30–9 AM format.",
+      "source_email_id": "19d8838dc5ba5164",
+      "source_subject": "Duke Business Breakfast with Jamie Gregory M.B.A.'03",
+      "source_sender": "Duke Atlanta <regional@daa.duke.edu>",
+      "email_date": "2026-04-13"
+    },
+    {
+      "name": "Beetlecat Restaurant",
+      "venue": "Beetlecat, Atlanta (Old Fourth Ward)",
+      "type": "recurring_dining",
+      "category": "restaurant / dining",
+      "notes": "OpenTable reservation confirmed Mar 27, 2026. Beetlecat is a New American seafood restaurant in Old Fourth Ward.",
+      "source_email_id": "19d318a235435bf2",
+      "source_subject": "Your reservation confirmation for Beetlecat",
+      "source_sender": "OpenTable | Beetlecat Reservations",
+      "email_date": "2026-03-27"
+    },
+    {
+      "name": "Rudy's Barbershop — Ponce City Market",
+      "venue": "Rudy's - Ponce City Market, Atlanta",
+      "type": "recurring_service",
+      "category": "service / Ponce City Market",
+      "notes": "Dima has appointment at Rudy's PCM. Ponce City Market is a key Atlanta destination hub with many activities.",
+      "source_email_id": "19d9b92932fd242a",
+      "source_subject": "Your upcoming appointment with Rudy's - Ponce City Market",
+      "source_sender": "Rudy's - Ponce City Market <no-reply@blvd.co>",
+      "email_date": "2026-04-17"
+    },
+    {
+      "name": "The Clifton School — Art Auction / Silent Auction",
+      "venue": "The Clifton School at Clairmont, 1900 Starvine Way, Atlanta GA 30322",
+      "type": "annual",
+      "category": "school / family / community fundraiser",
+      "notes": "2026 Clifton School Art Auction with Silent Auction baskets. Dima's kids attend Clifton School. Annual PTA fundraiser event.",
+      "source_email_id": "19cbe95a9a513872",
+      "source_subject": "Silent Auction Basket Preview!",
+      "source_sender": "The Clifton School PTA <cliftonschoolpta@gmail.com>",
+      "email_date": "2026-03-05"
+    }
+  ],
+  "venues_identified": [
+    "SweetWater Brewery (festival grounds)",
+    "Fernbank Museum of Natural History",
+    "Atlanta History Center (Buckhead)",
+    "Pullman Yards",
+    "Highland Yoga (Virginia-Highland)",
+    "Switchyards Atlanta (Va-Hi, Toco Hills, Old Fourth Ward)",
+    "Fulton County Library System (multiple branches)",
+    "Ambient + Studios",
+    "Beetlecat (Old Fourth Ward)",
+    "Rudy's at Ponce City Market",
+    "The Clifton School at Clairmont"
+  ],
+  "email_senders_to_monitor": [
+    "Sol Dance <info@soldancemovement.com>",
+    "Fernbank Museum (membership emails)",
+    "Atlanta History Center <enews@atlantahistorycenter.com>",
+    "Pullman Yards <info@pullmanyards.com>",
+    "Highland Yoga <community@highland-yoga.com>",
+    "Fulton County Library System <fulcolibrary.pr@fultoncountyga.gov>",
+    "Jewish Federation / YLD <youngleadership@jewishatlanta.org>",
+    "The Moth <info@mail.themoth.org>",
+    "Eventbrite <noreply@order.eventbrite.com>",
+    "Ticketmaster <customer_support@email.ticketmaster.com>"
+  ],
+  "noise_filtered": [
+    "Personal birthday party invites (Oliver, Eddie Wang, Dean bridging ceremony)",
+    "USPS Informed Delivery daily digests",
+    "United Airlines booking confirmations",
+    "St. Jude charity sweepstakes",
+    "Car dealership (Rick Hendrick Toyota)",
+    "ADHD coaching sessions (Eric Tivers)",
+    "School classroom parent threads"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "scan_metadata": {
+    "scanned_at": "2026-04-21",
+    "account": "dperkis@lahzo.com",
+    "queries_run": [
+      "event OR invitation newer_than:180d",
+      "tickets newer_than:180d",
+      "RSVP newer_than:180d",
+      "farmers market OR market Atlanta",
+      "workshop OR class Atlanta",
+      "farm OR nature OR wildlife Atlanta",
+      "festival OR fair Atlanta",
+      "playground OR kids OR family Atlanta",
+      "Atlanta event newer_than:365d",
+      "Eventbrite OR event tickets OR StubHub OR Ticketmaster newer_than:365d",
+      "Atlanta museum OR aquarium OR zoo OR garden newer_than:365d",
+      "Atlanta braves OR hawks OR united OR concert newer_than:365d",
+      "confirmation OR receipt OR booking Atlanta newer_than:365d",
+      "subject:(Atlanta OR Stone Mountain OR Buckhead OR Midtown OR Decatur) newer_than:365d",
+      "dperkis@gmail.com newer_than:365d"
+    ],
+    "findings_summary": "dperkis@lahzo.com is a clean work-only inbox. No Atlanta personal event/activity emails found. The inbox contains Lahzo work calendar invites, meeting notes, and Google Workspace notifications only. The personal Google calendar (PERSONAL) was just shared into this account on 2026-04-20 — no historical personal event emails have forwarded through. One ATL-adjacent email found: Industrious coworking onboarding at Perimeter (7000 Central Parkway). Recommend scanning dperkis@gmail.com (personal) for richer ATL event history."
+  },
+  "atl_relevant_emails": [
+    {
+      "email_id": "19d77994fc643c76",
+      "subject": "Welcome to Industrious! Your Guide to a Great First Day",
+      "sender": "noreply@industriousoffice.com",
+      "date": "2026-04-10",
+      "event_name": "Industrious at Perimeter",
+      "venue": "Industrious at Perimeter — 7000 Central Parkway",
+      "location": "Perimeter, Atlanta GA",
+      "type": "venue_reference",
+      "category": "coworking / office",
+      "recurrence": "ongoing",
+      "notes": "Onboarding email for Lahzo's coworking office. Not a public event but confirms Perimeter area as relevant ATL neighborhood.",
+      "urls": []
+    }
+  ],
+  "gmail_atl_events_extracted": [],
+  "recommendation": "The work email yielded no usable ATL event/activity data. To populate evergreen activity content from personal email history, scan dperkis@gmail.com using the GWS CLI: `gws gmail search --query 'Atlanta event OR festival OR museum OR aquarium' --limit 50`. That account is expected to have Eventbrite confirmations, venue booking receipts, and family activity emails."
+}

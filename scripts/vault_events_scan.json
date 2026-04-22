@@ -1,0 +1,562 @@
+[
+  {
+    "name": "Atlanta Botanical Garden",
+    "location": "1345 Piedmont Ave NE, Atlanta, GA 30309",
+    "category": ["family", "date", "solo"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "ABG member. Sensory trail great for toddlers. Quiet Hours early morning for members. Second Sundays have reduced admission. Summer Nights series with cocktails + live music. Orchid Daze (March), Garden Lights Holiday Nights (Dec). Botanical Santa + Holiday Train (Dec). Mentioned repeatedly as evergreen family go-to."
+  },
+  {
+    "name": "Sol Dance (Ecstatic Dance)",
+    "location": "Brook Run Park, Dunwoody, GA (2nd Sunday monthly)",
+    "category": ["solo", "group", "family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/Lists/Bucket-List.md, 02_Areas/Planning/Daily/2025/2025-11-23.md",
+    "notes": "High energy, non-verbal connection. Bi-weekly Sundays recurring pattern. Dima attended with Dean on Nov 23, 2025 — Dean loved it, 'heaps of giggles.' Took Dean to Bluetop Restaurant and Frosty Caboose ice cream after. Also attended with James in Apr 2024. Personal energy: 'Recharging (Spiritual).' On bucket list."
+  },
+  {
+    "name": "Lake Claire Land Trust Drum Circle",
+    "location": "Lake Claire Land Trust, Atlanta, GA",
+    "category": ["group", "solo"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md",
+    "notes": "Full moon celebrations. High community vibe. Recurring — check moon calendar. Free event."
+  },
+  {
+    "name": "Chattahoochee Nature Center",
+    "location": "9135 Willeo Rd, Roswell, GA 30075",
+    "category": ["family", "solo"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Wildlife encounters and easy boardwalks. Flying Colors Butterfly Festival in June. Listed as evergreen family option. Great for toddlers. Member perks available."
+  },
+  {
+    "name": "Tubing the Chattahoochee",
+    "location": "Chattahoochee River, Atlanta area",
+    "category": ["group", "family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md",
+    "notes": "Low effort, high relaxation. Summer activity. Warm weather outdoor adventure. Group float down the Hooch."
+  },
+  {
+    "name": "Fernbank Museum of Natural History",
+    "location": "767 Clifton Rd NE, Atlanta, GA 30307",
+    "category": ["family", "date"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/ATL-Events/ATL-Date-Night-Guide.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Dinos exhibit — Dean obsessed. Fernbank After Dark: adults-only science nights with cocktails + live music ($35+, Fridays monthly). Themes: Cocktails & Cosmos, Love Lab, The Big Chill. Maya: The Exhibition. Rainy day default for family. Listed as Dean activity DB option."
+  },
+  {
+    "name": "Fernbank After Dark",
+    "location": "767 Clifton Rd NE, Atlanta, GA 30307",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md, 02_Areas/ATL-Events/ATL-Experience-List.md",
+    "notes": "Adults-only science night. Monthly Fridays. $35+. Cocktails, experiments, live music, tapas. Themes include: Cocktails & Cosmos (Jan), Love Lab (Feb), The Big Chill (Mar). Noted as 'High intellectual joy' — best for Jeannie."
+  },
+  {
+    "name": "High Museum of Art — Second Sundays",
+    "location": "1280 Peachtree St NE, Atlanta, GA 30309",
+    "category": ["solo", "date", "family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Free admission on second Sundays. Best enjoyed solo for quiet immersion. Jazz Fridays: art + live jazz in evening setting. Near Piedmont Park hub."
+  },
+  {
+    "name": "Georgia Aquarium — Sips Under the Sea",
+    "location": "225 Baker St NW, Atlanta, GA 30313",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Romantic aquarium after-hours. Monthly evenings. 21+. Music, tapas, cocktails amid marine exhibits. $50+. Valentine's Day special (Feb 13). Also family-friendly during regular hours. Listed in venue directory."
+  },
+  {
+    "name": "Sloomoo Institute",
+    "location": "1 Krog St NE, Atlanta, GA 30307 (Krog Street Market area)",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "High sensory joy, interactive slime experience. Great for toddlers. Listed as evergreen family option. Link: sloomooinstitute.com/atlanta"
+  },
+  {
+    "name": "LEGO Discovery Center Atlanta",
+    "location": "3500 Peachtree Rd NE, Atlanta, GA 30326 (Phipps Plaza)",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "Best for rainy days. Kingdom Quest, 4D Theater, MINILAND, 12 build & play zones. Up to 22% off for members. Ages 2+. LEGO Discovery Summer Sessions: July indoor activity. Listed multiple times as a go-to rainy day escape."
+  },
+  {
+    "name": "Center for Puppetry Arts",
+    "location": "1404 Spring St NW, Atlanta, GA 30309",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Interactive workshops and global puppet museum. Shows Tue-Fri 10am, Sat-Sun 11am & 1pm. Peter Rabbit Tale (toddler-focused). A Charlie Brown Christmas (holiday). Dad's Garage listed separately as comedy venue."
+  },
+  {
+    "name": "Children's Museum of Atlanta",
+    "location": "275 Centennial Olympic Park Dr NW, Atlanta, GA 30313",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/ATL-Events/ATL-Events-Guide.md",
+    "notes": "Indoor, toddler-focused. Listed as evergreen family option alongside Zoo and ABG. In venue directory."
+  },
+  {
+    "name": "Stone Mountain Park",
+    "location": "1000 Robert E. Lee Blvd, Stone Mountain, GA 30083",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/Planning/Daily/2024/2024-04-13.md",
+    "notes": "Hiking, splash pad in summer (seasonal). Dino Fest April 2026 (Dean dino-obsessed). Winter Wonderland (Dec). Hike + pull boxes done with dad Apr 2024. Recurring family destination."
+  },
+  {
+    "name": "Ponce City Market",
+    "location": "675 Ponce De Leon Ave NE, Atlanta, GA 30308",
+    "category": ["family", "date", "group"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/ATL-Events/ATL-Events-Guide.md",
+    "notes": "Dean Score 5/5 — donuts, BeltLine, toy piano, glass elevators (20 rides!). Skyline Park rooftop: mini golf, carnival eats, beer garden, slides, seasonal skating, skyline views. Earth Day activities (Apr 25-26). Food hall. Whiplash Comedy Club opening. Beltline-adjacent."
+  },
+  {
+    "name": "Atlanta BeltLine",
+    "location": "Multiple access points, Atlanta, GA (30306 hub: Ponce City Market)",
+    "category": ["family", "group", "solo"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Lists/Bucket-List.md",
+    "notes": "Dean loves the ride + food. BeltLine Food Tours guided culinary exploration ($129/adult). BeltLine Cocktails and Bites tour ($129). Bike on BeltLine with Dean (bucket list). Atlanta Streets Alive uses BeltLine route. Evening BeltLine with Ben & Nova — Dean Score 5/5."
+  },
+  {
+    "name": "Atlanta Streets Alive",
+    "location": "Rotating routes: Peachtree St, MLK/Beltline, West End to Grant Park, Howell Mill",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/Lists/2026-03-18 Upcoming ATL Events.md, 02_Areas/Lists/2026-04-13 ATL Events.md",
+    "notes": "FREE. Recurring 2026 schedule: Mar 22 (MLK/Beltline), Apr 19 (Peachtree), May 31 (West End/Grant Park), Jun 14 (FIFA/Beltline), Sep 27 (Peachtree), Oct 18 (West End/Grant Park), Nov 8 (Howell Mill). Bikes + kids. Family-friendly."
+  },
+  {
+    "name": "Inman Park Festival",
+    "location": "Inman Park neighborhood, Atlanta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "FREE. Annual. April 25-26 (2026). Street fair, food, music, local vendors. Stroller-friendly, Beltline-adjacent. Highly recommended for families with toddlers. Dean-friendly. Group meet-up spot."
+  },
+  {
+    "name": "Sweetwater 420 Festival",
+    "location": "Atlanta, GA (Centennial Olympic Park area)",
+    "category": ["group"],
+    "source_file": "02_Areas/Lists/2026-04-13 ATL Events.md, 02_Areas/Planning/Daily/2026/2026-04-18.md",
+    "notes": "Annual music + beer festival. Apr 17-20 (2026). Lineup includes Umphrey's McGee, Thievery Corporation, Chromeo, Watchhouse. Dima attended Apr 20 with Jeannie — noted as 'best time, recharged.' sweetwater420fest.com"
+  },
+  {
+    "name": "Atlanta Jazz Festival",
+    "location": "Piedmont Park, Atlanta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/Lists/2026-04-21 ATL Events Update.md",
+    "notes": "FREE. Memorial Day Weekend (May 23, 2026). Outdoor family pick. Take Dean. Invite Davis+fam, Shubh. Recurring annual."
+  },
+  {
+    "name": "Shaky Knees Music Festival 2026",
+    "location": "Piedmont Park, Atlanta, GA",
+    "category": ["group"],
+    "source_file": "02_Areas/Lists/2026-04-13 ATL Events.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Sep 18-20, 2026. Gorillaz, LCD Soundsystem, Wu-Tang Clan, The Strokes, Twenty One Pilots, The Prodigy and more. 3-day pass at shakykneesmusic.com. Invite Craig, Davis, Nikita."
+  },
+  {
+    "name": "Shake the Lake (Beats on the Lake)",
+    "location": "Lake Lanier Islands, GA",
+    "category": ["group"],
+    "source_file": "02_Areas/Lists/2026-04-13 ATL Events.md, 02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Apr 25, 2026. Matt Silliman / Beats on the Lake. Cash bar, BYOB ok, afters planned. Adults only. Electronic music on the lake. @mattsilliman_dj. Brendon, Curtis, Damon hosting."
+  },
+  {
+    "name": "Zoo Atlanta",
+    "location": "800 Cherokee Ave SE, Atlanta, GA 30315",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md, 02_Areas/ATL-Events/ATL-Events-Guide.md, 02_Areas/Planning/Daily/2025/2025-12-27.md",
+    "notes": "Rainy day default. Zoo Years Eve annual event. Zoo Atlanta Night Explorers (July member nights). Brew at the Zoo (May, member perk). Listed as evergreen family option. Member perks mentioned multiple times."
+  },
+  {
+    "name": "Strawberry Picking (Jaemor Farms / TBD Farm)",
+    "location": "TBD — likely Jaemor Farms, Alto, GA or similar north Georgia farm",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md, 02_Areas/Planning/Daily/2026/2026-04-21.md, 02_Areas/Planning/Daily/2026/2026-04-20.md",
+    "notes": "Sun May 3 — already planned with Feldmans. Jeannie's email. RSVP confirmed. U-pick. Seasonal spring activity. Family outing with social element."
+  },
+  {
+    "name": "Pumpkin Patch / Fall Farm Visit",
+    "location": "Various farms north of Atlanta (1hr drive)",
+    "category": ["family"],
+    "source_file": "02_Areas/Lists/Bucket-List.md, 02_Areas/Planning/Daily/Archive/2025-10-05.md",
+    "notes": "On fall bucket list (pumpkin carving party). Oct 2025 — Jeannie took Dean to a pumpkin patch while Dima regulated at home. Corn maze also mentioned as out-of-town option. Seasonal fall activity."
+  },
+  {
+    "name": "Noah's Ark Animal Sanctuary",
+    "location": "712 LG Griffin Rd, Locust Grove, GA 30248",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "1.5-hour guided tours. Meet lions, tigers, Capuchins. All ages. Unusual, high-wow factor for kids. ~45 min south of Atlanta."
+  },
+  {
+    "name": "Chastain Park",
+    "location": "235 W Wieuca Rd NW, Atlanta, GA 30342",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Planning/Daily/2025/2025-11-07.md",
+    "notes": "Dean Score 4 — playground with friends (Dave, Tali, Sophie). Option: Chastain Park + restaurant lunch. Chastain Park Arts Festival (Nov annual). Chastain Amphitheatre for concerts. Playground + coffee combo works well for adults."
+  },
+  {
+    "name": "Decatur Toy Park (Decatur Square area)",
+    "location": "Decatur, GA (near Decatur Square)",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Daily/2024/2024-04-27.md, 02_Areas/Planning/Daily/2024/2024-05-05.md",
+    "notes": "Dima took Dean twice. Apr 27 2024: Decatur Toy Park + Dancing Goats Coffee. May 5 2024: family adventure despite rain, meltdown from Dean. Follow with Krog Street Market + Jeni's ice cream via Beltline. Good combo day."
+  },
+  {
+    "name": "Kennesaw Mountain Hiking",
+    "location": "900 Kennesaw Mountain Dr, Kennesaw, GA 30152",
+    "category": ["group", "solo", "family"],
+    "source_file": "02_Areas/Planning/Daily/2024/2024-04-14.md",
+    "notes": "Dima hiked with Feldman in Apr 2024. National Battlefield Park. Family-friendly trails. Good outdoor reset activity. Combined with Sol Dance in same day."
+  },
+  {
+    "name": "Peachtree Road Race",
+    "location": "Peachtree Rd, Atlanta, GA (starting at Lenox Square)",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "July 4. Spectating and family energy. World's largest 10K. Great with kids for parade/crowd energy."
+  },
+  {
+    "name": "Pigalle Cabaret & Speakeasy",
+    "location": "Underground Atlanta, 50 Upper Alabama St, Atlanta, GA 30303",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Bohemian Paris-themed theater. Burlesque, jazz, absinthe service. $30-50. Ongoing: Sat burlesque, Fri chanteuse, Tiki Thursdays, Barbie Ball, Haunted Tavern themes. Pigalle Invite-Only Speakeasy Mondays ($350/yr membership). Noted as best for Jeannie."
+  },
+  {
+    "name": "Candlelight: Hip Hop on Strings",
+    "location": "The Chapel on Sycamore, Decatur, GA",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Intimate string quartet concert of hip-hop classics in candlelit chapel. $41+. Jan 30–Apr 18 (evenings). Recurring Candlelight series. Multiple themes across different venues."
+  },
+  {
+    "name": "Dinner Detective Murder Mystery",
+    "location": "Sonesta Atlanta NW Galleria, Marietta, GA",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Interactive comedy crime-solving dinner show. Full meal + prizes. $67.99+. Recurring dates monthly. Good for milestone occasions and larger group date nights."
+  },
+  {
+    "name": "Al Capone's Speakeasy Escape Room",
+    "location": "Time to Escape - Brookhaven, Atlanta, GA",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "1920s gangster-themed escape game with in-room actor bartender. Up to 14 players. $44+/adult. Roles as singer/police. Good for groups. Various daily time slots."
+  },
+  {
+    "name": "Prohibition Themed Progressive Dinner",
+    "location": "Downtown Atlanta speakeasies",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Multi-course dinner hopping through downtown speakeasies. 1920s history + cocktails. $275/adult. Special occasion. Check TripAdvisor."
+  },
+  {
+    "name": "Candle Making / Craft Workshop (BYOB)",
+    "location": "Round Trip Brewing Company / ReWax and UnWine, Atlanta area",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "notes": "Romantic Date Night - Candle Making at Round Trip Brewing ($55, BYOB, Jan-Feb). Love at First Scent perfume workshop at ReWax Johns Creek ($159, aphrodisiac notes, champagne). Wine Down Wednesday: Wine + Candle Making ($55, midweek). Multiple recurring options."
+  },
+  {
+    "name": "The Moth StorySLAM Atlanta",
+    "location": "Various ATL venues (Apr 20 was open mic night)",
+    "category": ["solo", "date", "group"],
+    "source_file": "02_Areas/Planning/Daily/2026/2026-04-20.md, 02_Areas/Planning/Daily/2026/2026-04-08.md",
+    "notes": "Open-mic storytelling competition. True personal stories. 'SUSPICIOUS' theme. Dima had tickets for Apr 20 — debated going vs selling. Also mentioned Comedy Bang Bang presale. Recurring monthly."
+  },
+  {
+    "name": "Day Shift (Daytime Clubbing)",
+    "location": "Believe Music Hall, 690 Marietta St NW, Atlanta, GA 30318",
+    "category": ["group"],
+    "source_file": "02_Areas/Planning/Daily/2026/2026-04-16.md",
+    "notes": "Daytime clubbing for 30+. Spotted as Apr 18 event. Social event option for adults who don't want a late night out. Believe Music Hall venue."
+  },
+  {
+    "name": "Emory Carlos Museum",
+    "location": "571 S Kilgo Cir NE, Atlanta, GA 30322 (Emory University)",
+    "category": ["solo", "date"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md",
+    "notes": "Intimate, quiet exploration of ancient arts. Free. Good solo recharge activity. Less crowded than High Museum. Ancient Mediterranean, Near Eastern, and Asian art collections."
+  },
+  {
+    "name": "Krog Street Market / BeltLine Food Tour",
+    "location": "99 Krog St NE, Atlanta, GA 30307",
+    "category": ["family", "date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/Planning/Daily/2024/2024-05-05.md",
+    "notes": "Beltline Food Tours — guided culinary exploration. Krog Street Market food hall + retail. BeltLine-adjacent. Dean outing: Krog/Beltline for pizza + Jeni's ice cream. High community vibe."
+  },
+  {
+    "name": "Varuni Napoli",
+    "location": "1540 Monroe Dr NE, Atlanta, GA 30324",
+    "category": ["family", "date"],
+    "source_file": "02_Areas/Planning/Daily/2024/2024-04-27.md, 02_Areas/Planning/Daily/2025/2025-11-15.md",
+    "notes": "Neapolitan pizza. Family photos + lunch at Varuni Napoli Nov 15, 2025 — Dean loved watching them make pizzas, ate gelato. Also visited Apr 27, 2024. Near Ponce City Market area."
+  },
+  {
+    "name": "Atlanta Dogwood Festival",
+    "location": "Piedmont Park, Atlanta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Annual. April 10-12 (2026). Free outdoor arts and cultural festival. Piedmont Park. Family-friendly. One of Atlanta's oldest festivals."
+  },
+  {
+    "name": "Virginia-Highland Summerfest",
+    "location": "Virginia-Highland neighborhood, Atlanta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Annual. June 13-14 (estimated). Free neighborhood street festival. Close to 30306 (5-min drive). Local vendors, food, music. Family-friendly."
+  },
+  {
+    "name": "Dragon Con Parade",
+    "location": "Downtown Atlanta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Annual September event. Dragon Con parade through downtown. Free spectating. Kids love the costumes. Labor Day weekend."
+  },
+  {
+    "name": "Switchyards (Decatur / Midtown)",
+    "location": "1170 White St SW, Atlanta, GA 30310 (also Decatur location)",
+    "category": ["solo", "group"],
+    "source_file": "02_Areas/Planning/Daily/2024/2024-04-11.md, 02_Areas/Planning/Daily/2024/2024-04-30.md",
+    "notes": "Co-working + social club. Dima used as a focus escape from home. Coffee with Dad there. 'Sun in my belly, Switchyards Decatur.' Used for reading Dune. Cancel membership note (Apr 2025) suggests he had one."
+  },
+  {
+    "name": "Indoor Rock Climbing — The Overlook",
+    "location": "Atlanta area (The Overlook gym)",
+    "category": ["solo", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md",
+    "notes": "Physical reset. Cold weather activity. Listed in ATL Experience List under Cold Weather (Indoor Joy). Bouldering option."
+  },
+  {
+    "name": "Lakepoint Station Family Fun Center",
+    "location": "Emerson, GA (near Cartersville — ~40 min north)",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "All Ages. Mini-golf, laser tag, arcade, 28-foot rock climbing, climbing walls. Open Tue-Sun. 4.8-star rating. Great out-of-town day trip for families."
+  },
+  {
+    "name": "Recreational Horseback Riding — AJ Carriage & Livery",
+    "location": "Atlanta area",
+    "category": ["family", "date"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "30-minute scenic or arena rides. All skill levels. All ages. Unique date or family outing."
+  },
+  {
+    "name": "Atlanta History Center",
+    "location": "130 W Paces Ferry Rd NW, Atlanta, GA 30305",
+    "category": ["family", "solo"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Planning/Daily/2025/2025-12-27.md",
+    "notes": "Rainy day option. Listed multiple times in Dean activity database. Atlanta history picture books tie-in. Venue directory source: atlantahistorycenter.com/events. Emma took kids there in Dec 2025."
+  },
+  {
+    "name": "Peachtree DeKalb Airport Playground",
+    "location": "Peachtree DeKalb Airport, Chamblee, GA",
+    "category": ["family"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Planning/Daily/Archive/2025-09-07.md",
+    "notes": "Dean Score 4, Parent Score 5. Unique playground where you can watch planes. Sep 7, 2025. Add car wash on the way back — interesting combo. Free."
+  },
+  {
+    "name": "Outdoor Movie Night",
+    "location": "Various Atlanta venues (Atlantic Station summer series, others)",
+    "category": ["family", "date", "group"],
+    "source_file": "02_Areas/Lists/Bucket-List.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "On Fall Bucket List. Summer Movie Series at Atlantic Station (low effort, outdoor). Drive-in options also available in Atlanta area. Atlantic Station events: atlanticstation.com/events."
+  },
+  {
+    "name": "Oakland Cemetery Tour",
+    "location": "248 Oakland Ave SE, Atlanta, GA 30312",
+    "category": ["solo", "group"],
+    "source_file": "02_Areas/Lists/Bucket-List.md, 02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md",
+    "notes": "On bucket list (2025 fall). Listed in Dean activity DB as 'Novel/Interesting for Dad.' Victorian-era cemetery. Walking tours available. Free to enter. Historically significant — Atlanta history."
+  },
+  {
+    "name": "Critical Mass Bike Ride",
+    "location": "Downtown Atlanta (last Friday of the month)",
+    "category": ["group", "solo"],
+    "source_file": "02_Areas/Lists/Bucket-List.md",
+    "notes": "On fall bucket list. Monthly group cycling event. Last Friday of month. Free. Community cycling. City streets. Good group activity."
+  },
+  {
+    "name": "Kava Bar",
+    "location": "Atlanta area (specific location TBD)",
+    "category": ["solo", "group"],
+    "source_file": "02_Areas/Lists/Bucket-List.md, 02_Areas/Planning/Daily/2025/2025-12-01.md",
+    "notes": "On bucket list (Dec 1, 2025). Non-alcoholic social alternative. Novelty. Research specific location."
+  },
+  {
+    "name": "Buddy's Indoor Playhouse",
+    "location": "Smyrna, GA",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "Kids/Family. All-day indoor play with educational toys, toddler zone, driving track, role-play stations. Good rainy day option outside the Midtown core."
+  },
+  {
+    "name": "Tiny Towne Mini Car Driving",
+    "location": "Norcross, GA area",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "Ages 3-8. 6 rounds of driving, ChooChoo Train adventure, road safety learning. Perfect for Dean's vehicle obsession. Unique concept."
+  },
+  {
+    "name": "Mason Mill Park",
+    "location": "1340 McConnell Dr, Decatur, GA 30033",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Daily/2024/2024-05-04.md",
+    "notes": "Playground with Dean, walk with neighbors — May 4, 2024. Near Druid Hills / Decatur. Good neighborhood park combo with BeltLine or Krog area."
+  },
+  {
+    "name": "Swim Lessons / Pool Programs",
+    "location": "Multiple: Swimmerman Midtown (553 Amsterdam Ave NE), SwimAtlanta Piedmont Park (1320 Monroe Dr NE), Aqua-Tots Briarcliff (2153 Briarcliff Rd), Big Blue North Druid Hills (2480 Briarcliff Rd)",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Daily/2026/2026-04-14.md",
+    "notes": "Research for Dean (3.5yo beginner). Swimmerman Midtown: (678) 515-3793, ~$30/session, in 30306. SwimAtlanta: pricing by phone. Aqua-Tots: $130/mo, 4 lessons, 4:1 ratio. Big Blue: $32-37/session, 3:1 ratio. Also: pool time with Dean (Dean Score 5) — general pool access."
+  },
+  {
+    "name": "Atlanta Science Festival",
+    "location": "Morehouse College + Piedmont Park, Atlanta, GA",
+    "category": ["family"],
+    "source_file": "02_Areas/Lists/2026-03-18 Upcoming ATL Events.md",
+    "notes": "Annual spring festival. Science Discovery Day at Morehouse College (4-6pm). Exploration Expo at Piedmont Park: 150+ hands-on STEAM exhibits. Free / low cost. Good for kids and adults alike."
+  },
+  {
+    "name": "Farmers Market (Virginia-Highland / Morningside)",
+    "location": "Morningside Farmers Market or Virginia-Highland area, Atlanta",
+    "category": ["family"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Planning/Daily/2024/2024-11-16.md, 02_Areas/Planning/Daily/2024/2024-11-17.md",
+    "notes": "Walk to Farmers Market + playground combo — Dean activity. Nov 16-17 daily notes. Fire truck tour: 'Sat in driver's seat at Farmer's Market' (Dean Score 5). Regular Saturday/Sunday routine. Free + low cost."
+  },
+  {
+    "name": "Candler Park Music Festival",
+    "location": "Candler Park, Atlanta, GA",
+    "category": ["group"],
+    "source_file": "02_Areas/Planning/Daily/2026/2026-04-13.md",
+    "notes": "Annual neighborhood festival. Dima attended with Lettuce headlining in 2018. Free or low cost. Neighborhood vibe in 30306-adjacent area."
+  },
+  {
+    "name": "Illuminarium Atlanta",
+    "location": "550 Somerset Terrace NE, Atlanta, GA 30306",
+    "category": ["date", "family", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Joy-Map.md",
+    "notes": "Listed in 30306 neighborhood hub: Old Fourth Ward. Immersive art + technology experiences. Near The Eastern. Unique date or family experience."
+  },
+  {
+    "name": "Alliance Theatre",
+    "location": "1280 Peachtree St NE, Atlanta, GA 30309 (Woodruff Arts Center)",
+    "category": ["date", "family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Experience-List.md, 02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Alliance Theatre scripted plays: High intellectual joy. Peter Rabbit Tale (toddler interactive, score 85). Atlanta Ballet: Cinderella at Gas South Theatre (Mar 2026). Recurring family and date options."
+  },
+  {
+    "name": "Flying Colors Butterfly Festival",
+    "location": "Chattahoochee Nature Center, 9135 Willeo Rd, Roswell, GA",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Annual June event at Chattahoochee Nature Center. Seasonal butterfly release and nature programming. Perfect for young kids."
+  },
+  {
+    "name": "Apple Picking in Blue Ridge",
+    "location": "Blue Ridge, GA area (~1.5hr north of Atlanta)",
+    "category": ["family"],
+    "source_file": "02_Areas/Planning/Daily/Archive/2025-08-30.md",
+    "notes": "Apple picking with Dean and Ruby in Blue Ridge — Aug 30, 2025. 'Enjoy family time in Blue Ridge; went apple picking this morning.' Seasonal fall activity. Add s'mores by the fire per song content. Day trip."
+  },
+  {
+    "name": "Campfire / Fire Pit Night",
+    "location": "Neighborhood or Feldman's backyard, Atlanta",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/Lists/Bucket-List.md",
+    "notes": "On fall bucket list: fire pit + marshmallows + magic colors. Campfire grilling hot dogs. Low-effort neighborhood activity. Good with friends (Feldmans mentioned). Magic color fire kits available online."
+  },
+  {
+    "name": "Taste of Marietta",
+    "location": "Glover Park, Marietta Square, Marietta, GA",
+    "category": ["family", "group"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Free food festival. Annual. Apr 25, 2026 (weekend edition). Great if heading north. Local restaurant sampling."
+  },
+  {
+    "name": "Fjord Sauna / Bathhouse",
+    "location": "San Francisco (noted) — research Atlanta equivalent",
+    "category": ["solo", "date"],
+    "source_file": "02_Areas/Planning/Daily/2026/2026-04-14.md, 02_Areas/Planning/Daily/2026/2026-02-24.md",
+    "notes": "Dima requested a refund from Fjord SF — had a reservation. Strong interest in sauna/bathhouse experience. Atlanta equivalent: research Rejuvenation Spa, Sobremesa, or similar. Bucket list wellness activity."
+  },
+  {
+    "name": "Petting Zoo / Animal Sanctuary",
+    "location": "Various — Atlanta area farms / north GA",
+    "category": ["family"],
+    "source_file": "02_Areas/Lists/Bucket-List.md, 02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md",
+    "notes": "On fall bucket list: petting zoo + animal sanctuary visit. Dean DB: petting zoo listed under 'Options to Try.' Colorful tunnel play at goat mountain also mentioned. Several options north of ATL."
+  },
+  {
+    "name": "Dino Fest",
+    "location": "Stone Mountain Park, Stone Mountain, GA",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Seasonal outdoor dinosaur festival at Stone Mountain Park. Apr 25, 2026. Dean obsessed with dinosaurs — high priority pick. Outdoor."
+  },
+  {
+    "name": "Cat in the Hat — Live on Stage",
+    "location": "Gas South Theater, 6400 Sugarloaf Pkwy, Duluth, GA 30097",
+    "category": ["family"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "Live theatrical performance. Apr 25, 2026. Great for Dean. Ticketed. Gas South Theater (larger family venue)."
+  },
+  {
+    "name": "Atlanta Film Festival",
+    "location": "Various venues, Atlanta, GA",
+    "category": ["date", "solo", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "notes": "Annual. April 23+. Unique family-friendly screenings available. Independent film community. Check atlantafilmfestival.com."
+  },
+  {
+    "name": "Hike to See Fall Leaves",
+    "location": "Various ATL-area trails (Chastain, Kennesaw, north GA)",
+    "category": ["family", "solo", "group"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md, 02_Areas/Planning/Daily/2025/2025-11-07.md",
+    "notes": "Seasonal fall activity. Listed in Dean Activity DB under Options to Try. Also: finding colorful leaves and pressing them (bucket list). Kennesaw Mountain confirmed as trail Dima has done."
+  },
+  {
+    "name": "Dad's Garage Theatre",
+    "location": "569 Ezzard St SE, Atlanta, GA 30312",
+    "category": ["date", "group"],
+    "source_file": "02_Areas/ATL-Events/ATL-Events-Guide.md",
+    "notes": "Improv comedy and scripted shows. Long-form improv: action movie night (Family Saturday in venue listing). Interactive family-friendly improv. dadsgarage.com/shows."
+  },
+  {
+    "name": "Kite Flying",
+    "location": "Piedmont Park or open field areas, Atlanta",
+    "category": ["family"],
+    "source_file": "02_Areas/Lists/Bucket-List.md",
+    "notes": "On fall bucket list. Low-effort family activity. Piedmont Park is ideal open space. Good with Dean."
+  },
+  {
+    "name": "Sub Focus 360° Set",
+    "location": "Underground Atlanta (The Gallery), 50 Upper Alabama St, Atlanta, GA 30303",
+    "category": ["group"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "May 15, 2026. 18+. 9PM. Custom 4-corner Funktion-One 360° surround system. First Atlanta appearance since 2018. Jungle Bells presents. Score: 95. Limited capacity. ticketfairy.com/event/sub-focus-360."
+  },
+  {
+    "name": "Disclosure LIVE",
+    "location": "The Eastern, 800 Old Flat Shoals Rd SE, Atlanta, GA 30316",
+    "category": ["group", "date"],
+    "source_file": "02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "notes": "May 1, 2026. All ages. 8PM. Full live band (not a DJ set). Score: 95. axs.com/events/1281830. UK house duo. Highest recommendation in current guide."
+  },
+  {
+    "name": "Empire of the Sun",
+    "location": "Ameris Bank Amphitheatre, 2200 Encore Pkwy, Alpharetta, GA 30022",
+    "category": ["group"],
+    "source_file": "02_Areas/Lists/2026-04-13 ATL Events.md",
+    "notes": "Sep 13, 2026. 7:30PM. 'Ask That God: Afterlife North American Tour.' Ticketmaster. Outdoor amphitheatre. Invite Craig, Davis, Nikita. Large outdoor summer concert."
+  },
+  {
+    "name": "Road to Tara Museum",
+    "location": "130 W Lamar St, Jonesboro, GA 30236",
+    "category": ["family", "date"],
+    "source_file": "02_Areas/Planning/Weekend_Playdates_Friend_Outreach.md",
+    "notes": "Gone With the Wind exhibits, interactive film history. All ages. Unique ATL history experience. South of Atlanta (~30 min)."
+  },
+  {
+    "name": "Zonolite Park",
+    "location": "1551 Zonolite Rd NE, Atlanta, GA 30306",
+    "category": ["family"],
+    "source_file": "02_Areas/Dean/Dean-Activities/Dean-Activity-Database.md",
+    "notes": "Dean Score 4. With Dean + Ruby, bath, bedtime routine. In 30306 neighborhood. Easy local park. Part of Dean's regular rotation of playgrounds."
+  }
+]

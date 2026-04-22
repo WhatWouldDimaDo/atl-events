@@ -714,7 +714,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Krog Street Market, 99 Krog St NE, Atlanta, GA', lat: 33.7540, lng: -84.3590,
-    url: null, notes: 'Free. Zero planning required. Walk to Beltline from home in 20 min.'
+    url: 'https://beltline.org/trails/eastside-trail/', notes: 'Free. Zero planning required. Walk to Beltline from home in 20 min.'
   },
   {
     id: 'e06', name: 'Chattahoochee Nature Center', emoji: '🦅',
@@ -780,7 +780,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '265 Park Ave W NW, Atlanta, GA', lat: 33.7607, lng: -84.3921,
-    url: null, notes: 'Free. Splash pad open late spring through summer. Bring a change of clothes.'
+    url: 'https://centennialpark.com/plan-your-visit/', notes: 'Free. Splash pad open late spring through summer. Bring a change of clothes.'
   },
   {
     id: 'e29', name: 'MLK National Historic Site', emoji: '✊',
@@ -813,7 +813,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 4, parentScore: 5,
     address: '1750 Mt Vernon Rd, Lithia Springs, GA', lat: 33.7715, lng: -84.6304,
-    url: null, notes: '$5 parking pass. Factory ruins loop is 2.2 miles and manageable with a carrier.'
+    url: 'https://gastateparks.org/SweetwaterCreek', notes: '$5 parking pass. Factory ruins loop is 2.2 miles and manageable with a carrier.'
   },
   {
     id: 'e32', name: 'Center for Puppetry Arts', emoji: '🎭',
@@ -846,7 +846,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: 'PDK Airport, 1997 Airport Rd, Chamblee, GA', lat: 33.8754, lng: -84.3021,
-    url: null, notes: 'Park on Clairmont Rd side. Jets + props taking off every few minutes. 30 min of pure Dean magic.'
+    url: 'https://www.dekalbcountyga.gov/airports/dekalb-peachtree-airport', notes: 'Park on Clairmont Rd side. Jets + props taking off every few minutes. 30 min of pure Dean magic.'
   },
   {
     id: 'e35', name: 'Freedom Park Trail', emoji: '🌳',
@@ -857,7 +857,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Freedom Park, Atlanta, GA', lat: 33.7640, lng: -84.3540,
-    url: null, notes: 'Connect to Carter Center and Inman Park. Flat enough for a stroller run.'
+    url: 'https://beltline.org/trails/freedom-park-trail/', notes: 'Connect to Carter Center and Inman Park. Flat enough for a stroller run.'
   },
 
   // ── PAPA + DEAN ──────────────────────────────────────────────────────────
@@ -881,7 +881,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
     deanScore: 4, parentScore: 5,
     address: '1117 Johnson Rd NE, Atlanta, GA', lat: 33.7968, lng: -84.3477,
-    url: null, notes: 'Not Sundays. Morning/afternoon only. Check storytime schedule.'
+    url: 'https://www.fulcolibrary.org/branches/morningside/', notes: 'Not Sundays. Morning/afternoon only. Check storytime schedule.'
   },
   {
     id: 'e12', name: 'Neighborhood Playground Run', emoji: '🛝',
@@ -892,7 +892,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: 'Virginia-Highland / 30306', lat: 33.7843, lng: -84.3601,
-    url: null, notes: 'Rotate: Sydney Marcus → Noble Park → OFW Park → Orme Park.'
+    url: 'https://www.atlantaga.gov/government/departments/parks-recreation/park-listing', notes: 'Rotate: Sydney Marcus → Noble Park → OFW Park → Orme Park.'
   },
   {
     id: 'e36', name: 'Chick-fil-A + Playground', emoji: '🐔',
@@ -903,7 +903,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 4,
     address: 'Various CFA locations', lat: 33.7843, lng: -84.3601,
-    url: null, notes: 'Go off-peak (10–11 AM or 2–4 PM) to avoid lunch rush. Indoor play structure available at most locations.'
+    url: 'https://www.chick-fil-a.com', notes: 'Go off-peak (10–11 AM or 2–4 PM) to avoid lunch rush. Indoor play structure available at most locations.'
   },
   {
     id: 'e37', name: 'DeKalb Farmers Market', emoji: '🥭',
@@ -925,7 +925,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: 'Centennial Olympic Park, Atlanta, GA', lat: 33.7607, lng: -84.3921,
-    url: null, notes: 'Check seasonal operation. Combine with splash pad next door for a full morning.'
+    url: 'https://centennialpark.com/plan-your-visit/', notes: 'Check seasonal operation. Combine with splash pad next door for a full morning.'
   },
 
   // ── SOLO RESET ────────────────────────────────────────────────────────────
@@ -960,7 +960,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '1345 Piedmont Ave NE, Atlanta, GA', lat: 33.7904, lng: -84.3730,
-    url: null, notes: 'Member perk. Best 7–9 AM on weekdays. Japanese Garden is the destination.'
+    url: 'https://atlantabg.org', notes: 'Member perk. Best 7–9 AM on weekdays. Japanese Garden is the destination.'
   },
   {
     id: 'e16', name: 'High Museum — Second Sundays', emoji: '🎨',
@@ -1015,7 +1015,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: 'Piedmont Park, Atlanta, GA', lat: 33.7869, lng: -84.3734,
-    url: null, notes: 'Saturday morning = Green Market. Sunday = quieter for running. Park opens at 6 AM.'
+    url: 'https://piedmontpark.org', notes: 'Saturday morning = Green Market. Sunday = quieter for running. Park opens at 6 AM.'
   },
 
   // ── DATE NIGHT ────────────────────────────────────────────────────────────
@@ -1039,7 +1039,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '61 Krog St NE, Atlanta, GA', lat: 33.7521, lng: -84.3598,
-    url: null, notes: 'Book 1 week out on OpenTable. Weeknights easier than weekends.'
+    url: 'https://www.littlebearatl.com', notes: 'Book 1 week out on OpenTable. Weeknights easier than weekends.'
   },
   {
     id: 'e19', name: 'Fox Theatre', emoji: '🎭',
@@ -1072,7 +1072,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: '675 Ponce De Leon Ave NE, Atlanta, GA', lat: 33.7723, lng: -84.3632,
-    url: null, notes: 'No reservation. Easy walk-up. Views are worth it even without the rides.'
+    url: 'https://poncecitymarket.com/skyline-park/', notes: 'No reservation. Easy walk-up. Views are worth it even without the rides.'
   },
   {
     id: 'e43', name: 'Tiny Lou\'s', emoji: '🍸',
@@ -1140,7 +1140,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '1170 Howell Mill Rd NW, Atlanta, GA', lat: 33.7903, lng: -84.4120,
-    url: null, notes: 'Great for 6–12 people. No reservation for billiards tables.'
+    url: 'https://ormsbysatl.com', notes: 'Great for 6–12 people. No reservation for billiards tables.'
   },
   {
     id: 'e23', name: 'Lake Claire Drum Circle', emoji: '🥁',
@@ -1151,7 +1151,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: 'Lake Claire Land Trust, Atlanta, GA', lat: 33.7666, lng: -84.3306,
-    url: null, notes: 'Full moon monthly. Free, open, no experience needed.'
+    url: 'https://www.lakeclairelandtrust.org', notes: 'Full moon monthly. Free, open, no experience needed.'
   },
   {
     id: 'e24', name: 'Krog Street Market (Evening)', emoji: '🔥',
@@ -1162,7 +1162,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '99 Krog St NE, Atlanta, GA', lat: 33.7540, lng: -84.3590,
-    url: null, notes: 'Zero planning. Text a few people and go. Works any night.'
+    url: 'https://krogstreetmarket.com', notes: 'Zero planning. Text a few people and go. Works any night.'
   },
   {
     id: 'e25', name: 'Axe Throwing (The Battery)', emoji: '🪓',
@@ -1173,7 +1173,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: 'The Battery, 800 Battery Ave SE, Atlanta, GA', lat: 33.8906, lng: -84.4683,
-    url: null, notes: 'Book ahead. Best for 6–10 people. Good for out-of-town visitors.'
+    url: 'https://www.burythehatchet.com/locations/atlanta/', notes: 'Book ahead. Best for 6–10 people. Good for out-of-town visitors.'
   },
   {
     id: 'e26', name: 'Stone Summit (Rock Climbing)', emoji: '🧗',
@@ -1250,7 +1250,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: 'Virginia-Highland, Atlanta, GA', lat: 33.7843, lng: -84.3601,
-    url: null, notes: 'Start at Murphy\'s. End at Hand in Hand. Zero coordination needed.'
+    url: 'https://vahi.org', notes: 'Start at Murphy\'s. End at Hand in Hand. Zero coordination needed.'
   },
   {
     id: 'e54', name: 'Manuel\'s Tavern Pub Trivia', emoji: '🧠',
@@ -1261,7 +1261,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '602 N Highland Ave NE, Atlanta, GA', lat: 33.7693, lng: -84.3543,
-    url: null, notes: 'Tuesday trivia nights. Arrive early for seating. $2 trivia entry.'
+    url: 'https://manuelstavern.com', notes: 'Tuesday trivia nights. Arrive early for seating. $2 trivia entry.'
   },
   {
     id: 'e55', name: 'Chattahoochee River Tubing', emoji: '🛟',
@@ -1283,7 +1283,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 5,
     address: '50 Lodge Rd SE, Cartersville, GA', lat: 34.1540, lng: -84.7090,
-    url: null, notes: 'Kayak rentals at the marina. 12-mile trail network. Good early summer before heat peaks.'
+    url: 'https://gastateparks.org/RedTopMountain', notes: 'Kayak rentals at the marina. 12-mile trail network. Good early summer before heat peaks.'
   },
   {
     id: 'e57', name: 'Beltline ArtWalk (1st Friday)', emoji: '🖼️',
@@ -1294,7 +1294,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: 'Atlanta Beltline Eastside Trail', lat: 33.7540, lng: -84.3590,
-    url: null, notes: '1st Friday monthly. Jun 5, Jul 3, Aug 7, Sep 4. Walk from Krog to Piedmont Park.'
+    url: 'https://beltline.org/events/artwalk/', notes: '1st Friday monthly. Jun 5, Jul 3, Aug 7, Sep 4. Walk from Krog to Piedmont Park.'
   },
   {
     id: 'e58', name: 'Escape Room (Escapology)', emoji: '🔐',
@@ -1306,5 +1306,577 @@ const EVERGREEN = [
     deanScore: 1, parentScore: 4,
     address: '3393 Peachtree Rd NE, Atlanta, GA', lat: 33.8509, lng: -84.3618,
     url: 'https://escapology.com/en/atlanta', notes: 'Book ahead. Pick a 60-min room for first-timers. Intermediate difficulty recommended.'
+  }
+,  {
+    id: 'e59', name: 'Yellow River Wildlife Sanctuary', emoji: '🦌',
+    category: 'family', description: 'Native Georgia wildlife in a natural setting — deer you can hand-feed, baby bunnies, bobcats, black bears. 30 min east of VaHi. Dean will absolutely lose it when a deer eats from his palm. Low-key, uncrowded, deeply underrated.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: '4525 US Highway 78, Lilburn, GA 30047', lat: 33.8007, lng: -84.0986,
+    url: 'https://yellowriverwildlife.com', notes: '~30 min from VaHi. Bring quarters for feed machines. Weekday mornings are nearly empty. Deer wander freely — Dean can feed them by hand.'
+  }
+,  {
+    id: 'e60', name: 'Morningside Farmers Market', emoji: '🍓',
+    category: 'family', description: 'Saturday morning neighborhood market at Morningside Presbyterian. Local farms, hot breakfast bites, flowers, honey. Dean once sat in a firetruck in the driver\'s seat here — he still talks about it. The unofficial VaHi Saturday ritual.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: '1080 E Rock Springs Rd NE, Atlanta, GA 30306', lat: 33.7969, lng: -84.3479,
+    url: 'https://morningsidemarket.com', notes: 'Saturday mornings, year-round. Walk from the house. Great coffee from the vendors. Combine with Revolution Donuts for peak Dean satisfaction.'
+  }
+,  {
+    id: 'e61', name: 'Chefs + Farmers Market at Pullman Yards', emoji: '🌽',
+    category: 'family', description: 'Weekly Saturday market at Pullman Yards with chef-driven stalls, local farms, and prepared food. Larger and more curated than Morningside — good variety and a cool industrial venue. Easy BeltLine access.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 3, parentScore: 4,
+    address: '225 Rogers St NE, Atlanta, GA 30317', lat: 33.7482, lng: -84.342,
+    url: 'https://pullmanyards.com/market', notes: 'Saturday mornings year-round. 10 min from home. Park on Rogers St. Combine with a BeltLine walk east.'
+  }
+,  {
+    id: 'e62', name: 'Peachtree Road Farmers Market', emoji: '🥕',
+    category: 'family', description: 'Saturday market at Cathedral of St. Philip in Buckhead. Strong produce selection, bakeries, local honey, and prepared foods. Stroller-easy and nicely shaded. Worth the quick drive north when you want something different.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 3, parentScore: 4,
+    address: '2744 Peachtree Rd NW, Atlanta, GA 30305', lat: 33.839, lng: -84.387,
+    url: 'https://peachtreeroadfarmersmarket.com', notes: 'Saturdays year-round, 8 AM–12 PM. Solid produce + baked goods. Add a stop at Highland Bakery for a full morning.'
+  }
+,  {
+    id: 'e63', name: 'Home Depot Kids Workshop', emoji: '🔨',
+    category: 'papa', description: 'Free Saturday morning build workshop for kids at Home Depot. Dean gets to hammer actual nails, build a take-home project, and wear a tiny orange apron. He gets a pin and a certificate. It\'s 45 minutes of pure papa-son time.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
+    deanScore: 5, parentScore: 5,
+    address: '630 Ponce De Leon Ave NE, Atlanta, GA 30308', lat: 33.7733, lng: -84.3607,
+    url: 'https://homedepot.com/workshops/kids', notes: 'First Saturday of each month, 9 AM. Register online in advance — fills up fast. Dean gets to keep what he builds. 3–12 years old.'
+  }
+,  {
+    id: 'e64', name: 'Lowe\'s Build & Grow Workshop', emoji: '🪚',
+    category: 'papa', description: 'Free kids build workshop at Lowe\'s — similar to Home Depot but different schedule and project themes. Good backup when Home Depot is full. Dean + Papa hammering things = guaranteed morning win.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
+    deanScore: 5, parentScore: 4,
+    address: '1025 Virginia Ave NE, Atlanta, GA 30306', lat: 33.7681, lng: -84.3437,
+    url: 'https://lowes.com/l/about/build-and-grow', notes: 'Check lowes.com for schedule — less frequent than Home Depot but worth bookmarking. Ages 5–12. Dean takes construction-themed activities very seriously.'
+  }
+,  {
+    id: 'e65', name: 'Tiny Towne Mini Car Driving', emoji: '🚗',
+    category: 'papa', description: 'A miniature city where Dean drives a real working mini-car on actual roads with traffic lights. 6 laps per session. He will never stop talking about it. Purpose-built for toddlers obsessed with cars, which describes Dean at 100%.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
+    deanScore: 5, parentScore: 5,
+    address: '6670 Peachtree Industrial Blvd, Peachtree Corners, GA 30092', lat: 33.9626, lng: -84.2178,
+    url: 'https://tinytowne.com', notes: '~25 min from VaHi. Book online. Ages 3–8. Multiple sessions available. Papa goes along on foot while Dean drives — genuinely fun to watch.'
+  }
+,  {
+    id: 'e66', name: 'Buddy\'s Indoor Playhouse', emoji: '🧸',
+    category: 'family', description: 'All-day indoor family play space in Smyrna with educational toys, a toddler zone, driving track, and role-play stations. Strong rainy day option when the usual spots (Fernbank, zoo) feel repetitive. Kids stay engaged for 2+ hours.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'anytime', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 3,
+    address: '875 Concord Rd SE, Smyrna, GA 30080', lat: 33.8612, lng: -84.5177,
+    url: 'https://buddysplayhouse.com', notes: '~30 min west of VaHi. Good all-ages indoor play. Check website for age-specific hours. Bring socks.'
+  }
+,  {
+    id: 'e67', name: 'Boomerang ATL', emoji: '🎢',
+    category: 'family', description: 'Indoor family entertainment center on Amsterdam Ave — trampolines, foam pits, dodgeball courts. 5 minutes from home and perfect for burning Dean\'s energy on a rainy or too-hot afternoon. Ruby can watch from the café.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'afternoon', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 3,
+    address: '560 Amsterdam Ave NE, Unit A, Atlanta, GA 30306', lat: 33.7791, lng: -84.3568,
+    url: 'https://boomerangatl.com', notes: '5 min drive. Book online for toddler jump sessions. Socks required. Good birthday party venue to know about.'
+  }
+,  {
+    id: 'e68', name: 'Noah\'s Ark Animal Sanctuary', emoji: '🦁',
+    category: 'family', description: '1.5-hour guided tour of a genuine wildlife sanctuary 45 min south of Atlanta. Lions, tigers, Capuchins, exotic birds. Not a zoo — this is a rescue facility. Dean will have zero words. Just a slack-jawed 3.5-year-old staring at a lion.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: '712 LG Griffin Rd, Locust Grove, GA 30248', lat: 33.3447, lng: -84.1077,
+    url: 'https://noahs-ark.org', notes: '~45 min south via I-75. Book tours in advance — fills up. Guided tour format, not self-guided. Full family outing.'
+  }
+,  {
+    id: 'e69', name: 'Sweetwater 420 Fest', emoji: '🎸',
+    category: 'group', description: 'Atlanta\'s signature April music + craft beer festival. 4 days, multiple stages, eclectic lineup (Umphrey\'s, Thievery Corporation, reggae, electronic). Dima went in 2026 with Jeannie and called it one of the best weekends of the year. Annual tradition worth protecting.',
+    effort: 'medium', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'seasonal',
+    duration: 'full-day', groupSize: 'group',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: 'Centennial Olympic Park Dr NW, Atlanta, GA 30313', lat: 33.7607, lng: -84.3948,
+    url: 'https://sweetwater420fest.com', notes: 'Annual April festival. Tickets sell out — sign up for early access. Sunday day pass is the value move. Invite Craig, Davis, Jeannie.'
+  }
+,  {
+    id: 'e70', name: 'Atlanta Dogwood Festival', emoji: '🌸',
+    category: 'family', description: 'Free arts festival in Piedmont Park during peak dogwood bloom in April. Artist market, live stages, food vendors, room to spread out. One of the city\'s oldest festivals. Dean runs around, adults browse. Zero effort, high neighborhood satisfaction.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 3, parentScore: 4,
+    address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
+    url: 'https://dogwood.org', notes: 'Annual, mid-April. Free admission. Walk from home via the trail or drive and park on Monroe. Go morning to beat crowds.'
+  }
+,  {
+    id: 'e71', name: 'Virginia-Highland Summerfest', emoji: '🌞',
+    category: 'family', description: 'Annual neighborhood street festival in June — 5 min from home. North Highland shuts down for live music, food, artisan vendors, and a classic car show. This is your neighborhood festival. Dean loves the chaos. Great playdate format with the other VaHi families.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'afternoon', bestDays: 'seasonal',
+    duration: '3hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: 'North Highland Ave NE, Virginia-Highland, Atlanta, GA 30306', lat: 33.7843, lng: -84.3601,
+    url: 'https://vahi.org/summerfest', notes: 'Annual, mid-June. Free. Walk to it. Text the VaHi families — everyone shows up. Live music across multiple stages.'
+  }
+,  {
+    id: 'e72', name: 'Dragon Con Parade', emoji: '🐉',
+    category: 'family', description: 'Atlanta\'s most spectacular free parade — tens of thousands of cosplayers marching down Peachtree Street on Labor Day Saturday. Dean will think it\'s magic. No tickets, no planning, just show up at a Peachtree sidewalk by 10 AM and watch the world go by.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: 'Peachtree St NW, Downtown Atlanta, GA 30303', lat: 33.7663, lng: -84.3867,
+    url: 'https://dragoncon.org', notes: 'Labor Day Saturday morning. Parade starts 10 AM. Grab a spot on Peachtree between Marietta and Baker. Stroller-accessible on sidewalks.'
+  }
+,  {
+    id: 'e73', name: 'Candler Park Music Festival', emoji: '🎵',
+    category: 'group', description: 'Free neighborhood music festival in Candler Park — one of the best in the city. Funk, jam, indie, soul across multiple outdoor stages. Dima attended with Lettuce headlining in 2018. The annual excuse to day-drink with good neighbors in October.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'seasonal',
+    duration: 'half-day', groupSize: 'group',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 2, parentScore: 5,
+    address: 'Candler Park, 1500 McLendon Ave NE, Atlanta, GA 30307', lat: 33.7621, lng: -84.3355,
+    url: 'https://candlerparkmusicfestival.org', notes: 'Annual October festival. Free. Walk or bike from VaHi. Invite Craig, Feldman, Ben. This is the easy crew-assembly event.'
+  }
+,  {
+    id: 'e74', name: 'Critical Mass ATL', emoji: '🚴',
+    category: 'group', description: 'Monthly group bike ride taking over Atlanta streets on the last Friday of the month. Community cycling at its best — no route, no rules, just mass movement. On Dima\'s bucket list for good reason. Perfect when you want to feel alive and plugged into the city.',
+    effort: 'medium', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'group',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: 'Woodruff Park, 91 Peachtree St NW, Atlanta, GA 30303', lat: 33.7535, lng: -84.3879,
+    url: 'https://www.facebook.com/groups/AtlantaCM', notes: 'Last Friday of every month. Bring your own bike. Show up at Woodruff Park around 8 PM. Solo or with a crew — both work.'
+  }
+,  {
+    id: 'e75', name: 'The Moth StorySLAM Atlanta', emoji: '🎤',
+    category: 'date', description: 'Monthly true-story open-mic competition at Theatrical Outfit — real people, 5 minutes, no notes. Rotating themes. The energy in the room is unlike anything else. Dima has tickets, debates going, then always regrets missing it. Stop debating and go.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'couple',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '84 Luckie St NW, Atlanta, GA 30303', lat: 33.7592, lng: -84.3924,
+    url: 'https://themoth.org/atlanta', notes: 'Monthly. Check themoth.org for dates and themes. Doors 6:30 PM. Get there early for good seats. Bring a story if you\'re feeling brave.'
+  }
+,  {
+    id: 'e76', name: 'Full Moon Drum Circle (Lake Claire)', emoji: '🌕',
+    category: 'group', description: 'Monthly full moon drum circle in the Lake Claire community forest. You don\'t need a drum — just show up. Free, all-ages, deeply communal. The kind of thing you forget Atlanta has. Monthly reminder that this city has magic.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'group',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 3, parentScore: 4,
+    address: 'Lake Claire Community Land Trust, Atlanta, GA 30307', lat: 33.7666, lng: -84.3306,
+    url: 'https://lakeclairelandtrust.org', notes: 'Full moon monthly — check moon calendar. Starts after dark. Bring something to sit on. 20 min walk from VaHi via the BeltLine.'
+  }
+,  {
+    id: 'e77', name: 'Terminal West', emoji: '🎶',
+    category: 'solo', description: 'Best mid-size music venue in Atlanta — intimate standing floor, excellent acoustics, right on the BeltLine. Home for electronic, indie, and alternative acts. Check their calendar monthly. This is where Galactic Empire, EOTO, and Wax Tailor landed.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'solo',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '887 W Marietta St NW, Atlanta, GA 30318', lat: 33.7881, lng: -84.4045,
+    url: 'https://terminalwestatl.com/events', notes: 'Check calendar monthly. Book early for big acts — sellouts happen fast. Best sound in the city at this capacity.'
+  }
+,  {
+    id: 'e78', name: 'The Eastern', emoji: '🔊',
+    category: 'solo', description: 'ATL\'s premier converted-theater music venue in Reynoldstown — Disclosure played here live (full band, not a DJ set). Great sound, excellent sightlines. Strong electronic and indie programming. Worth monitoring for headliners worth the babysitter cost.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'solo',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '395 Moreland Ave NE, Atlanta, GA 30307', lat: 33.7491, lng: -84.3458,
+    url: 'https://easternatl.com/events', notes: 'Check calendar monthly. Parking on Moreland. Best electronic/indie shows in the city at this size. High ROI per babysitter hour.'
+  }
+,  {
+    id: 'e79', name: 'Variety Playhouse', emoji: '🎷',
+    category: 'date', description: 'Classic all-ages venue in Little Five Points — one of Atlanta\'s best mid-size rooms. Strong for folk, world music, downtempo, and indie acts. Good for a weeknight show that doesn\'t feel like a production to get to.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '1099 Euclid Ave NE, Atlanta, GA 30307', lat: 33.7596, lng: -84.3467,
+    url: 'https://variety-playhouse.com/events', notes: 'Check calendar. All-ages, easy parking off Euclid. 15 min from home. Great for Polyrhythmics, Bonobo, Khruangbin-type acts.'
+  }
+,  {
+    id: 'e80', name: 'Believe Music Hall', emoji: '💃',
+    category: 'group', description: 'Large-capacity electronic and EDM venue downtown — home to Iris Presents productions. Day Shift (daytime events for 30+ crowd) runs here periodically. When you want a proper club night without staying until 3 AM, this is it.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'weekend',
+    duration: '3hr', groupSize: 'group',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '200 Centennial Olympic Park Dr NW, Atlanta, GA 30313', lat: 33.7612, lng: -84.3957,
+    url: 'https://believeatl.com/events', notes: 'Check for Day Shift events (daytime format, 30+ crowd) — much lower activation energy. Regular Iris Presents bookings. Monitor for headliners.'
+  }
+,  {
+    id: 'e81', name: 'Tabernacle Atlanta', emoji: '🏛️',
+    category: 'date', description: 'Restored historic church turned 2,600-cap concert venue downtown. Beautiful interior, good floor and balcony. Broad genre programming — the right mid-large touring act comes through here. Worth checking monthly for a date-night show.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '152 Luckie St NW, Atlanta, GA 30303', lat: 33.759, lng: -84.3927,
+    url: 'https://tabernacleatl.com/events', notes: 'Good seating and floor options. Parking at nearby decks. The architecture alone makes every show feel special.'
+  }
+,  {
+    id: 'e82', name: 'Beetlecat', emoji: '🦪',
+    category: 'date', description: 'Inman Park oyster bar and coastal kitchen on North Highland. Raw bar, craft cocktails, gorgeous patio. The right restaurant for a slow Saturday brunch or a weeknight date when you want good food without the Bacchanalia commitment. Jeannie approved.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 2, parentScore: 5,
+    address: '299 North Highland Ave NE, Atlanta, GA 30307', lat: 33.7612, lng: -84.3546,
+    url: 'https://beetlecatatl.com', notes: 'OpenTable reservation recommended. Brunch on weekends is the move. 10 min from home. Combine with a BeltLine walk after.'
+  }
+,  {
+    id: 'e83', name: 'Monday Night Brewing (West End)', emoji: '🍺',
+    category: 'group', description: 'West Atlanta institution. The Garage taproom has a huge outdoor yard, rotating food trucks, and a chill crowd. Kumars ATL Group meets here. Strong community brewery energy — the anti-Topgolf social night. Go on a weeknight to avoid the Saturay crowds.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'group',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '933 Lee St SW, Atlanta, GA 30310', lat: 33.7364, lng: -84.4077,
+    url: 'https://mondaynightbrewing.com', notes: 'The Garage is the outdoor taproom on Lee St. 15 min from VaHi. Great Thursday evening format. Pair with a food truck.'
+  }
+,  {
+    id: 'e84', name: 'Velvet Note Jazz Club', emoji: '🎺',
+    category: 'date', description: 'Intimate jazz supper club in Alpharetta — one of the best listening rooms in the Southeast. Full dinner service, world-class jazz bookings, low-key sophistication. A bit of a drive but worth it for a special occasion with Jeannie.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '3hr', groupSize: 'couple',
+    free: false, cost: '$$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '4075 Old Milton Pkwy, Alpharetta, GA 30005', lat: 34.0687, lng: -84.2991,
+    url: 'https://thevelvetnote.com', notes: '~40 min north. Reserve well in advance — this place is small and fills up. Dinner + show format. Anniversary-level experience.'
+  }
+,  {
+    id: 'e85', name: 'Kayaking on the Chattahoochee', emoji: '🛶',
+    category: 'solo', description: 'Rent a kayak at REI or Island Ford unit of the Chattahoochee National Recreation Area. Quiet flatwater sections, herons, turtles. The physical reset that doesn\'t feel like exercise. Solo or with one person. No group logistics required.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '2hr', groupSize: 'solo',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: 'Island Ford Unit, 1978 Island Ford Pkwy, Sandy Springs, GA 30350', lat: 33.9772, lng: -84.3582,
+    url: 'https://nps.gov/chat', notes: 'Kayak rentals at High Country Outfitters (Sandy Springs). Flatwater paddling. Go weekday morning for solitude. National recreation area — parking fee applies.'
+  }
+,  {
+    id: 'e86', name: 'Atlanta BeltLine Trail Run', emoji: '🏃',
+    category: 'solo', description: 'Run the full Eastside Trail — Krog Street to Piedmont Park, 2.4 miles. Then connect to Freedom Park for 4+ miles total. Flat, paved, socially activated. This is the best urban running path in the Southeast. Do it before the city wakes up.',
+    effort: 'medium', distance: 'neighborhood', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'solo',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: 'Atlanta BeltLine Eastside Trail, Atlanta, GA 30306', lat: 33.7665, lng: -84.3553,
+    url: 'https://beltline.org', notes: 'Access from Krog Street. Run north to Piedmont Park. Connect to Freedom Park for extra miles. Best before 7:30 AM on weekdays.'
+  }
+,  {
+    id: 'e87', name: 'Stone Mountain Park (Train + Splash Pad)', emoji: '🚂',
+    category: 'family', description: 'Stone Mountain\'s scenic railroad train loops the mountain — Dean will be completely fixated. Summer adds the splash pad. The drive is 30 min but this is a full-half-day family excursion that doesn\'t require hiking.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: 'half-day', groupSize: 'family',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '1000 Robert E. Lee Blvd, Stone Mountain, GA 30083', lat: 33.8088, lng: -84.1499,
+    url: 'https://stonemountainpark.com', notes: 'Buy the adventure pass online. Train ride is the anchor activity for Dean. Splash pad open Memorial Day–Labor Day. Go on a weekday morning.'
+  }
+,  {
+    id: 'e88', name: 'Atlanta Science Festival Exploration Expo', emoji: '🔬',
+    category: 'family', description: 'Annual spring festival at Piedmont Park with 150+ hands-on STEAM exhibits. Free or low-cost. Dean will run from station to station touching everything he\'s not supposed to. This is the best free educational event in the city.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
+    url: 'https://atlantasciencefestival.org', notes: 'Annual March festival. Free. Walk from home. The Exploration Expo at Piedmont Park is the main event — 150+ interactive exhibits.'
+  }
+,  {
+    id: 'e89', name: 'Fulton County Library Storytime', emoji: '📖',
+    category: 'papa', description: 'Free weekly storytime programs at Fulton County branch libraries — Toddler Time (1–3 yr), Preschool Storytime (3–5 yr), and Baby & Me. Already part of the routine via Morningside Branch. The best free weekday morning option with zero logistics.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'morning', bestDays: 'weekday',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: '1117 Johnson Rd NE, Atlanta, GA 30306', lat: 33.7968, lng: -84.3477,
+    url: 'https://afpls.org', notes: 'Morningside Branch has Tuesday and Thursday storytime. Check schedule online. Follow with donuts at Revolution for the classic loop.'
+  }
+,  {
+    id: 'e90', name: 'Strawberry Picking at Jaemor Farms', emoji: '🍓',
+    category: 'family', description: 'U-pick strawberry farm 1.5 hours north. Early May is peak. Dean walking the rows with a bucket, eating more than he picks. The Feldmans come too. This is the spring family tradition worth the drive.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: 'half-day', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: '5340 Cornelia Hwy, Alto, GA 30510', lat: 34.4629, lng: -83.5837,
+    url: 'https://jaemorfarms.com', notes: '1.5 hr north via 985. Strawberry season late April–May. Call ahead for u-pick availability. The Feldmans are the go-to invite. Follow with lunch in Gainesville on the way back.'
+  }
+,  {
+    id: 'e91', name: 'Apple Picking in Blue Ridge', emoji: '🍎',
+    category: 'family', description: 'Day trip to North Georgia apple country in September–October. Mercier Orchards has 300+ acres of u-pick. Dean and Ruby in an apple orchard in fall light — this is the autumn memory you want. Pack a picnic, make a day of it.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: 'full-day', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: '8660 Blue Ridge Dr, Blue Ridge, GA 30513', lat: 34.8648, lng: -84.3282,
+    url: 'https://mercier-orchards.com', notes: '~1.5 hr north via 575. September–October season. Buy cider donuts. The family did it last August and Dima counts it as a core memory.'
+  }
+,  {
+    id: 'e92', name: 'Pumpkin Patch Farm Visit', emoji: '🎃',
+    category: 'family', description: 'Annual October family tradition — head north to a farm with corn mazes, pumpkin picking, hayrides. Dean will want to pick the biggest pumpkin and somehow carry it himself. On the fall bucket list every year for good reason.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: 'half-day', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: '7220 Spout Springs Rd, Flowery Branch, GA 30542', lat: 34.1874, lng: -83.9165,
+    url: 'https://bbsplantfarm.com', notes: 'BB\'s Plant Farm in Flowery Branch (~50 min). October season. Corn maze + pumpkin picking. Invite the Feldmans for a group trip.'
+  }
+,  {
+    id: 'e93', name: 'Outdoor Movie Night (Atlantic Station)', emoji: '🎬',
+    category: 'family', description: 'Free summer outdoor movie series at Atlantic Station. Bring blankets and lawn chairs, grab food from nearby restaurants, watch a film under the stars with the Midtown skyline behind you. Low-effort family evening format.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'seasonal',
+    duration: '3hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: '1380 Atlantic Dr NW, Atlanta, GA 30363', lat: 33.792, lng: -84.4052,
+    url: 'https://atlanticstation.com/events', notes: 'Summer series, June–August. Free. Bring a blanket and snacks. Check schedule at atlanticstation.com. Dean stays up late, considers this a treat.'
+  }
+,  {
+    id: 'e94', name: 'Plaza Theatre', emoji: '🎞️',
+    category: 'date', description: 'Atlanta\'s oldest operating movie theater — indie film, cult screenings, midnight shows. Ponce de Leon, 5 min from home. This is where you go for the film you actually want to see, not the Marvel one. A weekly standing date night option.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '1049 Ponce de Leon Ave NE, Atlanta, GA 30306', lat: 33.7726, lng: -84.3487,
+    url: 'https://plazaatlanta.com', notes: 'Walk from home. Check their calendar for midnight screenings and festivals. No reserved seating — show up 20 min early.'
+  }
+,  {
+    id: 'e95', name: 'Atlanta Symphony Orchestra', emoji: '🎻',
+    category: 'date', description: 'Grammy-winning orchestra at Woodruff Arts Center. Season runs Sept–May. Pops series, classical concerts, family matinees. The cultural anchor Atlanta punches above its weight with. Book when a program speaks to you.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '1280 Peachtree St NE, Atlanta, GA 30309', lat: 33.7902, lng: -84.3853,
+    url: 'https://aso.org/events', notes: 'Check fall season announcement in August. Pops series is more accessible for casual nights. Pre-show dinner at Ecco next door.'
+  }
+,  {
+    id: 'e96', name: 'District Atlanta', emoji: '🎧',
+    category: 'solo', description: 'Atlanta\'s premier underground electronic club. Multi-room, world-class DJ bookings (house, techno, melodic). For when the headliner is worth the late night. Nora En Pure, Wax Motif, John Summit territory. Monitor 19hz.info for announcements.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'weekend',
+    duration: '3hr', groupSize: 'solo',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '180 Walker St SW, Atlanta, GA 30313', lat: 33.7474, lng: -84.3968,
+    url: 'https://districtatlanta.com/events', notes: 'Check 19hz.info for underground listings. Arrive by midnight for the peak set. Fri–Sat only. Babysitter + Lyft = the right logistics model.'
+  }
+,  {
+    id: 'e97', name: 'Highland Yoga', emoji: '🧘',
+    category: 'solo', description: 'Community yoga studio in Virginia-Highland, 5 minutes from home. Power Flow classes Mon/Wed/Fri. This is Dima\'s neighborhood anchor for solo reset — shows up multiple times in the calendar. The place you go when you need to be in your body.',
+    effort: 'medium', distance: 'neighborhood', timeOfDay: 'morning', bestDays: 'weekday',
+    duration: '1hr', groupSize: 'solo',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '842 North Highland Ave NE, Atlanta, GA 30306', lat: 33.7806, lng: -84.356,
+    url: 'https://highland-yoga.com', notes: 'Walk from home. Power Flow is the Dima class. HY community newsletter is worth subscribing to for connected events.'
+  }
+,  {
+    id: 'e98', name: 'Decatur Square', emoji: '☕',
+    category: 'papa', description: 'Walkable town square with toy shops, coffee, bookstores, and wide sidewalks. The Decatur Toy Park is steps away. Dean and Papa can do the toy store + playground + coffee loop in 90 minutes with zero coordination. Great alternative to the VaHi neighborhood circuit.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: 'Decatur Square, Decatur, GA 30030', lat: 33.7748, lng: -84.2963,
+    url: 'https://decaturga.com', notes: '10 min from VaHi. Toy shop → Decatur Toy Park (playground) → Dancing Goats Coffee. The route Dima has done twice. Works in all weather.'
+  }
+,  {
+    id: 'e99', name: 'Switchyards (Co-Working / Focus Escape)', emoji: '💻',
+    category: 'solo', description: 'Members-only neighborhood co-working club across Va-Hi, Toco Hills, and Old Fourth Ward. Dima rejoined in March 2026. The answer to \'I need to get out of the house to think.\' Three locations, all walkable or close. Phone booths. Good coffee.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'anytime', bestDays: 'weekday',
+    duration: '3hr', groupSize: 'solo',
+    free: false, cost: 'Member', membershipIncluded: true, membershipVenue: 'Switchyards',
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '973 N Highland Ave NE, Atlanta, GA 30306', lat: 33.7861, lng: -84.3554,
+    url: 'https://switchyards.com', notes: 'Member. Also Toco Hills (2205 Lavista Rd) and Old Fourth Ward locations. Great for deep work blocks when home feels chaotic.'
+  }
+,  {
+    id: 'e100', name: 'Ponce City Market Food Hall', emoji: '🌮',
+    category: 'family', description: 'Central Market food hall with 20+ vendors. Dean\'s personal highlights: the toy piano on the main floor, the glass elevators (he rode them 20 times), and donuts. Zero planning, max sensory input, multiple adult food options. The easy Saturday outing.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'anytime', bestDays: 'any',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '675 Ponce De Leon Ave NE, Atlanta, GA 30308', lat: 33.7723, lng: -84.3632,
+    url: 'https://poncecitymarket.com', notes: 'Walk or bike from home. The toy piano is near the main entrance — Dean will find it. Combine with BeltLine south for a 2hr morning out.'
+  }
+,  {
+    id: 'e101', name: 'St. Patrick\'s Day Parade', emoji: '☘️',
+    category: 'family', description: 'One of the Southeast\'s biggest St. Patrick\'s Day parades down Peachtree Street in Midtown. Free sidewalk viewing, floats, bagpipes, festive chaos. Dean\'s perfect energy — noise, color, movement. Annual March tradition.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: 'Peachtree St NE, Midtown Atlanta, GA 30309', lat: 33.7817, lng: -84.3839,
+    url: 'https://atlantastpatsparade.com', notes: 'Annual, Saturday before/on March 17. Free. Park in Midtown and walk to a spot on Peachtree. Stroller-accessible. Get there 30 min early for a good sidewalk position.'
+  }
+,  {
+    id: 'e102', name: 'Sauna / Spa Day (Rejuvenation Spa)', emoji: '🛁',
+    category: 'solo', description: 'Dima has had sauna on his bucket list since requesting a Fjord refund. A dedicated solo spa reset — steam, sauna, maybe a massage. The recovery activity for a high-output week. Not a luxury, a maintenance move.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekday',
+    duration: '2hr', groupSize: 'solo',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '2000 Powers Ferry Rd SE, Marietta, GA 30067', lat: 33.9135, lng: -84.468,
+    url: 'https://rejuvenationspa.com', notes: 'Check for Korean day spas as well — SpaJa (Johns Creek) or Jeju Sauna (Duluth) are strong options for longer sauna-focused visits.'
+  }
+,  {
+    id: 'e103', name: 'Atlanta Film Festival', emoji: '🎥',
+    category: 'date', description: 'Annual independent film festival each April. Indie screenings, filmmaker Q&As, panels. Strong community of film lovers. The right date night format when you want substance over spectacle. Check for family-friendly screening blocks too.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: 'Various venues, Atlanta, GA 30308', lat: 33.7726, lng: -84.3487,
+    url: 'https://atlantafilmfestival.com', notes: 'Annual, mid-April. 10-day festival across multiple venues. Tickets by screening. Check their website in March for full lineup.'
+  }
+,  {
+    id: 'e104', name: 'Fernbank Museum — Orkin Discovery Zone', emoji: '🦋',
+    category: 'family', description: 'New hands-on kids exhibit at Fernbank — high energy, curiosity-focused, built for young children. Member preview access noted. Dean will run laps. This is the upgrade over the main dino hall for the 3–6 year old set.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekday',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: 'Member', membershipIncluded: true, membershipVenue: 'Fernbank',
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '767 Clifton Rd NE, Atlanta, GA 30307', lat: 33.7813, lng: -84.3227,
+    url: 'https://fernbankmuseum.org/orkin-discovery-zone', notes: 'Member — walk in. New as of 2026. Go weekday morning to avoid crowds. Dean will need more than one visit to exhaust this exhibit.'
+  }
+,  {
+    id: 'e105', name: 'Kite Flying at Piedmont Park', emoji: '🪁',
+    category: 'papa', description: 'Get a cheap kite, head to the active oval at Piedmont Park, and let Dean run with it. Simplest possible activity — completely absorbs him for an hour while you just watch. On the family bucket list every year. The antidote to over-planning.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
+    url: 'https://piedmontpark.org', notes: 'Buy a $6 kite at Target. The active oval is the best open field. Spring and fall have the best wind. This is a perfect Dima-Dean morning.'
+  }
+,  {
+    id: 'e106', name: 'Illuminarium Atlanta', emoji: '🌌',
+    category: 'family', description: '360° floor-to-ceiling immersive projection experience in Old Fourth Ward — rotating themes (Space, Safari, etc.). Dean will have absolutely no framework for what he\'s experiencing, which makes it perfect. Strong date night option too.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'any',
+    duration: '1hr', groupSize: 'family',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '550 Somerset Terrace NE, Atlanta, GA 30306', lat: 33.7599, lng: -84.3649,
+    url: 'https://atlanta.illuminarium.com', notes: 'Book online. 15 min from home. Check what theme is running before booking — Space and Safari are the strongest. ~60 min experience.'
+  }
+,  {
+    id: 'e107', name: 'Inman Park Festival & Tour of Homes', emoji: '🏡',
+    category: 'family', description: 'Annual late-April neighborhood festival with parade, artisan market, live music, and a tour of Inman Park\'s Victorian homes. Free admission. Stroller-easy, 10 min from home. The best gateway spring festival on the calendar.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'seasonal',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 3, parentScore: 4,
+    address: 'Inman Park, Atlanta, GA 30307', lat: 33.7575, lng: -84.3571,
+    url: 'https://inmanparkfestival.org', notes: 'Annual, late April. Free. Walk or BeltLine from home. The parade is Saturday morning — go early. Festival continues all weekend.'
+  }
+,  {
+    id: 'e108', name: 'Chastain Park Amphitheatre', emoji: '🎼',
+    category: 'date', description: 'Outdoor amphitheater with a BYO food and wine policy. Tables up front, lawn in back. The most civilized summer concert experience — you bring a picnic, they bring the headliner. Season May–October. A date format that doesn\'t require planning around restaurants.',
+    effort: 'medium', distance: 'ITP', timeOfDay: 'evening', bestDays: 'seasonal',
+    duration: '3hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '4469 Stella Dr NW, Atlanta, GA 30327', lat: 33.8794, lng: -84.3849,
+    url: 'https://cadencebankamphitheatre.com/events', notes: 'BYO food and wine is the key feature. Lawn chairs for back lawn. Book tables up front for an elevated experience. Summer season May–October.'
+  }
+,  {
+    id: 'e109', name: 'Alpaca Farm Visit (Georgia)', emoji: '🦙',
+    category: 'family', description: 'Visit a working alpaca farm north of Atlanta — feed the alpacas, walk the pasture, maybe buy some wool. Dean will be completely confused and delighted. More unusual than a petting zoo, lower logistics than Noah\'s Ark.',
+    effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '2hr', groupSize: 'family',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: 'Maplewood Farm Alpacas, 680 Maplewood Farm Dr, Canton, GA 30115', lat: 34.2553, lng: -84.4927,
+    url: 'https://maplewoodfarmalpacas.com', notes: '~45 min north via 575. Book visits through the website. Combine with a Canton stop on the way back. Weekend only.'
+  }
+,  {
+    id: 'e110', name: 'Atlanta Streets Alive', emoji: '🚶',
+    category: 'family', description: 'Free recurring event closing major Atlanta streets to cars and opening them to bikes, scooters, and foot traffic. Multiple 2026 dates (Apr, May, Jun, Sep, Oct, Nov). Rotating routes — MLK/BeltLine, Peachtree, West End/Grant Park. A massive citywide playground.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '2hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: 'Various routes, Atlanta, GA (HQ: 100 Peachtree St NW)', lat: 33.7559, lng: -84.3884,
+    url: 'https://atlantastreetsalive.com', notes: '2026 dates: Apr 19, May 31, Jun 14, Sep 27, Oct 18, Nov 8. Free. Bring Dean\'s bike or scooter. Best family format in the city.'
   }
 ];

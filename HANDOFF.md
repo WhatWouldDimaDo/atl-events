@@ -1,5 +1,5 @@
 # ATL Radar — Agent Handoff (Cold-Start Doc)
-**Updated:** 2026-07-06 | **Session:** Mass event + image enrichment (41 → 116 events)
+**Updated:** 2026-07-07 | **Session:** Fable Tier 1-3 + event sweep + Batch A (see Sessions/ATL-RADAR-CRM-FABLE-SESSION-2026-07-06.md) — **145 events, live on main**
 
 ---
 
@@ -36,7 +36,7 @@
 | `index.html` | HTML structure. Contains `#surprise-strip` div after events grid |
 | `app.js` | All site logic. See function map below |
 | `style.css` | All CSS. New blocks at bottom: `.surprise-strip`, `.er-axis-star`, `.btn-cal` |
-| `data.js` | EVENTS array (116) + EVERGREEN array (142). `TODAY = '2026-07-06'` — **update at session start** |
+| `data.js` | EVENTS array (145) + EVERGREEN array (142). `TODAY = '2026-07-07'` — **update at session start** |
 | `about.html` | About page |
 | `vercel.json` | Static site config, security headers, cache control |
 

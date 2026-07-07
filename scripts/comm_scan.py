@@ -633,6 +633,78 @@ def merge_gc_results(im_gc: dict, call_gc: dict) -> dict:
     return result
 
 
+# --- Awaiting-reply scanner (2026-07-06 — automates the Jun 14 manual thread-map) ---
+
+AWAITING_REPLY_MIN_DAYS = 3
+AWAITING_REPLY_MAX_DAYS = 60   # older than this is dormancy (overdue tracking's job), not a nudge
+
+
+def scan_awaiting_reply(crm: dict) -> dict[str, dict]:
+    """Find CRM people whose DM thread ends with an unanswered message FROM Dima.
+
+    'Overdue' means it's time to reach out; 'awaiting reply' means Dima already
+    did and they went quiet — a different action (nudge or let go, not re-open).
+    Returns {name: {since, days}} for threads stale >= AWAITING_REPLY_MIN_DAYS days.
+    """
+    if not IMESSAGE_DB.exists():
+        return {}
+    try:
+        conn = sqlite3.connect(f"file:{IMESSAGE_DB}?mode=ro", uri=True)
+        conn.execute("SELECT 1 FROM message LIMIT 1")
+    except Exception:
+        try:
+            conn = sqlite3.connect(f"file:{IMESSAGE_DB}?mode=ro&immutable=1", uri=True)
+        except Exception:
+            return {}
+    conn.execute("PRAGMA query_only=ON")
+
+    handle_rows: dict[str, list[int]] = {}
+    for rowid, hid in conn.execute("SELECT ROWID, id FROM handle"):
+        norm = normalize_phone(hid) if "@" not in hid else hid.lower().strip()
+        if norm:
+            handle_rows.setdefault(norm, []).append(rowid)
+
+    chat_sizes = dict(conn.execute(
+        "SELECT chat_id, COUNT(*) FROM chat_handle_join GROUP BY chat_id"))
+
+    out: dict[str, dict] = {}
+    now = datetime.now()
+    for name, info in crm.items():
+        handles = [normalize_phone(info.get("phone", "")),
+                   normalize_phone(info.get("iMessage_handle", "")),
+                   (info.get("email") or "").lower().strip() or None]
+        rowids = [r for h in handles if h for r in handle_rows.get(h, [])]
+        if not rowids:
+            continue
+        ph = ",".join("?" * len(rowids))
+        dm_chats = [cid for (cid,) in conn.execute(
+            f"SELECT DISTINCT chat_id FROM chat_handle_join WHERE handle_id IN ({ph})",
+            rowids) if chat_sizes.get(cid, 0) <= 2]
+        if not dm_chats:
+            continue
+        cph = ",".join("?" * len(dm_chats))
+        row = conn.execute(
+            f"SELECT m.is_from_me, MAX(m.date) FROM message m "
+            f"JOIN chat_message_join j ON j.message_id = m.ROWID "
+            f"WHERE j.chat_id IN ({cph})", dm_chats).fetchone()
+        if not row or row[1] is None:
+            continue
+        # MAX(date) row's is_from_me isn't guaranteed by SQLite semantics — re-fetch properly
+        last = conn.execute(
+            f"SELECT m.is_from_me, m.date FROM message m "
+            f"JOIN chat_message_join j ON j.message_id = m.ROWID "
+            f"WHERE j.chat_id IN ({cph}) ORDER BY m.date DESC LIMIT 1", dm_chats).fetchone()
+        if not last or last[0] != 1:
+            continue  # last word was theirs (or empty) — not awaiting
+        sent_at = APPLE_EPOCH + timedelta(seconds=last[1] / IMESSAGE_NS_DIVISOR)
+        days = (now - sent_at).days
+        if AWAITING_REPLY_MIN_DAYS <= days <= AWAITING_REPLY_MAX_DAYS:
+            out[name] = {"since": sent_at.strftime("%Y-%m-%d"), "days": days}
+
+    conn.close()
+    return out
+
+
 # --- Phase C: availability scanner ---
 
 def scan_availability(phone_to_name: dict, email_to_name: dict) -> dict[str, dict]:
@@ -947,9 +1019,17 @@ def main():
             norm = normalize_phone(handle)
             nc["name"] = address_book.get(norm) if norm else None
 
+    # Awaiting-reply detection (threads where Dima texted last, no response 3+ days)
+    awaiting = scan_awaiting_reply(crm)
+    if awaiting:
+        print(f"  Awaiting reply ({len(awaiting)}): " +
+              ", ".join(f"{n} ({d['days']}d)" for n, d in
+                        sorted(awaiting.items(), key=lambda x: -x[1]['days'])[:5]))
+
     output = {
         "generated": datetime.now().isoformat(timespec="seconds"),
         "source": "iMessage + CallHistory",
+        "awaiting_reply": dict(sorted(awaiting.items(), key=lambda x: -x[1]["days"])),
         "crm_total": len(crm),
         "matched": len(people),
         "gc_known_count": len(gc_known),

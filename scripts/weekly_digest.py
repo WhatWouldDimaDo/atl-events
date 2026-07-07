@@ -178,6 +178,27 @@ def build_manual_only_section(results: dict) -> str:
     return "\n".join(lines)
 
 
+def build_awaiting_reply_section(results: dict) -> str:
+    """'Awaiting Reply' — Dima texted last, no response 3+ days. Different action
+    than overdue: a nudge (or letting go), not a fresh reach-out."""
+    awaiting = results.get("awaiting_reply", {})
+    # Jeannie is household logistics, not social follow-up
+    awaiting = {n: d for n, d in awaiting.items() if n != "Jeannie Perkis"}
+    if not awaiting:
+        return ""
+    lines = [
+        "### Awaiting Reply",
+        "*You texted last and they haven't answered — nudge or let it go*",
+        "",
+        "| Person | Your last text | Silent for |",
+        "|--------|---------------|------------|",
+    ]
+    for name, d in list(awaiting.items())[:10]:
+        lines.append(f"| {name} | {d['since']} | {d['days']}d |")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def build_availability_section(today: date) -> str:
     """'Availability Flags' — Phase C signals from crm_database.json.
 
@@ -236,9 +257,10 @@ def assemble_digest(today: date, comm_results: dict, social_brief: str) -> str:
     this_week   = build_this_week_section(comm_results, today)
     new_inbox   = build_new_contacts_section(comm_results)
     manual_only = build_manual_only_section(comm_results)
+    awaiting = build_awaiting_reply_section(comm_results)
     availability = build_availability_section(today)
 
-    parts = [header, this_week, new_inbox]
+    parts = [header, this_week, awaiting, new_inbox]
     if manual_only:
         parts.append(manual_only)
     if availability:

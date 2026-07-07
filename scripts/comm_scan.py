@@ -68,6 +68,46 @@ PLATFORM_IN_PERSON = "in_person"
 NEW_CONTACT_MIN_MSGS  = 3
 NEW_CONTACT_MIN_CALLS = 1
 
+# --- Phase C: availability signal extraction (CRM-AUTOMATION-SPEC §2.2/§3.3) ---
+AVAILABILITY_LOOKBACK_DAYS = 30
+AVAILABILITY_EXPIRY_DAYS   = 14
+
+AVAILABILITY_PATTERNS = {
+    "traveling": [
+        r"out of town",
+        r"out of the country",
+        r"traveling (?:until|through|till)",
+        r"in (?:NYC|LA|Chicago|Miami|Europe|[A-Z][a-z]+ for \d+ days)",
+        r"gone (?:until|through|this week)",
+        r"back (?:on|monday|tuesday|wednesday|thursday|friday|[A-Z][a-z]+day)",
+        r"back (?:next week|in \d+ days)",
+    ],
+    "available": [
+        r"just got back",
+        r"back in (?:ATL|Atlanta|town)",
+        r"back home",
+        r"home now",
+    ],
+    "heads_down": [
+        r"crazy week",
+        r"slammed",
+        r"super busy (?:until|till|through|this)",
+        r"heads down",
+    ],
+    "open": [
+        r"free (?:this|next) (?:weekend|week|friday|saturday|sunday)",
+        r"down for (?:something|anything|plans)",
+        r"what are you (?:up to|doing) (?:this|next)",
+        r"let'?s (?:do something|hang|get together)",
+    ],
+}
+# Compile once; check in signal-priority order (freshest message wins overall,
+# but within one message "available" beats "traveling" etc. by this order)
+_AVAIL_COMPILED = [
+    (status, re.compile("|".join(pats), re.IGNORECASE))
+    for status, pats in AVAILABILITY_PATTERNS.items()
+]
+
 
 # --- Phone / handle normalization ---
 
@@ -593,6 +633,110 @@ def merge_gc_results(im_gc: dict, call_gc: dict) -> dict:
     return result
 
 
+# --- Phase C: availability scanner ---
+
+def scan_availability(phone_to_name: dict, email_to_name: dict) -> dict[str, dict]:
+    """Scan incoming iMessage content (last 30 days) for availability signals.
+
+    Only is_from_me = 0 (what the contact said). Freshest signal per person
+    wins. Returns {name: {status, note, detected, expires}}.
+
+    Uses plain mode=ro (NOT immutable=1) so WAL-buffered recent messages are
+    included when the -shm file is readable; falls back to immutable if the
+    plain open fails.
+    """
+    if not IMESSAGE_DB.exists():
+        return {}
+    conn = None
+    for uri in (f"file:{IMESSAGE_DB}?mode=ro", f"file:{IMESSAGE_DB}?mode=ro&immutable=1"):
+        try:
+            conn = sqlite3.connect(uri, uri=True)
+            conn.execute("SELECT 1 FROM message LIMIT 1")
+            break
+        except Exception:
+            conn = None
+    if conn is None:
+        print("  [WARN] Cannot read chat.db for availability scan")
+        return {}
+    conn.execute("PRAGMA query_only=ON")
+
+    lookback = datetime.now() - timedelta(days=AVAILABILITY_LOOKBACK_DAYS)
+    lookback_ns = int((lookback - APPLE_EPOCH).total_seconds() * IMESSAGE_NS_DIVISOR)
+
+    query = """
+        SELECT h.id, m.date, m.text, m.attributedBody
+        FROM message m
+        JOIN handle h ON m.handle_id = h.ROWID
+        WHERE m.is_from_me = 0 AND m.date >= ?
+        ORDER BY m.date ASC
+    """
+
+    flags: dict[str, dict] = {}
+    for handle_id, date_ns, text_val, attr_body in conn.execute(query, (lookback_ns,)):
+        if not handle_id:
+            continue
+        if "@" in handle_id:
+            name = email_to_name.get(handle_id.lower().strip())
+        else:
+            norm = normalize_phone(handle_id)
+            name = phone_to_name.get(norm) if norm else None
+        if not name:
+            continue
+        text = extract_message_text(text_val, attr_body)
+        if not text or len(text) > 2000:
+            continue
+        for status, rx in _AVAIL_COMPILED:
+            m = rx.search(text)
+            if m:
+                detected = (APPLE_EPOCH + timedelta(seconds=date_ns / IMESSAGE_NS_DIVISOR))
+                snippet = text.strip().replace("\n", " ")
+                if len(snippet) > 120:
+                    lo = max(0, m.start() - 40)
+                    snippet = ("…" if lo else "") + snippet[lo:lo + 120] + "…"
+                # ORDER BY date ASC → later messages simply overwrite
+                flags[name] = {
+                    "status": status,
+                    "note": snippet,
+                    "detected": detected.strftime("%Y-%m-%d"),
+                    "expires": (detected + timedelta(days=AVAILABILITY_EXPIRY_DAYS)).strftime("%Y-%m-%d"),
+                }
+                break
+
+    conn.close()
+    # Drop signals that are already past their 14-day expiry
+    today = datetime.now().strftime("%Y-%m-%d")
+    return {n: f for n, f in flags.items() if f["expires"] >= today}
+
+
+def write_availability(avail: dict[str, dict], dry_run: bool = False) -> tuple[int, int]:
+    """Write availability flags to crm_database.json; expire stale ones.
+
+    Returns (set_count, expired_count).
+    """
+    with open(CRM_DB) as f:
+        db = json.load(f)
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    set_n = expired_n = 0
+    for name, entry in db.items():
+        if name in avail:
+            if entry.get("availability") != avail[name]:
+                set_n += 1
+                if not dry_run:
+                    entry["availability"] = avail[name]
+        else:
+            existing = entry.get("availability")
+            if existing and existing.get("expires", "") < today:
+                expired_n += 1
+                if not dry_run:
+                    entry["availability"] = None
+
+    if not dry_run and (set_n or expired_n):
+        with open(CRM_DB, "w") as f:
+            json.dump(db, f, indent=2, ensure_ascii=False)
+    return set_n, expired_n
+
+
 # --- CRM writeback ---
 
 def write_crm_updates(people: dict, crm: dict, dry_run: bool = False) -> list[dict]:
@@ -839,6 +983,15 @@ def main():
         sae_updates = update_sae_cadence(people, gc_known, dry_run=dry_run)
         verb = "would advance" if dry_run else "advanced"
         print(f"  {sae_updates} SAE cadence dates {verb}")
+
+        # Phase C: availability signal extraction (30d lookback, 14d expiry)
+        print(f"  {label}Scanning availability signals...")
+        avail = scan_availability(phone_to_name, email_to_name)
+        set_n, expired_n = write_availability(avail, dry_run=dry_run)
+        print(f"  {len(avail)} active signals  |  {set_n} written, {expired_n} expired" if not dry_run
+              else f"  {len(avail)} active signals  |  {set_n} would be written, {expired_n} would expire")
+        for n, f in list(avail.items())[:6]:
+            print(f"    {n}: {f['status']} ({f['detected']})")
 
         write_log(changes, people, new_contacts, dry_run=dry_run)
     else:

@@ -178,6 +178,45 @@ def build_manual_only_section(results: dict) -> str:
     return "\n".join(lines)
 
 
+def build_availability_section(today: date) -> str:
+    """'Availability Flags' — Phase C signals from crm_database.json.
+
+    People flagged available/open are outreach candidates; traveling people
+    should be skipped for near-term invites; heads_down = go easy.
+    """
+    crm_path = Path.home() / "Documents/Brain/02_Areas/Friends/crm_database.json"
+    try:
+        db = json.loads(crm_path.read_text())
+    except Exception:
+        return ""
+
+    today_iso = today.isoformat()
+    flags = [
+        (name, a) for name, entry in db.items()
+        if (a := entry.get("availability")) and a.get("expires", "") >= today_iso
+    ]
+    if not flags:
+        return ""
+
+    order = {"open": 0, "available": 1, "traveling": 2, "heads_down": 3}
+    flags.sort(key=lambda x: order.get(x[1].get("status"), 9))
+
+    labels = {"open": "🟢 open", "available": "🟢 available",
+              "traveling": "✈️ traveling — skip invites", "heads_down": "🔴 heads-down"}
+    lines = [
+        "### Availability Flags",
+        "*From iMessage content (last 30 days, 14-day expiry) — Phase C*",
+        "",
+        "| Person | Status | Signal | Detected |",
+        "|--------|--------|--------|----------|",
+    ]
+    for name, a in flags:
+        note = (a.get("note") or "").replace("|", "\\|")[:80]
+        lines.append(f"| {name} | {labels.get(a['status'], a['status'])} | {note} | {a.get('detected','?')} |")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def assemble_digest(today: date, comm_results: dict, social_brief: str) -> str:
     """Assemble the full weekly digest markdown."""
     generated_ts = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -197,10 +236,13 @@ def assemble_digest(today: date, comm_results: dict, social_brief: str) -> str:
     this_week   = build_this_week_section(comm_results, today)
     new_inbox   = build_new_contacts_section(comm_results)
     manual_only = build_manual_only_section(comm_results)
+    availability = build_availability_section(today)
 
     parts = [header, this_week, new_inbox]
     if manual_only:
         parts.append(manual_only)
+    if availability:
+        parts.append(availability)
     parts.append("---\n")
     parts.append(social_brief.strip())
     parts.append(

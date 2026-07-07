@@ -10,6 +10,7 @@ Usage:
 """
 import json
 import re
+import subprocess
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -215,6 +216,110 @@ def load_events(path: Path, today: date) -> list[dict]:
     return future
 
 
+# --- Phase B: Google Calendar slot awareness (FR-06 / CRM-BEST-PRACTICES B1-B3) ---
+
+SLOT_HORIZON_DAYS = 14
+BABYSITTER_RE = re.compile(r"babysit|sitter|nanny|au pair", re.IGNORECASE)
+
+
+def fetch_calendar_events(today: date, days: int = SLOT_HORIZON_DAYS) -> list[dict] | None:
+    """Fetch events from the primary Google Calendar via the gws CLI.
+
+    Returns a list of {date, start_hour, end_hour, all_day, summary} dicts,
+    or None if the calendar is unavailable (gws missing, auth expired, etc.).
+    Callers must treat None as "no gating possible", not "calendar empty".
+    """
+    params = json.dumps({
+        "calendarId": "primary",
+        "timeMin": f"{today.isoformat()}T00:00:00Z",
+        "timeMax": f"{(today + timedelta(days=days)).isoformat()}T00:00:00Z",
+        "singleEvents": True,
+        "orderBy": "startTime",
+        "maxResults": 250,
+    })
+    try:
+        proc = subprocess.run(
+            ["gws", "calendar", "events", "list", "--params", params],
+            capture_output=True, text=True, timeout=30,
+        )
+        data = json.loads(proc.stdout)
+        if "error" in data or "items" not in data:
+            return None
+    except Exception:
+        return None
+
+    out = []
+    for item in data.get("items", []):
+        if item.get("status") == "cancelled" or item.get("transparency") == "transparent":
+            continue
+        start, end = item.get("start", {}), item.get("end", {})
+        if "date" in start:  # all-day
+            out.append({"date": start["date"], "start_hour": None, "end_hour": None,
+                        "all_day": True, "summary": item.get("summary", "")})
+            continue
+        try:
+            sdt = datetime.fromisoformat(start.get("dateTime", "").replace("Z", "+00:00")).astimezone()
+            edt = datetime.fromisoformat(end.get("dateTime", "").replace("Z", "+00:00")).astimezone()
+        except ValueError:
+            continue
+        out.append({"date": sdt.date().isoformat(),
+                    "start_hour": sdt.hour + sdt.minute / 60,
+                    "end_hour": edt.hour + edt.minute / 60,
+                    "all_day": False, "summary": item.get("summary", "")})
+    return out
+
+
+def compute_open_slots(cal_events: list[dict], today: date,
+                       days: int = SLOT_HORIZON_DAYS) -> list[dict]:
+    """Compute open social slots from calendar busy-time (FR-06 rules).
+
+    - DATE_NIGHT:  evening free after 6 PM; "confirmed" only when a babysitter
+                   keyword event exists that day, else flagged "book sitter"
+                   (social events rarely reach the calendar — Apr 30 finding)
+    - GROUP_NIGHT: weeknight free 7 PM+, no meeting before 8 AM next morning
+    - FAMILY_OUT:  Sat/Sun free 9 AM-2 PM
+    - SOLO_RESET:  morning free before 9 AM
+    """
+    by_date: dict[str, list[dict]] = {}
+    for e in cal_events:
+        by_date.setdefault(e["date"], []).append(e)
+
+    def busy(day_iso: str, h1: float, h2: float) -> bool:
+        return any(
+            not e["all_day"] and e["start_hour"] is not None
+            and e["start_hour"] < h2 and e["end_hour"] > h1
+            for e in by_date.get(day_iso, [])
+        )
+
+    slots = []
+    for offset in range(days):
+        day = today + timedelta(days=offset)
+        iso = day.isoformat()
+        wd = day.weekday()  # 0=Mon .. 6=Sun
+        next_iso = (day + timedelta(days=1)).isoformat()
+        early_next = any(
+            not e["all_day"] and e["start_hour"] is not None and e["start_hour"] < 8
+            for e in by_date.get(next_iso, [])
+        )
+        evening_free = not busy(iso, 18, 23)
+        sitter = any(BABYSITTER_RE.search(e["summary"] or "") for e in by_date.get(iso, []))
+
+        if wd < 5 and evening_free and not early_next:
+            slots.append({"date": iso, "day": day.strftime("%a"), "slot": "GROUP_NIGHT",
+                          "window": "7 PM+", "note": ""})
+        if evening_free and (sitter or wd in (4, 5)):  # sitter-confirmed, or Fri/Sat
+            slots.append({"date": iso, "day": day.strftime("%a"), "slot": "DATE_NIGHT",
+                          "window": "evening",
+                          "note": "sitter booked" if sitter else "book sitter"})
+        if wd >= 5 and not busy(iso, 9, 14):
+            slots.append({"date": iso, "day": day.strftime("%a"), "slot": "FAMILY_OUT",
+                          "window": "9 AM-2 PM", "note": ""})
+        if not busy(iso, 6, 9):
+            slots.append({"date": iso, "day": day.strftime("%a"), "slot": "SOLO_RESET",
+                          "window": "before 9 AM", "note": ""})
+    return slots
+
+
 def match_events_to_person(person: dict, events: list[dict], today: date) -> list[dict]:
     """Find events matching this person's slot types, respecting lead time."""
     person_slots = set(person.get("slots", []))
@@ -332,8 +437,13 @@ def best_friends_for_event(
     return {"inner": inner, "outreach": outreach}
 
 
-def generate_brief(people: list[dict], events: list[dict], today: date) -> str:
-    """Generate the full Social Brief as markdown."""
+def generate_brief(people: list[dict], events: list[dict], today: date,
+                   open_slots: list[dict] | None = None) -> str:
+    """Generate the full Social Brief as markdown.
+
+    open_slots: output of compute_open_slots(), or None when the calendar is
+    unavailable — then no slot gating is applied (pre-Phase-B behavior).
+    """
     lines = []
     lines.append(f"## Social Scan — Week of {today.strftime('%b %d')}")
     lines.append("")
@@ -347,12 +457,46 @@ def generate_brief(people: list[dict], events: list[dict], today: date) -> str:
     all_overdue = [p for p in people if p["_priority"] > 0]
     all_overdue.sort(key=lambda p: -p["_priority"])
 
+    # --- Open Slots This Week (Phase B3) ---
+    open_dates: dict[str, set[str]] = {}
+    if open_slots is None:
+        lines.append("_Calendar unavailable (gws auth expired or offline) — "
+                     "event suggestions are NOT gated by your actual schedule._")
+        lines.append("")
+    else:
+        for s in open_slots:
+            open_dates.setdefault(s["slot"], set()).add(s["date"])
+        lines.append("### Open Slots This Week")
+        lines.append("")
+        lines.append("| Date | Day | Slot | Window | Note |")
+        lines.append("|------|-----|------|--------|------|")
+        shown = 0
+        for s in open_slots:
+            if s["slot"] == "SOLO_RESET" and shown > 14:
+                continue  # solo mornings are plentiful — don't drown the table
+            lines.append(f"| {s['date']} | {s['day']} | {s['slot']} | {s['window']} | {s['note']} |")
+            shown += 1
+        lines.append("")
+
     # --- Select events per slot type (ensures diversity) ---
+    # Phase B2 gating: events inside the calendar horizon must land on an open
+    # slot date for their slot type; events beyond the horizon pass through.
+    def slot_open(e: dict, slot: str) -> bool:
+        if open_slots is None:
+            return True
+        ev_date = datetime.strptime(e["date"], "%Y-%m-%d").date()
+        if (ev_date - today).days >= SLOT_HORIZON_DAYS:
+            return True
+        return e["date"] in open_dates.get(slot, set())
+
     slot_events = {}
     for slot in SLOTS_TO_SHOW:
-        candidates = [e for e in events if slot in e.get("slots", [])]
+        candidates = [e for e in events
+                      if slot in e.get("slots", []) and slot_open(e, slot)]
         candidates.sort(key=lambda e: -e.get("score", 0))
         slot_events[slot] = candidates[:MAX_PER_SLOT.get(slot, 3)]
+        if open_slots is not None and not candidates and not open_dates.get(slot):
+            slot_events[slot] = []  # section will be skipped — no phantom suggestions
 
     # Track outreach names used across all events to avoid repetition
     used_outreach = set()
@@ -534,6 +678,17 @@ def main():
     events = load_events(EVENTS_JSON, today)
     print(f"Loaded {len(events)} future events", file=sys.stderr)
 
+    # Phase B: calendar slot awareness (graceful when gws is unavailable)
+    open_slots = None
+    if "--no-cal" not in sys.argv:
+        cal_events = fetch_calendar_events(today)
+        if cal_events is None:
+            print("Calendar unavailable — skipping slot gating", file=sys.stderr)
+        else:
+            open_slots = compute_open_slots(cal_events, today)
+            print(f"Calendar: {len(cal_events)} events -> {len(open_slots)} open slots",
+                  file=sys.stderr)
+
     if "--json" in sys.argv:
         # Raw JSON output for debugging
         for p in people:
@@ -548,7 +703,7 @@ def main():
         )
         print(json.dumps(output[:20], indent=2, default=str))
     else:
-        brief = generate_brief(people, events, today)
+        brief = generate_brief(people, events, today, open_slots=open_slots)
         print(brief)
 
 

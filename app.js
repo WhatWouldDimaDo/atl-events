@@ -54,6 +54,28 @@ function rsvpButtonsHTML(id) {
   </div>`;
 }
 
+// ─── DRIVE TIME (item 9) — estimated minutes from Va-Highland, no API ───────
+const HOME = { lat: 33.7885, lng: -84.3565 };
+
+function driveMinutes(ev) {
+  if (!ev.lat || !ev.lng) return null;
+  const R = 3959, toR = d => d * Math.PI / 180;
+  const dLat = toR(ev.lat - HOME.lat), dLng = toR(ev.lng - HOME.lng);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toR(HOME.lat)) * Math.cos(toR(ev.lat)) * Math.sin(dLng/2)**2;
+  const miles = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  if (miles < 0.9) return null;             // walkable — skip the car icon
+  return Math.round(5 + miles * 2.8);       // ~21 mph city avg + parking overhead
+}
+
+// ─── URGENCY DECAY (item 7) — ticketed events inside 10 days get a countdown ─
+function soonChip(ev) {
+  if (ev.urgent || ev.free || !ev.ticketUrl) return '';
+  const days = Math.ceil((new Date(ev.date) - SITE_TODAY) / 86400000);
+  if (days < 0 || days > 10) return '';
+  if (INTERNAL && ['in', 'pass', 'attended'].includes(getRSVP(ev.id))) return '';
+  return `<span class="er-soon">⏳${days === 0 ? 'today' : days + 'd'}</span>`;
+}
+
 // ─── SOCIAL LAYER (Track D / Rec 4 — internal mode only) ────────────────────
 // First names only: this file ships publicly (repo + site), full identities
 // stay in social_scan.py / the CRM. Panel renders only when INTERNAL.
@@ -281,9 +303,10 @@ function renderEventCard(ev, idx) {
         <div class="er-thumb cat-${ev.category}">${thumbInner}</div>
         <div class="er-main">
           <div class="er-title">${ev.title}${ev.subtitle ? `<span class="er-sub"> — ${ev.subtitle}</span>` : ''}</div>
-          <div class="er-meta">${ev.dateStr}${ev.time ? ' · '+ev.time : ''} · 📍 ${ev.venue}</div>
+          <div class="er-meta">${ev.dateStr}${ev.time ? ' · '+ev.time : ''} · 📍 ${ev.venue}${driveMinutes(ev) ? ` · 🚗 ~${driveMinutes(ev)} min` : ''}</div>
         </div>
         <div class="er-right">
+          ${soonChip(ev)}
           ${ev.urgent ? `<span class="er-urgent-dot"></span>` : ''}
           ${topScoreAxis(ev)}
           <span class="er-score tier-${ev.tier}">${ev.score}</span>

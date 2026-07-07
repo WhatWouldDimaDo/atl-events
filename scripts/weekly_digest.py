@@ -186,15 +186,23 @@ def build_awaiting_reply_section(results: dict) -> str:
     awaiting = {n: d for n, d in awaiting.items() if n != "Jeannie Perkis"}
     if not awaiting:
         return ""
+    def nudge_draft(name: str, days: int) -> str:
+        first = name.split()[0]
+        if days <= 7:
+            return f"Bumping this one 👆 no stress either way, {first}"
+        if days <= 21:
+            return f"Hey {first} — circling back on my last text. Still game?"
+        return f"Hey {first}, dropping the old thread — how've you been?"
+
     lines = [
         "### Awaiting Reply",
         "*You texted last and they haven't answered — nudge or let it go*",
         "",
-        "| Person | Your last text | Silent for |",
-        "|--------|---------------|------------|",
+        "| Person | Your last text | Silent for | Nudge draft |",
+        "|--------|---------------|------------|-------------|",
     ]
     for name, d in list(awaiting.items())[:10]:
-        lines.append(f"| {name} | {d['since']} | {d['days']}d |")
+        lines.append(f"| {name} | {d['since']} | {d['days']}d | {nudge_draft(name, d['days'])} |")
     lines.append("")
     return "\n".join(lines)
 

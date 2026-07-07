@@ -1932,3 +1932,7 @@ footer { border-top: 1px solid var(--border); }
 /* Rec 2: attended state */
 .rsvp-btn.rsvp-went.active { background: #14B8A6; border-color: #14B8A6; color: #04110f; }
 .event-card.rsvp-attended .er-score { box-shadow: 0 0 0 2px #14B8A6 inset; }
+
+/* item 7: urgency-decay countdown chip */
+.er-soon { font-size: 10px; font-weight: 700; color: #F59E0B; background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.35); border-radius: 999px; padding: 2px 7px; white-space: nowrap; }

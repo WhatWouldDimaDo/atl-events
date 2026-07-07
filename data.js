@@ -1,7 +1,7 @@
 // data.js — ATL Events V2 Data Layer
 // Events: Apr–Sep 2026 (66 curated) | Evergreen: 110 activities
 
-const TODAY = new Date('2026-07-06');
+const TODAY = new Date('2026-07-07');
 
 const EVENTS = [
   {

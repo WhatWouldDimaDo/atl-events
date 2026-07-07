@@ -1347,7 +1347,7 @@ const EVENTS = [
     lineup: ['David Benoit', 'Norman Brown', 'Keiko Matsui', 'Jennifer Holliday', 'Eric Darius'],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: null, instagramUrl: null,
+    imageUrl: 'images/stockbridge_jazz_festival.jpg', officialUrl: null, instagramUrl: null,
     note: 'Inaugural Stockbridge Jazz Fest — first annual. Outdoor amphitheater. Hosted by Tommy Davidson (comedy). Strong lineup across both nights. OTP but mid-August evening is worth the drive. 2-night commitment works well for group planning or a dedicated date night.',
     scoreReasoning: { genreMatch: 80, venueQuality: 70, formatRarity: 78, lineupStrength: 80, valueForMoney: 72 },
     recurring: false, recurringNote: null
@@ -1464,7 +1464,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://www.plazaatlanta.com/movie/plazadrome-citizen-ruth-4k', instagramUrl: null,
+    imageUrl: 'images/plazadrome_citizen_ruth.jpg', officialUrl: 'https://www.plazaatlanta.com/movie/plazadrome-citizen-ruth-4k', instagramUrl: null,
     note: 'Videodrome\'s Plazadrome series brings a brand-new 4K restoration of Alexander Payne\'s sharp 1990s political satire to the big screen for one night. Virginia-Highland neighborhood.',
     scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 88, lineupStrength: 50, valueForMoney: 72 },
     recurring: false, recurringNote: null
@@ -1746,7 +1746,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: null, instagramUrl: null,
+    imageUrl: 'images/waxnfacts_50th_anniversary.jpg', officialUrl: null, instagramUrl: null,
     note: 'Wax\'n\'Facts is Atlanta\'s legendary independent record store, turning 50. Anniversary show at Variety Playhouse. The room will be full of music obsessives — this is the kind of event that has genuine cultural weight in Atlanta. Zero Mile Presents.',
     scoreReasoning: { genreMatch: 75, venueQuality: 82, formatRarity: 82, lineupStrength: 68, valueForMoney: 72 },
     recurring: false, recurringNote: null
@@ -1817,7 +1817,7 @@ const EVENTS = [
     lineup: ['Dillon Francis', 'Flosstradamus'],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: null, instagramUrl: null,
+    imageUrl: 'images/dillstradamus.jpg', officialUrl: null, instagramUrl: null,
     note: 'Dillon Francis and Flosstradamus collab set. High-energy B2B. Buckhead Theatre works for this crowd. Collectiv Presents + Live Nation. Good if the group is feeling a big EDM night.',
     scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 60, lineupStrength: 68, valueForMoney: 65 },
     recurring: false, recurringNote: null
@@ -1979,7 +1979,7 @@ const EVENTS = [
     lineup: ['Eric Eaton'],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://www.themagicofericeaton.com/tour-dates/atlantaga', instagramUrl: null,
+    imageUrl: 'images/magic_for_adults.png', officialUrl: 'https://www.themagicofericeaton.com/tour-dates/atlantaga', instagramUrl: null,
     note: 'Eric Eaton — 3x Comedy Magician of the Year (CW/NBC/FOX/ABC) — performs adult comedy magic at The Punchline. 18+ event. $39.65. Genuinely popular: 8,300 interested. Surprisingly fun group night.',
     scoreReasoning: { genreMatch: 55, venueQuality: 68, formatRarity: 80, lineupStrength: 62, valueForMoney: 65 },
     recurring: false, recurringNote: null
@@ -2509,7 +2509,7 @@ const EVENTS = [
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
     lineup: [],
     setTimes: null, youtubeId: null,
-    imageUrl: null, officialUrl: 'https://www.facebook.com/events/908635765536642/', instagramUrl: null,
+    imageUrl: 'images/pixel_man_airshow.jpg', officialUrl: 'https://www.facebook.com/events/908635765536642/', instagramUrl: null,
     note: 'One-time airshow at Gainesville Airport — WWII Warbirds, fighter jets, helicopters. 135 people interested. ~1hr drive OTP. Dean would go absolutely feral for this.',
     scoreReasoning: { genreMatch: 70, venueQuality: 72, formatRarity: 92, lineupStrength: 75, valueForMoney: 85 },
     recurring: false, recurringNote: null

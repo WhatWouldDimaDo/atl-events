@@ -214,8 +214,48 @@ def audit(events):
     for e in missing_official:
         print(f"  [{e['id']:2d}] {e['title']} — {e['venue']}")
 
+    # --- V3 #7: flag YouTube-thumbnail fallback images (recurring audit) ---
+    yt_fallback = [
+        e for e in events
+        if e.get("imageUrl") and ("youtube" in e["imageUrl"].lower()
+                                  or e["imageUrl"].lower().endswith("_yt.jpg"))
+    ]
+    print(f"\nYouTube-thumbnail fallback images (replace with real flyers): {len(yt_fallback)}")
+    for e in yt_fallback:
+        print(f"  [{e['id']:2d}] {e['title']} — {e['imageUrl']}")
+    print("  (note: fallbacks downloaded before 2026-07-06 lack the _yt marker "
+          "and can't be auto-detected)")
+
+    # --- V3 #6: ticket availability for advancePurchase/urgent events ---
+    check_events = [e for e in events if e.get("advancePurchase") or e.get("urgent")]
+    print(f"\nadvancePurchase/urgent events with ticketUrl: "
+          f"{sum(1 for e in check_events if e.get('ticketUrl'))}/{len(check_events)}")
+    if "--check-tickets" in sys.argv:
+        print("Checking ticket link availability (skips AXS 403 / Ticketmaster 401)...")
+        soldout_rx = re.compile(r"sold\s*out|off\s*sale|no longer available|not available",
+                                re.IGNORECASE)
+        for e in check_events:
+            url = e.get("ticketUrl")
+            if not url:
+                continue
+            if "axs.com" in url or "ticketmaster" in url or "livenation" in url:
+                print(f"  [{e['id']:2d}] {e['title']} — SKIP (platform blocks scraping)")
+                continue
+            html = fetch_page(url)
+            if html is None:
+                print(f"  [{e['id']:2d}] {e['title']} — UNREACHABLE: {url[:60]}")
+            elif soldout_rx.search(html):
+                print(f"  [{e['id']:2d}] {e['title']} — ⚠️ SOLD OUT / OFF SALE signal")
+            else:
+                print(f"  [{e['id']:2d}] {e['title']} — ok")
+            time.sleep(0.5)
+    else:
+        print("  (pass --check-tickets to probe ticket links live)")
+
     # Write config
     config = {
+        "yt_fallback_images": [{"id": e["id"], "title": e["title"],
+                                "imageUrl": e["imageUrl"]} for e in yt_fallback],
         "free_events": [{"id": e["id"], "title": e["title"],
                          "officialUrl": e["officialUrl"]} for e in free_no_ticket],
         "missing_ticket": [{"id": e["id"], "title": e["title"],
@@ -340,7 +380,9 @@ def fetch(events):
         if yt:
             yt_url = f"https://img.youtube.com/vi/{yt}/maxresdefault.jpg"
             print(f"  [{entry['id']}] {entry['title']} — trying YouTube thumbnail")
-            local = download_image(yt_url, ev["title"])
+            # "_yt" suffix marks the file as a thumbnail fallback so --audit
+            # can flag it for replacement with a real flyer later
+            local = download_image(yt_url, ev["title"] + " yt")
             if local:
                 r = results.setdefault(eid, {})
                 r["imageUrl"] = local
@@ -360,8 +402,49 @@ def fetch(events):
 # --apply
 # ---------------------------------------------------------------------------
 
+def patch_event_field(js, eid, field, value):
+    """Patch a single field in a specific event block — safe for out-of-order IDs.
+
+    data.js events are NOT in strict ID order (confirmed misfire Jul 2026:
+    st_lucia.jpg landed on Magic for Adults via cross-boundary DOTALL regex).
+    This scopes the substitution to the block between `id: N,` and the next
+    event/array boundary. See ENRICHMENT-METHODOLOGY.md "Apply Phase".
+    """
+    m = re.search(rf'(?<!\d)id:\s*{eid},', js)
+    if not m:
+        return js, False
+    start = m.start()
+    next_event = re.search(r'\n  [{\]]', js[start + 10:])
+    end = start + 10 + next_event.start() if next_event else len(js)
+    block = js[start:end]
+    escaped = value.replace("\\", "\\\\").replace("'", "\\'")
+    new_block, n = re.subn(
+        rf"({re.escape(field)}:\s*)(?:null|'[^']*'|\"[^\"]*\")",
+        lambda mm: f"{mm.group(1)}'{escaped}'",
+        block, count=1,
+    )
+    return js[:start] + new_block + js[end:], n > 0
+
+
+def export_snapshot():
+    """Run export_events.py and return {id: event} from the fresh events.json."""
+    rc = os.system(f"cd {PROJECT_DIR} && python3 scripts/export_events.py > /dev/null")
+    if rc != 0:
+        raise RuntimeError("export_events.py failed")
+    return {e["id"]: e for e in json.loads(EVENTS_JSON.read_text())}
+
+
+VALIDATED_FIELDS = ("imageUrl", "ticketUrl", "officialUrl", "youtubeId", "instagramUrl")
+
+
 def apply_results():
-    """Patch data.js with enrichment_results.json."""
+    """Patch data.js with enrichment_results.json — block-scoped + validated.
+
+    Validation (mandatory): snapshot events.json before, re-export after, then
+    assert that among VALIDATED_FIELDS the ONLY changes are exactly the
+    intended (id, field, value) triples. Any change on an event id that was
+    not in the patch list restores data.js from backup and exits non-zero.
+    """
     if not RESULTS_JSON.exists():
         print("No enrichment_results.json found. Run --fetch first.")
         return
@@ -371,38 +454,62 @@ def apply_results():
         print("No results to apply.")
         return
 
-    js_text = DATA_JS.read_text(encoding="utf-8")
-    patched = 0
+    before = export_snapshot()
 
+    js_text = DATA_JS.read_text(encoding="utf-8")
+    backup = DATA_JS.with_suffix(".js.pre-apply.bak")
+    backup.write_text(js_text, encoding="utf-8")
+
+    intended = {}  # (id, field) -> value
+    patched = 0
     for eid_str, fields in results.items():
         eid = int(eid_str)
-
         for field, value in fields.items():
             if not value:
                 continue
-
-            # Build the regex to find this field in the right event block
-            # Strategy: find `id: N,` then find the field within the next event boundary
-            # Event boundary is `  },` or `  {` at the start of a line
-            pattern = rf"(id:\s*{eid},.*?){field}:\s*(null|'[^']*'|\"[^\"]*\")"
-            match = re.search(pattern, js_text, re.DOTALL)
-            if match:
-                # Escape single quotes in value
-                escaped = value.replace("'", "\\'")
-                old = match.group(0)
-                new = f"{match.group(1)}{field}: '{escaped}'"
-                js_text = js_text.replace(old, new, 1)
+            js_text, ok = patch_event_field(js_text, eid, field, value)
+            if ok:
+                intended[(eid, field)] = value
                 patched += 1
                 print(f"  [{eid}] {field} = '{value[:60]}'")
             else:
-                print(f"  [{eid}] {field} — pattern not found in data.js")
+                print(f"  [{eid}] {field} — MISS (id or field not found in data.js)")
 
     DATA_JS.write_text(js_text, encoding="utf-8")
     print(f"\nPatched {patched} fields in data.js")
 
-    # Re-export events.json
-    print("Re-exporting events.json...")
-    os.system(f"cd {PROJECT_DIR} && python3 scripts/export_events.py")
+    # --- mandatory post-apply validation ---
+    print("Validating: re-exporting events.json and diffing tracked fields...")
+    after = export_snapshot()
+    errors = []
+    for eid in set(before) | set(after):
+        b, a = before.get(eid), after.get(eid)
+        if b is None or a is None:
+            errors.append(f"event id {eid} appeared/disappeared during apply")
+            continue
+        for field in VALIDATED_FIELDS:
+            bv, av = b.get(field), a.get(field)
+            if bv == av:
+                if (eid, field) in intended and av != intended[(eid, field)]:
+                    errors.append(f"[{eid}] {field}: intended change did not take "
+                                  f"(still {av!r})")
+                continue
+            want = intended.get((eid, field))
+            if want is None:
+                errors.append(f"[{eid}] {field} changed UNINTENDED: {bv!r} -> {av!r}")
+            elif av != want:
+                errors.append(f"[{eid}] {field}: wrong value {av!r} (wanted {want!r})")
+
+    if errors:
+        print("\n*** VALIDATION FAILED — restoring data.js from backup ***")
+        for err in errors:
+            print(f"  ✗ {err}")
+        DATA_JS.write_text(backup.read_text(encoding="utf-8"), encoding="utf-8")
+        export_snapshot()  # restore events.json to match
+        sys.exit(1)
+
+    backup.unlink()
+    print(f"Validation passed: {len(intended)} intended changes, 0 unintended.")
 
 
 # ---------------------------------------------------------------------------

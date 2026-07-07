@@ -1,0 +1,90 @@
+[
+  {
+    "id": 80,
+    "title": "DILLSTRADAMUS",
+    "local_path": "images/dillstradamus.jpg",
+    "source_url": "https://images.sk-static.com/images/media/profile_images/artists/509259/huge_avatar",
+    "source_kind": "songkick",
+    "notes": "DILLSTRADAMUS is the B2B collab name for Dillon Francis + Flosstradamus (World Grand Championship Global Tour, Buckhead Theatre, Aug 8 2026). No officialUrl/ticketUrl in events.json; Ticketmaster event page returned 401 (not retried per instructions). Used Flosstradamus's Songkick artist photo since it's the primary billed act on the tour page; Dillon Francis's Songkick photo (huge_avatar, artist 3215901) is an equally valid alternate if a different image is preferred."
+  },
+  {
+    "id": 85,
+    "title": "Soular Flare",
+    "local_path": "images/soular_flare.jpg",
+    "source_url": "https://www.instagram.com/soular_flare/ (og:image, profile pic)",
+    "source_kind": "og:image",
+    "notes": "Low confidence match. Event is a recurring 1st-Sunday breathwork/live-guitar/song-creation gathering at MASS Collective, Atlanta (no officialUrl/ticketUrl/youtubeId). Could not find an event-specific page. Instagram account @soular_flare surfaced in search but I could not confirm it is the same organizer as this MASS Collective series — only a small (100x100) profile-pic-sized og:image was available. Treat as a placeholder-quality guess; verify before using in production, or replace with a MASS Collective venue photo instead."
+  },
+  {
+    "id": 77,
+    "title": "Wax'n'Facts 50th Anniversary",
+    "local_path": "images/waxnfacts_50th_anniversary.jpg",
+    "source_url": "https://variety-playhouse.com/the-venue/",
+    "source_kind": "og:image",
+    "notes": "No officialUrl/ticketUrl in events.json. Event confirmed via web search: Variety Playhouse, Jul 19 2026, 6:30pm, presented by Zero Mile Presents, tickets via AXS (AXS event page returned 403, not retried per instructions; Ticketmaster venue page also blocked). Used Variety Playhouse's own venue og:image as a venue-relevant fallback since no event-specific poster/photo was reachable."
+  },
+  {
+    "id": 108,
+    "title": "Elevated Rhythms — Free Outdoor House",
+    "local_path": "images/elevated_rhythms.jpg",
+    "source_url": "https://www.instagram.com/tamborparty/ (og:image, profile pic)",
+    "source_kind": "og:image",
+    "notes": "officialUrl/ticketUrl is shotgun.live/en/events/er927 but that URL is behind a Vercel security checkpoint (both curl and WebFetch blocked/429'd). Event is a recurring free outdoor house/afrobeats series at East Point City Hall, produced by City of East Point + Tambor Party. Used Tambor Party's Instagram profile pic og:image as a producer/series-relevant fallback (small 100x100 image)."
+  },
+  {
+    "id": 49,
+    "title": "MVMT LABS — Nick Portolese",
+    "local_path": "images/mvmt_labs.jpg",
+    "source_url": "https://www.instagram.com/soldancemovement/ (og:image, profile pic)",
+    "source_kind": "og:image",
+    "notes": "No officialUrl/ticketUrl/youtubeId. Event is a monthly movement-lab series ('MVMT LABS') hosted by Sol Dance at First Existentialist Congregation of Atlanta, Candler Park, with rotating practitioners (April: Nick Portolese). soldancemovement.com actively rejects TLS handshakes from curl/WebFetch (bot protection) so could not get the series' own site image. Used Sol Dance's Instagram profile pic og:image as a host-organization fallback (small 100x100 image). Could not verify Nick Portolese's individual identity/photo."
+  },
+  {
+    "id": 60,
+    "title": "Stockbridge Jazz Festival",
+    "local_path": "images/stockbridge_jazz_festival.jpg",
+    "source_url": "https://www.ticketmaster.com/vystar-amphitheater-at-the-bridge-tickets-stockbridge/venue/115927",
+    "source_kind": "og:image",
+    "notes": "ticketUrl in events.json is the Ticketmaster VENUE page (not an individual event page), which was NOT blocked (only individual TM event pages return 401 per the playbook) and returned a usable og:image (venue/amphitheater photo, s1.ticketm.net)."
+  },
+  {
+    "id": 65,
+    "title": "Plazadrome: Citizen Ruth (4K)",
+    "local_path": "images/plazadrome_citizen_ruth.jpg",
+    "source_url": "http://www.impawards.com/1996/posters/citizen_ruth.jpg",
+    "source_kind": "og:image",
+    "notes": "officialUrl/ticketUrl (plazaatlanta.com) is a JS-rendered SPA that only returns a loading-splash shell via curl/WebFetch — no event-specific og:image reachable. Plazadrome is Videodrome + Plaza Theatre's monthly series screening a 4K restoration of Alexander Payne's 1996 film Citizen Ruth. Used the official 1996 theatrical poster from IMP Awards (a legitimate movie-poster archive) as the film-relevant image."
+  },
+  {
+    "id": 66,
+    "title": "Juneteenth Celebration",
+    "local_path": "images/juneteenth_celebration.jpg",
+    "source_url": "https://www.instagram.com/highmuseumofart/ (og:image, profile pic)",
+    "source_kind": "og:image",
+    "notes": "officialUrl/ticketUrl (high.org) is Cloudflare-protected and returns 403 to curl/WebFetch. Event is the High Museum of Art's free Juneteenth 'Access for All' day, Jun 19 2026. Used the High Museum's Instagram profile pic og:image as a venue-relevant fallback (small 100x100 image)."
+  },
+  {
+    "id": 71,
+    "title": "Concert for the Community",
+    "local_path": "images/concert_for_community.jpg",
+    "source_url": "https://www.instagram.com/spirit_of_atlanta/ (og:image, profile pic)",
+    "source_kind": "og:image",
+    "notes": "ticketUrl is a Facebook event page that only exposes a description meta tag (no og:image) without login. Event features Spirit of Atlanta Drum & Bugle Corps and Atlanta Youth Jazz at The Center at CNN Studios, Jun 30 2026. Used Spirit of Atlanta's Instagram profile pic og:image as a lineup-relevant fallback (small 100x100 image)."
+  },
+  {
+    "id": 83,
+    "title": "Magic for Adults",
+    "local_path": "images/magic_for_adults.png",
+    "source_url": "https://www.themagicofericeaton.com/_assets/33f6dfd1-e2ff-4ccd-8bf2-4162faa6d097?w=1200&h=630&crop=top&fit=crop",
+    "source_kind": "og:image",
+    "notes": "og:image found directly on officialUrl/ticketUrl (themagicofericeaton.com/tour-dates/atlantaga). Note: bare domain (no 'www.') 404'd on the asset path; the 'www.' subdomain succeeded. File is actually PNG content despite the .png extension being applied correctly here (source served image/png)."
+  },
+  {
+    "id": 118,
+    "title": "The Pixel Man Airshow",
+    "local_path": "images/pixel_man_airshow.jpg",
+    "source_url": "https://www.tpmairshow.com/",
+    "source_kind": "venue-site",
+    "notes": "ticketUrl/officialUrl in events.json is a Facebook event page; the FB og:image required following a JS/meta-refresh redirect to a login-walled photo.php page with no accessible image. Found the event's actual official site (tpmairshow.com, not previously listed in events.json) via web search and used its og:image (Gainesville Airport airshow, Oct 24 2026, hosted by 'The Pixel Man')."
+  }
+]

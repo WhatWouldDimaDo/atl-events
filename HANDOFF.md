@@ -89,7 +89,7 @@
 | Metric | Count | Notes |
 |--------|-------|-------|
 | ticketUrl | ~107/116 | ~92% |
-| imageUrl | ~105/116 | ~91% — 11 still missing (DILLSTRADAMUS, Soular Flare, Wax'n'Facts, Pixel Man Airshow, Elevated Rhythms, Stockbridge Jazz, MVMT LABS, Plazadrome Citizen Ruth, Juneteenth Celebration, Concert for Community, Magic for Adults) |
+| imageUrl | 111/116 | ~96% — 5 still missing after Jul 6 research (Soular Flare, Elevated Rhythms, MVMT LABS, Juneteenth, Concert for Community — only 100x100 IG profile pics found; see `scripts/image_research_results_2026-07-06.json`) |
 | officialUrl | ~91/116 | ~78% |
 | TODAY | `'2026-07-06'` | **Update at start of each session** |
 
@@ -233,8 +233,8 @@ Kids for FAMILY_OUT matching: Dean (b. Aug 2022), Ruby (b. 2026)
 ## Open Items
 
 - [ ] Update `TODAY` in data.js each session (currently `'2026-07-06'`)
-- [ ] 11 events still missing images — see Current Data State table above
-- [ ] Fix `enrich_events.py --apply` to use block-scoped patch_event_field() instead of raw regex
+- [ ] 5 events still missing images (no real flyers exist online) — see Current Data State
+- [x] Fix `enrich_events.py --apply` — **done 2026-07-06**: block-scoped patch_event_field() + mandatory post-apply validation (exports events.json, diffs all tracked URL fields, restores backup + exit 1 on any unintended change). `--audit` now also flags YouTube-thumbnail fallback images and checks ticket availability with `--check-tickets`.
 - [ ] Add `iMessage_handle` or phone for: Hadi Irvani, Rich, Charles, Marina, Emily Kritzer, Devin, Meghan Smithgall, Ben Holst (enables comm_scan auto-tracking)
 - [x] A6: SAE cadence writeback — `update_sae_cadence()` added to comm_scan.py, runs with `--write-crm`. Advanced 44 entries on first run.
 - [x] Phase B: `weekly_digest.py` — chains comm_scan + export_events + social_scan → `Brain/02_Areas/Friends/social_digest_YYYY-MM-DD.md`
@@ -244,7 +244,7 @@ Kids for FAMILY_OUT matching: Dean (b. Aug 2022), Ruby (b. 2026)
 - [ ] Update CRM-AUTOMATION-SPEC.md to document 3-tier matching architecture
 - [ ] Phase C: Availability signal extraction from iMessage content (attributedBody parser is ready)
 - [ ] Phase C: Kids age tracking — add `kids: [{name, birth_year}]` to CRM schema
-- [ ] Track D: Site social layer — "who to invite" in event bottom sheet (FRIEND_SLOTS + generateDraftText)
+- [x] Track D: Site social layer — **done 2026-07-06**: invite panel in bottom sheet (internal mode only, FIRST NAMES ONLY since data.js is public), FRIEND_SLOTS + generateDraftText + Copy Text. Also Rec 2 "Went ✓" attended state. NOT yet deployed — on branch `fable-crm-radar-2026-07-06` awaiting Dima review.
 - [ ] Add ATL Radar to dimadimadima.com featured projects
 - [ ] Review CRM-FUNCTIONAL-REQUIREMENTS.md + CRM-BEST-PRACTICES.md — key finding: SAE is the "silent killer" (social_scan reads stale SAE dates not crm_database.json), GCal not integrated
 

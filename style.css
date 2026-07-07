@@ -1920,3 +1920,15 @@ footer { border-top: 1px solid var(--border); }
   display: inline-flex; align-items: center; gap: 4px;
 }
 .btn-cal:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+
+/* ─── Track D: invite panel (internal mode) ─── */
+.invite-panel { border: 1px dashed var(--border); border-radius: 10px; padding: 12px; }
+.invite-group { font-size: 0.8rem; color: var(--text-dim, #9ca3af); margin-bottom: 6px; }
+.invite-draft { font-size: 0.85rem; background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8B5CF6;
+  padding: 8px 10px; border-radius: 6px; margin-bottom: 10px; white-space: pre-wrap; }
+.invite-copy-btn { background: #8B5CF6; color: #fff; border: none; cursor: pointer; }
+.invite-copy-btn:hover { filter: brightness(1.15); }
+
+/* Rec 2: attended state */
+.rsvp-btn.rsvp-went.active { background: #14B8A6; border-color: #14B8A6; color: #04110f; }
+.event-card.rsvp-attended .er-score { box-shadow: 0 0 0 2px #14B8A6 inset; }

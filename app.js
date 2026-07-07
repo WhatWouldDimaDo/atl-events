@@ -23,14 +23,16 @@ function setRSVP(id, signal) {
   } else {
     localStorage.setItem(`rsvp_${id}`, signal);
   }
-  // Re-render buttons in drawer
-  const container = document.getElementById(`rsvp-${id}`);
-  if (container) container.innerHTML = rsvpButtonsHTML(id);
+  // Re-render buttons wherever they appear (peek row + bottom sheet)
+  for (const cid of [`rsvp-${id}`, `bs-rsvp-${id}`]) {
+    const container = document.getElementById(cid);
+    if (container) container.innerHTML = rsvpButtonsHTML(id);
+  }
   // Update card badge
   const card = document.querySelector(`.event-card[data-id="${id}"]`);
   if (card) {
     const newSignal = getRSVP(id);
-    card.classList.remove('rsvp-in', 'rsvp-maybe', 'rsvp-pass');
+    card.classList.remove('rsvp-in', 'rsvp-maybe', 'rsvp-pass', 'rsvp-attended');
     if (newSignal) card.classList.add(`rsvp-${newSignal}`);
   }
   updateHeroStats();
@@ -38,11 +40,60 @@ function setRSVP(id, signal) {
 
 function rsvpButtonsHTML(id) {
   const current = getRSVP(id);
+  // "Went" (Rec 2): only for past events, or to promote an existing "I'm In"
+  const ev = EVENTS.find(e => e.id === id);
+  const isPast = ev && new Date(ev.date) < SITE_TODAY;
+  const wentBtn = (isPast || current === 'in' || current === 'attended')
+    ? `<button class="rsvp-btn rsvp-went${current==='attended'?' active':''}" onclick="setRSVP(${id},'attended');event.stopPropagation()">Went ✓</button>`
+    : '';
   return `<div class="rsvp-row">
     <button class="rsvp-btn${current==='in'?' active':''}" onclick="setRSVP(${id},'in');event.stopPropagation()">I'm In</button>
     <button class="rsvp-btn${current==='maybe'?' active':''}" onclick="setRSVP(${id},'maybe');event.stopPropagation()">Maybe</button>
     <button class="rsvp-btn${current==='pass'?' active':''}" onclick="setRSVP(${id},'pass');event.stopPropagation()">Pass</button>
+    ${wentBtn}
   </div>`;
+}
+
+// ─── SOCIAL LAYER (Track D / Rec 4 — internal mode only) ────────────────────
+// First names only: this file ships publicly (repo + site), full identities
+// stay in social_scan.py / the CRM. Panel renders only when INTERNAL.
+const FRIEND_SLOTS = {
+  GROUP_NIGHT: { label: 'Concert Squad',
+                 names: ['David', 'Craig', 'Davis', 'Arjun', 'James', 'Jeff', 'Cole'] },
+  FAMILY_OUT:  { label: 'Kids Crew',
+                 names: ['Davis', 'Craig', 'Liam', 'Josh', 'Chris', 'Ted', 'Ben', 'Shubh'] },
+  DATE_NIGHT:  { label: 'Couples',
+                 names: ['Arjun+Kirsten', 'Jeff+Liz', 'James+Gray', 'Craig+Shannon'] },
+  LAST_MINUTE: { label: 'Close By',
+                 names: ['Davis', 'Robert', 'Craig', 'Jon'] },
+};
+
+function generateDraftText(ev, slot) {
+  const when = ev.dateStr + (ev.time ? ` · ${ev.time}` : '');
+  let msg;
+  if (slot === 'FAMILY_OUT') {
+    msg = `${ev.title} — ${when} at ${ev.venue}. Bringing Dean, want to join with the kids?`;
+  } else if (slot === 'DATE_NIGHT') {
+    msg = `${ev.title} — ${when} at ${ev.venue}. Want to make it a double date?`;
+  } else {
+    msg = `${ev.title} — ${when} at ${ev.venue}. You in?`;
+  }
+  const link = ev.ticketUrl || ev.officialUrl;
+  return link ? `${msg}\n${link}` : msg;
+}
+
+function inviteSlotFor(ev) {
+  return (ev.slots || []).find(s => FRIEND_SLOTS[s]) || null;
+}
+
+function copyInviteText(evId) {
+  const ev = EVENTS.find(e => e.id === evId);
+  if (!ev) return;
+  const slot = inviteSlotFor(ev);
+  if (!slot) return;
+  navigator.clipboard.writeText(generateDraftText(ev, slot));
+  const btn = document.querySelector(`.invite-copy-btn[data-id="${evId}"]`);
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy Text', 1400); }
 }
 
 // ─── WIZARD STATE ──────────────────────────────────────────────────────────
@@ -484,6 +535,16 @@ function buildBottomSheetHTML(ev) {
       <div id="bs-rsvp-${ev.id}">${rsvpButtonsHTML(ev.id)}</div>
     </div>` : '';
 
+  // Track D / Rec 4: who to invite + copy-paste draft (internal only)
+  const inviteSlot = INTERNAL ? inviteSlotFor(ev) : null;
+  const inviteSection = inviteSlot ? `
+    <div class="bs-section invite-panel">
+      <div class="drawer-section-label">Invite</div>
+      <div class="invite-group">${FRIEND_SLOTS[inviteSlot].label} — ${FRIEND_SLOTS[inviteSlot].names.join(', ')}</div>
+      <div class="invite-draft">${generateDraftText(ev, inviteSlot).split('\n')[0]}</div>
+      <button class="btn-sm invite-copy-btn" data-id="${ev.id}" onclick="copyInviteText(${ev.id});event.stopPropagation()">Copy Text</button>
+    </div>` : '';
+
   const gcalUrl = generateGCalUrl(ev);
   const calSection = `
     <div class="bs-section bs-cal-section">
@@ -513,6 +574,7 @@ function buildBottomSheetHTML(ev) {
     <div class="bs-body">
       <div class="bs-section"><div class="drawer-note">${ev.note}</div></div>
       ${rsvpSection}
+      ${inviteSection}
       ${calSection}
       ${ytSection}
       ${lineupSection}
@@ -1206,7 +1268,11 @@ function updateHeroStats() {
     if (elRsvp) elRsvp.textContent = rsvpIn;
     if (elRsvpSub) {
       const maybe = upcoming.filter(e => getRSVP(e.id) === 'maybe').length;
-      elRsvpSub.textContent = maybe ? `${maybe} maybe` : 'Mark events below';
+      const attended = EVENTS.filter(e => getRSVP(e.id) === 'attended').length;
+      const bits = [];
+      if (maybe) bits.push(`${maybe} maybe`);
+      if (attended) bits.push(`${attended} attended`);
+      elRsvpSub.textContent = bits.length ? bits.join(' · ') : 'Mark events below';
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "atl-radar",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8735", "--directory", "/Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Events-Site"],
+      "port": 8735
+    }
+  ]
+}

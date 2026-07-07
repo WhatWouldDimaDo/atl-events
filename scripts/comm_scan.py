@@ -33,6 +33,9 @@ OUTPUT_FILE = SCRIPTS_DIR / "comm_scan_results.json"
 LOG_DIR = SCRIPTS_DIR
 
 CRM_DB  = Path.home() / "Documents/Brain/02_Areas/Friends/crm_database.json"
+# batch2 was merged into crm_database.json on 2026-07-06 (FR-07 fix — batch2 rows
+# were silently skipped by writeback). Path kept for backward compat; file is
+# archived in 2026-04-18_Personal-CRM/backups/ and load_crm() tolerates absence.
 CRM_DB2 = Path.home() / "Documents/Brain/02_Areas/Friends/crm_database_batch2.json"
 
 # Google Contacts phone index — 1,014 entries, the phone master
@@ -602,13 +605,16 @@ def write_crm_updates(people: dict, crm: dict, dry_run: bool = False) -> list[di
     changes = []
     today = datetime.now().strftime("%Y-%m-%d")
 
-    # Load primary CRM file (only write back to CRM_DB, not batch2)
+    # Load the CRM file (single file since the 2026-07-06 batch2 merge —
+    # every scanned person should now be present)
     with open(CRM_DB) as f:
         db = json.load(f)
 
+    skipped = []
     for name, scan_data in people.items():
         if name not in db:
-            continue  # Only update primary CRM — batch2 entries not written back
+            skipped.append(name)  # should not happen post-merge — surface it
+            continue
 
         entry = db[name]
         change = {"name": name, "fields": {}}
@@ -653,9 +659,13 @@ def write_crm_updates(people: dict, crm: dict, dry_run: bool = False) -> list[di
         if change["fields"]:
             changes.append(change)
 
+    if skipped:
+        print(f"  [WARN] {len(skipped)} scanned people missing from CRM DB (post-merge this "
+              f"should be empty): {', '.join(skipped[:5])}{'...' if len(skipped) > 5 else ''}")
+
     if not dry_run:
         with open(CRM_DB, "w") as f:
-            json.dump(db, f, indent=2)
+            json.dump(db, f, indent=2, ensure_ascii=False)
 
     return changes
 

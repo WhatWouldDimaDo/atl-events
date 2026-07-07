@@ -284,4 +284,5 @@ Kids for FAMILY_OUT matching: Dean (b. Aug 2022), Ruby (b. 2026)
 | 2026-04-25 | `Brain/03_Resources/Development/Claude-Code/Sessions/2026-04-25_atl-radar-ux-crm-prd.md` |
 | 2026-04-30 | `Brain/03_Resources/Development/Claude-Code/Sessions/2026-04-30_atl-radar-v6-crm-phase-a.md` |
 | 2026-05-01 | `Brain/03_Resources/Development/Claude-Code/Sessions/2026-05-01_atl-radar-phase-b-gc-fix.md` |
+| 2026-07-06 (2) | `Brain/03_Resources/Development/Claude-Code/Sessions/ATL-RADAR-CRM-FABLE-SESSION-2026-07-06.md` — Tier 1-3 retrospective: enrich --apply hardened, Track D, Phase B/C, awaiting-reply, intake/scan automation. Branch `fable-crm-radar-2026-07-06` awaits review+deploy |
 | 2026-07-06 | `Brain/03_Resources/Development/Claude-Code/Sessions/2026-07-06_atl-radar-mass-event-image-enrichment.md` — mass enrichment + skill/docs update (SKILL.md v2.2.0, ENRICHMENT-METHODOLOGY.md phases 6–7, CLAUDE.md constraints) |

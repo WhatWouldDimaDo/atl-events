@@ -1,0 +1,498 @@
+{
+  "scoring_framework": {
+    "dimensions": [
+      {
+        "name": "Genre Alignment",
+        "description": "Primary music/event genre match against taste profile"
+      },
+      {
+        "name": "Venue Quality",
+        "description": "Artistic merit and sophistication of venue"
+      },
+      {
+        "name": "Experience Format",
+        "description": "Event structure: concert, workshop, immersive, family-friendly, etc."
+      },
+      {
+        "name": "Social Context",
+        "description": "Solo, date night, group, family-friendly scoring"
+      },
+      {
+        "name": "Time Investment vs. Joy Yield",
+        "description": "Distance, duration, logistics vs. expected happiness return"
+      }
+    ],
+    "scoring_scale": {
+      "5": "High Priority - Must-see. Core taste profile match (electronic downtempo, orchestral crossover, intellectual experience, family adventure).",
+      "4": "Strong Interest - High affinity. Verified favorites or direct taste alignment (modern jazz, indie rock, immersive experiences).",
+      "3": "Medium Interest - Good for date night or hanging out. Secondary genres (funk, soul, stand-up comedy, indie rock).",
+      "2": "Low Interest - Avoid unless iconic/legendary. Anti-preferences without exceptional context.",
+      "1": "Strong Pass - Generic top 40, mumble rap, modern country radio, heavy metal screamo, clubby bottle service scenes."
+    },
+    "genre_preferences": {
+      "high_priority_4_5": {
+        "electronic": {
+          "genres": [
+            "Downtempo",
+            "Organic House",
+            "Liquid Drum & Bass",
+            "Melodic Techno",
+            "IDM (Intelligent Dance Music)",
+            "Ambient",
+            "Orchestral Electronic Crossovers"
+          ],
+          "sound_profile": "Chill but moving, intelligent dance music, euphoric/melodic, cinematic/immersive",
+          "verified_artists": [
+            "Bonobo",
+            "Tycho",
+            "Lane 8",
+            "Nora En Pure",
+            "RÜFÜS DU SOL",
+            "Four Tet",
+            "Floating Points",
+            "Fred again..",
+            "Jamie xx",
+            "Emancipator",
+            "Polo & Pan",
+            "Thievery Corporation",
+            "Big Wild",
+            "Kaytranada",
+            "Justice",
+            "Troyboi",
+            "Steve Aoki",
+            "Gorgon City",
+            "Walker & Royce",
+            "Innellea",
+            "Adventure Club",
+            "Camo & Krooked",
+            "Keeno",
+            "Worakls (Cercle)",
+            "East Forest"
+          ],
+          "special_interest": "Anjunadeep sound, orchestral electronic, Cercle shows abroad, Red Bull Symphonic events"
+        },
+        "jazz": {
+          "genres": [
+            "Modern Jazz",
+            "Fusion",
+            "Jazz Kissa listening bars (high fidelity)"
+          ]
+        },
+        "world_fusion": {
+          "genres": [
+            "Afrobeat",
+            "Latin Alternative",
+            "Fusion",
+            "Desert-Blues"
+          ],
+          "verified_artists": [
+            "Tinariwen",
+            "Bombino",
+            "Aterciopelados (Colombian)",
+            "Sudan Archives (Violin/Electronic)",
+            "Pink Martini"
+          ]
+        },
+        "metal_shoegaze_exceptions": {
+          "genres": [
+            "Blackgaze",
+            "Shoegaze",
+            "Gothic Country"
+          ],
+          "verified_artists": [
+            "Deafheaven",
+            "Agriculture",
+            "Murder by Death"
+          ]
+        },
+        "intellectual_family": {
+          "keywords": [
+            "Science museums",
+            "Aquariums",
+            "Nature walks",
+            "Bot Gardens",
+            "Interactive exhibits (LEGO)",
+            "Lectures",
+            "Author talks",
+            "Tech meetups",
+            "After Dark museum events"
+          ]
+        }
+      },
+      "medium_priority_3": {
+        "genres": [
+          "Indie Rock",
+          "Alternative",
+          "Funk",
+          "Soul",
+          "Stand-up Comedy (Intellectual/Observational)"
+        ],
+        "vibe": "Good for date night or hanging out, but not a must-see.",
+        "verified_artists": [
+          "Khruangbin",
+          "Glass Animals",
+          "Tame Impala",
+          "Jungle",
+          "David Byrne (Talking Heads)",
+          "The Lemonheads",
+          "Atmosphere",
+          "All Time Low",
+          "Vulfpeck (Best concert ever - MSG/Palladium)",
+          "Ben Rector",
+          "Blair Crimmins"
+        ]
+      },
+      "anti_preferences_1_2": {
+        "avoid": [
+          "Generic Top 40 Pop",
+          "Mumble Rap / Generic Trap (unless high production value like Travis Scott)",
+          "Modern/Radio Country",
+          "Heavy Metal / Screamo (unless legendary acts)"
+        ],
+        "vibe_avoid": [
+          "Clubby bottle service scenes",
+          "Overly aggressive crowds"
+        ]
+      }
+    },
+    "venue_preferences": {
+      "atlanta_top_tier": [
+        "The Eastern",
+        "Terminal West",
+        "Variety Playhouse",
+        "Plaza Theatre (Art/Cult Cinema)"
+      ],
+      "portland_hidden_gems": [
+        "Revolution Hall",
+        "Mississippi Studios (Intimate/Indie)",
+        "Holocene (Electronic)",
+        "Star Theater (Blackgaze)",
+        "Crystal Ballroom (Historic bounce floor)"
+      ],
+      "bucket_list": [
+        "Red Rocks (CO)",
+        "Cercle shows abroad",
+        "Red Bull Symphonic events"
+      ],
+      "clubs_and_underground": [
+        "District Atlanta",
+        "Believe Music Hall (Iris Presents)",
+        "The Masquerade (Heaven/Hell/Purgatory)",
+        "19hz.info listings",
+        "Lunchbox",
+        "Alley Cat Music",
+        "Enthea Tea (SE Portland - No alcohol wind-down)"
+      ],
+      "special_interest": "Prefers smaller, unique venues over massive arenas; focus on artistic merit and sophisticated sound design"
+    },
+    "format_preferences": {
+      "high_affinity": [
+        "Orchestral Electronic crossovers",
+        "Intimate & Artistic venues",
+        "Projection mapping / light shows",
+        "Immersive experiences (Van Gogh, Garden Lights)",
+        "Cult/Art Cinema screenings",
+        "90s/00s throwbacks (Emo Nite, Pop Punk, Club 90s)",
+        "Interactive exhibits for family adventure"
+      ],
+      "special_contexts": [
+        "Adults-only / Recovery spaces (tea houses, saunas, float tanks)",
+        "Downtempo / Melodic House",
+        "Nostalgia-driven events"
+      ],
+      "family_adventure": [
+        "Interactive activities",
+        "Sensory-friendly events",
+        "Morning/daytime hours",
+        "Outdoor activities",
+        "Touch a Truck",
+        "Escape rooms",
+        "Slingshot rentals"
+      ]
+    }
+  },
+  "product_objectives": [
+    "Personal event discovery tool for Dima+Jeannie (and potentially shareable public version)",
+    "Centralized calendar and filter system to identify high-priority events (4-5 score)",
+    "Real-time decision support: \"What's a good night out in May?\" natural language querying",
+    "Agent-driven data pipeline to minimize manual event entry from external sources (Bandsintown, RA, Do404, Eventbrite)",
+    "Internal coordination layer: friend interest signaling, RSVP tracking, thread-per-event logistics",
+    "Future: real ticket availability scraping, weather integration for outdoor events, driving time estimates",
+    "Public shareable version: clean read-only view without friend names or private data"
+  ],
+  "design_principles": [
+    "Clean, minimal UI - static 4-file architecture (index.html, data.js, style.css, app.js) with zero backend overhead",
+    "Mobile-first responsive design",
+    "Fixed navigation bar with calendar/search/filter access",
+    "Card-based event grid with inline quick-view posters",
+    "Drawer-style detail view with YouTube section, description, RSVP signals, and thread comments",
+    "Single-month calendar widget with prev/next navigation",
+    "Real-time search and filtering without page reload",
+    "Gradient backgrounds per event category (music, family, comedy, outdoor, social, date)",
+    "YouTube thumbnail backgrounds for immersive visual context",
+    "Event posters (for non-YouTube events) with category emoji and text at bottom-left (like real flyers)",
+    "Progressive disclosure: compact cards expand to full drawer on click"
+  ],
+  "target_vibe": "Curated, artistic, human-scale discovery tool for a pair (Dima+Jeannie) who value melodic electronic music, immersive experiences, intimate venues, and thoughtful cultural activities. The site should feel like a trusted friend who knows your taste and nudges you toward the perfect night out.",
+  "user_energy_patterns": {
+    "recharging_weekly": {
+      "activity": "Sol Dance / Ecstatic Dance",
+      "type": "Spiritual recharge",
+      "frequency": "Bi-weekly Sol Reset recommended",
+      "energy_impact": "High recharge"
+    },
+    "monthly_cathartic": {
+      "activity": "Major electronic concert (STS9-tier)",
+      "type": "High-energy cathartic release",
+      "frequency": "One major show per month",
+      "energy_impact": "Cathartic peak"
+    },
+    "family_connection": {
+      "activities": [
+        "Zoo (Zoo Atlanta membership)",
+        "ABG (Atlanta Botanical Garden - trains!)",
+        "Fernbank (family exhibits)"
+      ],
+      "frequency": "2x per month with family",
+      "energy_impact": "Connection + joy"
+    },
+    "low_effort_routine": {
+      "activity": "Toddler library reading",
+      "type": "Low-stress routine",
+      "frequency": "Weekly Tuesday/Wednesday cycle",
+      "energy_impact": "Low-effort engagement"
+    },
+    "stress_recovery_codes": {
+      "1": "Candle/Walk",
+      "2": "Music/Friend",
+      "3": "Physical Reset"
+    }
+  },
+  "geographic_context": {
+    "home_base": "30306 (Virginia-Highland / Midtown)",
+    "neighborhood_hubs": {
+      "midtown_10min": [
+        "Fox Theatre",
+        "High Museum",
+        "ABG",
+        "Piedmont Park"
+      ],
+      "poncey_highland_5min": [
+        "Plaza Theatre",
+        "Manual's Tavern",
+        "Vahi Libraries"
+      ],
+      "old_fourth_ward_8min": [
+        "The Eastern",
+        "Illuminarium",
+        "Ponce City Market"
+      ]
+    }
+  },
+  "date_night_categories": [
+    {
+      "category": "Science & Exploration",
+      "examples": [
+        "Fernbank After Dark: Cocktails & the Cosmos (science night with cosmic cocktails, live music, tapas)",
+        "Fernbank After Dark: Love Lab (chemistry + pheromones + animal romance)",
+        "Fernbank After Dark: The Big Chill (ice science + frosty cocktails)",
+        "Sips Under the Sea (aquarium after-hours with music, tapas, cocktails)"
+      ],
+      "energy_fit": "Intellectual + romantic"
+    },
+    {
+      "category": "Mystery & Interactive",
+      "examples": [
+        "Dinner Detective Murder Mystery (interactive crime-solving dinner show)",
+        "Al Capone's Speakeasy Escape Room (1920s gangster-themed with in-room actor)",
+        "Prohibition Themed Progressive Dinner (multi-course speakeasy hopping)",
+        "Atlanta Outdoor Murder Mystery 2 (whodunit theater walk as couples)"
+      ],
+      "energy_fit": "Playful + immersive"
+    },
+    {
+      "category": "Cabaret & Speakeasy",
+      "examples": [
+        "Pigalle Cabaret & Speakeasy (Bohemian Paris-themed theater, burlesque, jazz, absinthe)",
+        "Candlelight: Hip Hop on Strings (intimate string quartet of hip-hop classics)",
+        "Whiplash Comedy Club (new intimate comedy venue)"
+      ],
+      "energy_fit": "Artistic + sophisticated"
+    },
+    {
+      "category": "Comedy & Performance",
+      "examples": [
+        "Can't Even Comedy Show (HBO/Comedy Central comics, rooftop theater)",
+        "Date Night in the ATL Comedy (local talent at cultural center)",
+        "Fox Theatre - Alvin Ailey Dance (high-end dance performance)"
+      ],
+      "energy_fit": "Fun + cultural"
+    },
+    {
+      "category": "Workshops & Hands-On",
+      "examples": [
+        "Romantic Date Night - Candle Making (BYOB candle-making with wine)",
+        "Love at First Scent: Valentine's Perfume-Making (custom perfume workshop)",
+        "BYOB Spray Paint and Sip (graffiti-style painting with black light vibes)",
+        "Wine Down Wednesday: Wine + Candle Making"
+      ],
+      "energy_fit": "Creative + collaborative"
+    },
+    {
+      "category": "Museum & After-Hours",
+      "examples": [
+        "High Museum of Art - Jazz Fridays (art + live jazz)",
+        "Fernbank After Dark (all events - science + sophistication)"
+      ],
+      "energy_fit": "Cultural + wind-down"
+    },
+    {
+      "category": "Escape Rooms & Adventures",
+      "examples": [
+        "Atlanta Beltline Cocktails and Bites (guided walk with craft cocktails)",
+        "City Lights Night Tour (scenic tour with photos + dinner stop)",
+        "Skyline Park Date Night (rooftop games, carnival eats, beer garden, skyline views)"
+      ],
+      "energy_fit": "Adventurous + scenic"
+    }
+  ],
+  "v3_roadmap_priorities": {
+    "p0_critical": [
+      {
+        "rank": 1,
+        "feature": "Agent-driven data update pipeline",
+        "effort": "Medium",
+        "value": "Very High",
+        "description": "Drop a URL or screenshot into Claude → agent parses event details → appends to data.js. Reduce manual entry to near-zero. Priority: Bandsintown, RA ATL, Do404."
+      },
+      {
+        "rank": 2,
+        "feature": "Real event images/flyers",
+        "effort": "Low",
+        "value": "High",
+        "description": "Eventbrite, RA, venue Instagram → pull actual event flyers. Replace YouTube thumbnails as primary card image for non-music events. Priority: Disclosure, Sub Focus, Shaky Knees, DWTD+Magic Sword."
+      },
+      {
+        "rank": 3,
+        "feature": "Friend interest/RSVP signaling (Internal only)",
+        "effort": "Medium",
+        "value": "High",
+        "description": "Per-event tags: 'I'm in', 'Maybe', 'Pass'. Signals shown on cards. Storage: localStorage. Public version: hide friend names, show aggregate counts."
+      },
+      {
+        "rank": 4,
+        "feature": "Internal vs External version split",
+        "effort": "Low",
+        "value": "Medium",
+        "description": "URL-based toggle (?mode=internal) or password-protected route. Public version: read-only, no friend names. Internal: coordination, agent mode, RSVP signals."
+      }
+    ],
+    "p1_high_value": [
+      {
+        "rank": 5,
+        "feature": "Thread per event (Internal)",
+        "effort": "High",
+        "value": "Medium",
+        "description": "Collapsible thread inside drawer for notes, logistics, coordination. Storage: localStorage keyed by event ID."
+      },
+      {
+        "rank": 6,
+        "feature": "Natural language query mode",
+        "effort": "High",
+        "value": "High",
+        "description": "Query box: 'What's a good group night in May that hasn't been planned yet?' Cross-references availability, event scores. Local LLM (Ollama) or Claude API."
+      },
+      {
+        "rank": 7,
+        "feature": "Real-time ticket availability scraping",
+        "effort": "High",
+        "value": "High",
+        "description": "For S/A-tier shows marked advancePurchase: true, check if still available. Background agent checks every 24h. Surfaced as 'Last checked' timestamp on urgent badge. Firecrawl for scraping."
+      },
+      {
+        "rank": 8,
+        "feature": "Recurring event generator",
+        "effort": "Low",
+        "value": "Medium",
+        "description": "Sol Dance, Five Rhythms, High Museum Second Sundays, Full Moon Drum Circle. Auto-generate full cadence from recurringRule field."
+      },
+      {
+        "rank": 9,
+        "feature": "Weather integration",
+        "effort": "Low",
+        "value": "Medium",
+        "description": "For outdoor events within 2 weeks, pull forecast from OpenWeatherMap. Show badge: '🌞 Clear · 🌧 Rain'. Priority: Shake the Lake, ATL Jazz Festival, Shaky Knees."
+      },
+      {
+        "rank": 10,
+        "feature": "Distance matrix",
+        "effort": "Low",
+        "value": "Medium",
+        "description": "Replace categorical distance (ITP/OTP) with computed driving time from home (30306). Display '~18 min'. API: Google Maps Distance Matrix or Mapbox."
+      }
+    ],
+    "p2_enhancement": [
+      {
+        "rank": 11,
+        "feature": "Push/SMS reminders (Internal)",
+        "effort": "Medium",
+        "value": "High",
+        "description": "For urgent+advancePurchase events: 'Sub Focus is 2 days away and you haven't bought a ticket.' Delivery: Pushover or SMS via Twilio."
+      },
+      {
+        "rank": 12,
+        "feature": "Multi-user coordination (requires backend)",
+        "effort": "Very High",
+        "value": "Medium",
+        "description": "Shared RSVP state between Dima+Jeannie. Could be: Supabase, PocketBase, or Cloudflare Worker + KV. Unlocks real-time sync and babysitter logic."
+      },
+      {
+        "rank": 13,
+        "feature": "Historic archive mode",
+        "effort": "Medium",
+        "value": "High",
+        "description": "Past events flip to archive view. Stats: '14 shows attended in 2026, 8 were S/A-tier'. Journal-style entry per attended event."
+      },
+      {
+        "rank": 14,
+        "feature": "Accessibility pass",
+        "effort": "Medium",
+        "value": "Medium",
+        "description": "ARIA labels, keyboard navigation, focus states, screen-reader-friendly event cards."
+      }
+    ]
+  },
+  "v2_technical_architecture": {
+    "files": [
+      "index.html — HTML structure",
+      "data.js — EVENTS + EVERGREEN data arrays",
+      "style.css — All CSS",
+      "app.js — All JavaScript logic"
+    ],
+    "deployment": "/opt/homebrew/bin/vercel --prod from project dir",
+    "live_url": "https://atl-events.vercel.app",
+    "github": "https://github.com/WhatWouldDimaDo/atl-events"
+  },
+  "joy_map_analysis": {
+    "total_cataloged_items": 841,
+    "top_joy_category": "Musical Immersion (69%)",
+    "secondary_joy_category": "Family Adventure (18%)",
+    "geographic_center": "30306 (Virginia-Highland / Midtown)",
+    "gap_opportunities": [
+      "Niche culinary pop-ups (Underground Atlanta rotating food hall)",
+      "Wellness retreats (North Georgia 1hr drive, Sol-style weekend immersions)",
+      "Participatory art (Burning Man prep workshops, Westside area)"
+    ]
+  },
+  "metadata": {
+    "generated_date": "2026-04-21",
+    "sources": [
+      "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/planning/TASTE_PROFILE.md",
+      "/Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Events-Site/PLAN.md",
+      "/Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Events-Site/V3-PLAN.md",
+      "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/JOY_MAP_ANALYSIS_V4.md",
+      "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/ATL_Date_Night_Guide.md"
+    ],
+    "summary": "Comprehensive taste profile, scoring framework, design objectives, and V3 roadmap for the ATL Events discovery site. Includes 841 cataloged events, 71-artist verified favorites, and scoring rubric across 5 dimensions (genre alignment, venue quality, experience format, social context, time investment vs. joy yield). Primary user persona: Dima Perkis, VP Data & Analytics at Lahzo, with high affinity for downtempo electronic, orchestral crossovers, intimate artistic venues, and immersive cultural experiences. Secondary focus: family adventure activities with Dean (toddler) and baby. Date night mode: curated romantic/sophisticated experiences with Jeannie."
+  }
+}

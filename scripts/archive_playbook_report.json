@@ -1,0 +1,624 @@
+{
+  "metadata": {
+    "source_directory": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List",
+    "generated_date": "2026-04-21",
+    "project_dates": "Nov 2025 - Aug 2026",
+    "purpose": "Extract venue refresh lists, scraping playbooks, and event data from archived ATL Events project"
+  },
+  "venue_refresh_list": [
+    {
+      "name": "Terminal West",
+      "calendar_url": "https://www.terminalwestatl.com/events",
+      "ticketing_platform": "AXS.com",
+      "scrape_method": "AXS.com search (Primary) / Direct (403 blocked)",
+      "priority": "high",
+      "genre_focus": "Electronic/Downtempo/IDM",
+      "expected_events_per_month": "20-30",
+      "notes": "All-ages venue, consistent quality, high match for Dima's taste. AXS is official ticketing platform."
+    },
+    {
+      "name": "Variety Playhouse",
+      "calendar_url": "https://www.variety-playhouse.com/events",
+      "ticketing_platform": "AXS.com",
+      "scrape_method": "AXS.com search (Primary) / 403 blocked, use Songkick/Bandsintown fallback",
+      "priority": "high",
+      "genre_focus": "Electronic/Alternative/Indie",
+      "expected_events_per_month": "15-20",
+      "notes": "Intimate venue, great acoustics. Requires browser automation or aggregator search."
+    },
+    {
+      "name": "The Eastern",
+      "calendar_url": "https://www.easternatl.com/events",
+      "ticketing_platform": "AXS.com",
+      "scrape_method": "AXS.com search (Primary) / 403 blocked",
+      "priority": "high",
+      "genre_focus": "Electronic/World Music/Festival-quality",
+      "expected_events_per_month": "15-20",
+      "notes": "Big Gigantic vibes, festival-quality electronic music. Big 3 priority venue."
+    },
+    {
+      "name": "District Atlanta",
+      "calendar_url": "https://www.districtatlanta.com/events",
+      "ticketing_platform": "Eventbrite/Direct",
+      "scrape_method": "Eventbrite search / Direct fetch",
+      "priority": "high",
+      "genre_focus": "Electronic/Club",
+      "expected_events_per_month": "15-25",
+      "notes": "Major electronic music hub. Covered in 19hz.info and EDMTrain."
+    },
+    {
+      "name": "The Masquerade",
+      "calendar_url": "https://www.masqueradeatlanta.com/events",
+      "ticketing_platform": "Direct/Ticketmaster",
+      "scrape_method": "Direct webfetch (successful) + Browser for detailed descriptions",
+      "priority": "high",
+      "genre_focus": "Multi-genre (4 stages: Heaven, Hell, Purgatory, Altar)",
+      "expected_events_per_month": "25-40",
+      "notes": "19 events already scraped. Minimal description data in list view—requires individual event page scraping."
+    },
+    {
+      "name": "Believe Music Hall",
+      "calendar_url": "https://www.believeatl.com/events",
+      "ticketing_platform": "Iris Presents/AXS",
+      "scrape_method": "AXS search / Eventbrite",
+      "priority": "high",
+      "genre_focus": "Electronic/Hip-hop/Bass",
+      "expected_events_per_month": "10-15",
+      "notes": "Intimate, experimental electronic. Covered in 19hz.info."
+    },
+    {
+      "name": "Tabernacle",
+      "calendar_url": "https://www.tabernacleatl.com/events",
+      "ticketing_platform": "Ticketmaster",
+      "scrape_method": "Ticketmaster search (browser) / 19hz.info",
+      "priority": "medium",
+      "genre_focus": "Electronic/Downtempo/Future Bass",
+      "expected_events_per_month": "10-15",
+      "notes": "Large venue. Downtempo and future bass compatible. Partially covered by 19hz.info."
+    },
+    {
+      "name": "Fox Theatre",
+      "calendar_url": "https://www.foxtheatre.org/events",
+      "ticketing_platform": "Ticketmaster",
+      "scrape_method": "Ticketmaster (browser) / Eventbrite",
+      "priority": "medium",
+      "genre_focus": "Broadway/Theater/Touring Acts",
+      "expected_events_per_month": "8-12",
+      "notes": "Prestigious venue, premium events. 2 events manually extracted."
+    },
+    {
+      "name": "Dad's Garage Theatre",
+      "calendar_url": "https://dadsgarage.com/shows",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Direct webfetch (successful)",
+      "priority": "medium",
+      "genre_focus": "Improv/Comedy",
+      "expected_events_per_month": "6-10",
+      "notes": "Already scraped (2 events). Family & adult shows."
+    },
+    {
+      "name": "Laughing Skull Lounge",
+      "calendar_url": "https://www.laughingskulllounge.com/shows",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Direct webfetch",
+      "priority": "medium",
+      "genre_focus": "Stand-up Comedy",
+      "expected_events_per_month": "8-12",
+      "notes": "Weekly showcases. Good for date nights."
+    },
+    {
+      "name": "High Museum",
+      "calendar_url": "https://high.org/calendar",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Browser automation (JavaScript-heavy search page)",
+      "priority": "medium",
+      "genre_focus": "Art/Exhibitions/Family",
+      "expected_events_per_month": "10-15",
+      "notes": "Header content only accessible without browser. Family friendly."
+    },
+    {
+      "name": "Fernbank Museum",
+      "calendar_url": "https://fernbankmuseum.org/events",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Browser automation (JavaScript-heavy)",
+      "priority": "medium",
+      "genre_focus": "Science/Natural History/Special Exhibits",
+      "expected_events_per_month": "5-10",
+      "notes": "After Dark & Special Exhibits. Family programming."
+    },
+    {
+      "name": "Center for Puppetry Arts",
+      "calendar_url": "https://puppet.org/performances",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Direct webfetch (successful)",
+      "priority": "low",
+      "genre_focus": "Puppet Shows/Family",
+      "expected_events_per_month": "8-12",
+      "notes": "Perfect for Dean (ages 3+). Regular schedule Tues-Sun."
+    },
+    {
+      "name": "Georgia Aquarium",
+      "calendar_url": "https://www.georgiaaquarium.org/calendar",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Direct webfetch (successful)",
+      "priority": "low",
+      "genre_focus": "Family/21+ Special Events",
+      "expected_events_per_month": "5-8",
+      "notes": "Already scraped (3 events). 21+ Nights and family events."
+    },
+    {
+      "name": "Atlanta Botanical Garden",
+      "calendar_url": "https://atlantabg.org/events",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Direct webfetch (successful)",
+      "priority": "low",
+      "genre_focus": "Gardens/Seasonal/Holiday",
+      "expected_events_per_month": "3-8",
+      "notes": "Already scraped (4 events). Garden Lights major holiday attraction."
+    },
+    {
+      "name": "Zoo Atlanta",
+      "calendar_url": "https://zooatlanta.org/events",
+      "ticketing_platform": "Eventbrite",
+      "scrape_method": "Eventbrite search / Browser for direct site",
+      "priority": "low",
+      "genre_focus": "Family/Seasonal",
+      "expected_events_per_month": "4-8",
+      "notes": "JavaScript-heavy official site. Better accessed via Eventbrite."
+    },
+    {
+      "name": "Stone Mountain Park",
+      "calendar_url": "https://www.stonemountainpark.com/Events",
+      "ticketing_platform": "Eventbrite",
+      "scrape_method": "Eventbrite search",
+      "priority": "low",
+      "genre_focus": "Theme Park/Holiday",
+      "expected_events_per_month": "4-8",
+      "notes": "Winter/holiday attractions. Direct URL returns 404."
+    },
+    {
+      "name": "Eddie's Attic",
+      "calendar_url": "N/A - manual check",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Manual browser",
+      "priority": "medium",
+      "genre_focus": "Acoustic/Folk/Intimate",
+      "expected_events_per_month": "20-30",
+      "notes": "Identified in refresh plan. Not yet scraped. Daily live music."
+    },
+    {
+      "name": "The Earl",
+      "calendar_url": "N/A - manual check",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Manual browser",
+      "priority": "medium",
+      "genre_focus": "Indie/Rock",
+      "expected_events_per_month": "15-20",
+      "notes": "Identified in refresh plan. Not yet scraped."
+    },
+    {
+      "name": "Blind Willie's",
+      "calendar_url": "N/A - manual check",
+      "ticketing_platform": "Direct",
+      "scrape_method": "Manual browser",
+      "priority": "medium",
+      "genre_focus": "Blues",
+      "expected_events_per_month": "20-30",
+      "notes": "Identified in refresh plan. Not yet scraped. Regular performances."
+    }
+  ],
+  "scraping_playbooks": [
+    {
+      "source": "19hz.info",
+      "url": "https://19hz.info/eventlisting_Atlanta.php",
+      "method": "Direct WebFetch",
+      "status": "working",
+      "events_extracted": "25+",
+      "coverage": "Electronic/DJ events across all Atlanta venues",
+      "venues_covered": ["Terminal West", "Masquerade", "District", "Believe Music Hall", "Tabernacle", "The Eastern", "Lunchbox"],
+      "notes": "Already scraped Nov 12, 2025. Simple HTML structure, no bot protection. Best for electronic music completeness.",
+      "sample_events": [
+        "Jungle Bells 2025 (Dec 12-13, Masquerade Music Park, $271)",
+        "Troyboi (Nov 14, The Eastern, $51+)",
+        "Nora En Pure (Nov 15, District)",
+        "Green Velvet (Dec 26, District)",
+        "Steve Aoki (Jan 9, District)"
+      ]
+    },
+    {
+      "source": "Eventbrite",
+      "url": "https://www.eventbrite.com/d/ga--atlanta/events/",
+      "method": "Browser pagination",
+      "status": "working",
+      "events_extracted": "50-100+",
+      "coverage": "All event categories: Music, Comedy, Food, Nightlife, Art, Sports, Family",
+      "venues_covered": "50+ Atlanta venues",
+      "notes": "Partial content visible without browser. Requires pagination through results. Excellent for discovering events across all categories.",
+      "url_structure": "Filter by: category (left sidebar), date range (calendar), price range",
+      "sample_events": [
+        "LYFE ATL (Saturday, Lyfe ATL, Free RSVP)",
+        "Reggae on the Roof (Saturday, Cafe Circa, recurring)",
+        "Dog Man Creator Dav Pilkey (Nov 22, Pullman Yards)",
+        "Atlanta Street Wear Market (Nov 23, Expo Center)"
+      ]
+    },
+    {
+      "source": "Ticketmaster",
+      "url": "https://www.ticketmaster.com/atlanta-georgia/events",
+      "method": "Browser automation (required)",
+      "status": "broken - 403 Forbidden",
+      "events_expected": "30-50",
+      "coverage": "Broadway, Theater, Major concerts, Comedy, Sports",
+      "venues_covered": ["Fox Theatre", "State Farm Arena", "Coca-Cola Roxy", "Tabernacle", "Lakewood Amphitheatre", "Buckhead Theatre"],
+      "notes": "Requires browser automation. 403 block prevents direct WebFetch. High-value source for premium/touring acts.",
+      "extraction_fields": ["Event Name", "Date/Time", "Venue", "Price Range", "Ticketmaster Link"],
+      "sample_events": [
+        "Hadestown (Nov 14-16, Fox Theatre)",
+        "David Byrne - Who is the Sky Tour (Dec 2-3, Fox Theatre)",
+        "John Mulaney: Mister Whatever (Dec 12-13, Fox Theatre)",
+        "Kaytranada + Justice (Nov 12, State Farm Arena)"
+      ]
+    },
+    {
+      "source": "AXS.com",
+      "url": "https://www.axs.com/",
+      "method": "Browser automation (search + filter)",
+      "status": "broken - 403 Forbidden for direct fetch",
+      "events_expected": "60-90",
+      "coverage": "Premium venue events",
+      "venues_covered": ["Terminal West", "Variety Playhouse", "The Eastern", "Believe Music Hall"],
+      "notes": "Official ticketing platform for 3 of the Big 5 venues. 403 block requires browser. Search venue name, then filter date range.",
+      "search_urls_estimated": [
+        "https://www.axs.com/en/artists/terminal-west/search",
+        "https://www.axs.com/en/artists/variety-playhouse/search",
+        "https://www.axs.com/en/artists/the-eastern/search",
+        "https://www.axs.com/en/artists/believe-music-hall/search"
+      ],
+      "extraction_fields": ["Event Name", "Artist", "Date/Time", "Price", "Family Level", "Link"],
+      "expected_breakdown": "Terminal West: 20-30, Variety: 15-20, Eastern: 15-20, Believe: 10-15"
+    },
+    {
+      "source": "EDMTrain",
+      "url": "https://edmtrain.com/atlanta-ga",
+      "method": "Browser automation (JavaScript render)",
+      "status": "broken - JavaScript-heavy page",
+      "events_expected": "40-60",
+      "coverage": "Electronic/EDM events completeness",
+      "venues_covered": ["Masquerade (all 4 rooms)", "District", "Tabernacle", "Terminal West", "Believe Music Hall", "Lunchbox"],
+      "notes": "Event data loads after page renders. Standard WebFetch can't access content. Requires browser wait-for-render.",
+      "extraction_challenge": "Data loads via JavaScript, not in initial HTML",
+      "extraction_fields": ["Event Name/Artist", "Venue", "Date/Time", "Price", "Ticket Link"],
+      "expected_coverage": "Most comprehensive electronic music source for all Atlanta club events"
+    },
+    {
+      "source": "RA (Resident Advisor)",
+      "url": "https://ra.co/events/us/atlanta",
+      "method": "Browser automation (required)",
+      "status": "broken - 403 Forbidden",
+      "events_expected": "20-30",
+      "coverage": "Underground/club electronic music",
+      "venues_covered": ["Masquerade", "District", "Tabernacle", "Believe Music Hall"],
+      "notes": "Most authoritative for underground electronic. 403 block requires browser. High-value for authentic club events.",
+      "extraction_fields": ["Event", "Date/Time", "Venue", "Artists", "Price", "Genre", "Link", "RSVP Count"],
+      "value_prop": "Community reviews, artist lineups with descriptions, RSVP counts"
+    },
+    {
+      "source": "Bandsintown",
+      "url": "https://www.bandsintown.com/l/Atlanta-GA",
+      "method": "Browser automation (required)",
+      "status": "broken - 403 Forbidden",
+      "events_expected": "30-50",
+      "coverage": "All music genres, touring acts",
+      "notes": "Artists often use as primary tour listing. 403 block requires browser. Venue + ticket info included.",
+      "extraction_fields": ["Artist", "Date", "Venue", "Price", "Link"]
+    },
+    {
+      "source": "Individual Venue Pages - Direct",
+      "url": "Various (Terminal West, Variety, Eastern, etc.)",
+      "method": "Direct WebFetch (all blocked with 403)",
+      "status": "broken",
+      "fallback": "Use AXS.com or aggregator platforms instead",
+      "notes": "Most venues use third-party ticketing (AXS, Ticketmaster, Eventbrite). Direct scraping blocked. Better ROI using ticketing platforms."
+    }
+  ],
+  "csv_events": {
+    "master_file": "ATL Event List 2025-2026 - Master.csv",
+    "total_events": "200-350 (full coverage)",
+    "date_range": "Nov 12, 2025 - Aug 31, 2026",
+    "sample_events": [
+      {
+        "name": "Jungle Bells 2025",
+        "date": "Dec 12-13, 2025",
+        "venue": "Masquerade Music Park",
+        "category": "Music",
+        "sub_category": "Drum & Bass Festival",
+        "price_range": "$271",
+        "family_level": "18+",
+        "artists": "RUDIMENTAL, BOU, KINGS OF THE ROLLERS w/ INJA",
+        "ticket_source": "https://www.ticketmaster.com/event/0E006312EE145A9D",
+        "evergreen_candidate": false
+      },
+      {
+        "name": "Hadestown",
+        "date": "Nov 14-16, 2025",
+        "venue": "Fox Theatre",
+        "category": "Theatre/Broadway",
+        "sub_category": "Musical Theatre",
+        "family_level": "Family Friendly",
+        "evergreen_candidate": false,
+        "notes": "Broadway in Atlanta touring series"
+      },
+      {
+        "name": "Garden Lights Holiday Nights",
+        "date": "Nov-Dec, recurring seasonal",
+        "venue": "Atlanta Botanical Garden",
+        "category": "Family",
+        "sub_category": "Holiday Light Show",
+        "price_range": "$25-$35",
+        "family_level": "All Ages",
+        "evergreen_candidate": true,
+        "notes": "Annual holiday event. 20 min duration. Member discounts. Evening/Outdoor."
+      },
+      {
+        "name": "Dinosaur!",
+        "date": "Jan 17 - Feb 22, 2026",
+        "venue": "Alliance Theatre",
+        "category": "Family",
+        "sub_category": "Theatre/Family Show",
+        "interest_score": 85,
+        "evergreen_candidate": true,
+        "notes": "Family-friendly, thrilling prehistoric adventure show"
+      },
+      {
+        "name": "Couch: BIG TALK Tour",
+        "date": "Feb 1, 2026",
+        "venue": "Terminal West",
+        "category": "Music",
+        "sub_category": "Indie-Pop",
+        "interest_score": 60,
+        "evergreen_candidate": false
+      },
+      {
+        "name": "Club 90's: Heated Rivalry Night",
+        "date": "Feb 6, 2026",
+        "venue": "The Masquerade",
+        "category": "Music",
+        "sub_category": "90s Nostalgia/Dance",
+        "interest_score": 85,
+        "evergreen_candidate": false,
+        "notes": "90s throwback hits, epic dance-offs, iconic rivalries"
+      },
+      {
+        "name": "Fox Stevenson",
+        "date": "Feb 7, 2026",
+        "venue": "The Masquerade",
+        "category": "Music",
+        "sub_category": "Drum & Bass/Electronic",
+        "interest_score": 60,
+        "evergreen_candidate": false,
+        "notes": "High-energy drum & bass"
+      },
+      {
+        "name": "Riverdance",
+        "date": "Feb 6-7, 2026",
+        "venue": "Fox Theatre",
+        "category": "Theatre/Arts",
+        "sub_category": "Dance/Irish Culture",
+        "interest_score": 30,
+        "evergreen_candidate": false,
+        "notes": "Broadway touring show"
+      }
+    ],
+    "evergreen_candidates": [
+      {
+        "name": "Garden Lights Holiday Nights",
+        "venue": "Atlanta Botanical Garden",
+        "frequency": "Annual (Nov-Dec)",
+        "category": "Family/Holiday",
+        "reason": "Recurring seasonal event with consistent dates"
+      },
+      {
+        "name": "The Very Hungry Caterpillar & Other Eric Carle Favorites",
+        "venue": "Center for Puppetry Arts",
+        "frequency": "Year-round, rotating schedule",
+        "category": "Family/Puppet Shows",
+        "schedule": "Tues-Fri 10am, Sat-Sun 11am & 1pm",
+        "price": "$20-25",
+        "reason": "Recurring program, perfect for Dean (ages 3+)"
+      },
+      {
+        "name": "A Charlie Brown Christmas",
+        "venue": "Center for Puppetry Arts",
+        "frequency": "Annual (Nov 23 - Jan 5)",
+        "category": "Family/Holiday",
+        "price": "$22-27",
+        "reason": "Seasonal but recurring annually"
+      },
+      {
+        "name": "Drop-in Workshops",
+        "venue": "Center for Puppetry Arts",
+        "frequency": "Year-round (Sat-Sun)",
+        "category": "Family/Creative Activity",
+        "schedule": "After shows",
+        "price": "$8 additional",
+        "reason": "Recurring workshop program"
+      },
+      {
+        "name": "RNB at 9AM",
+        "venue": "The Eastern",
+        "frequency": "Weekly/Recurring Saturday morning",
+        "category": "Music",
+        "reason": "Consistent Saturday morning series"
+      },
+      {
+        "name": "Reggae on the Roof",
+        "venue": "Cafe Circa",
+        "frequency": "Recurring (Saturday nights)",
+        "category": "Music/Caribbean",
+        "reason": "Established recurring Saturday night party"
+      },
+      {
+        "name": "LYFE ATL",
+        "venue": "Lyfe ATL",
+        "frequency": "Recurring (Saturday)",
+        "category": "Music/Nightlife",
+        "price": "Free with RSVP",
+        "reason": "Regular weekend event series"
+      }
+    ],
+    "csv_columns": [
+      "Start Date",
+      "End",
+      "Event_Name",
+      "Venue",
+      "Going",
+      "Interested",
+      "Category",
+      "Sub_Category",
+      "Price_Range",
+      "Family_Level",
+      "Link",
+      "Add to Calendar",
+      "Spotify Link",
+      "Tickets or More Info",
+      "Notes"
+    ]
+  },
+  "implementation_roadmap": {
+    "phase_1_highest_roi": [
+      "AXS.com - Terminal West, Variety, Eastern (50-90 events)",
+      "Ticketmaster - All major venues (30-50 events)",
+      "EDMTrain - Electronic completeness (40-60 events)"
+    ],
+    "phase_2_medium_roi": [
+      "Eventbrite - Pagination through all categories (50-100 events)",
+      "RA.co - Underground/club supplement (20-30 events)"
+    ],
+    "phase_3_lower_roi_gap_filling": [
+      "Bandsintown - Music touring acts (20-30 events)",
+      "High Museum - Cultural programming (10-15 events)",
+      "Fernbank Museum - Special exhibitions (5-10 events)"
+    ],
+    "expected_final_coverage": {
+      "total_events": "200-350",
+      "venues_fully_covered": "40+",
+      "electronic_music": "100-150",
+      "comedy_theater": "30-50",
+      "family_activities": "20-30",
+      "food_festivals": "20-40",
+      "other": "30-50"
+    }
+  },
+  "technical_implementation": {
+    "python_scripts": [
+      {
+        "name": "add_new_events.py",
+        "purpose": "Template for adding new events to Master CSV",
+        "location": "project root"
+      },
+      {
+        "name": "consolidate_csvs.py",
+        "purpose": "Merge multiple CSVs, remove duplicates, filter past events",
+        "location": "project root"
+      },
+      {
+        "name": "taste_matcher_v2.py",
+        "purpose": "LLM enrichment pipeline: rewrite descriptions based on taste profile",
+        "status": "implemented (in remediation_log)",
+        "features": "Prepare/Apply workflow for batch LLM distillation"
+      },
+      {
+        "name": "fetch_assets.py",
+        "purpose": "Download event posters and venue branding assets",
+        "status": "referenced in implementation plan"
+      }
+    ],
+    "data_schema_json": {
+      "event_name": "String",
+      "start_date": "YYYY-MM-DD",
+      "end_date": "YYYY-MM-DD (Optional)",
+      "venue": "String",
+      "category": "Music | Comedy | Art | Family | Science",
+      "sub_category": "String (e.g., 'Drum & Bass', 'Improv')",
+      "price_range": "String",
+      "ticket_link": "URL",
+      "media_link": "URL (Spotify/YouTube)",
+      "description": "String (Rich text)",
+      "interest_score": "1-5 Integer",
+      "image_url": "URL",
+      "venue_logo_url": "URL (Optional)",
+      "scrape_source": "URL"
+    },
+    "recommended_schedule": {
+      "weekly": "Check Terminal West, Masquerade, Variety (15-20 min)",
+      "biweekly": "Add museums, family attractions, comedy venues",
+      "monthly": "Deep refresh of all venues, remove past events"
+    },
+    "time_per_refresh": "~60 minutes total per cycle"
+  },
+  "quality_standards": {
+    "data_quality_guidelines": {
+      "duplicate_detection": "Event_Name + Venue + Date must match exactly",
+      "duplicate_resolution": "Keep entry with most complete metadata (most notes/details)",
+      "date_format": "Preferred: 'Fri 11/15' or 'YYYY-MM-DD'",
+      "price_format": "'$X-X' or 'TBD' or 'Free'",
+      "family_level_values": ["All Ages", "18+", "21+", "Family Friendly"],
+      "category_values": ["Music", "Comedy", "Family", "Theatre", "Cultural", "Festival"]
+    },
+    "success_metrics": {
+      "good_refresh": [
+        "15-30 new events added per session",
+        "0 duplicate entries in final CSV",
+        "All past events removed monthly",
+        "Notes/links for 80%+ of events"
+      ],
+      "excellent_refresh": [
+        "30-50 new events added",
+        "Spotify links added to music events",
+        "Setlist.fm links for concerts",
+        "Rich notes explaining match to taste",
+        "Family_Level verified for kid events",
+        "All links tested and working"
+      ]
+    }
+  },
+  "files_read": [
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/ALTERNATIVE_DATA_SOURCES.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/REFRESH_WORKFLOW.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/BROWSER_AUTOMATION_GUIDE.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Atlanta_Events_Guide.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/REFRESH_PLAN_JAN_AUG_2026.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/MANUAL_BROWSER_TASKS.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/SCRAPING_TECHNICAL_LOG.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/REMEDIATION_LOG_JAN_2026.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/ATL Event List 2025-2026 - Master.csv"
+  ],
+  "summary": {
+    "key_findings": [
+      "19hz.info is the ONLY fully-working scraping source. All others require browser automation.",
+      "Big 3 venues (Terminal West, Variety, The Eastern) exclusively use AXS.com for ticketing—must scrape AXS, not direct URLs.",
+      "Masquerade requires dual-approach: list scraping works, but detailed descriptions need individual event page scraping.",
+      "Expected 200-350 total events from 40+ venues after full implementation.",
+      "Evergreen candidates identified: recurring holiday events, puppet shows, Saturday night series."
+    ],
+    "blocking_issues": [
+      "403 Forbidden: Ticketmaster, AXS.com, RA.co, direct venue pages",
+      "JavaScript-heavy: EDMTrain, High Museum, Fernbank Museum, Zoo Atlanta",
+      "Minimal data in list view: Masquerade (requires detail page scraping)",
+      "404s: Center Stage Theatre, Stone Mountain Park"
+    ],
+    "technical_debt": [
+      "Data ended prematurely on June 13, 2026 in initial refresh",
+      "Descriptions were generic AI slop until remediation_log work",
+      "Personalization scoring was hardcoded",
+      "Branding assets were missing—partially recovered in remediation"
+    ],
+    "next_steps_for_current_site": [
+      "Use 19hz.info as immediate data source (already working)",
+      "Implement browser automation for AXS, Ticketmaster (highest ROI)",
+      "Deploy taste_matcher_v2.py enrichment pipeline from remediation work",
+      "Sync venue branding assets from /assets/venues/ (already collected in remediation)",
+      "Set up recurring refresh schedule (weekly for priority venues)"
+    ]
+  }
+}

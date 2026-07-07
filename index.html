@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0c0c14" />
   <meta name="description" content="LLM-scored Atlanta event intelligence. S-tier electronic shows, family picks, date nights — ranked by personal taste profile." />
-  <title>ATL Event Intelligence — Apr–Sep 2026</title>
+  <title>ATL Radar — What's happening in Atlanta</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,14 +20,15 @@
 <!-- ── NAV ── -->
 <nav id="site-nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-brand"><em>ATL</em> / Events<span class="internal-badge">Internal</span></a>
+    <a href="#hero" class="nav-brand"><em>ATL</em> Radar<span class="internal-badge">Internal</span></a>
     <ul class="nav-links">
       <li><a href="#wizard"><span class="nav-full">Wizard</span><span class="nav-short">🎯</span></a></li>
       <li><a href="#cal-mini"><span class="nav-full">Calendar</span><span class="nav-short">📅</span></a></li>
       <li><a href="#events"><span class="nav-full">Events</span><span class="nav-short">🎵</span></a></li>
       <li><a href="#map-section"><span class="nav-full">Map</span><span class="nav-short">🗺️</span></a></li>
       <li><a href="#evergreen"><span class="nav-full">Evergreen</span><span class="nav-short">🌿</span></a></li>
-      <li><a href="#taste"><span class="nav-full">Scoring</span><span class="nav-short">⭐</span></a></li>
+      <li><a href="guides.html"><span class="nav-full">Guides</span><span class="nav-short">📖</span></a></li>
+      <li><a href="about.html"><span class="nav-full">About</span><span class="nav-short">ℹ️</span></a></li>
     </ul>
     <button class="nav-search-btn" id="nav-search-btn" aria-label="Search (⌘K)">
       <span class="nav-search-icon">🔍</span>
@@ -40,9 +41,9 @@
 <section id="hero" class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Atlanta, GA &nbsp;·&nbsp; Apr–Sep 2026</div>
-    <h1 class="hero-headline"><em>ATL</em> <span class="grad">Event</span> Intel</h1>
+    <h1 class="hero-headline"><em>ATL</em> <span class="grad">Radar</span></h1>
     <p class="hero-sub">
-      LLM-scored event discovery. Every show, festival, and family pick ranked against a personal taste profile — S-tier shows bubble to the top, B-tier stays in context.
+      Scored event discovery for Atlanta. Every show, festival, and family pick ranked against a personal taste profile — top picks bubble up, everything stays in context.
     </p>
     <div class="stat-grid">
       <div class="stat-card">
@@ -62,7 +63,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-number"><span class="c-red" id="stat-sa-count">—</span></div>
-        <div class="stat-label">S + A Tier Shows</div>
+        <div class="stat-label">Top Picks (75+)</div>
         <div class="stat-sublabel">Worth calendar blocking</div>
       </div>
       <div class="stat-card internal-only">
@@ -82,6 +83,7 @@
     <h2 class="section-title">What's the Move?</h2>
     <p class="section-body">Pick one option from each row. Drives the calendar, events grid, and evergreen section simultaneously.</p>
 
+    <button class="wizard-mobile-toggle" id="wizard-mobile-toggle">🎯 Filter Events</button>
     <div class="wizard-wrap">
       <div class="wizard-row">
         <div class="wizard-row-label">When?</div>
@@ -96,7 +98,7 @@
         <div class="wizard-row-label">Who?</div>
         <div class="wizard-options">
           <button class="wiz-btn" data-step="who" data-val="solo">Just Me</button>
-          <button class="wiz-btn" data-step="who" data-val="dean">Me + Dean</button>
+          <button class="wiz-btn" data-step="who" data-val="dean">Dima + Dean</button>
           <button class="wiz-btn" data-step="who" data-val="family">Full Family</button>
           <button class="wiz-btn" data-step="who" data-val="date">Date Night</button>
           <button class="wiz-btn" data-step="who" data-val="friends">Friends</button>
@@ -116,7 +118,7 @@
       </div>
 
       <div class="ruby-nap-banner hidden" id="ruby-nap">
-        ⚠️ Ruby naps 12:00–2:30 PM — plan Full Family outings in the morning or evening
+        ⚠️ Toddler nap window: 12:00–2:30 PM — plan full family outings in the morning or evening
       </div>
 
       <div class="wizard-results-bar" id="wizard-results-bar">
@@ -167,11 +169,11 @@
       <button class="chip" data-filter="free">Free</button>
     </div>
     <div class="filter-bar">
-      <span class="filter-label">Tier:</span>
+      <span class="filter-label">Score:</span>
       <button class="chip active" data-tier="all">All</button>
-      <button class="chip chip-S" data-tier="S">S · 90+</button>
-      <button class="chip" data-tier="A">A · 75–89</button>
-      <button class="chip chip-B" data-tier="B">B · 60–74</button>
+      <button class="chip chip-top" data-tier="S">90+</button>
+      <button class="chip" data-tier="A">75–89</button>
+      <button class="chip" data-tier="B">60–74</button>
     </div>
     <div class="sort-bar">
       <span class="filter-label">Sort:</span>
@@ -179,7 +181,12 @@
       <button class="sort-btn" id="sort-score">By Score</button>
     </div>
 
-    <div class="events-grid" id="events-grid"></div>
+    <div class="events-grid-wrap">
+      <div class="events-grid" id="events-grid"></div>
+      <div class="scroll-counter" id="scroll-counter"></div>
+    </div>
+    <div id="surprise-strip" class="surprise-strip" style="display:none"></div>
+    <button class="show-more-btn" id="show-more-btn" style="display:none">Show all events</button>
   </div>
 </section>
 
@@ -191,6 +198,24 @@
     <div class="section-label">Atlanta, GA</div>
     <h2 class="section-title">Event Map</h2>
     <p class="section-body">All upcoming events (tier-colored) and evergreen activities (green) on the map. Click any pin for details.</p>
+    <div class="map-filters">
+      <div class="map-filter-row">
+        <button class="map-toggle active" data-layer="events">Events</button>
+        <button class="map-toggle active" data-layer="evergreen">Evergreen</button>
+      </div>
+      <div class="map-filter-row">
+        <button class="map-cat-btn active" data-cat="all">All</button>
+        <button class="map-cat-btn" data-cat="music">Music</button>
+        <button class="map-cat-btn" data-cat="family">Family</button>
+        <button class="map-cat-btn" data-cat="date">Date</button>
+        <button class="map-cat-btn" data-cat="group">Group</button>
+        <button class="map-cat-btn" data-cat="solo">Solo</button>
+        <button class="map-cat-btn" data-cat="outdoor">Outdoor</button>
+        <button class="map-cat-btn" data-cat="comedy">Comedy</button>
+        <button class="map-cat-btn" data-cat="social">Social</button>
+        <button class="map-cat-btn" data-cat="papa">Papa</button>
+      </div>
+    </div>
     <div id="atl-map"></div>
   </div>
 </section>
@@ -202,7 +227,7 @@
   <div class="container">
     <div class="section-label">No Ticket Required</div>
     <h2 class="section-title">Evergreen ATL</h2>
-    <p class="section-body">High-value repeatable experiences that don't require weeks of planning. Wizard filters by who you're going with. Dean/parent scores on each card.</p>
+    <p class="section-body">High-value repeatable experiences that don't require weeks of planning. Wizard filters by who you're going with. Kid/adult scores on each card.</p>
 
     <div class="eg-filter-bar">
       <span class="eg-filter-label">Who:</span>
@@ -226,6 +251,13 @@
       <button class="eg-chip-day" data-day="weekday">Weekday</button>
       <button class="eg-chip-day" data-day="weekend">Weekend</button>
     </div>
+    <div class="eg-filter-bar" style="margin-top:-10px;">
+      <span class="eg-filter-label">When:</span>
+      <button class="eg-chip-avail active" data-avail="all">All</button>
+      <button class="eg-chip-avail" data-avail="year-round">🌿 Year-round</button>
+      <button class="eg-chip-avail" data-avail="scheduled">🗓 Scheduled</button>
+      <button class="eg-chip-avail" data-avail="seasonal">🌸 Seasonal</button>
+    </div>
 
     <div class="eg-grid" id="eg-grid"></div>
   </div>
@@ -238,44 +270,35 @@
   <div class="container">
     <div class="section-label">Scoring System</div>
     <h2 class="section-title">How Events Get Scored</h2>
-    <p class="section-body">Each event scored 0–100 against a personal taste profile weighted toward electronic music, live experiences, and venue quality. Spider charts in each event drawer show the 5 scoring axes.</p>
-
-    <div class="tier-grid">
-      <div class="tier-box">
-        <div class="tier-box-letter S">S</div>
-        <div class="tier-box-range">Score 90–100</div>
-        <div class="tier-box-desc">Buy immediately, no debate. These are the reason to be in Atlanta.</div>
-        <div class="tier-box-examples">Disclosure LIVE · Sub Focus 360°</div>
-      </div>
-      <div class="tier-box">
-        <div class="tier-box-letter A">A</div>
-        <div class="tier-box-range">Score 75–89</div>
-        <div class="tier-box-desc">Strong interest — check lineup, coordinate group, act within 1–2 weeks.</div>
-        <div class="tier-box-examples">DWTD + Magic Sword · Vintage Culture · Shaky Knees</div>
-      </div>
-      <div class="tier-box">
-        <div class="tier-box-letter B">B</div>
-        <div class="tier-box-range">Score 60–74</div>
-        <div class="tier-box-desc">Situational. Depends on who's free, energy levels, and competing options.</div>
-        <div class="tier-box-examples">Jazz Fest · Streets Alive · Dino Fest</div>
-      </div>
-      <div class="tier-box">
-        <div class="tier-box-letter C">C</div>
-        <div class="tier-box-range">Score 0–59</div>
-        <div class="tier-box-desc">Pass unless strong social hook — friend visiting, birthday event.</div>
-        <div class="tier-box-examples">Pop, country, sports (unless ATL United)</div>
-      </div>
+    <p class="section-body">Each event scored 0-100 against a personal taste profile across 5 axes: genre match, venue quality, format rarity, lineup strength, and value. Expand any event to see its spider chart breakdown.</p>
+    <div style="margin-top:20px">
+      <a href="about.html" class="btn-sm btn-buy" style="display:inline-flex">Read the full taste profile & build log →</a>
     </div>
+  </div>
+</section>
 
-    <div style="margin-top:32px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius)">
-      <div class="section-label" style="margin-bottom:10px">Scoring Axes (Spider Chart)</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;font-size:13px;color:var(--text-muted)">
-        <div><strong style="color:var(--text)">Genre Match</strong><br>How close to S-tier taste: electronic, trance, techno, live band.</div>
-        <div><strong style="color:var(--text)">Venue Quality</strong><br>Sound, intimacy, production. The Eastern adds 10+ points.</div>
-        <div><strong style="color:var(--text)">Format Rarity</strong><br>Live band vs. DJ, 360° immersive vs. standard stage.</div>
-        <div><strong style="color:var(--text)">Lineup Strength</strong><br>Headliner tier and support quality.</div>
-        <div><strong style="color:var(--text)">Value for Money</strong><br>Ticket price vs. total experience. Free events score high.</div>
-      </div>
+<hr class="section-divider" />
+
+<!-- ── GUIDES ── -->
+<section id="guides">
+  <div class="container">
+    <div class="section-label">Deep Dives</div>
+    <h2 class="section-title">ATL Guides</h2>
+    <p class="section-body">Scored research on Atlanta day trips, seasonal picks, and family experiences — not just a list, a decision.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:24px;">
+      <a href="guides.html" style="display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='rgba(20,184,166,0.35)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="width:100%;height:140px;overflow:hidden;">
+          <img src="https://www.southernbellefarm.com/wp-content/uploads/2021/05/Southern-Belle-Strawberries.png"
+               onerror="this.parentElement.style.background='var(--bg-elevated)';this.style.display='none'"
+               style="width:100%;height:100%;object-fit:cover;" alt="Strawberry picking" />
+        </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:600;margin-bottom:6px;">Family Day Trip · May 2026</div>
+          <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">Strawberry Picking Near Atlanta</div>
+          <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:12px;">5 U-pick farms scored. Winner: Southern Belle Farm (McDonough) — 4.7/5, #1 toddler activity lineup.</div>
+          <div style="font-size:13px;color:var(--teal);font-weight:600;">Read the guide →</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -305,6 +328,17 @@
   </div>
 </div>
 
+<!-- ── BOTTOM SHEET (Mobile event detail) ── -->
+<div class="bs-overlay" id="bs-overlay" aria-hidden="true">
+  <div class="bs-sheet" id="bs-sheet" role="dialog" aria-label="Event details">
+    <div class="bs-handle"><span class="bs-handle-bar"></span></div>
+    <div class="bs-content" id="bs-content"></div>
+  </div>
+</div>
+
+<!-- ── MAP FAB (mobile) ── -->
+<button id="map-fab" class="map-fab" aria-label="Show map">🗺️</button>
+
 <!-- ── BACK TO TOP ── -->
 <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
 
@@ -315,7 +349,7 @@
     <span class="footer-sep">·</span>
     <span>Apr–Sep 2026</span>
     <span class="footer-sep">·</span>
-    <span>Updated Apr 21, 2026</span>
+    <span>Updated Apr 22, 2026</span>
     <div class="footer-right">
       <a href="https://github.com/WhatWouldDimaDo/atl-events" target="_blank" rel="noopener">GitHub</a>
     </div>

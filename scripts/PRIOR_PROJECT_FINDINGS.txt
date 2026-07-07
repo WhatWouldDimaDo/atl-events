@@ -1,0 +1,85 @@
+ATL EVENT LIST PRIOR PROJECT — SCAN FINDINGS
+========================================================
+
+LOCATION: /Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/
+
+FILE STRUCTURE:
+  • Master CSV: "ATL Event List 2025-2026 - Master.csv" (517 events, 63 venues)
+  • Venue Data: planning/venue_branding.json (11 venues with branding + colors)
+  • Target Venues: planning/target_venues.json (organized by scraping batch)
+  • Results: results/*.json (batch A-D, gap fill, summer events, distilled batches)
+  • Scripts: 5+ Python utilities for consolidation, asset download, auditing
+
+KEY METRICS:
+  • Total Venues: 63
+  • Total Events: 517
+  • Evergreen Candidates: 49 (recurring/seasonal events)
+  • Venues with Branding: 11 (logos, colors, vibes)
+
+TOP VENUES BY EVENT COUNT:
+  1. Hell at The Masquerade — 82 events
+  2. Purgatory at The Masquerade — 57 events
+  3. Heaven at The Masquerade — 56 events
+  4. Altar at The Masquerade — 48 events
+  5. The Masquerade — 48 events
+  6. Believe Music Hall — 27 events
+  7. Variety Playhouse — 25 events
+  8. District Atlanta — 19 events
+  9. The Eastern — 18 events
+  10. Terminal West — 14 events
+
+EVERGREEN EVENT PATTERNS:
+  Keywords used: holiday, festival, market, show, concert, night, tasting, tour, farmers, brunch
+  Sample events: Garden Lights Holiday Nights, Noah's Ark Sanctuary Tours, Mambo Dance Classes
+
+SCRAPING PIPELINE:
+  1. consolidate_scrape.py — Merges JSON batches → Master CSV
+     • Maps: start_date→Start Date, event_name→Event_Name, ticket_link→Link
+     • Deduplicates on: Event_Name + Venue + Start Date
+  
+  2. fetch_assets.py — Downloads images & logos
+     • Source: venue_branding.json (logo_url), event JSON (image_url)
+     • Stores: assets/venues/, assets/events/
+     • Throttle: 0.5s between downloads, User-Agent header
+  
+  3. final_audit.py — Quality check
+     • Detects generic "slop" descriptions (keywords: "live at", "presents")
+     • Counts enriched descriptions ("Why Dima likes this...")
+     • Generates interest score distribution
+  
+  4. taste_matcher.py / taste_matcher_v2.py — Event ranking
+     • Matches against Dima taste profile
+  
+  5. analyze_yt_history.py — YouTube interest extraction
+     • Outputs: results/yt_top_artists.json
+
+VENUE BRANDING DATA:
+  11 major venues documented with:
+  • Logo URLs (Storage/Ticketmaster/LiveNation CDNs, custom URLs)
+  • Primary colors (hex codes)
+  • Vibe descriptors (architectural/cultural keywords)
+  
+  Examples:
+    - The Masquerade: #662D91 (purple) — "Alternative, Gritty, Legendary"
+    - Terminal West: #E85D04 (orange) — "Industrial-chic, Intimate, West Midtown"
+    - Atlanta Botanical Garden: #008542 (green) — "Serene, Lush, Botanical"
+
+TARGET VENUES BATCHES:
+  • batch_a_big_three_electronic: 6 major music venues (high bot protection)
+  • batch_b_culture_family: 5 cultural/family venues (low bot protection)
+  • batch_c_comedy_intimate: 5 comedy/intimate venues (low bot protection)
+  • batch_d_discovery: 3 aggregator sites (19hz.info, RA, Plaza Theatre)
+
+JSON RESULTS STRUCTURE:
+  Event objects contain:
+  • start_date, event_name, venue, ticket_link, image_url
+  • description, price_range, interest_score
+  • category, sub_category (derived from CSV)
+
+ACTIONABLE INSIGHTS FOR NEW SITE:
+  1. Reuse venue branding data (colors, vibes, logos) from venue_branding.json
+  2. Start with top 10 venues for content (87% of event volume)
+  3. Implement evergreen event carousel (49 candidates identified)
+  4. Use existing scraping patterns as reference for new data pipeline
+  5. Consider importing existing 517 events as seed data
+  6. Apply same deduplication logic (Event_Name + Venue + Start Date)

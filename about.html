@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0c14" />
+  <meta name="description" content="How ATL Radar was built — taste profile, scoring system, and the AI pipeline behind it." />
+  <title>ATL Radar — About</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><em>ATL</em> Radar</a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#taste">Taste Profile</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="/">Back to Events</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="about-hero">
+  <div class="container">
+    <div class="hero-eyebrow">Behind the Scenes</div>
+    <h1 class="hero-headline"><em>How</em> <span class="grad">ATL Radar</span> <em>Works</em></h1>
+    <p class="hero-sub">
+      A personal event discovery engine for Atlanta, built with Claude Code. Every event scored 0-100 against a real taste profile. No algorithms deciding what's popular — just what's worth your time.
+    </p>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how">
+  <div class="container">
+    <div class="section-label">Overview</div>
+    <h2 class="section-title">The Idea</h2>
+    <p class="section-body" style="max-width:720px">
+      ATL Radar started as a question: <em>"What's worth going to this month?"</em> Existing event sites surface everything — we wanted a tool that filters for <strong>our</strong> taste. The result is a zero-backend static site where every event is scored against a personal taste profile covering genre affinity, venue quality, format rarity, lineup strength, and value.
+    </p>
+
+    <div class="about-grid" style="margin-top:32px">
+      <div class="about-card">
+        <div class="about-card-icon">📊</div>
+        <h3>Scored, Not Sorted</h3>
+        <p>Each event gets a 0-100 score across 5 axes. No binary "interested / not interested" — everything stays in context with a clear signal of how much it matches our vibe.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🤖</div>
+        <h3>AI-Powered Pipeline</h3>
+        <p>Event data enriched with Claude + Firecrawl. Ticket URLs, images, and metadata scraped from 30+ venues and ticket platforms. Stdlib-only Python — no pip install needed.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">📁</div>
+        <h3>4-File Architecture</h3>
+        <p>index.html, data.js, style.css, app.js. No framework, no build step, no backend. Deploys to Vercel in seconds. The entire site is under 200KB gzipped.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🗺️</div>
+        <h3>140 Evergreen Activities</h3>
+        <p>Beyond timed events — farmers markets, parks, museums, date nights, family spots. All geocoded on the map with hours, cost, and a kid-friendliness score.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ── TASTE PROFILE ── -->
+<section id="taste">
+  <div class="container">
+    <div class="section-label">Personal Taste Profile</div>
+    <h2 class="section-title">What Scores High</h2>
+    <p class="section-body" style="max-width:720px">
+      The scoring engine is calibrated to a specific set of preferences — not a generic popularity metric. Here's what moves the needle.
+    </p>
+
+    <!-- Genre preferences -->
+    <div class="about-section-block">
+      <h3 class="about-block-title">🎵 Genre Affinity</h3>
+      <div class="about-taste-grid">
+        <div class="taste-tier taste-high">
+          <div class="taste-tier-label">High Priority</div>
+          <div class="taste-tier-genres">
+            <span class="taste-genre">Downtempo</span>
+            <span class="taste-genre">Organic House</span>
+            <span class="taste-genre">Liquid DnB</span>
+            <span class="taste-genre">Melodic Techno</span>
+            <span class="taste-genre">IDM</span>
+            <span class="taste-genre">Ambient</span>
+            <span class="taste-genre">Orchestral Electronic</span>
+          </div>
+          <div class="taste-artists">Bonobo, Tycho, Lane 8, Nora En Pure, RUFUS DU SOL, Four Tet, Floating Points, Fred again.., Jamie xx, Polo & Pan, Justice, Kaytranada</div>
+          <div class="taste-note">Anjunadeep sound, Cercle shows, Red Bull Symphonic events</div>
+        </div>
+        <div class="taste-tier taste-mid">
+          <div class="taste-tier-label">Medium Priority</div>
+          <div class="taste-tier-genres">
+            <span class="taste-genre">Indie Rock</span>
+            <span class="taste-genre">Alternative</span>
+            <span class="taste-genre">Funk</span>
+            <span class="taste-genre">Soul</span>
+            <span class="taste-genre">Modern Jazz</span>
+            <span class="taste-genre">World Fusion</span>
+          </div>
+          <div class="taste-artists">Khruangbin, Glass Animals, Tame Impala, Jungle, Vulfpeck, Atmosphere, Tinariwen, Bombino</div>
+          <div class="taste-note">Good for date night or group outings — solid but not a must-see</div>
+        </div>
+        <div class="taste-tier taste-low">
+          <div class="taste-tier-label">Low Priority</div>
+          <div class="taste-tier-genres">
+            <span class="taste-genre">Generic Pop</span>
+            <span class="taste-genre">Radio Country</span>
+            <span class="taste-genre">Mumble Rap</span>
+            <span class="taste-genre">Screamo</span>
+          </div>
+          <div class="taste-note">Pass unless there's a strong social hook — birthday, friend visiting, legendary act</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venue preferences -->
+    <div class="about-section-block">
+      <h3 class="about-block-title">🏛️ Venue Preferences</h3>
+      <p class="about-block-sub">Smaller, unique venues over massive arenas. Focus on artistic merit and sound design.</p>
+      <div class="about-taste-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
+        <div class="taste-venue-card">
+          <div class="taste-venue-tier">Top Tier</div>
+          <div class="taste-venue-list">The Eastern, Terminal West, Variety Playhouse, Plaza Theatre</div>
+        </div>
+        <div class="taste-venue-card">
+          <div class="taste-venue-tier">Clubs & Underground</div>
+          <div class="taste-venue-list">District Atlanta, Believe Music Hall, The Masquerade, Aisle 5</div>
+        </div>
+        <div class="taste-venue-card">
+          <div class="taste-venue-tier">Bucket List</div>
+          <div class="taste-venue-list">Red Rocks (CO), Cercle shows abroad, Red Bull Symphonic</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Format preferences -->
+    <div class="about-section-block">
+      <h3 class="about-block-title">🎭 Format Preferences</h3>
+      <div class="about-format-tags">
+        <span class="format-tag high">Orchestral Electronic Crossovers</span>
+        <span class="format-tag high">Projection Mapping / Light Shows</span>
+        <span class="format-tag high">Immersive Experiences</span>
+        <span class="format-tag high">90s/00s Throwbacks</span>
+        <span class="format-tag mid">Intimate Artistic Venues</span>
+        <span class="format-tag mid">Cult/Art Cinema</span>
+        <span class="format-tag mid">Interactive Family Exhibits</span>
+        <span class="format-tag mid">After-Dark Museum Events</span>
+        <span class="format-tag">Adults-Only Recovery Spaces</span>
+        <span class="format-tag">Speakeasy / Cabaret</span>
+        <span class="format-tag">Nature Walks / Botanical</span>
+      </div>
+    </div>
+
+    <!-- Scoring axes -->
+    <div class="about-section-block">
+      <h3 class="about-block-title">📐 The 5 Scoring Axes</h3>
+      <p class="about-block-sub">Each event's spider chart in the detail drawer breaks down these dimensions.</p>
+      <div class="scoring-axes-grid">
+        <div class="axis-card">
+          <div class="axis-name">Genre Match</div>
+          <div class="axis-desc">How close to the high-priority genres above. Electronic downtempo and orchestral crossovers score highest.</div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-name">Venue Quality</div>
+          <div class="axis-desc">Sound system, intimacy, production value. The Eastern adds 10+ points automatically.</div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-name">Format Rarity</div>
+          <div class="axis-desc">Live band vs. DJ set, 360 immersive vs. standard stage, once-in-a-city vs. touring circuit.</div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-name">Lineup Strength</div>
+          <div class="axis-desc">Headliner caliber and support quality. Multi-act bills with complementary artists score higher.</div>
+        </div>
+        <div class="axis-card">
+          <div class="axis-name">Value for Money</div>
+          <div class="axis-desc">Ticket price vs. total experience. Free events score high. $200 arena seats score low unless the act is legendary.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Energy patterns -->
+    <div class="about-section-block">
+      <h3 class="about-block-title">⚡ Energy Patterns</h3>
+      <p class="about-block-sub">Events fit into a personal energy cadence — balancing high-intensity catharsis with recovery and family time.</p>
+      <div class="about-grid">
+        <div class="about-card compact">
+          <div class="about-card-icon">🧘</div>
+          <h3>Bi-Weekly Reset</h3>
+          <p>Sol Dance / Ecstatic Dance for spiritual recharge.</p>
+        </div>
+        <div class="about-card compact">
+          <div class="about-card-icon">🎆</div>
+          <h3>Monthly Catharsis</h3>
+          <p>One major electronic show per month. High-energy peak.</p>
+        </div>
+        <div class="about-card compact">
+          <div class="about-card-icon">👨‍👧</div>
+          <h3>Family Connection</h3>
+          <p>Zoo, Botanical Garden, Fernbank — repeatable with a toddler, twice a month.</p>
+        </div>
+        <div class="about-card compact">
+          <div class="about-card-icon">📚</div>
+          <h3>Low-Effort Routine</h3>
+          <p>Toddler library reading, neighborhood walks. Weekly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ── PIPELINE ── -->
+<section id="pipeline">
+  <div class="container">
+    <div class="section-label">Technical</div>
+    <h2 class="section-title">How It Was Built</h2>
+    <p class="section-body" style="max-width:720px">
+      The entire site was built in a single Claude Code session (with continuations). No manual data entry — every event was discovered, scored, enriched, and deployed through an AI-assisted pipeline.
+    </p>
+
+    <div class="pipeline-timeline">
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">1</div>
+        <div class="pipeline-step-content">
+          <h3>Event Discovery</h3>
+          <p>Scanned 4 sources in parallel — Obsidian vault (80 events), Google Calendar (37), Gmail (21), and an archived ATL project (70). Haiku agents for speed, Sonnet for deduplication. Result: 52 new evergreen entries + base curated events.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">2</div>
+        <div class="pipeline-step-content">
+          <h3>Concert Expansion</h3>
+          <p>Mined 1,471 events from 14 CSV/JSON files in a prior project. Filtered for future dates, electronic genres, and quality venues. Scraped Songkick, 19hz.info, and District Atlanta calendar for Jul-Aug gap fill. 28 → 47 curated events.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">3</div>
+        <div class="pipeline-step-content">
+          <h3>Data Enrichment</h3>
+          <p>Three-mode Python script (<code>enrich_events.py</code>) — audit gaps, fetch missing data, apply patches. og:image extraction via stdlib urllib + HTMLParser. Firecrawl parallel agents searched Eventbrite, Ticketmaster, AXS, and venue sites. Ticket coverage went from 14% to 88%.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">4</div>
+        <div class="pipeline-step-content">
+          <h3>Scoring</h3>
+          <p>Each event scored by Claude against the taste profile on 5 axes: genre match, venue quality, format rarity, lineup strength, value for money. Weighted sum produces 0-100 score. Spider charts rendered with Chart.js in each event drawer.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">5</div>
+        <div class="pipeline-step-content">
+          <h3>Social Layer</h3>
+          <p>Social scan algorithm maps events to friend groups — inner circles per slot type (Concert Squad, Kids Crew, Couples Dinner), overdue contact tracking, and pre-drafted group texts. Lead time thresholds prevent last-minute suggestions.</p>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">6</div>
+        <div class="pipeline-step-content">
+          <h3>Deploy</h3>
+          <p>Static files deployed to Vercel via CLI. No build step, no framework, no backend. 4 files, ~200KB gzipped, loads in under 1 second. 7 production deploys across the session.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech stack -->
+    <div class="about-section-block" style="margin-top:40px">
+      <h3 class="about-block-title">🛠️ Stack</h3>
+      <div class="about-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))">
+        <div class="stack-item">
+          <div class="stack-name">Frontend</div>
+          <div class="stack-detail">Vanilla HTML/CSS/JS</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Maps</div>
+          <div class="stack-detail">Leaflet + CartoDB tiles</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Charts</div>
+          <div class="stack-detail">Chart.js radar</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Fonts</div>
+          <div class="stack-detail">Bebas Neue + DM Sans</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Deploy</div>
+          <div class="stack-detail">Vercel CLI</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Scraping</div>
+          <div class="stack-detail">Firecrawl + urllib</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">AI</div>
+          <div class="stack-detail">Claude Code (Opus + Haiku)</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-name">Python</div>
+          <div class="stack-detail">3.14, stdlib only</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="about-section-block" style="margin-top:40px">
+      <h3 class="about-block-title">📈 By the Numbers</h3>
+      <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))">
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-purple">47</span></div>
+          <div class="stat-label">Curated Events</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-teal">140</span></div>
+          <div class="stat-label">Evergreen Activities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-amber">88%</span></div>
+          <div class="stat-label">Ticket Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-green">98%</span></div>
+          <div class="stat-label">Image Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-purple">7</span></div>
+          <div class="stat-label">Production Deploys</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="c-teal">0</span></div>
+          <div class="stat-label">npm Packages</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span>ATL Radar</span>
+    <span class="footer-sep">·</span>
+    <span>Built with Claude Code</span>
+    <span class="footer-sep">·</span>
+    <span>2026</span>
+  </div>
+</footer>
+
+<!-- ── BACK TO TOP ── -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+// Minimal JS for scroll progress + back-to-top
+const bttBtn = document.getElementById('back-to-top');
+if (bttBtn) bttBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+  if (bttBtn) bttBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
+  document.getElementById('site-nav')?.classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
+</script>
+</body>
+</html>

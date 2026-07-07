@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0c14" />
+  <meta name="description" content="ATL Radar deep dives — scored guides for Atlanta day trips, experiences, and seasonal picks." />
+  <title>ATL Radar — Guides</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .guides-hero {
+      padding: 64px 24px 48px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .guides-eyebrow {
+      font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px; font-weight: 600;
+    }
+    .guides-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 7vw, 56px);
+      line-height: 1.05; letter-spacing: .03em; margin-bottom: 16px;
+    }
+    .guides-headline em { color: var(--teal); font-style: normal; }
+    .guides-sub {
+      color: var(--text-muted); font-size: 16px; max-width: 500px; margin: 0 auto;
+    }
+
+    .guides-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .guide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: border-color .15s, transform .15s;
+    }
+    .guide-card:hover {
+      border-color: rgba(20,184,166,0.35);
+      transform: translateY(-2px);
+    }
+    .guide-card-img {
+      width: 100%; height: 180px;
+      background: var(--bg-elevated);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .guide-card-season {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(12,12,20,0.75); color: var(--teal);
+      font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px);
+    }
+    .guide-card-body {
+      padding: 18px 20px 22px;
+    }
+    .guide-card-category {
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-dim); font-weight: 600; margin-bottom: 6px;
+    }
+    .guide-card-title {
+      font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .guide-card-desc {
+      font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;
+    }
+    .guide-card-meta {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .guide-tag {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      color: var(--text-dim); font-size: 11px; padding: 3px 10px; border-radius: 20px;
+    }
+    .guide-card-cta {
+      font-size: 13px; color: var(--teal); font-weight: 600; margin-top: 14px;
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    /* Coming soon card */
+    .guide-card.coming-soon {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .guide-card.coming-soon .guide-card-season {
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><em>ATL</em> Radar</a>
+    <ul class="nav-links">
+      <li><a href="/">← Events</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="guides-hero">
+  <div class="guides-eyebrow">📖 Deep Dives</div>
+  <h1 class="guides-headline"><em>ATL</em> Guides</h1>
+  <p class="guides-sub">Scored, researched, ready to book. Day trips and seasonal experiences for Atlanta families.</p>
+</div>
+
+<div class="guides-grid">
+
+  <!-- Strawberry Picking -->
+  <a href="/strawberry.html" class="guide-card">
+    <div class="guide-card-img">
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2021/05/Southern-Belle-Strawberries.png"
+           onerror="this.parentElement.innerHTML='🍓'" alt="Strawberry picking" />
+      <div class="guide-card-season">May 2026</div>
+    </div>
+    <div class="guide-card-body">
+      <div class="guide-card-category">Family Day Trip · 45 min</div>
+      <div class="guide-card-title">Strawberry Picking Near Atlanta</div>
+      <div class="guide-card-desc">5 U-pick farms scored and compared. Winner: Southern Belle Farm in McDonough — #1 toddler activity lineup, 45 min down I-75, 4.7/5 on TripAdvisor.</div>
+      <div class="guide-card-meta">
+        <span class="guide-tag">👶 Toddler-friendly</span>
+        <span class="guide-tag">🍓 U-pick</span>
+        <span class="guide-tag">🐄 Barnyard</span>
+      </div>
+      <div class="guide-card-cta">Read the guide →</div>
+    </div>
+  </a>
+
+  <!-- Coming soon: Apple picking -->
+  <div class="guide-card coming-soon">
+    <div class="guide-card-img">🍎
+      <div class="guide-card-season">Fall 2026</div>
+    </div>
+    <div class="guide-card-body">
+      <div class="guide-card-category">Family Day Trip · 1.5 hr</div>
+      <div class="guide-card-title">Apple Picking in North Georgia</div>
+      <div class="guide-card-desc">Ellijay orchards ranked — Mercier, Panorama, Carter's Lake area. Best weekends, crowds, fall foliage timing.</div>
+      <div class="guide-card-meta">
+        <span class="guide-tag">🍎 Orchards</span>
+        <span class="guide-tag">🍂 Fall</span>
+      </div>
+      <div class="guide-card-cta">Coming soon</div>
+    </div>
+  </div>
+
+  <!-- Coming soon: Splash pads / summer -->
+  <div class="guide-card coming-soon">
+    <div class="guide-card-img">💦
+      <div class="guide-card-season">Summer 2026</div>
+    </div>
+    <div class="guide-card-body">
+      <div class="guide-card-category">Family · In-town</div>
+      <div class="guide-card-title">Atlanta Splash Pads &amp; Water Play</div>
+      <div class="guide-card-desc">Best free and paid water play spots ranked by neighborhood, toddler access, shade, and parking.</div>
+      <div class="guide-card-meta">
+        <span class="guide-tag">💦 Water</span>
+        <span class="guide-tag">👶 Toddlers</span>
+        <span class="guide-tag">☀️ Summer</span>
+      </div>
+      <div class="guide-card-cta">Coming soon</div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="text-align:center;padding:40px 24px;color:var(--text-dim);font-size:13px;">
+  <a href="/" style="color:var(--text-dim);text-decoration:none;">← Back to ATL Radar</a>
+  <span style="margin:0 12px">·</span>
+  Built Apr 2026
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('progress');
+    if (!el) return;
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    el.style.width = Math.min(pct, 100) + '%';
+  });
+</script>
+</body>
+</html>

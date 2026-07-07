@@ -1,0 +1,870 @@
+{
+  "metadata": {
+    "report_date": "2026-04-21",
+    "total_files_analyzed": 14,
+    "total_events_found": 1471,
+    "future_events_count": 100,
+    "unique_venues": 127
+  },
+  "files_found": [
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/ATL Event List 2025-2026 - Master.csv",
+      "format": "csv",
+      "event_count": 517,
+      "date_range": "various",
+      "schema": [
+        "Start Date",
+        "End",
+        "Event_Name",
+        "Venue",
+        "Going",
+        "Interested",
+        "Category",
+        "Sub_Category",
+        "Price_Range",
+        "Family_Level"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/ATL Event List 2025-2026 - Master.csv",
+      "format": "csv",
+      "event_count": 344,
+      "date_range": "various",
+      "schema": [
+        "Start Date",
+        "End",
+        "Event_Name",
+        "Venue",
+        "Going",
+        "Interested",
+        "Category",
+        "Sub_Category",
+        "Price_Range",
+        "Family_Level"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/ATL Event List 2025 - ATL Events Aug-Oct.csv",
+      "format": "csv",
+      "event_count": 128,
+      "date_range": "various",
+      "schema": [
+        "Start Date",
+        "End",
+        "Event_Name",
+        "Venue",
+        "Going",
+        "Interested",
+        "Category",
+        "Sub_Category",
+        "Price_Range",
+        "Family_Level"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/ATL Event List 2025 - Sheet1.csv",
+      "format": "csv",
+      "event_count": 27,
+      "date_range": "various",
+      "schema": [
+        "Venue_Name",
+        "Program_Type",
+        "Program_Name",
+        "Schedule",
+        "Age_Range",
+        "Cost_Structure",
+        "Description",
+        "Seasonal_Notes",
+        "Link"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/Atlanta Events Hub - Expanded Through October 2025.csv",
+      "format": "csv",
+      "event_count": 55,
+      "date_range": "various",
+      "schema": [
+        "Sub_Category",
+        "Price_Range",
+        "Interest_Score",
+        "Category",
+        "Venue",
+        "Family_Level",
+        "Event_Name",
+        "Date",
+        "Notes",
+        "Link"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_a_1.json",
+      "format": "json",
+      "event_count": 30,
+      "date_range": "Jan 2026 - Jun 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ],
+      "note": "Music events from AXS, Songkick, Bandsintown"
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_a_2.json",
+      "format": "json",
+      "event_count": 174,
+      "date_range": "Jan 2026 - Sep 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ],
+      "note": "Largest batch - comprehensive music events from multiple ticketing sources"
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_a_3.json",
+      "format": "json",
+      "event_count": 45,
+      "date_range": "Mar 2026 - Jun 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_b.json",
+      "format": "json",
+      "event_count": 13,
+      "date_range": "Apr 2026 - May 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_c.json",
+      "format": "json",
+      "event_count": 17,
+      "date_range": "Apr 2026 - Jun 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/batch_d.json",
+      "format": "json",
+      "event_count": 33,
+      "date_range": "Feb 2026 - Jun 2026",
+      "schema": [
+        "event_name",
+        "start_date",
+        "venue",
+        "ticket_link",
+        "price_range",
+        "description",
+        "image_url",
+        "scrape_source"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/distilled_batch.json",
+      "format": "json",
+      "event_count": 82,
+      "date_range": "various",
+      "schema": [
+        "Event_Name",
+        "Venue",
+        "Description_Distilled",
+        "Interest_Score"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/distilled_batch_2.json",
+      "format": "json",
+      "event_count": 60,
+      "date_range": "various",
+      "schema": [
+        "Event_Name",
+        "Venue",
+        "Description_Distilled",
+        "Interest_Score"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/distilled_batch_summer.json",
+      "format": "json",
+      "event_count": 7,
+      "date_range": "Summer 2026",
+      "schema": [
+        "Event_Name",
+        "Venue",
+        "Description_Distilled",
+        "Interest_Score"
+      ]
+    },
+    {
+      "path": "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/results/gap_fill_june_aug.json",
+      "format": "json",
+      "event_count": 2,
+      "date_range": "Jun 2026 - Aug 2026",
+      "schema": [
+        "event_name",
+        "venue",
+        "start_date",
+        "ticket_link",
+        "description",
+        "category"
+      ]
+    }
+  ],
+  "future_events": [
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-01",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Varials",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-01",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Bryant Barnes Presents: SOLACE TOUR",
+      "venue": "Terminal West",
+      "date": "2026-04-01",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Varials",
+      "venue": "The Masquerade",
+      "date": "2026-04-01",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Varials",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-01",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-02",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Slomosa",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-02",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Slomosa",
+      "venue": "The Masquerade",
+      "date": "2026-04-02",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Slomosa",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-02",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Boogie T",
+      "venue": "Believe Music Hall",
+      "date": "2026-04-03",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "William Black",
+      "venue": "The Eastern",
+      "date": "2026-04-03",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Atlanta Ballet: Golden Hour",
+      "venue": "Cobb Energy Centre",
+      "date": "2026-04-03",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "William Black",
+      "venue": "The Eastern",
+      "date": "2026-04-03",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "William Black",
+      "venue": "The Eastern",
+      "date": "2026-04-03",
+      "source_file": "batch_a_1.json"
+    },
+    {
+      "title": "Boogie T",
+      "venue": "Believe Music Hall",
+      "date": "2026-04-03",
+      "source_file": "batch_a_3.json"
+    },
+    {
+      "title": "Speakeasy presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Boogie T",
+      "venue": "Believe Music Hall",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "NateWantsToBattle",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "In Color",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Format",
+      "venue": "The Eastern",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "In Color",
+      "venue": "The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "NateWantsToBattle",
+      "venue": "The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "RJD2",
+      "venue": "Terminal West",
+      "date": "2026-04-04",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "NateWantsToBattle",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "In Color",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-04",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Boogie T",
+      "venue": "Believe Music Hall",
+      "date": "2026-04-04",
+      "source_file": "batch_a_3.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Boys Go To Jupiter",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Snarky Puppy",
+      "venue": "The Eastern",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Boys Go To Jupiter",
+      "venue": "The Masquerade",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Snarky Puppy",
+      "venue": "The Eastern",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Billie Marten",
+      "venue": "Terminal West",
+      "date": "2026-04-08",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Snarky Puppy",
+      "venue": "The Eastern",
+      "date": "2026-04-08",
+      "source_file": "batch_a_1.json"
+    },
+    {
+      "title": "Boys Go To Jupiter",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-08",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-09",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Tigers Jaw",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-09",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Moonchild",
+      "venue": "Cobb Energy Centre",
+      "date": "2026-04-09",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Tigers Jaw",
+      "venue": "The Masquerade",
+      "date": "2026-04-09",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Tigers Jaw",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-09",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Isamu Noguchi: 'I am not a designer'",
+      "venue": "High Museum of Art",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Schoolgirl ByeBye & Brad Stank",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Atlanta Dogwood Festival",
+      "venue": "Piedmont Park",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Schoolgirl ByeBye & Brad Stank",
+      "venue": "The Masquerade",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Band of Heathens",
+      "venue": "Terminal West",
+      "date": "2026-04-10",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Schoolgirl ByeBye & Brad Stank",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-10",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Isamu Noguchi: 'I am not a designer'",
+      "venue": "High Museum of Art",
+      "date": "2026-04-10",
+      "source_file": "batch_b.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Heaven at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Devil Wears Prada",
+      "venue": "Heaven at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "femtanyl",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Field Medic",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The 20th Annual ATL Blues Festival",
+      "venue": "Cobb Energy Centre",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Devil Wears Prada",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Field Medic",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "femtanyl",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Mr. Bill",
+      "venue": "Terminal West",
+      "date": "2026-04-11",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Devil Wears Prada",
+      "venue": "Heaven at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "femtanyl",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Field Medic",
+      "venue": "The Masquerade",
+      "date": "2026-04-11",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Growlers",
+      "venue": "Variety Playhouse",
+      "date": "2026-04-12",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Growlers",
+      "venue": "Variety Playhouse",
+      "date": "2026-04-12",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "The Masquerade",
+      "date": "2026-04-13",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Quarters",
+      "venue": "The Masquerade",
+      "date": "2026-04-13",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Quarters",
+      "venue": "The Masquerade",
+      "date": "2026-04-13",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Quarters",
+      "venue": "Terminal West",
+      "date": "2026-04-13",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Quarters",
+      "venue": "The Masquerade",
+      "date": "2026-04-13",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-14",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Voxtrot",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-14",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Voxtrot",
+      "venue": "The Masquerade",
+      "date": "2026-04-14",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Voxtrot",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-14",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Amity Affliction & August Burns Red",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Melrose Avenue",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Naïka",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Amity Affliction & August Burns Red",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Naïka",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Melrose Avenue",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Sports",
+      "venue": "Terminal West",
+      "date": "2026-04-15",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Amity Affliction & August Burns Red",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Melrose Avenue",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Naïka",
+      "venue": "The Masquerade",
+      "date": "2026-04-15",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "Taj Mahal",
+      "venue": "Variety Playhouse",
+      "date": "2026-04-16",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Charles Wesley Godwin",
+      "venue": "The Eastern",
+      "date": "2026-04-16",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Charles Wesley Godwin",
+      "venue": "The Eastern",
+      "date": "2026-04-16",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Kishi Bashi: Sonderlust 10th Anniv.",
+      "venue": "Terminal West",
+      "date": "2026-04-16",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Charles Wesley Godwin",
+      "venue": "The Eastern",
+      "date": "2026-04-16",
+      "source_file": "batch_a_1.json"
+    },
+    {
+      "title": "Taj Mahal",
+      "venue": "Variety Playhouse",
+      "date": "2026-04-16",
+      "source_file": "batch_a_2.json"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Masquerade presents...",
+      "venue": "Altar at The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Beauz - North America Tour",
+      "venue": "District Atlanta",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Yetep @ Wish Lounge",
+      "venue": "Believe Music Hall",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "VANA",
+      "venue": "Hell at The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "Six Sex",
+      "venue": "Purgatory at The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    },
+    {
+      "title": "The Thing",
+      "venue": "The Masquerade",
+      "date": "2026-04-17",
+      "source_file": "ATL Event List 2025-2026 - Master.csv"
+    }
+  ],
+  "top_venues_summary": {
+    "The Masquerade": 192,
+    "Hell at The Masquerade": 123,
+    "Purgatory at The Masquerade": 86,
+    "Heaven at The Masquerade": 84,
+    "Terminal West": 84,
+    "Altar at The Masquerade": 72,
+    "The Eastern": 67,
+    "Believe Music Hall": 60,
+    "Variety Playhouse": 59,
+    "District Atlanta": 42
+  },
+  "data_quality_notes": {
+    "duplicates": "High duplication across files (same events in multiple CSVs and JSONs)",
+    "date_ranges": "Events primarily from Jan 2026 - Sep 2026",
+    "schema_variations": "CSV files use traditional columns, JSON files use nested objects with ticket links and image URLs",
+    "music_focused": "Strong emphasis on music venues (Masquerade, Terminal West, Eastern) and concerts",
+    "data_sources": "AXS, Songkick, Bandsintown, Ticketmaster, local venue websites",
+    "recommendation": "Deduplicate against current 28 curated events; prioritize events with ticket_link and image_url from JSON batches"
+  }
+}

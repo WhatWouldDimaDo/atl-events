@@ -1,0 +1,651 @@
+{
+  "venues_with_calendars": [
+    {
+      "name": "Terminal West",
+      "calendar_url": "https://www.terminalwestatl.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Variety Playhouse",
+      "calendar_url": "https://www.variety-playhouse.com/events",
+      "type": "music"
+    },
+    {
+      "name": "The Eastern",
+      "calendar_url": "https://www.easternatl.com/events",
+      "type": "music"
+    },
+    {
+      "name": "District Atlanta",
+      "calendar_url": "https://www.districtatlanta.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Believe Music Hall",
+      "calendar_url": "https://www.believeatl.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Lunchbox",
+      "calendar_url": "https://www.lunchboxatl.com/calendar",
+      "type": "music"
+    },
+    {
+      "name": "Hell @ Masquerade",
+      "calendar_url": "https://www.masqueradeatlanta.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Center Stage Theatre",
+      "calendar_url": "https://www.centerstage-atlanta.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Tabernacle",
+      "calendar_url": "https://www.tabernacleatl.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Fox Theatre",
+      "calendar_url": "https://www.foxtheatre.org/events",
+      "type": "music"
+    },
+    {
+      "name": "Lakewood Amphitheatre",
+      "calendar_url": "https://www.livenation.com/venue/KovZpZAJ8e1/lakewood-amphitheatre-events",
+      "type": "music"
+    },
+    {
+      "name": "Buckhead Theatre",
+      "calendar_url": "https://www.thebuckheadtheatre.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Dad's Garage",
+      "calendar_url": "https://dadsgarage.com/shows",
+      "type": "comedy"
+    },
+    {
+      "name": "Laughing Skull Lounge",
+      "calendar_url": "https://www.laughingskulllounge.com/shows",
+      "type": "comedy"
+    },
+    {
+      "name": "Atlanta Comedy Theater",
+      "calendar_url": "https://atlantacomedytheater.com",
+      "type": "comedy"
+    },
+    {
+      "name": "Punchline Comedy Club",
+      "calendar_url": "https://www.punchline.com/shows",
+      "type": "comedy"
+    },
+    {
+      "name": "Aurora Theatre",
+      "calendar_url": "https://tickets.auroratheatre.com/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Actor's Express",
+      "calendar_url": "https://www.actors-express.com/plays",
+      "type": "cultural"
+    },
+    {
+      "name": "Alliance Theatre",
+      "calendar_url": "https://alliancetheatre.org/production-calendar",
+      "type": "cultural"
+    },
+    {
+      "name": "Center for Puppetry Arts",
+      "calendar_url": "https://puppet.org/performances",
+      "type": "family"
+    },
+    {
+      "name": "High Museum",
+      "calendar_url": "https://high.org/calendar",
+      "type": "cultural"
+    },
+    {
+      "name": "Fernbank Museum",
+      "calendar_url": "https://fernbankmuseum.org/events",
+      "type": "cultural"
+    },
+    {
+      "name": "MODA",
+      "calendar_url": "https://museumofdesign.org/collections/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Atlanta History Center",
+      "calendar_url": "https://www.atlantahistorycenter.com/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Children's Museum",
+      "calendar_url": "https://childrensmuseumatlanta.org/events",
+      "type": "family"
+    },
+    {
+      "name": "Atlanta Symphony",
+      "calendar_url": "https://www.aso.org/events/detail",
+      "type": "cultural"
+    },
+    {
+      "name": "Woodruff Arts Center",
+      "calendar_url": "https://www.woodruffcenter.org/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Rialto Center",
+      "calendar_url": "https://rialto.gsu.edu/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Spivey Hall",
+      "calendar_url": "https://spiveyhall.org/events",
+      "type": "cultural"
+    },
+    {
+      "name": "Atlanta Botanical Garden",
+      "calendar_url": "https://atlantabg.org/events",
+      "type": "family"
+    },
+    {
+      "name": "Six Flags Over Georgia",
+      "calendar_url": "https://www.sixflags.com/overgeorgia/events",
+      "type": "family"
+    },
+    {
+      "name": "Stone Mountain Park",
+      "calendar_url": "https://www.stonemountainpark.com/Events",
+      "type": "family"
+    },
+    {
+      "name": "Georgia Aquarium",
+      "calendar_url": "https://www.georgiaaquarium.org/calendar",
+      "type": "family"
+    },
+    {
+      "name": "Zoo Atlanta",
+      "calendar_url": "https://zooatlanta.org/events",
+      "type": "family"
+    },
+    {
+      "name": "Piedmont Park",
+      "calendar_url": "https://piedmontpark.org/events",
+      "type": "family"
+    },
+    {
+      "name": "Atlanta BeltLine",
+      "calendar_url": "https://beltline.org/events",
+      "type": "family"
+    },
+    {
+      "name": "Chastain Amphitheatre",
+      "calendar_url": "https://cadencebankamphitheatre.com/events",
+      "type": "music"
+    },
+    {
+      "name": "Centennial Olympic Park",
+      "calendar_url": "https://www.gwcca.org/park-events",
+      "type": "family"
+    },
+    {
+      "name": "Atlantic Station",
+      "calendar_url": "https://atlanticstation.com/events",
+      "type": "family"
+    },
+    {
+      "name": "Ponce City Market",
+      "calendar_url": "https://poncecitymarket.com/events",
+      "type": "family"
+    },
+    {
+      "name": "Underground Atlanta",
+      "calendar_url": "https://www.underground-atlanta.com/",
+      "type": "music"
+    },
+    {
+      "name": "The Masquerade",
+      "calendar_url": "https://www.masqueradeatlanta.com/events",
+      "type": "music"
+    }
+  ],
+  "missing_evergreen": [
+    {
+      "name": "Plaza Theatre",
+      "category": "comedy",
+      "description": "Local comedy venue in Poncey-Highland area, 5 min from 30306",
+      "source_file": "ATL-Joy-Map.md"
+    },
+    {
+      "name": "Manual's Tavern",
+      "category": "dining_social",
+      "description": "Social hub in Poncey-Highland, known for community gatherings",
+      "source_file": "ATL-Joy-Map.md"
+    },
+    {
+      "name": "Sol Dance",
+      "category": "wellness",
+      "description": "Ecstatic dance sessions. Recurring pattern: Bi-weekly Sundays. High community vibe, recharging.",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Lake Claire Land Trust Drum Circle",
+      "category": "community",
+      "description": "Full moon celebrations with high community vibe",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Sloomoo Institute",
+      "category": "family",
+      "description": "Slime Museum - High sensory joy, interactive experience",
+      "source_file": "ATL-Experience-List.md",
+      "url": "https://sloomooinstitute.com/atlanta"
+    },
+    {
+      "name": "LEGO Discovery Center",
+      "category": "family",
+      "description": "Best for rainy days, LEGO-focused interactive play",
+      "source_file": "ATL-Experience-List.md",
+      "url": "https://www.legodiscoverycenter.com/atlanta/"
+    },
+    {
+      "name": "Chattahoochee Nature Center",
+      "category": "family",
+      "description": "Wildlife encounters and easy boardwalks for kids",
+      "source_file": "ATL-Experience-List.md",
+      "url": "https://www.chattnaturecenter.org/"
+    },
+    {
+      "name": "Emory Carlos Museum",
+      "category": "cultural",
+      "description": "Intimate, quiet exploration of ancient arts",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "The Overlook",
+      "category": "activity",
+      "description": "Indoor rock climbing - physical reset activity",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Fernbank After Dark",
+      "category": "cultural",
+      "description": "Adult-only science and cocktails events - recurring monthly Fridays",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Tubing the Chattahoochee",
+      "category": "activity",
+      "description": "Low effort, high relaxation outdoor water activity",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Axe Throwing at The Battery",
+      "category": "activity",
+      "description": "High effort, high social energy activity",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Beltline Food Tours",
+      "category": "dining_social",
+      "description": "Guided culinary exploration along the Atlanta BeltLine",
+      "source_file": "ATL-Experience-List.md"
+    },
+    {
+      "name": "Pigalle Cabaret & Speakeasy",
+      "category": "nightlife",
+      "description": "Bohemian Paris-themed theater with burlesque, jazz, absinthe. Ongoing shows: Sat burlesque, Fri chanteuse, Tiki Thursdays",
+      "source_file": "ATL-Date-Night-Guide.md",
+      "location": "Underground Atlanta"
+    },
+    {
+      "name": "Candlelight: Hip Hop on Strings",
+      "category": "music",
+      "description": "Intimate string quartet concert of hip-hop classics in candlelit chapel",
+      "source_file": "ATL-Date-Night-Guide.md",
+      "venue": "The Chapel on Sycamore",
+      "runs": "Jan 30 - Apr 18 (evenings)"
+    },
+    {
+      "name": "Whiplash Comedy Club",
+      "category": "comedy",
+      "description": "New intimate comedy venue with two rooms for stand-up dates",
+      "source_file": "ATL-Date-Night-Guide.md",
+      "venue": "Ponce City Market"
+    },
+    {
+      "name": "High Museum Jazz Fridays",
+      "category": "cultural",
+      "description": "Art + live jazz in evening setting - recurring Fridays",
+      "source_file": "ATL-Date-Night-Guide.md"
+    },
+    {
+      "name": "Dinner Detective Murder Mystery",
+      "category": "entertainment",
+      "description": "Interactive comedy crime-solving dinner show with meal & prizes. Recurring monthly shows.",
+      "source_file": "ATL-Date-Night-Guide.md",
+      "venue": "Sonesta Atlanta NW Galleria"
+    },
+    {
+      "name": "Atlanta Dogwood Festival",
+      "category": "seasonal",
+      "description": "Spring festival at Piedmont Park",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "April 10-12"
+    },
+    {
+      "name": "Atlanta Film Festival",
+      "category": "seasonal",
+      "description": "Family-friendly screenings",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "April 23+"
+    },
+    {
+      "name": "Inman Park Festival & Parade",
+      "category": "seasonal",
+      "description": "Street fair, food, music, family-friendly",
+      "source_file": "ATL-Kids-Guide.md and 2026-Apr-May-Highlights.md",
+      "when": "April 25-26",
+      "noted": "FREE, stroller-friendly, Beltline-adjacent"
+    },
+    {
+      "name": "Atlanta Jazz Festival",
+      "category": "seasonal",
+      "description": "FREE outdoor jazz festival",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "Memorial Day Weekend (May 23-26)"
+    },
+    {
+      "name": "Virginia-Highland Summerfest",
+      "category": "seasonal",
+      "description": "Summer festival in Virginia-Highland",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "June 13-14 (estimated)"
+    },
+    {
+      "name": "Flying Colors Butterfly Festival",
+      "category": "seasonal",
+      "description": "Butterfly-themed outdoor event",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "Chattahoochee Nature Center"
+    },
+    {
+      "name": "Summer Movie Series",
+      "category": "seasonal",
+      "description": "Low effort outdoor fun",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "Atlantic Station"
+    },
+    {
+      "name": "Peachtree Road Race",
+      "category": "seasonal",
+      "description": "Spectating and family energy",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "July 4"
+    },
+    {
+      "name": "Garden Lights Holiday Nights",
+      "category": "seasonal",
+      "description": "Holiday display at Atlanta Botanical Garden",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "December"
+    },
+    {
+      "name": "Dragon Con Parade",
+      "category": "seasonal",
+      "description": "Annual convention parade",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "September"
+    },
+    {
+      "name": "Chastain Park Arts Festival",
+      "category": "seasonal",
+      "description": "Arts festival in Chastain Park",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "November"
+    },
+    {
+      "name": "Atlanta Streets Alive",
+      "category": "recurring",
+      "description": "Recurring bike-friendly community event on various routes. Family/community/bike friendly.",
+      "source_file": "2026-04-13 ATL Events.md and 2026-04-21 ATL Events Update.md",
+      "schedule": [
+        "May 31 - West End to Grant Park",
+        "June 14 - MLK: Beltline to Broad",
+        "September 27 - Peachtree St.",
+        "October 18 - West End to Grant Park",
+        "November 8 - Howell Mill Rd."
+      ]
+    },
+    {
+      "name": "Sweetwater 420 Fest",
+      "category": "seasonal",
+      "description": "Music festival with jam bands and electronic acts",
+      "source_file": "2026-04-13 ATL Events.md",
+      "when": "April 17-18",
+      "note": "Multi-genre lineup including Umphrey's McGee, Thievery Corporation"
+    },
+    {
+      "name": "Shaky Knees Music Festival",
+      "category": "seasonal",
+      "description": "3-day music festival at Piedmont Park with major artists",
+      "source_file": "2026-04-13 ATL Events.md",
+      "when": "September 18-20",
+      "headline_acts": ["Gorillaz", "LCD Soundsystem", "Wu-Tang Clan", "The Strokes"],
+      "url": "https://www.shakykneesmusic.com"
+    },
+    {
+      "name": "Science Discovery Day",
+      "category": "family",
+      "description": "Part of Atlanta Science Festival at Morehouse College",
+      "source_file": "2026-03-18 Upcoming ATL Events.md",
+      "venue": "Morehouse College"
+    },
+    {
+      "name": "Exploration Expo",
+      "category": "family",
+      "description": "150+ hands-on STEAM exhibits",
+      "source_file": "2026-03-18 Upcoming ATL Events.md",
+      "venue": "Piedmont Park"
+    },
+    {
+      "name": "Disney on Ice",
+      "category": "family",
+      "description": "Family-friendly ice skating show",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "State Farm Arena",
+      "when": "February 12-16"
+    },
+    {
+      "name": "Monster Jam",
+      "category": "family",
+      "description": "High energy family entertainment",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "Mercedes-Benz",
+      "when": "February 21-22"
+    },
+    {
+      "name": "Brew at the Zoo",
+      "category": "activity",
+      "description": "Zoo Atlanta member perk - adult-focused beer tasting event",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "Zoo Atlanta",
+      "when": "May"
+    },
+    {
+      "name": "St. Patrick's Day Parade",
+      "category": "seasonal",
+      "description": "Community parade event",
+      "source_file": "ATL-Kids-Guide.md",
+      "venue": "Midtown ATL",
+      "when": "March 14"
+    },
+    {
+      "name": "Atlanta Ballet",
+      "category": "cultural",
+      "description": "Dance performances - Cinderella and Frida noted",
+      "source_file": "2026-Apr-May-Highlights.md",
+      "venues": ["Gas South Theatre", "Cobb Energy Centre"]
+    },
+    {
+      "name": "Orchid Daze",
+      "category": "seasonal",
+      "description": "Tropical immersion at Atlanta Botanical Garden",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "March",
+      "venue": "ABG"
+    },
+    {
+      "name": "Botanical Garden Summer Party",
+      "category": "seasonal",
+      "description": "Evening fun at ABG",
+      "source_file": "ATL-Kids-Guide.md",
+      "when": "May"
+    }
+  ],
+  "seasonal_events": [
+    {
+      "name": "Garden Lights Holiday Nights",
+      "when": "December",
+      "venue": "Atlanta Botanical Garden",
+      "type": "holiday"
+    },
+    {
+      "name": "Snow Island (Lanier Islands)",
+      "when": "January",
+      "venue": "Lanier Islands",
+      "description": "Snow tubing and ice skating"
+    },
+    {
+      "name": "Disney on Ice",
+      "when": "February 12-16, 2026",
+      "venue": "State Farm Arena"
+    },
+    {
+      "name": "Monster Jam",
+      "when": "February 21-22, 2026",
+      "venue": "Mercedes-Benz Stadium"
+    },
+    {
+      "name": "St. Patrick's Day Parade",
+      "when": "March 14, 2026",
+      "venue": "Midtown ATL"
+    },
+    {
+      "name": "Orchid Daze",
+      "when": "March",
+      "venue": "Atlanta Botanical Garden"
+    },
+    {
+      "name": "Atlanta Dogwood Festival",
+      "when": "April 10-12, 2026",
+      "venue": "Piedmont Park"
+    },
+    {
+      "name": "Atlanta Film Festival",
+      "when": "April 23+, 2026",
+      "venue": "Multiple venues"
+    },
+    {
+      "name": "Inman Park Festival & Parade",
+      "when": "April 25-26, 2026",
+      "venue": "Inman Park neighborhood",
+      "description": "FREE street fair, food, music"
+    },
+    {
+      "name": "Sweetwater 420 Fest",
+      "when": "April 17-18, 2026",
+      "venue": "Atlanta, GA"
+    },
+    {
+      "name": "Atlanta Jazz Festival",
+      "when": "May 23-26, 2026 (Memorial Day Weekend)",
+      "venue": "Piedmont Park",
+      "description": "FREE outdoor festival"
+    },
+    {
+      "name": "Brew at the Zoo",
+      "when": "May",
+      "venue": "Zoo Atlanta"
+    },
+    {
+      "name": "Botanical Garden Summer Party",
+      "when": "May",
+      "venue": "Atlanta Botanical Garden"
+    },
+    {
+      "name": "Virginia-Highland Summerfest",
+      "when": "June 13-14, 2026",
+      "venue": "Virginia-Highland"
+    },
+    {
+      "name": "Flying Colors Butterfly Festival",
+      "when": "June",
+      "venue": "Chattahoochee Nature Center"
+    },
+    {
+      "name": "Summer Movie Series",
+      "when": "June",
+      "venue": "Atlantic Station"
+    },
+    {
+      "name": "Peachtree Road Race",
+      "when": "July 4",
+      "venue": "Atlanta streets"
+    },
+    {
+      "name": "Dragon Con Parade",
+      "when": "September",
+      "venue": "Downtown Atlanta"
+    },
+    {
+      "name": "Shaky Knees Music Festival",
+      "when": "September 18-20, 2026",
+      "venue": "Piedmont Park",
+      "description": "3-day festival with major artists"
+    },
+    {
+      "name": "Chastain Park Arts Festival",
+      "when": "November",
+      "venue": "Chastain Park"
+    }
+  ],
+  "files_read": [
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/README.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/ATL-Events-Guide.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/ATL-Kids-Guide.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/ATL-Experience-List.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/ATL-Date-Night-Guide.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/ATL-Joy-Map.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/Event-Concierge-Playbook.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/ATL-Events/2026-Apr-May-Highlights.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/Lists/2026-04-21 ATL Events Update.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/Lists/2026-04-13 ATL Events.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/Lists/2026-03-18 Upcoming ATL Events.md",
+    "/Users/dmitriyperkis/Documents/Brain/02_Areas/Lists/Bucket-List.md"
+  ],
+  "summary": {
+    "total_venues_with_calendars": 41,
+    "total_missing_evergreen": 45,
+    "total_seasonal_events": 20,
+    "venue_categories": {
+      "music": 13,
+      "comedy": 3,
+      "cultural": 12,
+      "family": 10,
+      "nightlife": 1,
+      "other": 2
+    },
+    "key_insights": [
+      "Strong music venue network across Terminal West, The Eastern, District Atlanta, Believe Music Hall with published event calendars",
+      "Major seasonal festivals: Shaky Knees (Sep 18-20), Atlanta Jazz Fest (May), Inman Park Fest (Apr 25-26)",
+      "Recurring community events: Atlanta Streets Alive (monthly bikes), Sol Dance (bi-weekly), Lake Claire Drum Circle (full moon)",
+      "High-interest date night experiences: Pigalle Cabaret, Fernbank After Dark, Dinner Detective, Candlelight concerts",
+      "Family evergreen: Zoo Atlanta, Georgia Aquarium, Fernbank Museum, ABG have memberships; Sloomoo and LEGO for rainy days",
+      "Geographic hub: 30306 (Virginia-Highland/Midtown) with 10 min to Midtown venues, 5 min to Poncey-Highland venues",
+      "Niche discoveries: Plaza Theatre, Manual's Tavern (community hubs not yet captured in main guides)"
+    ]
+  }
+}

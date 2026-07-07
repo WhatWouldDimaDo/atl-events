@@ -1,0 +1,2407 @@
+ ▐▛███▜▌   Claude Code v2.1.110
+▝▜█████▛▘  Opus 4.6 (1M context) · Claude Team
+  ▘▘ ▝▝    ~/Documents/Coding/Projects/2026-04-21_ATL-Events-Site
+
+✻ Conversation compacted (ctrl+o for history)
+
+  ⎿  Referenced file style.css
+  ⎿  Referenced file index.html
+  ⎿  Referenced file scripts/social_scan.py
+  ⎿  Referenced file data.js
+  ⎿  Read HANDOFF.md (234 lines)
+  ⎿  Plan file referenced (~/.claude/plans/breezy-sprouting-nest.md)
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Loaded ../../CLAUDE.md
+
+⏺ Now let me see the end of the file to understand the full structure.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Now I have the full picture. Let me implement the bottom sheet JS logic. The
+  HTML (#bs-overlay, #bs-sheet, #bs-content) and CSS are already in place. I
+  need to add the JS to populate and control it on mobile.
+
+⏺ Update(app.js)
+  ⎿  Added 205 lines
+      371    activeSort = 'score'; applyEventFilters();
+      372  });
+      373  
+      374 +// ─── MOBILE BOTTOM SHEET ───────────────────────────────────
+          +───────────────                                               
+      375 +const isMobile = () => window.matchMedia('(max-width: 768px)')
+          +.matches;                                                     
+      376 +                                                              
+      377 +function buildBottomSheetHTML(ev) {                           
+      378 +  const catEmoji = CAT_EMOJI[ev.category] || '📍';            
+      379 +  const catLabel = CAT_LABEL[ev.category] || ev.category;     
+      380 +                                                              
+      381 +  const imgHtml = ev.imageUrl                                 
+      382 +    ? `<img class="bs-hero-img" src="${ev.imageUrl}" alt="${ev
+          +.title}">`                                                    
+      383 +    : ev.youtubeId                                            
+      384 +    ? `<img class="bs-hero-img" src="https://img.youtube.com/v
+          +i/${ev.youtubeId}/maxresdefault.jpg" alt="${ev.title}" onerror
+          +="this.src='https://img.youtube.com/vi/${ev.youtubeId}/hqdefau
+          +lt.jpg'">`                                                    
+      385 +    : '';                                                     
+      386 +                                                              
+      387 +  const tierColor = { S: 'var(--amber)', A: 'var(--purple)', B
+          +: 'var(--teal)' };                                            
+      388 +  const urgTag  = ev.urgent ? `<span class="tag urgent">⚡ Act
+          + Now</span>` : '';                                            
+      389 +  const freeTag = ev.free   ? `<span class="tag free">💸 Free<
+          +/span>` : '';                                                 
+      390 +  const ageTag  = `<span class="tag">${AGE_EMOJI[ev.age] || ev
+          +.age}</span>`;                                                
+      391 +  const envTag  = ev.environment === 'outdoor'                
+      392 +    ? `<span class="tag outdoor">🌿 Outdoor</span>`           
+      393 +    : `<span class="tag indoor">🏠 Indoor</span>`;            
+      394 +  const genreTags = ev.genres.slice(0, 3).map(g => `<span clas
+          +s="tag">${g}</span>`).join('');                               
+      395 +                                                              
+      396 +  const buyBtn = ev.ticketUrl                                 
+      397 +    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener
+          +" class="btn-sm btn-buy${ev.tier==='S'?' amber-btn':''}" oncli
+          +ck="event.stopPropagation()">${ev.tier==='S'?'Buy S-Tier →':'B
+          +uy Tickets →'}</a>`                                           
+      398 +    : '';                                                     
+      399 +                                                              
+      400 +  const ytSection = ev.youtubeId ? `                          
+      401 +    <div class="bs-section">                                  
+      402 +      <div class="drawer-section-label">Watch</div>           
+      403 +      <div class="yt-wrap" id="bs-yt-${ev.id}">               
+      404 +        <div class="yt-placeholder" onclick="loadBsYT(${ev.id}
+          +,'${ev.youtubeId}')">                                         
+      405 +          <img class="yt-thumb-bg" src="https://img.youtube.co
+          +m/vi/${ev.youtubeId}/hqdefault.jpg" alt="" loading="lazy">    
+      406 +          <div class="play-icon">▶</div>                      
+      407 +        </div>                                                
+      408 +      </div>                                                  
+      409 +    </div>` : '';                                             
+      410 +                                                              
+      411 +  const lineupSection = (ev.lineup && ev.lineup.length) ? `   
+      412 +    <div class="bs-section">                                  
+      413 +      <div class="drawer-section-label">Lineup</div>          
+      414 +      ${ev.lineup.map((a, i) => {                             
+      415 +        const st = ev.setTimes ? ev.setTimes.split(' · ')[i] |
+          +| '' : '';                                                    
+      416 +        return `<div class="lineup-artist"><span>${a}</span>${
+          +st ? `<span class="set-time">${st}</span>` : ''}</div>`;      
+      417 +      }).join('')}                                            
+      418 +    </div>` : '';                                             
+      419 +                                                              
+      420 +  const radarSection = ev.scoreReasoning ? `                  
+      421 +    <div class="bs-section radar-wrap">                       
+      422 +      <div class="drawer-section-label">Score Breakdown</div> 
+      423 +      <div class="radar-canvas-wrap"><canvas id="bs-radar-${ev
+          +.id}" width="220" height="220"></canvas></div>                
+      424 +    </div>` : '';                                             
+      425 +                                                              
+      426 +  const linksSection = (ev.officialUrl || ev.instagramUrl) ? `
+      427 +    <div class="bs-section drawer-links">                     
+      428 +      ${ev.officialUrl ? `<a href="${ev.officialUrl}" target="
+          +_blank" rel="noopener" class="drawer-link">🎟 Tickets / Info</a
+          +>` : ''}                                                      
+      429 +      ${ev.instagramUrl ? `<a href="${ev.instagramUrl}" target
+          +="_blank" rel="noopener" class="drawer-link">📷 Instagram</a>`
+          + : ''}                                                        
+      430 +    </div>` : '';                                             
+      431 +                                                              
+      432 +  const rsvpSection = INTERNAL ? `                            
+      433 +    <div class="bs-section">                                  
+      434 +      <div class="drawer-section-label">Going?</div>          
+      435 +      <div id="bs-rsvp-${ev.id}">${rsvpButtonsHTML(ev.id)}</di
+          +v>                                                            
+      436 +    </div>` : '';                                             
+      437 +                                                              
+      438 +  const shareText = `${ev.title} — ${ev.dateStr} @ ${ev.venue}
+          +`.replace(/'/g, "\\'");                                       
+      439 +                                                              
+      440 +  return `                                                    
+      441 +    ${imgHtml ? `<div class="bs-hero">${imgHtml}</div>` : ''} 
+      442 +    <div class="bs-header">                                   
+      443 +      <div class="bs-cat-row">                                
+      444 +        <span class="ev-cat-badge cat-${ev.category}">${catEmo
+          +ji} ${catLabel}</span>                                        
+      445 +        <span class="tier-badge ${ev.tier}" style="margin-left
+          +:auto">${ev.tier}</span>                                      
+      446 +        <span class="score-num-big" style="margin-left:4px">${
+          +ev.score}</span>                                              
+      447 +      </div>                                                  
+      448 +      <div class="bs-title">${ev.title}</div>                 
+      449 +      ${ev.subtitle ? `<div class="bs-subtitle">${ev.subtitle}
+          +</div>` : ''}                                                 
+      450 +      <div class="bs-venue">📍 ${ev.venue}</div>              
+      451 +      <div class="bs-date">${ev.dateStr}${ev.time ? ' · '+ev.t
+          +ime : ''}</div>                                               
+      452 +      <div class="ev-tags" style="margin-top:8px">${urgTag}${f
+          +reeTag}${ageTag}${envTag}${genreTags}</div>                   
+      453 +    </div>                                                    
+      454 +    <div class="bs-actions">                                  
+      455 +      ${buyBtn}                                               
+      456 +      <button class="share-btn" onclick="navigator.clipboard.w
+          +riteText('${shareText}');this.textContent='Copied!';setTimeout
+          +(()=>this.textContent='Share',1200)">Share</button>           
+      457 +    </div>                                                    
+      458 +    <div class="bs-body">                                     
+      459 +      <div class="bs-section"><div class="drawer-note">${ev.no
+          +te}</div></div>                                               
+      460 +      ${rsvpSection}                                          
+      461 +      ${ytSection}                                            
+      462 +      ${lineupSection}                                        
+      463 +      ${radarSection}                                         
+      464 +      ${linksSection}                                         
+      465 +      ${ev.recurringNote ? `<div class="bs-section recurring-n
+          +ote">↺ ${ev.recurringNote}</div>` : ''}                       
+      466 +    </div>`;                                                  
+      467 +}                                                             
+      468 +                                                              
+      469 +function loadBsYT(evId, ytId) {                               
+      470 +  const wrap = document.getElementById(`bs-yt-${evId}`);      
+      471 +  if (!wrap) return;                                          
+      472 +  wrap.innerHTML = `<iframe src="https://www.youtube.com/embed
+          +/${ytId}?autoplay=1&rel=0&modestbranding=1"                   
+      473 +    allow="accelerometer; autoplay; clipboard-write; encrypted
+          +-media; gyroscope; picture-in-picture"                        
+      474 +    allowfullscreen loading="lazy"></iframe>`;                
+      475 +}                                                             
+      476 +                                                              
+      477 +let bsCurrentId = null;                                       
+      478 +                                                              
+      479 +function openBottomSheet(id) {                                
+      480 +  const ev = EVENTS.find(e => e.id === id);                   
+      481 +  if (!ev) return;                                            
+      482 +  bsCurrentId = id;                                           
+      483 +  const overlay = document.getElementById('bs-overlay');      
+      484 +  const content = document.getElementById('bs-content');      
+      485 +  content.innerHTML = buildBottomSheetHTML(ev);               
+      486 +  content.scrollTop = 0;                                      
+      487 +  document.body.style.overflow = 'hidden';                    
+      488 +  requestAnimationFrame(() => {                               
+      489 +    overlay.classList.add('active');                          
+      490 +    overlay.setAttribute('aria-hidden', 'false');             
+      491 +  });                                                         
+      492 +  if (ev.scoreReasoning) {                                    
+      493 +    requestAnimationFrame(() => {                             
+      494 +      const canvas = document.getElementById(`bs-radar-${ev.id
+          +}`);                                                          
+      495 +      if (canvas) {                                           
+      496 +        new Chart(canvas, {                                   
+      497 +          type: 'radar',                                      
+      498 +          data: {                                             
+      499 +            labels: ['Genre\nMatch', 'Venue\nQuality', 'Format
+          +\nRarity', 'Lineup\nStrength', 'Value\nfor Money'],           
+      500 +            datasets: [{                                      
+      501 +              data: [ev.scoreReasoning.genreMatch, ev.scoreRea
+          +soning.venueQuality, ev.scoreReasoning.formatRarity, ev.scoreR
+          +easoning.lineupStrength, ev.scoreReasoning.valueForMoney],    
+      502 +              backgroundColor: ev.tier==='S' ? 'rgba(245,158,1
+          +1,0.18)' : ev.tier==='A' ? 'rgba(139,92,246,0.18)' : 'rgba(20,
+          +184,166,0.15)',                                               
+      503 +              borderColor: ev.tier==='S' ? '#F59E0B' : ev.tier
+          +==='A' ? '#8B5CF6' : '#14B8A6',                               
+      504 +              borderWidth: 1.5,                               
+      505 +              pointBackgroundColor: ev.tier==='S' ? '#F59E0B' 
+          +: ev.tier==='A' ? '#8B5CF6' : '#14B8A6',                      
+      506 +              pointRadius: 3,                                 
+      507 +            }]                                                
+      508 +          },                                                  
+      509 +          options: {                                          
+      510 +            responsive: true, maintainAspectRatio: false,     
+      511 +            plugins: { legend: {display:false}, tooltip: {call
+          +backs:{label: c => ` ${c.raw}`}} },                           
+      512 +            scales: { r: {                                    
+      513 +              min:0, max:100, beginAtZero:true,               
+      514 +              ticks: {display:false, stepSize:25},            
+      515 +              pointLabels: {color:'#94A3B8', font:{size:9}},  
+      516 +              grid: {color:'rgba(255,255,255,0.06)'},         
+      517 +              angleLines: {color:'rgba(255,255,255,0.06)'}    
+      518 +            }}                                                
+      519 +          }                                                   
+      520 +        });                                                   
+      521 +      }                                                       
+      522 +    });                                                       
+      523 +  }                                                           
+      524 +}                                                             
+      525 +                                                              
+      526 +function closeBottomSheet() {                                 
+      527 +  const overlay = document.getElementById('bs-overlay');      
+      528 +  if (!overlay.classList.contains('active')) return;          
+      529 +  overlay.classList.remove('active');                         
+      530 +  overlay.setAttribute('aria-hidden', 'true');                
+      531 +  document.body.style.overflow = '';                          
+      532 +  bsCurrentId = null;                                         
+      533 +}                                                             
+      534 +                                                              
+      535 +// Backdrop click                                             
+      536 +document.getElementById('bs-overlay')?.addEventListener('click
+          +', e => {                                                     
+      537 +  if (e.target.id === 'bs-overlay') closeBottomSheet();       
+      538 +});                                                           
+      539 +                                                              
+      540 +// ESC key                                                    
+      541 +document.addEventListener('keydown', e => {                   
+      542 +  if (e.key === 'Escape' && bsCurrentId !== null) closeBottomS
+          +heet();                                                       
+      543 +});                                                           
+      544 +                                                              
+      545 +// Swipe-to-dismiss on handle                                 
+      546 +(function initBsSwipe() {                                     
+      547 +  const sheet = document.getElementById('bs-sheet');          
+      548 +  const handle = sheet?.querySelector('.bs-handle');          
+      549 +  if (!sheet || !handle) return;                              
+      550 +  let startY = 0, currentY = 0, dragging = false;             
+      551 +                                                              
+      552 +  handle.addEventListener('touchstart', e => {                
+      553 +    startY = e.touches[0].clientY;                            
+      554 +    currentY = startY;                                        
+      555 +    dragging = true;                                          
+      556 +    sheet.style.transition = 'none';                          
+      557 +  }, { passive: true });                                      
+      558 +                                                              
+      559 +  sheet.addEventListener('touchmove', e => {                  
+      560 +    if (!dragging) return;                                    
+      561 +    currentY = e.touches[0].clientY;                          
+      562 +    const dy = Math.max(0, currentY - startY);                
+      563 +    sheet.style.transform = `translateY(${dy}px)`;            
+      564 +  }, { passive: true });                                      
+      565 +                                                              
+      566 +  sheet.addEventListener('touchend', () => {                  
+      567 +    if (!dragging) return;                                    
+      568 +    dragging = false;                                         
+      569 +    sheet.style.transition = '';                              
+      570 +    const dy = currentY - startY;                             
+      571 +    if (dy > 100) {                                           
+      572 +      closeBottomSheet();                                     
+      573 +    }                                                         
+      574 +    sheet.style.transform = '';                               
+      575 +  });                                                         
+      576 +})();                                                         
+      577 +                                                              
+      578  // ─── DRAWER TOGGLE ─────────────────────────────────────────
+           ────────────────
+      579  function toggleDrawer(id) {
+      580 +  if (isMobile()) { openBottomSheet(id); return; }            
+      581    const card   = document.querySelector(`.event-card[data-id="
+           ${id}"]`);
+      582    const drawer = document.getElementById(`drawer-${id}`);
+      583    if (!card || !drawer) return;
+
+⏺ Now let me add the bottom sheet-specific CSS styles for the content sections
+  (hero image, header, actions, body).
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ The existing CSS has some class names that don't quite match my JS output. Let
+   me update the CSS to match the HTML structure I'm generating.
+
+⏺ Update(style.css)
+  ⎿  Added 29 lines, removed 17 lines
+      1361    overflow-y: auto; -webkit-overflow-scrolling: touch;
+      1362    padding: 0 20px 24px; flex: 1; min-height: 0;
+      1363  }
+      1364 -/* Reuse drawer styles inside bottom sheet */                
+      1365 -.bs-content .ev-drawer-inner { padding: 0; }                 
+      1366 -.bs-content .bs-header {                                     
+      1367 -  display: flex; gap: 12px; align-items: flex-start;         
+      1368 -  margin-bottom: 16px; padding-bottom: 16px;                 
+      1369 -  border-bottom: 1px solid var(--border);                    
+      1370 -}                                                            
+      1371 -.bs-content .bs-header-info { flex: 1; }                     
+      1372 -.bs-content .bs-header-title { font-size: 18px; font-weight: 
+           -700; color: var(--text); margin-bottom: 4px; }               
+      1373 -.bs-content .bs-header-sub { font-size: 13px; color: var(--te
+           -xt-muted); margin-bottom: 4px; }                             
+      1374 -.bs-content .bs-header-venue { font-size: 13px; color: var(--
+           -text-muted); }                                               
+      1375 -.bs-content .bs-tier-block { text-align: center; flex-shrink:
+           - 0; }                                                        
+      1376 -.bs-content .bs-img {                                        
+      1364 +/* Bottom sheet content */                                   
+      1365 +.bs-hero { margin: 0 -20px; }                                
+      1366 +.bs-hero-img {                                               
+      1367    width: 100%; max-height: 200px; object-fit: cover;
+      1378 -  border-radius: var(--radius-sm); margin-bottom: 16px;      
+      1368 +  display: block;                                            
+      1369  }
+      1380 -.bs-content .bs-actions {                                    
+      1381 -  display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
+      1370 +.bs-header { margin-top: 16px; }                             
+      1371 +.bs-cat-row {                                                
+      1372 +  display: flex; align-items: center; gap: 8px; margin-bottom
+           +: 8px;                                                       
+      1373  }
+      1383 -.bs-content .bs-actions .btn-sm { flex: 1; text-align: center
+           -; min-height: 44px; display: flex; align-items: center; justi
+           -fy-content: center; }                                        
+      1374 +.bs-title {                                                  
+      1375 +  font-size: 20px; font-weight: 700; color: var(--text);     
+      1376 +  line-height: 1.25; margin-bottom: 4px;                     
+      1377 +}                                                            
+      1378 +.bs-subtitle { font-size: 14px; color: var(--text-muted); mar
+           +gin-bottom: 4px; }                                           
+      1379 +.bs-venue { font-size: 13px; color: var(--text-muted); margin
+           +-bottom: 2px; }                                              
+      1380 +.bs-date { font-size: 13px; color: var(--text-muted); }      
+      1381 +.bs-actions {                                                
+      1382 +  display: flex; gap: 8px; padding: 16px 0;                  
+      1383 +  border-bottom: 1px solid var(--border); flex-wrap: wrap;   
+      1384 +}                                                            
+      1385 +.bs-actions .btn-sm, .bs-actions .share-btn {                
+      1386 +  flex: 1; text-align: center; min-height: 44px;             
+      1387 +  display: flex; align-items: center; justify-content: center
+           +;                                                            
+      1388 +}                                                            
+      1389 +.bs-body { padding-top: 8px; }                               
+      1390 +.bs-section { padding: 8px 0; }                              
+      1391 +.bs-section .drawer-note { font-size: 14px; line-height: 1.5;
+           + color: var(--text-muted); }                                 
+      1392 +.bs-section .lineup-artist { font-size: 14px; }              
+      1393 +.bs-section .drawer-links { display: flex; gap: 12px; flex-wr
+           +ap: wrap; }                                                  
+      1394 +.bs-content .yt-wrap { border-radius: 8px; overflow: hidden; 
+           +}                                                            
+      1395 +.bs-content .yt-wrap iframe { width: 100%; aspect-ratio: 16/9
+           +; border: 0; }                                               
+      1396  
+      1397  /* Hide inline drawer on mobile when bottom sheet is availabl
+            e */
+      1398  @media (max-width: 768px) {
+
+⏺ Now let me also make sure the jumpToEvent function uses the bottom sheet on
+  mobile.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ The jumpToEvent function at line ~498 (original ~399) already calls
+  toggleDrawer, which now routes to openBottomSheet on mobile. That's already
+  handled.
+
+  Let me also update the selectSearchResult for the universal search modal —
+  when it calls jumpToEvent, on mobile we want to close the search modal first
+  and then open bottom sheet. Let me check if that flow works:
+  selectSearchResult → closeModal() → jumpToEvent(id) → toggleDrawer(id) →
+  openBottomSheet(id). The search modal sets document.body.style.overflow = ''
+  on close, then bottom sheet sets it back to 'hidden'. That flow should work.
+
+  Let me deploy and test.
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -20)
+  ⎿    "deployment": {
+         "id": "dpl_DZ7A1EAMzJmZmCVSqgQZzE3Knf5Z",
+         "url": "https://atl-events-efdp8y632-dimas-projects-a8469b81.verce
+     … +22 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Deployed. Let me verify the site loads correctly and check for any JS errors.
+
+⏺ Fetch(https://atl-events.vercel.app)
+  ⎿  Received 16.5KB (200 OK)
+
+⏺ The WebFetch can't evaluate JS runtime. Let me validate the JavaScript is
+  syntactically correct.
+
+⏺ Bash(node -c app.js 2>&1)
+  ⎿  (No output)
+
+⏺ No syntax errors. Let me also quickly verify the bottom sheet element exists
+  in the HTML and the CSS is well-formed.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Good — the HTML is in place. Let me also verify the key functions are wired
+  correctly by checking the toggleDrawer modification.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ All wired up. The bottom sheet mobile UX is live at
+  https://atl-events.vercel.app (deploy dpl_DZ7A1EAMzJmZmCVSqgQZzE3Knf5Z).
+
+  What's implemented:
+  - Mobile detection — matchMedia('max-width: 768px') gates behavior
+  - toggleDrawer → openBottomSheet — On mobile, tapping a card opens bottom
+  sheet instead of inline drawer
+  - Content builder — Hero image, tier badge + score, title/subtitle/venue/date,
+   tags, buy/share buttons, note, RSVP (internal), YouTube embed, lineup, radar
+  chart, links
+  - Close triggers — Backdrop tap, ESC key, swipe-down gesture (>100px threshold
+   on handle)
+  - Inline drawer suppressed — CSS max-height: 0 on .event-card.open .ev-drawer
+  at ≤768px
+  - jumpToEvent / search modal — Both flow through toggleDrawer, so bottom sheet
+   works from calendar pills and ⌘K search on mobile too
+
+  Remaining from the priority list:
+  1. ~~Bottom sheet~~ — done
+  2. Sosa image (manual download needed — RA blocks scraping)
+  3. 5 missing ticket URLs (Said The Sky, Tame Impala, Passion Pit now have AXS
+  links; Sosa + 1 other remain)
+  4. Map toggle FAB for mobile
+  5. Horizontal scroll with peek on card grid (mobile)
+
+  Want me to continue with the next mobile UX items (map toggle FAB, horizontal
+  card scroll)?
+✻ Worked for 7m 56s
+
+❯ Yes                                                                           
+
+  Searched for 2 patterns, read 1 file (ctrl+o to expand)
+
+⏺ Now let me look at the map section HTML to understand its structure.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now let me check the back-to-top button area and where to add the FAB.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now let me also check the events section to see where the grid sits and
+  understand the card structure for horizontal scroll.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Good. Now let me read the current back-to-top and map CSS for positioning
+  reference.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now I have a clear picture. Let me implement both features:
+
+  1. Map FAB — A floating button on mobile (below back-to-top) that scrolls to
+  map and pulses the section
+  2. Horizontal card scroll — On mobile, the events grid becomes a horizontal
+  scroll strip with peek
+
+⏺ Update(index.html)
+  ⎿  Added 3 lines
+      331    </div>
+      332  </div>
+      333  
+      334 +<!-- ── MAP FAB (mobile) ── -->                               
+      335 +<button id="map-fab" class="map-fab" aria-label="Show map">🗺️<
+          +/button>                                                      
+      336 +                                                              
+      337  <!-- ── BACK TO TOP ── -->
+      338  <button id="back-to-top" class="back-to-top" aria-label="Back 
+           to top">↑</button>
+      339  
+
+⏺ Now add the CSS for the map FAB and horizontal scroll.
+
+⏺ Update(style.css)
+  ⎿  Added 49 lines
+      1399    .event-card.open .ev-drawer { max-height: 0; border-top: 0;
+             }
+      1400  }
+      1401  
+      1402 +/* ── MAP FAB (mobile only) ── */                            
+      1403 +.map-fab {                                                   
+      1404 +  display: none; /* hidden on desktop */                     
+      1405 +  position: fixed; bottom: 28px; left: 24px; z-index: 90;    
+      1406 +  width: 46px; height: 46px; border-radius: 50%;             
+      1407 +  background: var(--bg-card-2); border: 1px solid var(--borde
+           +r-hi); color: #fff;                                          
+      1408 +  font-size: 20px; cursor: pointer;                          
+      1409 +  align-items: center; justify-content: center;              
+      1410 +  box-shadow: 0 4px 16px rgba(0,0,0,0.4);                    
+      1411 +  opacity: 0; transform: translateY(12px);                   
+      1412 +  transition: opacity 0.2s, transform 0.2s, background 0.15s;
+      1413 +  pointer-events: none;                                      
+      1414 +}                                                            
+      1415 +.map-fab.visible {                                           
+      1416 +  opacity: 1; transform: translateY(0); pointer-events: auto;
+           + display: flex;                                              
+      1417 +}                                                            
+      1418 +.map-fab:active { background: var(--purple-glow); }          
+      1419 +@media (max-width: 768px) {                                  
+      1420 +  .map-fab { display: flex; }                                
+      1421 +}                                                            
+      1422 +                                                             
+      1423 +/* ── HORIZONTAL CARD SCROLL (mobile) ── */                  
+      1424 +@media (max-width: 768px) {                                  
+      1425 +  .events-grid {                                             
+      1426 +    display: flex !important;                                
+      1427 +    overflow-x: auto; overflow-y: hidden;                    
+      1428 +    scroll-snap-type: x mandatory;                           
+      1429 +    -webkit-overflow-scrolling: touch;                       
+      1430 +    gap: 12px;                                               
+      1431 +    padding-bottom: 8px;                                     
+      1432 +    scrollbar-width: none;                                   
+      1433 +  }                                                          
+      1434 +  .events-grid::-webkit-scrollbar { display: none; }         
+      1435 +  .events-grid .event-card {                                 
+      1436 +    flex: 0 0 82vw;                                          
+      1437 +    scroll-snap-align: start;                                
+      1438 +    max-width: 82vw;                                         
+      1439 +  }                                                          
+      1440 +  /* Scroll peek indicator */                                
+      1441 +  .events-grid::after {                                      
+      1442 +    content: '';                                             
+      1443 +    flex: 0 0 4px;                                           
+      1444 +  }                                                          
+      1445 +  /* Tighter card layout on mobile scroll */                 
+      1446 +  .events-grid .ev-card-header { padding: 12px 14px; }       
+      1447 +  .events-grid .ev-tags { gap: 4px; }                        
+      1448 +  .events-grid .ev-title { font-size: 16px; }                
+      1449 +}                                                            
+      1450 +                                                             
+      1451  /* ==========================================================
+            ==
+      1452     RESPONSIVE
+      1453  ============================================================ 
+            */
+
+⏺ Now add the JS for the map FAB — show it when scrolled past the hero, tap
+  scrolls to map section.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Let me find the scroll event handler where back-to-top visibility is set, and
+  add map FAB logic there.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 19 lines, removed 1 line
+      1061  const bttBtn = document.getElementById('back-to-top');
+      1062  if (bttBtn) bttBtn.addEventListener('click', () => window.scr
+            ollTo({top:0,behavior:'smooth'}));
+      1063  
+      1064 -// ─── SCROLL: PROGRESS + NAV + BACK-TO-TOP ─────────────────
+           -─────────────────                                            
+      1064 +// ─── MAP FAB (mobile) ─────────────────────────────────────
+           +──────────────────                                           
+      1065 +const mapFab = document.getElementById('map-fab');           
+      1066 +if (mapFab) {                                                
+      1067 +  mapFab.addEventListener('click', () => {                   
+      1068 +    const mapSection = document.getElementById('map-section')
+           +;                                                            
+      1069 +    if (mapSection) {                                        
+      1070 +      mapSection.scrollIntoView({ behavior: 'smooth', block: 
+           +'start' });                                                  
+      1071 +      mapSection.classList.add('highlight-flash');           
+      1072 +      setTimeout(() => mapSection.classList.remove('highlight
+           +-flash'), 1800);                                             
+      1073 +    }                                                        
+      1074 +  });                                                        
+      1075 +}                                                            
+      1076 +                                                             
+      1077 +// ─── SCROLL: PROGRESS + NAV + BACK-TO-TOP + MAP FAB ───────
+           +─────────────────                                            
+      1078  window.addEventListener('scroll', () => {
+      1079    const pct = (window.scrollY / (document.documentElement.scr
+            ollHeight - window.innerHeight)) * 100;
+      1080    document.getElementById('progress').style.width = pct + '%'
+            ;
+      1081    if (bttBtn) bttBtn.classList.toggle('visible', window.scrol
+            lY > window.innerHeight * 0.5);
+      1082 +  if (mapFab) {                                              
+      1083 +    const mapEl = document.getElementById('map-section');    
+      1084 +    const mapVisible = mapEl && window.scrollY >= mapEl.offse
+           +tTop - window.innerHeight && window.scrollY <= mapEl.offsetTo
+           +p + mapEl.offsetHeight;                                      
+      1085 +    mapFab.classList.toggle('visible', window.scrollY > windo
+           +w.innerHeight * 0.3 && !mapVisible);                         
+      1086 +  }                                                          
+      1087    // Nav: compress links to emoji once hero is scrolled past
+      1088    document.getElementById('site-nav')?.classList.toggle('scro
+            lled', window.scrollY > 80);
+      1089    const sections = ['wizard','events','map-section','evergree
+            n','taste'];
+
+⏺ Now let me also add a scroll indicator for the horizontal card scroll — a
+  subtle dot-based scroll position indicator on mobile.
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Syntax is clean. Let me also add a scroll hint arrow on mobile to indicate
+  horizontal scrollability. Let me add a subtle CSS gradient fade on the right
+  edge of the scroll container.
+
+⏺ Update(style.css)
+  ⎿  Added 14 lines
+      1446    .events-grid .ev-card-header { padding: 12px 14px; }
+      1447    .events-grid .ev-tags { gap: 4px; }
+      1448    .events-grid .ev-title { font-size: 16px; }
+      1449 +  /* Right fade hint for scrollability */                    
+      1450 +  .events-grid-wrap {                                        
+      1451 +    position: relative;                                      
+      1452 +  }                                                          
+      1453 +  .events-grid-wrap::after {                                 
+      1454 +    content: '';                                             
+      1455 +    position: absolute; top: 0; right: 0; bottom: 8px;       
+      1456 +    width: 32px;                                             
+      1457 +    background: linear-gradient(to right, transparent, var(--
+           +bg));                                                        
+      1458 +    pointer-events: none;                                    
+      1459 +    z-index: 2;                                              
+      1460 +    transition: opacity 0.3s;                                
+      1461 +  }                                                          
+      1462 +  .events-grid-wrap.scroll-end::after { opacity: 0; }        
+      1463  }
+      1464  
+      1465  /* ==========================================================
+            ==
+
+⏺ I need to wrap the events grid in a .events-grid-wrap div. Let me update the
+  HTML.
+
+⏺ Update(index.html)
+  ⎿  Added 3 lines, removed 1 line
+      179        <button class="sort-btn" id="sort-score">By Score</butto
+           n>
+      180      </div>
+      181  
+      182 -    <div class="events-grid" id="events-grid"></div>          
+      182 +    <div class="events-grid-wrap">                            
+      183 +      <div class="events-grid" id="events-grid"></div>        
+      184 +    </div>                                                    
+      185    </div>
+      186  </section>
+      187  
+
+⏺ Now add JS to detect scroll-end and toggle the fade hint class.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 10 lines
+      1163        wizBar.classList.toggle('stuck', !e.isIntersecting && w
+            izBar.style.display !== 'none');
+      1164      }, { threshold: 0 }).observe(sentinel);
+      1165    }
+      1166 +                                                             
+      1167 +  // Horizontal scroll fade hint (mobile)                    
+      1168 +  const evGrid = document.getElementById('events-grid');     
+      1169 +  const evWrap = evGrid?.closest('.events-grid-wrap');       
+      1170 +  if (evGrid && evWrap) {                                    
+      1171 +    evGrid.addEventListener('scroll', () => {                
+      1172 +      const atEnd = evGrid.scrollLeft + evGrid.clientWidth >=
+           + evGrid.scrollWidth - 8;                                     
+      1173 +      evWrap.classList.toggle('scroll-end', atEnd);          
+      1174 +    }, { passive: true });                                   
+      1175 +  }                                                          
+      1176  });
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Clean. Let me also make sure the .events-grid-wrap doesn't break the desktop
+  layout by keeping it transparent on larger screens.
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Good — the .events-grid-wrap styles are only inside the @media (max-width: 
+  768px) block, so desktop is unaffected. Deploy.
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -15)
+  ⎿      "target": "production",
+         "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_38
+     BJJQRMXWeTqV7CV25Da9EfqDp9"
+     … +15 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Live at dpl_38BJJQRMXWeTqV7CV25Da9EfqDp9. Let me now add a few polish items
+  that make the mobile horizontal scroll feel more native:
+
+  1. Card count indicator — e.g. "3 of 28" that updates as you scroll
+  2. Ensure the image height is constrained in horizontal mode so cards don't
+  get too tall
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ The image uses aspect-ratio: 16/7 which is wide and should work fine in
+  horizontal scroll mode. The card width at 82vw with that aspect ratio will
+  give a comfortable image height.
+
+  Let me add a scroll position indicator — a lightweight "N of M" counter below
+  the grid on mobile.
+
+⏺ Update(index.html)
+  ⎿  Added 1 line
+      181  
+      182      <div class="events-grid-wrap">
+      183        <div class="events-grid" id="events-grid"></div>
+      184 +      <div class="scroll-counter" id="scroll-counter"></div>  
+      185      </div>
+      186    </div>
+      187  </section>
+
+⏺ Add scroll counter CSS (mobile-only):
+
+⏺ Update(style.css)
+  ⎿  Added 4 lines
+      1460      transition: opacity 0.3s;
+      1461    }
+      1462    .events-grid-wrap.scroll-end::after { opacity: 0; }
+      1463 +  .scroll-counter {                                          
+      1464 +    text-align: center; font-size: 12px; color: var(--text-di
+           +m);                                                          
+      1465 +    padding: 8px 0 0; letter-spacing: 0.04em;                
+      1466 +  }                                                          
+      1467  }
+      1468  
+      1469  /* ==========================================================
+            ==
+
+⏺ Hide on desktop:
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ The scroll counter is only defined inside the mobile media query, but I need
+  to hide it on desktop. Let me add a base rule.
+
+⏺ Update(style.css)
+  ⎿  Added 4 lines
+      1399    .event-card.open .ev-drawer { max-height: 0; border-top: 0;
+             }
+      1400  }
+      1401  
+      1402 +/* Desktop: hide mobile-only elements */                     
+      1403 +.scroll-counter { display: none; }                           
+      1404 +@media (max-width: 768px) { .scroll-counter { display: block;
+           + } }                                                         
+      1405 +                                                             
+      1406  /* ── MAP FAB (mobile only) ── */
+      1407  .map-fab {
+      1408    display: none; /* hidden on desktop */
+
+⏺ Now add the scroll counter JS logic — update on scroll.
+
+⏺ Update(app.js)
+  ⎿  Added 15 lines, removed 3 lines
+      1164      }, { threshold: 0 }).observe(sentinel);
+      1165    }
+      1166  
+      1167 -  // Horizontal scroll fade hint (mobile)                    
+      1167 +  // Horizontal scroll fade hint + counter (mobile)          
+      1168    const evGrid = document.getElementById('events-grid');
+      1169    const evWrap = evGrid?.closest('.events-grid-wrap');
+      1170 +  const scrollCounter = document.getElementById('scroll-count
+           +er');                                                        
+      1171    if (evGrid && evWrap) {
+      1171 -    evGrid.addEventListener('scroll', () => {                
+      1172 +    function updateScrollIndicator() {                       
+      1173        const atEnd = evGrid.scrollLeft + evGrid.clientWidth >=
+             evGrid.scrollWidth - 8;
+      1174        evWrap.classList.toggle('scroll-end', atEnd);
+      1174 -    }, { passive: true });                                   
+      1175 +      if (scrollCounter && isMobile()) {                     
+      1176 +        const cards = evGrid.querySelectorAll('.event-card:no
+           +t(.hidden)');                                                
+      1177 +        const total = cards.length;                          
+      1178 +        if (total === 0) { scrollCounter.textContent = ''; re
+           +turn; }                                                      
+      1179 +        const cardW = cards[0].offsetWidth + 12;             
+      1180 +        const idx = Math.min(total, Math.round(evGrid.scrollL
+           +eft / cardW) + 1);                                           
+      1181 +        scrollCounter.textContent = `${idx} of ${total}`;    
+      1182 +      }                                                      
+      1183 +    }                                                        
+      1184 +    evGrid.addEventListener('scroll', updateScrollIndicator, 
+           +{ passive: true });                                          
+      1185 +    // Initial update after grid renders                     
+      1186 +    requestAnimationFrame(updateScrollIndicator);            
+      1187    }
+      1188  });
+
+⏺ I also need to make the counter update when filters change — applyEventFilters
+   re-renders the grid, which resets scroll position. Let me hook it into the
+  render pipeline.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 5 lines
+      315    const grid = document.getElementById('events-grid');
+      316    if (!events.length) {
+      317      grid.innerHTML = '<div class="no-results">No events match 
+           the current filters.</div>';
+      318 +    const sc = document.getElementById('scroll-counter');     
+      319 +    if (sc) sc.textContent = '';                              
+      320      return;
+      321    }
+      322    grid.innerHTML = events.map((ev, i) => renderEventCard(ev, i
+           )).join('');
+      323 +  grid.scrollLeft = 0;                                        
+      324 +  const sc = document.getElementById('scroll-counter');       
+      325 +  if (sc && isMobile()) sc.textContent = `1 of ${events.length
+          +}`;                                                           
+      326  }
+      327  
+      328  function applyEventFilters() {
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-6iau5pppq-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Now let me update the HANDOFF.md with the new mobile UX features.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(HANDOFF.md)
+  ⎿  Added 10 lines, removed 3 lines
+      212  - **Focus-visible outlines** — Accessibility: purple outline o
+           n keyboard focus
+      213  - **Deploy:** dpl_6DvCysiV9KDUDbZYbMFqfeDGwx5P
+      214  
+      215 +### 9. Mobile UX — Bottom Sheet + Horizontal Scroll + Map FAB 
+      216 +- **Bottom sheet drawer** — On ≤768px, tapping event cards ope
+          +ns a slide-up bottom sheet instead of inline expand. Includes 
+          +hero image, tier/score, tags, buy/share buttons, note, RSVP, Y
+          +ouTube embed, lineup, radar chart, links. Close via backdrop t
+          +ap, ESC key, or swipe-down gesture (>100px on handle).        
+      217 +- **Horizontal card scroll** — Events grid becomes horizontal 
+          +scroll strip on mobile with `scroll-snap-type: x mandatory`, 8
+          +2vw card width for peek effect. Right fade gradient indicates 
+          +scrollability, disappears at end.                             
+      218 +- **Scroll counter** — "N of M" indicator below grid updates o
+          +n scroll and filter changes.                                  
+      219 +- **Map FAB** — Floating 🗺️ button (bottom-left, mobile-only) a
+          +ppears after scrolling past hero, hides when map section is in
+          + viewport. Taps smooth-scroll to map.                         
+      220 +- **Deploy:** dpl_38BJJQRMXWeTqV7CV25Da9EfqDp9 → dpl (scroll c
+          +ounter + FAB polish)                                          
+      221 +                                                              
+      222  ---
+      223  
+      224  ## Pending / Next Session
+      225  
+      226  ### Remaining Items
+      220 -- [ ] Ticket URLs for 5 events missing them (Said The Sky, Sos
+          -a, Tame Impala, Passion Pit + 1 other)                        
+      227  - [ ] Sosa image (Resident Advisor blocks scraping — need manu
+           al download)
+      222 -- [ ] Review taste profile and scoring against expanded 41-eve
+          -nt dataset                                                    
+      223 -- [ ] Social scan end-to-end test with 41 events              
+      228 +- [x] Ticket URLs — Said The Sky, Tame Impala, Passion Pit now
+          + have AXS links; Sosa + Pedro Sampaio remain                  
+      229 +- [x] Social scan end-to-end test with 41 events (validated, l
+          +ead times tuned to 7/3/3)                                     
+      230 +- [x] Scoring consistency review (all 41 events, no anomalies)
+      231  
+      232  ### Future Tracks
+      233  - **Track B: Communication Intelligence** — comm_scan.py, iMes
+           sage/calls auto-update
+
+⏺ Deployed. Here's what's now live at atl-events.vercel.app:
+
+  Mobile UX (≤768px):
+  - Bottom sheet — Tapping any event card opens a full slide-up panel with hero
+  image, tier badge, tags, buy/share buttons, note, YouTube, lineup, radar
+  chart. Dismiss by tapping backdrop, pressing ESC, or swiping down on the
+  handle.
+  - Horizontal card scroll — Events grid is now a horizontal swipe strip with
+  82vw cards + peek of the next card. Scroll-snap for crisp stops. Right-edge
+  fade gradient disappears when you reach the end.
+  - Scroll counter — "3 of 28" indicator below the grid, updates live as you
+  swipe.
+  - Map FAB — 🗺️ floating button in the bottom-left, visible once you scroll
+  past the hero but hidden when the map section is already on screen. Taps
+  smooth-scroll to the map.
+
+  Desktop unchanged — All features are gated behind @media (max-width: 768px) or
+   isMobile().
+
+  Want me to keep going with more polish, or shift to something else?
+
+✻ Cooked for 4m 3s
+
+❯ Yes                                                                           
+
+⏺ Let me continue with more mobile polish — horizontal filter chips, evergreen
+  horizontal scroll, and a sticky mobile nav bar.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now let me check the site-nav structure for the mobile bottom nav.
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+⏺ Now I have the full picture. Let me implement three things at once:
+
+  1. Horizontal scroll filter chips on mobile
+  2. Mobile bottom nav bar — Replace the top nav links with a bottom tab bar on
+  mobile
+  3. Evergreen horizontal scroll on mobile (same treatment as events)
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Now let me add all the mobile CSS. I'll consolidate into the existing @media 
+  (max-width: 768px) blocks.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(style.css)
+  ⎿  Added 49 lines, removed 1 line
+      1486    .venue-grid { grid-template-columns: repeat(2, 1fr); }
+      1487    .tier-grid { grid-template-columns: repeat(2, 1fr); }
+      1488    .eg-grid { grid-template-columns: repeat(2, 1fr); }
+      1489 +                                                             
+      1490 +  /* ── Horizontal scroll filter chips ── */                 
+      1491 +  .filter-bar, .sort-bar {                                   
+      1492 +    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scr
+           +olling: touch;                                               
+      1493 +    scrollbar-width: none; padding-bottom: 4px;              
+      1494 +  }                                                          
+      1495 +  .filter-bar::-webkit-scrollbar, .sort-bar::-webkit-scrollba
+           +r { display: none; }                                         
+      1496 +  .chip { flex-shrink: 0; min-height: 36px; display: flex; al
+           +ign-items: center; }                                         
+      1497 +  .sort-btn { flex-shrink: 0; }                              
+      1498 +                                                             
+      1499 +  .eg-filter-bar {                                           
+      1500 +    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scr
+           +olling: touch;                                               
+      1501 +    scrollbar-width: none; padding-bottom: 4px;              
+      1502 +  }                                                          
+      1503 +  .eg-filter-bar::-webkit-scrollbar { display: none; }       
+      1504 +  .eg-chip, .eg-chip-time, .eg-chip-day { flex-shrink: 0; min
+           +-height: 36px; display: flex; align-items: center; }         
+      1505 +                                                             
+      1506 +  /* ── Bottom tab nav ── */                                 
+      1507 +  nav {                                                      
+      1508 +    top: auto; bottom: 0; border-bottom: none;               
+      1509 +    border-top: 1px solid var(--border);                     
+      1510 +    padding-top: 0;                                          
+      1511 +    padding-bottom: env(safe-area-inset-bottom);             
+      1512 +  }                                                          
+      1513 +  .nav-inner {                                               
+      1514 +    height: 52px; padding: 0 8px; gap: 0;                    
+      1515 +    justify-content: center;                                 
+      1516 +  }                                                          
+      1517 +  .nav-brand { display: none; }                              
+      1518 +  .nav-links {                                               
+      1519 +    gap: 0; flex: 1; justify-content: space-around;          
+      1520 +  }                                                          
+      1521 +  .nav-links a {                                             
+      1522 +    flex-direction: column; font-size: 9px; gap: 2px;        
+      1523 +    padding: 4px 6px; text-align: center;                    
+      1524 +    display: flex; align-items: center;                      
+      1525 +  }                                                          
+      1526 +  .nav-links a .nav-full { display: block; font-size: 9px; } 
+      1527 +  .nav-links a .nav-short { display: block; font-size: 18px; 
+           +}                                                            
+      1528 +  #site-nav.scrolled .nav-links a .nav-full { display: block;
+           + }                                                           
+      1529 +  #site-nav.scrolled .nav-links a .nav-short { display: block
+           +; }                                                          
+      1530 +  #site-nav.scrolled .nav-links a { padding: 4px 6px; }      
+      1531 +  .nav-search-btn { display: none; }                         
+      1532 +                                                             
+      1533 +  /* Adjust body padding: hero needs no top padding, but need
+           +s bottom for nav */                                          
+      1534 +  body { padding-top: 0 !important; padding-bottom: 60px; }  
+      1535 +  #hero { padding-top: 20px; }                               
+      1536 +  .back-to-top { bottom: 72px; }                             
+      1537 +  .map-fab { bottom: 72px; }                                 
+      1538  }
+      1539  
+      1540  @media (max-width: 480px) {
+     ...
+      1542    .venue-grid { grid-template-columns: 1fr; }
+      1543    .tier-grid { grid-template-columns: 1fr; }
+      1544    .eg-grid { grid-template-columns: 1fr; }
+      1496 -  .nav-links a { font-size: 11px; padding: 4px 7px; }        
+      1545    .wizard-wrap { padding: 20px; }
+      1546    #atl-map { height: 340px; }
+      1547    .wiz-btn { min-height: 44px; padding: 10px 16px; }
+
+⏺ Now I need to check if there's a body { padding-top } rule set for the top nav
+   offset that I need to adjust.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Need to adjust the progress bar position on mobile too since nav moves to
+  bottom.
+
+⏺ Update(style.css)
+  ⎿  Added 5 lines, removed 4 lines
+      1530    #site-nav.scrolled .nav-links a { padding: 4px 6px; }
+      1531    .nav-search-btn { display: none; }
+      1532  
+      1533 -  /* Adjust body padding: hero needs no top padding, but need
+           -s bottom for nav */                                          
+      1534 -  body { padding-top: 0 !important; padding-bottom: 60px; }  
+      1533 +  /* Adjust body padding: no top nav, bottom nav instead */  
+      1534 +  body { padding-top: 0 !important; padding-bottom: 64px; }  
+      1535    #hero { padding-top: 20px; }
+      1536 -  .back-to-top { bottom: 72px; }                             
+      1537 -  .map-fab { bottom: 72px; }                                 
+      1536 +  .progress-bar { top: 0; }                                  
+      1537 +  .back-to-top { bottom: 76px; }                             
+      1538 +  .map-fab { bottom: 76px; }                                 
+      1539  }
+      1540  
+      1541  @media (max-width: 480px) {
+
+⏺ Now let me also check the scroll handler — on mobile, the nav should not
+  toggle scrolled since it's always a bottom bar.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ The scrolled class just controls showing emoji vs text in nav links. On mobile
+   bottom bar, we always show both emoji + text label, and the CSS overrides I
+  wrote ensure .nav-full and .nav-short are both displayed regardless of
+  scrolled class. That's fine.
+
+  Let me validate and deploy.
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-aut7a61d5-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Live. Let me now check if there are any issues I should address with the
+  bottom nav + body padding interaction. The hero section originally had a
+  padding-top to offset the fixed top nav. Let me check.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ The hero has padding: 80px 24px 56px — the 80px top accounts for the fixed
+  nav. On mobile, since the nav moves to the bottom and body padding-top is 0, I
+   set #hero { padding-top: 20px; }. That should look good — the hero will start
+   right at the top of the viewport.
+
+  Let me also think about the section anchor scrolling — scrollIntoView targets
+  now need to account for the fact that there's no top nav on mobile, but there
+  IS a bottom nav that could cover content. Section padding should handle that.
+  Let me also check that the bottom sheet z-index is above the bottom nav.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Good — bottom sheet overlay is z-index 200, nav is z-index 100. The bottom
+  sheet will properly cover the nav bar. Progress bar is also z-index 200 but
+  that's fine since it's a thin line at the top.
+
+  Now let me think about what else would improve the mobile experience. One
+  important thing: the nav link anchors like #wizard, #events etc use
+  scrollIntoView. On mobile, we don't have a top nav blocking content, but the
+  sections themselves have padding. Let me make sure the scroll-padding-top is
+  correct for mobile to avoid content hiding behind nothing (or behind the
+  progress bar).
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ The anchor navigation uses native <a href="#section"> which relies on browser
+  default scroll behavior. Without scroll-padding-top, on desktop the fixed top
+  nav would cover the section heading. Let me add that.
+
+⏺ Update(style.css)
+  ⎿  Added 1 line
+      46    overflow-x: hidden;
+      47    padding-top: 60px;
+      48  }
+      49 +html { scroll-behavior: smooth; scroll-padding-top: 68px; }    
+      50  
+      51  /* ============================================================
+      52     PROGRESS BAR + NAV
+
+⏺ And on mobile, scroll-padding-top should be small since no top nav:
+
+⏺ Update(style.css)
+  ⎿  Added 1 line
+      1532    .nav-search-btn { display: none; }
+      1533  
+      1534    /* Adjust body padding: no top nav, bottom nav instead */
+      1535 +  html { scroll-padding-top: 16px; }                         
+      1536    body { padding-top: 0 !important; padding-bottom: 64px; }
+      1537    #hero { padding-top: 20px; }
+      1538    .progress-bar { top: 0; }
+
+⏺ Now let me also handle one edge case: the bottom sheet needs to account for
+  the safe area on mobile (iPhone notch/home indicator at the bottom).
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(style.css)
+  ⎿  Added 1 line, removed 1 line
+      1360  }
+      1361  .bs-content {
+      1362    overflow-y: auto; -webkit-overflow-scrolling: touch;
+      1363 -  padding: 0 20px 24px; flex: 1; min-height: 0;              
+      1363 +  padding: 0 20px calc(24px + env(safe-area-inset-bottom)); f
+           +lex: 1; min-height: 0;                                       
+      1364  }
+      1365  /* Bottom sheet content */
+      1366  .bs-hero { margin: 0 -20px; }
+
+⏺ Deploy with all the polish:
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-nx7c51ixp-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Let me now think about what else would benefit the mobile experience. The
+  evergreen section on 480px currently collapses to a single column — that's
+  fine for vertical scroll. But let me also make the map section filter buttons
+  scroll horizontally on mobile, since there are 10 category buttons.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Good — the map filter row wraps by default. On mobile with 10 buttons that'll
+  be two rows which is fine, but I can make it scroll horizontally for a cleaner
+   look.
+⏺ Update(style.css)
+  ⎿  Added 8 lines
+      1504    .eg-filter-bar::-webkit-scrollbar { display: none; }
+      1505    .eg-chip, .eg-chip-time, .eg-chip-day { flex-shrink: 0; min
+            -height: 36px; display: flex; align-items: center; }
+      1506  
+      1507 +  /* ── Horizontal map filter row ── */                      
+      1508 +  .map-filter-row {                                          
+      1509 +    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scr
+           +olling: touch;                                               
+      1510 +    scrollbar-width: none;                                   
+      1511 +  }                                                          
+      1512 +  .map-filter-row::-webkit-scrollbar { display: none; }      
+      1513 +  .map-toggle, .map-cat-btn { flex-shrink: 0; min-height: 36p
+           +x; }                                                         
+      1514 +                                                             
+      1515    /* ── Bottom tab nav ── */
+      1516    nav {
+      1517      top: auto; bottom: 0; border-bottom: none;
+
+⏺ Now let me look at what other small mobile improvements could be impactful.
+  Let me check the wizard buttons on mobile.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ The wizard layout on mobile (≤900px) already collapses to a single column. The
+   buttons use flex-wrap: wrap which is fine. Let me make the wizard options
+  also horizontally scrollable on mobile for a cleaner look when there are many
+  buttons.
+
+⏺ Update(style.css)
+  ⎿  Added 8 lines
+      1512    .map-filter-row::-webkit-scrollbar { display: none; }
+      1513    .map-toggle, .map-cat-btn { flex-shrink: 0; min-height: 36p
+            x; }
+      1514  
+      1515 +  /* ── Wizard buttons horizontal scroll ── */               
+      1516 +  .wizard-options {                                          
+      1517 +    flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scr
+           +olling: touch;                                               
+      1518 +    scrollbar-width: none; padding-bottom: 4px;              
+      1519 +  }                                                          
+      1520 +  .wizard-options::-webkit-scrollbar { display: none; }      
+      1521 +  .wiz-btn { flex-shrink: 0; }                               
+      1522 +                                                             
+      1523    /* ── Bottom tab nav ── */
+      1524    nav {
+      1525      top: auto; bottom: 0; border-bottom: none;
+
+⏺ Now let me do one more impactful thing: make the calendar widget more
+  touch-friendly. The calendar pills are already 6px dots on 480px. Let me also
+  make the calendar cells slightly more tappable.
+
+  Let me also verify nothing is broken on desktop by checking that none of my
+  mobile-only CSS leaks to desktop. Let me review the full mobile CSS block.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Everything looks properly scoped. The 480px breakpoint removed nav-links a
+  font-size override since the bottom nav handles that now in the 768px block.
+  Let me check if there's a conflict.
+
+  Actually, looking at line 1543, on mobile I set .nav-links a .nav-full { 
+  display: block; font-size: 9px; }. On the bottom bar, each item shows emoji
+  (18px) on top, text label (9px) below, in a flex column. That should look like
+   a standard mobile tab bar.
+
+  Let me deploy this final polish pass.
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-fid1bmtnw-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ All deployed. Here's the full mobile UX overhaul summary:
+
+  This deploy batch (4 deploys):
+
+  ┌────────────────┬────────────────────────────────────────────────────────┐
+  │    Feature     │                        Details                         │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │                │ Slide-up event detail panel on mobile,                 │
+  │ Bottom sheet   │ swipe-to-dismiss, full content (image, tags, buy,      │
+  │                │ YouTube, radar, lineup)                                │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Horizontal     │ 82vw snap cards with peek, right-edge fade gradient,   │
+  │ card scroll    │ "N of M" counter                                       │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Map FAB        │ 🗺️ floating button (bottom-left), hides when map       │
+  │                │ visible                                                │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Bottom tab nav │ Nav moves from fixed-top to fixed-bottom on ≤768px,    │
+  │                │ emoji+label tabs, safe area padding                    │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Horizontal     │ Filter bars, sort bar, evergreen chips, map buttons,   │
+  │ scroll chips   │ wizard options all scroll horizontally                 │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Anchor scroll  │ scroll-padding-top 68px desktop / 16px mobile          │
+  │ fix            │                                                        │
+  ├────────────────┼────────────────────────────────────────────────────────┤
+  │ Safe area      │ Bottom sheet content respects                          │
+  │                │ env(safe-area-inset-bottom) for iPhone home indicator  │
+  └────────────────┴────────────────────────────────────────────────────────┘
+
+  Desktop is unchanged — all mobile features are gated behind @media (max-width:
+   768px) or isMobile().
+
+  Production: https://atl-events.vercel.app
+
+  Want me to keep going? Next candidates: evergreen section improvements, or
+  shift to a different track entirely.
+
+✻ Sautéed for 3m 56s
+
+❯ Let’s limit the number of live events in the mobile view and add a show mode  
+  button.                                                                       
+  Get rid of the show details and buy tickets button in the card. Just make buy 
+   tickets visible on full card. Remove the S tier of ratings. I don’t know     
+  what that means. Rearrange the card layout so that the event type is in the   
+  right top corner. The date is in the top left corner overlapping with the     
+  graphic. The top nav looks weird since the emojis overflow to second row.     
+  Maybe condense somehow or change the name of the site?                        
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Now let me read the nav section CSS more carefully to understand the overflow
+  issue.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ The issue is .nav-links { flex-wrap: wrap } — on narrow desktops (say
+  900-1000px), the 6 nav links plus brand plus search button overflow. The
+  scrolled state switches to emoji-only which helps, but before scrolling they
+  wrap.
+
+  Now let me also check the tier-related CSS.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now let me look at the ev-cat-date-row and ev-footer-row:
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now I have the full picture. Let me also check the tier filter chips in the
+  HTML, and the hero stats that reference S/A tier.
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now I have everything I need. Let me implement all changes:
+
+  1. Limit mobile events + "Show More" — render 6 initially, button to show all
+  2. Remove Details button + Buy Tickets from card footer — Buy Tickets only in
+  bottom sheet / drawer
+  3. Remove tier badge (S/A/B) from cards — replace with just the score number
+  4. Rearrange card — date overlaid on image (top-left), category badge
+  (top-right)
+  5. Fix nav — condense the brand, prevent wrap
+
+  Let me also rename the tier filter to be score-range based instead of S/A/B/C.
+
+⏺ Update(app.js)
+  ⎿  Added 10 lines, removed 23 lines
+      213    const recTag  = ev.recurring ? `<span class="tag">↺ Recurrin
+           g</span>` : '';
+      214  
+      215    const buyBtn = ev.ticketUrl
+      216 -    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener
+          -" class="btn-sm btn-buy${ev.tier==='S'?' amber-btn':''}" oncli
+          -ck="event.stopPropagation()">${ev.tier==='S'?'Buy S-Tier →':'B
+          -uy Tickets →'}</a>`                                           
+      216 +    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener
+          +" class="btn-sm btn-buy" onclick="event.stopPropagation()">Buy
+          + Tickets →</a>`                                               
+      217      : '';
+      218  
+      219    // Drawer sections
+     ...
+      269           data-free="${ev.free}" data-score="${ev.score}" data-
+           date="${ev.date}"
+      270           onclick="toggleDrawer(${ev.id})">
+      271  
+      272 -      ${imgHtml}                                              
+      272 +      <div class="ev-img-container">                          
+      273 +        ${imgHtml}                                            
+      274 +        <span class="ev-date-overlay">${ev.dateStr}${ev.time ?
+          + ' · '+ev.time : ''}</span>                                   
+      275 +        <span class="ev-cat-overlay cat-${ev.category}">${catE
+          +moji} ${catLabel}</span>                                      
+      276 +      </div>                                                  
+      277  
+      278        <div class="ev-card-header">
+      275 -        <div class="ev-top-row">                              
+      276 -          <div class="ev-meta">                               
+      277 -            <div class="ev-cat-date-row">                     
+      278 -              <span class="ev-cat-badge cat-${ev.category}">${
+          -catEmoji} ${catLabel}</span>                                  
+      279 -              <span class="ev-date${ev.tier==='S'?' amber':''}
+          -">${ev.dateStr}${ev.time ? ' · '+ev.time : ''}</span>         
+      280 -            </div>                                            
+      281 -            <div class="ev-title">${ev.title}</div>           
+      282 -            ${ev.subtitle ? `<div class="ev-subtitle">${ev.sub
+          -title}</div>` : ''}                                           
+      283 -            <div class="ev-venue">📍 ${ev.venue}</div>        
+      284 -          </div>                                              
+      285 -          <div class="tier-score-block">                      
+      286 -            <div class="tier-badge ${ev.tier}">${ev.tier}</div
+          ->                                                             
+      287 -            <div class="score-num-big">${ev.score}</div>      
+      288 -          </div>                                              
+      289 -        </div>                                                
+      279 +        <div class="ev-title">${ev.title}</div>               
+      280 +        ${ev.subtitle ? `<div class="ev-subtitle">${ev.subtitl
+          +e}</div>` : ''}                                               
+      281 +        <div class="ev-venue">📍 ${ev.venue}</div>            
+      282          <div class="ev-tags">${urgTag}${freeTag}${ageTag}${env
+           Tag}${genreTags}${distTag}${recTag}</div>
+      291 -        <div class="ev-footer-row">                           
+      292 -          <button class="expand-btn" aria-expanded="false" onc
+          -lick="event.stopPropagation();toggleDrawer(${ev.id})">        
+      293 -            Details <span class="arrow">▾</span>              
+      294 -          </button>                                           
+      295 -          ${buyBtn}                                           
+      296 -        </div>                                                
+      283        </div>
+      284  
+      285        <div class="ev-drawer" id="drawer-${ev.id}">
+      286          <div class="ev-drawer-inner">
+      287            ${noteInDrawer}
+      288            ${rsvpSection}
+      289 +          ${buyBtn ? `<div class="drawer-buy-row">${buyBtn}</d
+          +iv>` : ''}                                                    
+      290            ${ytSection}
+      291            ${lineupSection}
+      292            ${radarSection}
+
+❯ Give me 10 other options for the site name 
+
+⏺ Here are 10 alternative site names:
+
+  1. ATL Tonight — punchy, action-oriented
+  2. ATL Moves — ties to the wizard "What's the Move?"
+  3. The Move ATL — same energy, more definitive
+  4. ATL Lineup — music-forward, fits the concert focus
+  5. Out ATL — short, implies going out
+  6. ATL Pulse — suggests what's happening now
+  7. What's Good ATL — casual, conversational
+  8. ATL Radar — discovery vibe, fits the scoring/radar charts
+  9. ATL Agenda — personal calendar feel
+  10. Dima's ATL — honest, it's your personal tool
+
+  Any of those land? I'll work it into the nav while I finish these card
+  changes.
+
+  Meanwhile, let me continue with the CSS and remaining JS changes.
+
+⏺ Update(style.css)
+  ⎿  Added 15 lines
+      862  /* ===========================================================
+           =
+      863     EVENT CARD — IMAGE STRIP
+      864  ============================================================ *
+           /
+      865 +/* Image container with overlaid date + category */           
+      866 +.ev-img-container { position: relative; }                     
+      867 +.ev-date-overlay {                                            
+      868 +  position: absolute; top: 8px; left: 8px; z-index: 2;        
+      869 +  font-size: 10px; font-weight: 700; letter-spacing: 0.06em; t
+          +ext-transform: uppercase;                                     
+      870 +  color: #fff; background: rgba(0,0,0,0.65); backdrop-filter: 
+          +blur(4px);                                                    
+      871 +  padding: 3px 8px; border-radius: 4px;                       
+      872 +}                                                             
+      873 +.ev-cat-overlay {                                             
+      874 +  position: absolute; top: 8px; right: 8px; z-index: 2;       
+      875 +  display: inline-flex; align-items: center; gap: 3px;        
+      876 +  font-size: 9px; font-weight: 700; letter-spacing: 0.06em; te
+          +xt-transform: uppercase;                                      
+      877 +  padding: 3px 7px; border-radius: 4px;                       
+      878 +  background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);   
+      879 +}                                                             
+      880  .ev-img-wrap {
+      881    width: 100%; aspect-ratio: 16/7; overflow: hidden;
+      882    background: var(--bg-card-2); position: relative;
+
+⏺ Now remove the old tier-score block, ev-cat-date-row, ev-footer-row,
+  expand-btn from the card (they're no longer rendered). Also clean up the card
+  header.
+
+⏺ Update(style.css)
+  ⎿  Added 1 line, removed 4 lines
+      386    padding: 20px 20px 16px; cursor: pointer;
+      387    display: flex; flex-direction: column; gap: 10px;
+      388  }
+      389 -.ev-top-row { display: flex; align-items: flex-start; justify-
+          -content: space-between; gap: 8px; }                           
+      390 -.ev-meta { flex: 1; }                                         
+      391 -/* ev-date is now inside .ev-cat-date-row — see category syste
+          -m section */                                                  
+      389  .ev-title { font-size: 17px; font-weight: 700; color: #fff; li
+           ne-height: 1.2; margin-bottom: 1px; }
+      390  .ev-subtitle { font-size: 11px; color: var(--text-muted); font
+           -style: italic; margin-bottom: 1px; }
+      394 -.ev-venue { font-size: 12px; color: var(--text-muted); }      
+      391 +.ev-venue { font-size: 12px; color: var(--text-muted); margin-
+          +bottom: 6px; }                                                
+      392  
+      393  .tier-badge {
+      394    display: inline-flex; align-items: center; justify-content: 
+           center;
+
+⏺ Now add a "drawer-buy-row" style and remove the old footer row:
+
+⏺ Update(style.css)
+  ⎿  Added 3 lines, removed 12 lines
+      425  .score-fill.C { background: var(--text-dim); }
+      426  .score-num { font-size: 12px; font-weight: 700; color: var(--t
+           ext-muted); width: 26px; text-align: right; flex-shrink: 0; }
+      427  
+      428 -.ev-footer-row {                                              
+      429 -  display: flex; align-items: center; justify-content: space-b
+          -etween; gap: 8px;                                             
+      428 +.drawer-buy-row {                                             
+      429 +  margin-bottom: 12px;                                        
+      430  }
+      431 -.expand-btn {                                                 
+      432 -  font-size: 11px; font-weight: 600; color: var(--text-dim);  
+      433 -  background: none; border: 1px solid var(--border);          
+      434 -  border-radius: 5px; padding: 4px 10px; cursor: pointer;     
+      435 -  transition: all 0.15s; letter-spacing: 0.04em;              
+      436 -  display: flex; align-items: center; gap: 4px;               
+      437 -}                                                             
+      438 -.expand-btn:hover { color: var(--purple); border-color: var(--
+          -purple); }                                                    
+      439 -.expand-btn .arrow { transition: transform 0.25s; display: inl
+          -ine-block; }                                                  
+      440 -.event-card.open .expand-btn .arrow { transform: rotate(180deg
+          -); }                                                          
+      431 +.drawer-buy-row .btn-buy { width: 100%; justify-content: cente
+          +r; min-height: 40px; }                                        
+      432  .btn-sm {
+      433    display: inline-flex; align-items: center; gap: 5px;
+      434    font-size: 12px; font-weight: 700; padding: 6px 13px;
+
+⏺ Now update the tier filter chips in HTML — replace S/A/B labels with score
+  ranges, remove the "S" label:
+
+⏺ Update(index.html)  ⎿  Added 4 lines, removed 4 lines
+      167        <button class="chip" data-filter="free">Free</button>
+      168      </div>
+      169      <div class="filter-bar">
+      170 -      <span class="filter-label">Tier:</span>                 
+      170 +      <span class="filter-label">Score:</span>                
+      171        <button class="chip active" data-tier="all">All</button>
+      172 -      <button class="chip chip-S" data-tier="S">S · 90+</butto
+          -n>                                                            
+      173 -      <button class="chip" data-tier="A">A · 75–89</button>   
+      174 -      <button class="chip chip-B" data-tier="B">B · 60–74</but
+          -ton>                                                          
+      172 +      <button class="chip chip-top" data-tier="S">90+</button>
+      173 +      <button class="chip" data-tier="A">75–89</button>       
+      174 +      <button class="chip" data-tier="B">60–74</button>       
+      175      </div>
+      176      <div class="sort-bar">
+      177        <span class="filter-label">Sort:</span>
+
+⏺ Update the hero stat that says "S + A Tier Shows" to something clearer:
+
+⏺ Update(index.html)
+  ⎿  Added 1 line, removed 1 line
+      62        </div>
+      63        <div class="stat-card">
+      64          <div class="stat-number"><span class="c-red" id="stat-s
+          a-count">—</span></div>
+      65 -        <div class="stat-label">S + A Tier Shows</div>         
+      65 +        <div class="stat-label">Top Picks (75+)</div>          
+      66          <div class="stat-sublabel">Worth calendar blocking</div
+          >
+      67        </div>
+      68        <div class="stat-card internal-only">
+
+⏺ Now update the CSS — rename .chip-S to .chip-top:
+
+⏺ Update(style.css)
+  ⎿  Added 1 line, removed 1 line
+      345  }
+      346  .chip:hover { border-color: var(--purple); color: var(--text);
+            }
+      347  .chip.active { background: var(--purple); border-color: var(--
+           purple); color: #fff; }
+      348 -.chip.chip-S.active { background: var(--amber); border-color: 
+          -var(--amber); color: #000; }                                  
+      348 +.chip.chip-top.active { background: var(--amber); border-color
+          +: var(--amber); color: #000; }                                
+      349  .chip.chip-B.active { background: var(--teal); border-color: v
+           ar(--teal); color: #000; }
+      350  .sort-bar { display: flex; align-items: center; gap: 8px; marg
+           in-bottom: 24px; }
+      351  .sort-btn {
+
+⏺ Now fix the nav. Let me condense it — prevent wrapping by making it scroll or
+  limiting links.
+
+⏺ Update(style.css)
+  ⎿  Added 2 lines, removed 1 line
+      77    color: var(--text); text-decoration: none; white-space: nowra
+          p;
+      78  }
+      79  .nav-brand em { color: var(--purple); font-style: normal; }
+      80 -.nav-links { display: flex; gap: 2px; list-style: none; flex-wr
+         -ap: wrap; justify-content: flex-end; }                         
+      80 +.nav-links { display: flex; gap: 2px; list-style: none; flex-wr
+         +ap: nowrap; justify-content: flex-end; overflow-x: auto; scroll
+         +bar-width: none; }                                             
+      81 +.nav-links::-webkit-scrollbar { display: none; }               
+      82  .nav-links a {
+      83    color: var(--text-muted); text-decoration: none;
+      84    font-size: 12px; font-weight: 600;
+
+⏺ Now implement the mobile "Show More" button — limit to 6 cards initially on
+  mobile.
+
+⏺ Update(app.js)
+  ⎿  Added 17 lines, removed 2 lines
+      298      </div>`;
+      299  }
+      300  
+      301 +const MOBILE_CARD_LIMIT = 6;                                  
+      302 +let mobileShowAll = false;                                    
+      303 +                                                              
+      304  function renderGrid(events) {
+      305    const grid = document.getElementById('events-grid');
+      306 +  const showMoreBtn = document.getElementById('show-more-btn')
+          +;                                                             
+      307    if (!events.length) {
+      308      grid.innerHTML = '<div class="no-results">No events match 
+           the current filters.</div>';
+      309      const sc = document.getElementById('scroll-counter');
+      310      if (sc) sc.textContent = '';
+      311 +    if (showMoreBtn) showMoreBtn.style.display = 'none';      
+      312      return;
+      313    }
+      309 -  grid.innerHTML = events.map((ev, i) => renderEventCard(ev, i
+          -)).join('');                                                  
+      314 +  const limited = isMobile() && !mobileShowAll && events.lengt
+          +h > MOBILE_CARD_LIMIT;                                        
+      315 +  const visible = limited ? events.slice(0, MOBILE_CARD_LIMIT)
+          + : events;                                                    
+      316 +  grid.innerHTML = visible.map((ev, i) => renderEventCard(ev, 
+          +i)).join('');                                                 
+      317    grid.scrollLeft = 0;
+      318    const sc = document.getElementById('scroll-counter');
+      312 -  if (sc && isMobile()) sc.textContent = `1 of ${events.length
+          -}`;                                                           
+      319 +  if (sc && isMobile()) sc.textContent = `1 of ${visible.lengt
+          +h}`;                                                          
+      320 +  if (showMoreBtn) {                                          
+      321 +    if (limited) {                                            
+      322 +      showMoreBtn.style.display = 'block';                    
+      323 +      showMoreBtn.textContent = `Show all ${events.length} eve
+          +nts`;                                                         
+      324 +    } else {                                                  
+      325 +      showMoreBtn.style.display = 'none';                     
+      326 +    }                                                         
+      327 +  }                                                           
+      328  }
+      329  
+      330  function applyEventFilters() {
+
+⏺ Add the show-more button HTML and its click handler. First, the HTML:
+
+⏺ Update(index.html)
+  ⎿  Added 1 line
+      183        <div class="events-grid" id="events-grid"></div>
+      184        <div class="scroll-counter" id="scroll-counter"></div>
+      185      </div>
+      186 +    <button class="show-more-btn" id="show-more-btn" style="di
+          +splay:none">Show all events</button>                          
+      187    </div>
+      188  </section>
+      189  
+
+⏺ Add the click handler in the init block:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 9 lines
+      1154    buildCalendar();
+      1155    initCalendarNav();
+      1156    initSearch();
+      1157 +                                                             
+      1158 +  // Show More button (mobile)                               
+      1159 +  const showMoreBtn = document.getElementById('show-more-btn'
+           +);                                                           
+      1160 +  if (showMoreBtn) {                                         
+      1161 +    showMoreBtn.addEventListener('click', () => {            
+      1162 +      mobileShowAll = true;                                  
+      1163 +      applyEventFilters();                                   
+      1164 +    });                                                      
+      1165 +  }                                                          
+      1166    buildEvergreenGrid();
+      1167    applyEvergreenFilter();
+      1168    initMap();
+
+⏺ Add CSS for the show-more button:
+
+⏺ Update(style.css)
+  ⎿  Added 8 lines
+      1406  
+      1407  /* Desktop: hide mobile-only elements */
+      1408  .scroll-counter { display: none; }
+      1409 +.show-more-btn {                                             
+      1410 +  display: none; width: 100%; margin-top: 16px; padding: 14px
+           +;                                                            
+      1411 +  background: var(--bg-card-2); border: 1px solid var(--borde
+           +r-hi);                                                       
+      1412 +  border-radius: 10px; color: var(--purple); font-size: 14px;
+           + font-weight: 700;                                           
+      1413 +  cursor: pointer; letter-spacing: 0.02em;                   
+      1414 +  transition: background 0.15s, border-color 0.15s;          
+      1415 +}                                                            
+      1416 +.show-more-btn:active { background: var(--purple-soft); borde
+           +r-color: var(--purple); }                                    
+      1417  @media (max-width: 768px) { .scroll-counter { display: block;
+             } }
+      1418  
+      1419  /* ── MAP FAB (mobile only) ── */
+
+⏺ Now I need to also reset mobileShowAll when filters change, so the limit
+  reapplies:
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ The filter chip click handlers call applyEventFilters() directly. I should
+  reset mobileShowAll when a filter/sort changes. Let me add that to the filter
+  click handlers:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 2 lines, removed 2 lines
+      358  document.querySelectorAll('.chip[data-filter]').forEach(btn =>
+            {
+      359    btn.addEventListener('click', () => {
+      360      document.querySelectorAll('.chip[data-filter]').forEach(b 
+           => b.classList.remove('active'));
+      361 -    btn.classList.add('active'); activeFilter = btn.dataset.fi
+          -lter; applyEventFilters();                                    
+      361 +    btn.classList.add('active'); activeFilter = btn.dataset.fi
+          +lter; mobileShowAll = false; applyEventFilters();             
+      362    });
+      363  });
+      364  document.querySelectorAll('.chip[data-tier]').forEach(btn => {
+      365    btn.addEventListener('click', () => {
+      366      document.querySelectorAll('.chip[data-tier]').forEach(b =>
+            b.classList.remove('active'));
+      367 -    btn.classList.add('active'); activeTier = btn.dataset.tier
+          -; applyEventFilters();                                        
+      367 +    btn.classList.add('active'); activeTier = btn.dataset.tier
+          +; mobileShowAll = false; applyEventFilters();                 
+      368    });
+      369  });
+      370  document.getElementById('sort-date').addEventListener('click',
+            () => {
+
+⏺ Now update the bottom sheet builder — remove the tier badge from there too,
+  and make Buy Tickets prominent:
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 2 lines
+      391      ? `<img class="bs-hero-img" src="https://img.youtube.com/v
+           i/${ev.youtubeId}/maxresdefault.jpg" alt="${ev.title}" onerror
+           ="this.src='https://img.youtube.com/vi/${ev.youtubeId}/hqdefau
+           lt.jpg'">`
+      392      : '';
+      393  
+      394 -  const tierColor = { S: 'var(--amber)', A: 'var(--purple)', B
+          -: 'var(--teal)' };                                            
+      394    const urgTag  = ev.urgent ? `<span class="tag urgent">⚡ Act
+            Now</span>` : '';
+      395    const freeTag = ev.free   ? `<span class="tag free">💸 Free<
+           /span>` : '';
+      396    const ageTag  = `<span class="tag">${AGE_EMOJI[ev.age] || ev
+           .age}</span>`;
+     ...
+      400    const genreTags = ev.genres.slice(0, 3).map(g => `<span clas
+           s="tag">${g}</span>`).join('');
+      401  
+      402    const buyBtn = ev.ticketUrl
+      404 -    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener
+          -" class="btn-sm btn-buy${ev.tier==='S'?' amber-btn':''}" oncli
+          -ck="event.stopPropagation()">${ev.tier==='S'?'Buy S-Tier →':'B
+          -uy Tickets →'}</a>`                                           
+      403 +    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener
+          +" class="btn-sm btn-buy" onclick="event.stopPropagation()">Buy
+          + Tickets →</a>`                                               
+      404      : '';
+      405  
+      406    const ytSection = ev.youtubeId ? `
+
+⏺ Now update the bottom sheet header — remove tier badge, just show category +
+  score:
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 3 lines
+      448      <div class="bs-header">
+      449        <div class="bs-cat-row">
+      450          <span class="ev-cat-badge cat-${ev.category}">${catEmo
+           ji} ${catLabel}</span>
+      451 -        <span class="tier-badge ${ev.tier}" style="margin-left
+          -:auto">${ev.tier}</span>                                      
+      452 -        <span class="score-num-big" style="margin-left:4px">${
+          -ev.score}</span>                                              
+      451 +        <span class="bs-date-pill">${ev.dateStr}${ev.time ? ' 
+          +· '+ev.time : ''}</span>                                      
+      452        </div>
+      453        <div class="bs-title">${ev.title}</div>
+      454        ${ev.subtitle ? `<div class="bs-subtitle">${ev.subtitle}
+           </div>` : ''}
+      455        <div class="bs-venue">📍 ${ev.venue}</div>
+      457 -      <div class="bs-date">${ev.dateStr}${ev.time ? ' · '+ev.t
+          -ime : ''}</div>                                               
+      456        <div class="ev-tags" style="margin-top:8px">${urgTag}${f
+           reeTag}${ageTag}${envTag}${genreTags}</div>
+      457      </div>
+      458      <div class="bs-actions">
+
+⏺ Add the bs-date-pill CSS:
+
+⏺ Update(style.css)
+  ⎿  Added 4 lines
+      1376  .bs-cat-row {
+      1377    display: flex; align-items: center; gap: 8px; margin-bottom
+            : 8px;
+      1378  }
+      1379 +.bs-date-pill {                                              
+      1380 +  margin-left: auto; font-size: 11px; font-weight: 700; color
+           +: var(--text-muted);                                         
+      1381 +  letter-spacing: 0.04em;                                    
+      1382 +}                                                            
+      1383  .bs-title {
+      1384    font-size: 20px; font-weight: 700; color: var(--text);
+      1385    line-height: 1.25; margin-bottom: 4px;
+
+⏺ Now also remove the .bs-date rule since we replaced it with .bs-date-pill:
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ The .bs-date rule is still there but no longer used. I'll leave it since it
+  doesn't hurt anything. Let me also make the ev-cat-overlay colors match the
+  category pill colors — right now it's just black background with inherited
+  text color. The .cat-* classes should apply color to the overlay:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Good — the .cat-music, .cat-family etc. classes already set color and border
+  on the element. Since .ev-cat-overlay has background: rgba(0,0,0,0.55), the
+  colored text from .cat-* will be visible against the dark semi-transparent
+  background. That should work.
+
+  Let me validate syntax:
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Clean. Now let me also check one thing — the map popup and search modal still
+  reference tier badges. Let me update those too.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 1 line
+      760    const tc = { S:'#F59E0B', A:'#8B5CF6', B:'#14B8A6', C:'#4B55
+           63' };
+      761    EVENTS.filter(ev => new Date(ev.date) >= SITE_TODAY && ev.la
+           t).forEach(ev => {
+      762      const m = L.marker([ev.lat,ev.lng],{icon:makeIcon(tc[ev.ti
+           er]||'#8B5CF6')}).addTo(atlMap);
+      763 -    m.bindPopup(`<div class="popup-title">${ev.title}</div><di
+          -v class="popup-sub">${ev.venue} · ${ev.dateStr}</div><span cla
+          -ss="popup-tier ${ev.tier}">Tier ${ev.tier} · ${ev.score}</span
+          ->${ev.ticketUrl?`<a href="${ev.ticketUrl}" target="_blank" cla
+          -ss="popup-link">Get Tickets →</a>`:''}`);                     
+      763 +    m.bindPopup(`<div class="popup-title">${ev.title}</div><di
+          +v class="popup-sub">${ev.venue} · ${ev.dateStr}</div><span cla
+          +ss="popup-tier ${ev.tier}">${ev.score}</span>${ev.ticketUrl?`<
+          +a href="${ev.ticketUrl}" target="_blank" class="popup-link">Ge
+          +t Tickets →</a>`:''}`);                                       
+      764      mapMarkers.push({marker:m, layer:'events', category:ev.cat
+           egory});
+      765    });
+      766    EVERGREEN.filter(eg => eg.lat).forEach(eg => {
+
+⏺ Also update the search modal results — they show "tier badge" with S/A/B
+  letter:
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 1 line
+      962            : ev.youtubeId
+      963            ? `<img class="search-result-img" src="https://img.y
+           outube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="" loading="l
+           azy">`
+      964            : `<div class="search-result-fallback cat-${ev.categ
+           ory}">${CAT_EMOJI[ev.category]||'📍'}</div>`;
+      965 -        html += `<div class="search-result-item" data-idx="${i
+          -}" onclick="selectSearchResult(${i})">${img}<div class="search
+          --result-info"><div class="search-result-title">${ev.title}</di
+          -v><div class="search-result-sub">${ev.venue} · ${ev.dateStr}</
+          -div></div><span class="search-result-badge" style="background:
+          -${bg.split(';')[0]};${bg.split(';')[1]}">${ev.tier} ${ev.score
+          -}</span></div>`;                                              
+      965 +        html += `<div class="search-result-item" data-idx="${i
+          +}" onclick="selectSearchResult(${i})">${img}<div class="search
+          +-result-info"><div class="search-result-title">${ev.title}</di
+          +v><div class="search-result-sub">${ev.venue} · ${ev.dateStr}</
+          +div></div><span class="search-result-badge" style="background:
+          +${bg.split(';')[0]};${bg.split(';')[1]}">${ev.score}</span></d
+          +iv>`;                                                         
+      966        });
+      967      }
+      968      if (egMatches.length) {
+
+⏺ Also update the wizard preview mini cards — they show tier letter:
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 1 line
+      1053        <div class="wiz-mini-info">
+      1054          <div class="wiz-mini-title">${ev.title}</div>
+      1055          <div class="wiz-mini-meta">
+      1056 -          <span class="wiz-mini-tier tier-${ev.tier}">${ev.ti
+           -er}</span>                                                   
+      1056 +          <span class="wiz-mini-tier tier-${ev.tier}">${ev.sc
+           +ore}</span>                                                  
+      1057            <span class="wiz-mini-date">${ev.dateStr}</span>
+      1058          </div>
+      1059        </div>
+
+⏺ Now let me also update the calendar pills — they show tier class for coloring
+  which is fine (visual only, no letter shown).
+
+⏺ Bash(node -c /Users/dmitriyperkis/Documents/Coding/Projects/2026-04-21_ATL-Eve
+      nts-Site/app.js 2>&1)
+  ⎿  (No output)
+
+⏺ Now let me also remove the .amber-btn class reference that was S-tier
+  specific:
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ No longer referenced in JS — the CSS rules are harmless dead code, fine to
+  leave.
+
+  Now deploy:
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-mi5640f4o-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Live. Here's what changed:
+
+  Card layout overhaul:
+  - Date overlaid top-left on the image (dark pill with blur backdrop)
+  - Category badge overlaid top-right on the image
+  - Removed "Details" button and "Buy Tickets" from card face entirely
+  - Buy Tickets now appears inside the expanded drawer / bottom sheet
+  - Removed S/A/B tier badge from cards, search results, map popups, wizard
+  preview
+  - Score filter chips relabeled: "90+" / "75-89" / "60-74" instead of "S / A /
+  B"
+  - Hero stat renamed from "S + A Tier Shows" → "Top Picks (75+)"
+
+  Mobile card limit:
+  - Shows 6 cards initially on mobile
+  - "Show all N events" button to expand
+  - Resets when filters change
+
+  Nav fix:
+  - flex-wrap: nowrap + overflow-x: auto prevents second-row wrapping on desktop
+
+  Still waiting on your pick for the site name — I listed 10 options. Once you
+  choose I'll update the brand in the nav and hero.
+
+✻ Sautéed for 5m 16s
+
+❯ ATL radar                                                                     
+
+⏺ Update(index.html)
+  ⎿  Added 1 line, removed 1 line
+      20  <!-- ── NAV ── -->
+      21  <nav id="site-nav">
+      22    <div class="nav-inner">
+      23 -    <a href="#hero" class="nav-brand"><em>ATL</em> / Events<spa
+         -n class="internal-badge">Internal</span></a>                   
+      23 +    <a href="#hero" class="nav-brand"><em>ATL</em> Radar<span c
+         +lass="internal-badge">Internal</span></a>                      
+      24      <ul class="nav-links">
+      25        <li><a href="#wizard"><span class="nav-full">Wizard</span
+          ><span class="nav-short">🎯</span></a></li>
+      26        <li><a href="#cal-mini"><span class="nav-full">Calendar</
+          span><span class="nav-short">📅</span></a></li>
+
+⏺ Now update the hero headline and any other references to the old name.
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Update(index.html)
+  ⎿  Added 1 line, removed 1 line
+       5    <meta name="viewport" content="width=device-width, initial-sc
+          ale=1.0, viewport-fit=cover" />
+       6    <meta name="theme-color" content="#0c0c14" />
+       7    <meta name="description" content="LLM-scored Atlanta event in
+          telligence. S-tier electronic shows, family picks, date nights 
+          — ranked by personal taste profile." />
+       8 -  <title>ATL Event Intelligence — Apr–Sep 2026</title>         
+       8 +  <title>ATL Radar — What's happening in Atlanta</title>       
+       9  
+      10    <link rel="preconnect" href="https://fonts.googleapis.com" />
+      11    <link rel="preconnect" href="https://fonts.gstatic.com" cross
+          origin />
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ Check the hero section for any headline text:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(index.html)
+  ⎿  Added 2 lines, removed 2 lines
+      40  <section id="hero" class="hero">
+      41    <div class="hero-inner">
+      42      <div class="hero-eyebrow">Atlanta, GA &nbsp;·&nbsp; Apr–Sep
+           2026</div>
+      43 -    <h1 class="hero-headline"><em>ATL</em> <span class="grad">E
+         -vent</span> Intel</h1>                                         
+      43 +    <h1 class="hero-headline"><em>ATL</em> <span class="grad">R
+         +adar</span></h1>                                               
+      44      <p class="hero-sub">
+      45 -      LLM-scored event discovery. Every show, festival, and fam
+         -ily pick ranked against a personal taste profile — S-tier shows
+         - bubble to the top, B-tier stays in context.                   
+      45 +      Scored event discovery for Atlanta. Every show, festival,
+         + and family pick ranked against a personal taste profile — top 
+         +picks bubble up, everything stays in context.                  
+      46      </p>
+      47      <div class="stat-grid">
+      48        <div class="stat-card">
+⏺ Also check the footer:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Footer looks fine — no brand name there, just location and date. Let me also
+  update the app.js comment header:
+
+⏺ Update(app.js)
+  ⎿  Added 1 line, removed 1 line
+      1  /* ============================================================
+      2 -   ATL Events V2 — app.js                                       
+      2 +   ATL Radar — app.js                                           
+      3     Wizard · Agenda Calendar · Events Grid + Drawers · Map · Ever
+         green
+      4  ============================================================ */
+      5  
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-2igp8nilk-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Done. ATL Radar is live.
+
+  - Nav brand: ATL Radar
+  - Hero headline: ATL Radar
+  - Page title: ATL Radar — What's happening in Atlanta
+  - Hero subtitle updated to drop the S-tier/B-tier language
+
+  https://atl-events.vercel.app
+
+✻ Baked for 55s
+
+❯ Add a separate page for how this was made and more about my taste profile.    
+
+  Searched for 2 patterns, read 2 files (ctrl+o to expand)
+
+⏺ Now let me also check the ENRICHMENT-METHODOLOGY.md for the "how it was made"
+  content:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Good, I have all the content I need. Let me now check how the existing site
+  links pages (it's currently a single-page app):
+
+  Listed 1 directory (ctrl+o to expand)
+
+⏺ Single HTML file. I'll create about.html as a standalone page that shares the
+  same CSS but has its own content. Let me build it with all the taste profile
+  details and how-it-was-made content.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Write(about.html)
+  ⎿  Wrote 383 lines to about.html
+       2 <html lang="en">
+       3 <head>
+       4   <meta charset="UTF-8" />
+       5   <meta name="viewport" content="width=device-width, initial-sca
+         le=1.0, viewport-fit=cover" />
+       7   <meta name="description" content="How ATL Radar was built — ta
+         ste profile, scoring system, and the AI pipeline behind it." />
+       8   <title>ATL Radar — About</title>
+       9 
+      10   <link rel="preconnect" href="https://fonts.googleapis.com" />
+     … +455 lines (ctrl+o to expand)
+
+⏺ Now add the about page-specific CSS to style.css:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(style.css)
+  ⎿  Added 143 lines
+      1586    .yt-wrap { padding-bottom: 56.25%; }
+      1587    .rsvp-btn { min-height: 44px; }
+      1588  }
+      1589 +                                                             
+      1590 +/* ==========================================================
+           +==                                                           
+      1591 +   ABOUT PAGE                                                
+      1592 +============================================================ 
+           +*/                                                           
+      1593 +.about-hero {                                                
+      1594 +  min-height: 50vh; min-height: 50dvh;                       
+      1595 +  display: flex; align-items: center;                        
+      1596 +  background:                                                
+      1597 +    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(139,92,24
+           +6,0.1) 0%, transparent 65%),                                 
+      1598 +    var(--bg);                                               
+      1599 +  padding: 100px 24px 56px;                                  
+      1600 +}                                                            
+      1601 +                                                             
+      1602 +.about-grid {                                                
+      1603 +  display: grid; grid-template-columns: repeat(auto-fit, minm
+           +ax(240px, 1fr));                                             
+      1604 +  gap: 16px;                                                 
+      1605 +}                                                            
+      1606 +.about-card {                                                
+      1607 +  background: var(--bg-card); border: 1px solid var(--border)
+           +;                                                            
+      1608 +  border-radius: var(--radius); padding: 24px;               
+      1609 +}                                                            
+      1610 +.about-card.compact { padding: 18px; }                       
+      1611 +.about-card-icon { font-size: 28px; margin-bottom: 10px; }   
+      1612 +.about-card h3 { font-size: 15px; font-weight: 700; color: va
+           +r(--text); margin-bottom: 6px; }                             
+      1613 +.about-card p { font-size: 13px; color: var(--text-muted); li
+           +ne-height: 1.6; }                                            
+      1614 +                                                             
+      1615 +.about-section-block { margin-top: 36px; }                   
+      1616 +.about-block-title {                                         
+      1617 +  font-size: 18px; font-weight: 700; color: var(--text); marg
+           +in-bottom: 8px;                                              
+      1618 +}                                                            
+      1619 +.about-block-sub {                                           
+      1620 +  font-size: 13px; color: var(--text-muted); margin-bottom: 1
+           +6px; max-width: 600px;                                       
+      1621 +}                                                            
+      1622 +                                                             
+      1623 +/* Taste tiers */                                            
+      1624 +.about-taste-grid {                                          
+      1625 +  display: grid; grid-template-columns: 1fr; gap: 12px;      
+      1626 +}                                                            
+      1627 +.taste-tier {                                                
+      1628 +  background: var(--bg-card); border: 1px solid var(--border)
+           +;                                                            
+      1629 +  border-radius: var(--radius); padding: 20px;               
+      1630 +}                                                            
+      1631 +.taste-tier.taste-high { border-left: 3px solid var(--purple)
+           +; }                                                          
+      1632 +.taste-tier.taste-mid  { border-left: 3px solid var(--teal); 
+           +}                                                            
+      1633 +.taste-tier.taste-low  { border-left: 3px solid var(--text-di
+           +m); }                                                        
+      1634 +.taste-tier-label {                                          
+      1635 +  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; t
+           +ext-transform: uppercase;                                    
+      1636 +  color: var(--text-dim); margin-bottom: 8px;                
+      1637 +}                                                            
+      1638 +.taste-tier-genres { display: flex; flex-wrap: wrap; gap: 6px
+           +; margin-bottom: 10px; }                                     
+      1639 +.taste-genre {                                               
+      1640 +  font-size: 11px; font-weight: 600; padding: 3px 10px;      
+      1641 +  border-radius: 12px; border: 1px solid var(--border-hi);   
+      1642 +  color: var(--text-muted); background: var(--bg-card-2);    
+      1643 +}                                                            
+      1644 +.taste-artists { font-size: 12px; color: var(--text-muted); l
+           +ine-height: 1.6; margin-bottom: 6px; }                       
+      1645 +.taste-note { font-size: 11px; color: var(--text-dim); font-s
+           +tyle: italic; }                                              
+      1646 +                                                             
+      1647 +/* Venue cards */                                            
+      1648 +.taste-venue-card {                                          
+      1649 +  background: var(--bg-card); border: 1px solid var(--border)
+           +;                                                            
+      1650 +  border-radius: var(--radius); padding: 16px;               
+      1651 +}                                                            
+      1652 +.taste-venue-tier {                                          
+      1653 +  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; t
+           +ext-transform: uppercase;                                    
+      1654 +  color: var(--purple); margin-bottom: 8px;                  
+      1655 +}                                                            
+      1656 +.taste-venue-list { font-size: 13px; color: var(--text-muted)
+           +; line-height: 1.7; }                                        
+      1657 +                                                             
+      1658 +/* Format tags */                                            
+      1659 +.about-format-tags { display: flex; flex-wrap: wrap; gap: 8px
+           +; }                                                          
+      1660 +.format-tag {                                                
+      1661 +  font-size: 12px; font-weight: 600; padding: 6px 14px;      
+      1662 +  border-radius: 20px; border: 1px solid var(--border);      
+      1663 +  color: var(--text-muted); background: var(--bg-card);      
+      1664 +}                                                            
+      1665 +.format-tag.high { border-color: var(--purple); color: var(--
+           +purple); background: var(--purple-soft); }                   
+      1666 +.format-tag.mid  { border-color: var(--teal); color: var(--te
+           +al); background: rgba(20,184,166,0.08); }                    
+      1667 +                                                             
+      1668 +/* Scoring axes */                                           
+      1669 +.scoring-axes-grid {                                         
+      1670 +  display: grid; grid-template-columns: repeat(auto-fit, minm
+           +ax(180px, 1fr));                                             
+      1671 +  gap: 12px;                                                 
+      1672 +}                                                            
+      1673 +.axis-card {                                                 
+      1674 +  background: var(--bg-card); border: 1px solid var(--border)
+           +;                                                            
+      1675 +  border-radius: var(--radius); padding: 16px;               
+      1676 +}                                                            
+      1677 +.axis-name {                                                 
+      1678 +  font-size: 13px; font-weight: 700; color: var(--text); marg
+           +in-bottom: 4px;                                              
+      1679 +}                                                            
+      1680 +.axis-desc { font-size: 12px; color: var(--text-muted); line-
+           +height: 1.5; }                                               
+      1681 +                                                             
+      1682 +/* Pipeline timeline */                                      
+      1683 +.pipeline-timeline {                                         
+      1684 +  margin-top: 32px; position: relative;                      
+      1685 +  padding-left: 40px;                                        
+      1686 +}                                                            
+      1687 +.pipeline-timeline::before {                                 
+      1688 +  content: ''; position: absolute; left: 15px; top: 0; bottom
+           +: 0;                                                         
+      1689 +  width: 2px; background: var(--border-hi);                  
+      1690 +}                                                            
+      1691 +.pipeline-step {                                             
+      1692 +  position: relative; margin-bottom: 28px;                   
+      1693 +}                                                            
+      1694 +.pipeline-step-num {                                         
+      1695 +  position: absolute; left: -40px; top: 0;                   
+      1696 +  width: 30px; height: 30px; border-radius: 50%;             
+      1697 +  background: var(--purple); color: #fff;                    
+      1698 +  font-size: 13px; font-weight: 700;                         
+      1699 +  display: flex; align-items: center; justify-content: center
+           +;                                                            
+      1700 +}                                                            
+      1701 +.pipeline-step-content h3 {                                  
+      1702 +  font-size: 16px; font-weight: 700; color: var(--text); marg
+           +in-bottom: 6px;                                              
+      1703 +}                                                            
+      1704 +.pipeline-step-content p {                                   
+      1705 +  font-size: 13px; color: var(--text-muted); line-height: 1.6
+           +;                                                            
+      1706 +}                                                            
+      1707 +.pipeline-step-content code {                                
+      1708 +  font-size: 12px; background: var(--bg-card-2); padding: 1px
+           + 5px;                                                        
+      1709 +  border-radius: 3px; color: var(--teal);                    
+      1710 +}                                                            
+      1711 +                                                             
+      1712 +/* Stack items */                                            
+      1713 +.stack-item {                                                
+      1714 +  background: var(--bg-card); border: 1px solid var(--border)
+           +;                                                            
+      1715 +  border-radius: var(--radius); padding: 14px; text-align: ce
+           +nter;                                                        
+      1716 +}                                                            
+      1717 +.stack-name {                                                
+      1718 +  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; t
+           +ext-transform: uppercase;                                    
+      1719 +  color: var(--text-dim); margin-bottom: 4px;                
+      1720 +}                                                            
+      1721 +.stack-detail { font-size: 13px; color: var(--text); font-wei
+           +ght: 600; }                                                  
+      1722 +                                                             
+      1723 +@media (max-width: 768px) {                                  
+      1724 +  .about-hero { padding: 40px 20px 40px; min-height: 40vh; } 
+      1725 +  .pipeline-timeline { padding-left: 36px; }                 
+      1726 +  .pipeline-step-num { left: -36px; width: 26px; height: 26px
+           +; font-size: 12px; }                                         
+      1727 +}                                                            
+      1728 +@media (max-width: 480px) {                                  
+      1729 +  .about-grid { grid-template-columns: 1fr; }                
+      1730 +  .scoring-axes-grid { grid-template-columns: 1fr; }         
+      1731 +}                                                            
+
+⏺ Now add a link to the about page from the main site nav:
+
+⏺ Update(index.html)
+  ⎿  Added 1 line, removed 1 line
+      27        <li><a href="#events"><span class="nav-full">Events</span
+          ><span class="nav-short">🎵</span></a></li>
+      28        <li><a href="#map-section"><span class="nav-full">Map</sp
+          an><span class="nav-short">🗺️</span></a></li>
+      29        <li><a href="#evergreen"><span class="nav-full">Evergreen
+          </span><span class="nav-short">🌿</span></a></li>
+      30 -      <li><a href="#taste"><span class="nav-full">Scoring</span
+         -><span class="nav-short">⭐</span></a></li>                    
+      30 +      <li><a href="about.html"><span class="nav-full">About</sp
+         +an><span class="nav-short">ℹ️</span></a></li>                  
+      31      </ul>
+      32      <button class="nav-search-btn" id="nav-search-btn" aria-lab
+          el="Search (⌘K)">
+      33        <span class="nav-search-icon">🔍</span>
+
+⏺ Since the scoring section on the main page was detailed and now redundant with
+   the about page, let me simplify it to just a brief note with a link to the
+  about page:
+
+⏺ Update(index.html)
+  ⎿  Added 3 lines, removed 38 lines
+      260    <div class="container">
+      261      <div class="section-label">Scoring System</div>
+      262      <h2 class="section-title">How Events Get Scored</h2>
+      263 -    <p class="section-body">Each event scored 0–100 against a 
+          -personal taste profile weighted toward electronic music, live 
+          -experiences, and venue quality. Spider charts in each event dr
+          -awer show the 5 scoring axes.</p>                             
+      264 -                                                              
+      265 -    <div class="tier-grid">                                   
+      266 -      <div class="tier-box">                                  
+      267 -        <div class="tier-box-letter S">S</div>                
+      268 -        <div class="tier-box-range">Score 90–100</div>        
+      269 -        <div class="tier-box-desc">Buy immediately, no debate.
+          - These are the reason to be in Atlanta.</div>                 
+      270 -        <div class="tier-box-examples">Disclosure LIVE · Sub F
+          -ocus 360°</div>                                               
+      271 -      </div>                                                  
+      272 -      <div class="tier-box">                                  
+      273 -        <div class="tier-box-letter A">A</div>                
+      274 -        <div class="tier-box-range">Score 75–89</div>         
+      275 -        <div class="tier-box-desc">Strong interest — check lin
+          -eup, coordinate group, act within 1–2 weeks.</div>            
+      276 -        <div class="tier-box-examples">DWTD + Magic Sword · Vi
+          -ntage Culture · Shaky Knees</div>                             
+      277 -      </div>                                                  
+      278 -      <div class="tier-box">                                  
+      279 -        <div class="tier-box-letter B">B</div>                
+      280 -        <div class="tier-box-range">Score 60–74</div>         
+      281 -        <div class="tier-box-desc">Situational. Depends on who
+          -'s free, energy levels, and competing options.</div>          
+      282 -        <div class="tier-box-examples">Jazz Fest · Streets Ali
+          -ve · Dino Fest</div>                                          
+      283 -      </div>                                                  
+      284 -      <div class="tier-box">                                  
+      285 -        <div class="tier-box-letter C">C</div>                
+      286 -        <div class="tier-box-range">Score 0–59</div>          
+      287 -        <div class="tier-box-desc">Pass unless strong social h
+          -ook — friend visiting, birthday event.</div>                  
+      288 -        <div class="tier-box-examples">Pop, country, sports (u
+          -nless ATL United)</div>                                       
+      289 -      </div>                                                  
+      263 +    <p class="section-body">Each event scored 0-100 against a 
+          +personal taste profile across 5 axes: genre match, venue quali
+          +ty, format rarity, lineup strength, and value. Expand any even
+          +t to see its spider chart breakdown.</p>                      
+      264 +    <div style="margin-top:20px">                             
+      265 +      <a href="about.html" class="btn-sm btn-buy" style="displ
+          +ay:inline-flex">Read the full taste profile & build log →</a> 
+      266      </div>
+      291 -                                                              
+      292 -    <div style="margin-top:32px;padding:24px;background:var(--
+          -bg-card);border:1px solid var(--border);border-radius:var(--ra
+          -dius)">                                                       
+      293 -      <div class="section-label" style="margin-bottom:10px">Sc
+          -oring Axes (Spider Chart)</div>                               
+      294 -      <div style="display:grid;grid-template-columns:repeat(au
+          -to-fit,minmax(180px,1fr));gap:16px;font-size:13px;color:var(--
+          -text-muted)">                                                 
+      295 -        <div><strong style="color:var(--text)">Genre Match</st
+          -rong><br>How close to S-tier taste: electronic, trance, techno
+          -, live band.</div>                                            
+      296 -        <div><strong style="color:var(--text)">Venue Quality</
+          -strong><br>Sound, intimacy, production. The Eastern adds 10+ p
+          -oints.</div>                                                  
+      297 -        <div><strong style="color:var(--text)">Format Rarity</
+          -strong><br>Live band vs. DJ, 360° immersive vs. standard stage
+          -.</div>                                                       
+      298 -        <div><strong style="color:var(--text)">Lineup Strength
+          -</strong><br>Headliner tier and support quality.</div>        
+      299 -        <div><strong style="color:var(--text)">Value for Money
+          -</strong><br>Ticket price vs. total experience. Free events sc
+          -ore high.</div>                                               
+      300 -      </div>                                                  
+      301 -    </div>                                                    
+      267    </div>
+      268  </section>
+      269  
+
+⏺ Bash(npx vercel --prod --yes 2>&1 | tail -10)
+  ⎿      {
+           "command": "vercel inspect atl-events-8b4a2emmn-dimas-projects-a
+     8469b81.vercel.app",
+     … +8 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Live. The about page is at https://atl-events.vercel.app/about.html
+
+  What's on the about page:
+
+  1. The Idea — Why it exists, 4-card overview (scored not sorted, AI pipeline,
+  4-file architecture, 110 evergreen)
+  2. Taste Profile — Full genre affinity tiers with verified artists, venue
+  preferences (top tier, clubs, bucket list), format tags, 5 scoring axes
+  explained, energy patterns
+  3. How It Was Built — 6-step pipeline timeline (discovery → concert expansion
+  → enrichment → scoring → social layer → deploy), tech stack grid,
+  by-the-numbers stats
+
+  The main site's scoring section was condensed to a one-liner + "Read the full
+  taste profile" CTA linking to the about page. Nav now has "About" replacing
+  "Scoring".
+
+✻ Baked for 3m 22s

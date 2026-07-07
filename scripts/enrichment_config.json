@@ -1,114 +1,27 @@
 {
   "free_events": [
     {
-      "id": 3,
-      "title": "Inman Park Festival",
-      "officialUrl": "https://inmanparkfestival.org"
+      "id": 20,
+      "title": "Lake Claire Full Moon Drum Circle",
+      "officialUrl": "https://www.lcclt.org/new-events/7sljklmp5l9fba2"
     },
     {
-      "id": 18,
-      "title": "High Museum \u2014 Second Sunday",
-      "officialUrl": "https://high.org"
+      "id": 44,
+      "title": "Critical Mass ATL",
+      "officialUrl": "https://www.facebook.com/groups/AtlantaCM"
     },
     {
-      "id": 10,
-      "title": "Atlanta Jazz Festival",
-      "officialUrl": "https://www.atlantajazzfestival.com"
+      "id": 46,
+      "title": "Castleberry Hill Art Stroll",
+      "officialUrl": "https://www.castleberryhill.org"
     },
     {
-      "id": 11,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://www.atlstreetsalive.com"
-    },
-    {
-      "id": 23,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://atlstreetsalive.com"
-    },
-    {
-      "id": 29,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://atlstreetsalive.com"
+      "id": 47,
+      "title": "Free Yoga in Piedmont Park",
+      "officialUrl": "https://piedmontpark.org"
     }
   ],
   "missing_ticket": [
-    {
-      "id": 1,
-      "title": "Patrick Topping",
-      "venue": "District Atlanta",
-      "officialUrl": null,
-      "instagramUrl": "https://instagram.com/patricktopping"
-    },
-    {
-      "id": 2,
-      "title": "Shake the Lake",
-      "venue": "Lake Lanier",
-      "officialUrl": null,
-      "instagramUrl": "https://instagram.com/mattsilliman_dj"
-    },
-    {
-      "id": 4,
-      "title": "Dino Fest",
-      "venue": "Stone Mountain Park",
-      "officialUrl": null,
-      "instagramUrl": null
-    },
-    {
-      "id": 14,
-      "title": "Supertask",
-      "venue": "Terminal West",
-      "officialUrl": null,
-      "instagramUrl": null
-    },
-    {
-      "id": 15,
-      "title": "Disclosure DJ Set",
-      "venue": "District Atlanta",
-      "officialUrl": null,
-      "instagramUrl": null
-    },
-    {
-      "id": 7,
-      "title": "Vintage Culture",
-      "venue": "District Atlanta",
-      "officialUrl": null,
-      "instagramUrl": "https://instagram.com/vintagecultureofficial"
-    },
-    {
-      "id": 16,
-      "title": "Center for Puppetry Arts",
-      "venue": "Center for Puppetry Arts",
-      "officialUrl": "https://puppet.org",
-      "instagramUrl": null
-    },
-    {
-      "id": 17,
-      "title": "Sol Dance \u2014 Ecstatic Dance",
-      "venue": "Brook Run Park",
-      "officialUrl": "https://soldancemovement.com",
-      "instagramUrl": null
-    },
-    {
-      "id": 19,
-      "title": "Dad's Garage: Adventure Playhouse",
-      "venue": "Dad's Garage Theatre",
-      "officialUrl": "https://dadsgarage.com",
-      "instagramUrl": null
-    },
-    {
-      "id": 9,
-      "title": "Chet Faker",
-      "venue": "The Masquerade",
-      "officialUrl": null,
-      "instagramUrl": "https://instagram.com/chetfaker"
-    },
-    {
-      "id": 20,
-      "title": "Lake Claire Full Moon Drum Circle",
-      "venue": "Lake Claire Land Trust",
-      "officialUrl": null,
-      "instagramUrl": null
-    },
     {
       "id": 21,
       "title": "Strawberry Picking",
@@ -117,195 +30,513 @@
       "instagramUrl": null
     },
     {
-      "id": 22,
-      "title": "Fernbank After Dark",
-      "venue": "Fernbank Museum",
-      "officialUrl": "https://fernbankmuseum.org",
-      "instagramUrl": null
-    },
-    {
-      "id": 24,
-      "title": "Chattahoochee Tubing",
-      "venue": "Cool River Tubing",
-      "officialUrl": "https://coolrivertubing.com",
-      "instagramUrl": null
-    },
-    {
-      "id": 25,
-      "title": "Peachtree Road Race",
-      "venue": "Peachtree Street",
-      "officialUrl": "https://peachtreeroadrace.org",
-      "instagramUrl": null
-    },
-    {
-      "id": 26,
-      "title": "ABG Summer Nights",
-      "venue": "Atlanta Botanical Garden",
-      "officialUrl": "https://atlantabg.org",
-      "instagramUrl": null
-    },
-    {
-      "id": 27,
-      "title": "Empire of the Sun",
-      "venue": "Ameris Bank Amphitheatre",
+      "id": 49,
+      "title": "MVMT LABS \u2014 Nick Portolese",
+      "venue": "First Existentialist Congregation of Atlanta",
       "officialUrl": null,
-      "instagramUrl": "https://instagram.com/empireofthesunmusic"
+      "instagramUrl": null
     },
     {
-      "id": 30,
-      "title": "Dad's Garage: ROAD TRIP!",
-      "venue": "Dad's Garage Theatre",
-      "officialUrl": "https://dadsgarage.com",
-      "instagramUrl": "https://instagram.com/dadsgarage"
+      "id": 74,
+      "title": "Man Man",
+      "venue": "The Masquerade \u2014 Purgatory",
+      "officialUrl": null,
+      "instagramUrl": null
+    },
+    {
+      "id": 75,
+      "title": "POND",
+      "venue": "Terminal West",
+      "officialUrl": null,
+      "instagramUrl": "https://instagram.com/pondofficial"
+    },
+    {
+      "id": 77,
+      "title": "Wax'n'Facts 50th Anniversary",
+      "venue": "Variety Playhouse",
+      "officialUrl": null,
+      "instagramUrl": null
+    },
+    {
+      "id": 78,
+      "title": "Atlanta Storytellers: \"The Songs That Shape Us\"",
+      "venue": "Eddie's Attic",
+      "officialUrl": null,
+      "instagramUrl": null
+    },
+    {
+      "id": 79,
+      "title": "Passion Pit",
+      "venue": "The Eastern",
+      "officialUrl": "https://easternatl.com",
+      "instagramUrl": null
+    },
+    {
+      "id": 80,
+      "title": "DILLSTRADAMUS",
+      "venue": "Buckhead Theatre",
+      "officialUrl": null,
+      "instagramUrl": null
+    },
+    {
+      "id": 81,
+      "title": "Toro y Moi",
+      "venue": "Variety Playhouse",
+      "officialUrl": null,
+      "instagramUrl": "https://instagram.com/toroymoiofficial"
+    },
+    {
+      "id": 82,
+      "title": "The Disco Biscuits",
+      "venue": "Variety Playhouse",
+      "officialUrl": null,
+      "instagramUrl": null
+    },
+    {
+      "id": 85,
+      "title": "Soular Flare",
+      "venue": "MASS Collective",
+      "officialUrl": null,
+      "instagramUrl": null
     }
   ],
   "missing_image": [
     {
-      "id": 2,
-      "title": "Shake the Lake",
+      "id": 40,
+      "title": "Sosa",
+      "officialUrl": "https://districtatlanta.com/events/"
+    },
+    {
+      "id": 48,
+      "title": "RESONATE: Journey of Breath & Sound",
+      "officialUrl": "https://resonate-yoga.com"
+    },
+    {
+      "id": 49,
+      "title": "MVMT LABS \u2014 Nick Portolese",
       "officialUrl": null
     },
     {
-      "id": 4,
-      "title": "Dino Fest",
+      "id": 50,
+      "title": "Eyedrum: An Evening of Shorts",
+      "officialUrl": "https://eyedrum.org"
+    },
+    {
+      "id": 51,
+      "title": "Beck \u2014 Ride Lonesome Tour",
+      "officialUrl": "https://www.coca-cola-roxy.com"
+    },
+    {
+      "id": 52,
+      "title": "Diljit Dosanjh \u2014 Aura World Tour",
       "officialUrl": null
     },
     {
-      "id": 14,
-      "title": "Supertask",
+      "id": 53,
+      "title": "Kali Uchis \u2014 For The Girls Tour",
       "officialUrl": null
     },
     {
-      "id": 7,
-      "title": "Vintage Culture",
+      "id": 54,
+      "title": "Atlanta Fringe Festival",
+      "officialUrl": "https://atlantafringe.org"
+    },
+    {
+      "id": 55,
+      "title": "Joji \u2014 SOLARIS Tour",
       "officialUrl": null
     },
     {
-      "id": 16,
-      "title": "Center for Puppetry Arts",
-      "officialUrl": "https://puppet.org"
-    },
-    {
-      "id": 17,
-      "title": "Sol Dance \u2014 Ecstatic Dance",
-      "officialUrl": "https://soldancemovement.com"
-    },
-    {
-      "id": 18,
-      "title": "High Museum \u2014 Second Sunday",
-      "officialUrl": "https://high.org"
-    },
-    {
-      "id": 19,
-      "title": "Dad's Garage: Adventure Playhouse",
-      "officialUrl": "https://dadsgarage.com"
-    },
-    {
-      "id": 20,
-      "title": "Lake Claire Full Moon Drum Circle",
+      "id": 56,
+      "title": "Madison Beer",
       "officialUrl": null
     },
     {
-      "id": 10,
-      "title": "Atlanta Jazz Festival",
-      "officialUrl": "https://www.atlantajazzfestival.com"
+      "id": 57,
+      "title": "Juneteenth Atlanta Parade & Music Festival",
+      "officialUrl": null
     },
     {
-      "id": 21,
-      "title": "Strawberry Picking",
-      "officialUrl": "https://jaemorfarms.com"
+      "id": 58,
+      "title": "Flying Colors Butterfly Festival",
+      "officialUrl": null
     },
     {
-      "id": 11,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://www.atlstreetsalive.com"
+      "id": 59,
+      "title": "Atlanta African Dance & Drum Festival",
+      "officialUrl": null
     },
     {
-      "id": 22,
-      "title": "Fernbank After Dark",
-      "officialUrl": "https://fernbankmuseum.org"
+      "id": 60,
+      "title": "Stockbridge Jazz Festival",
+      "officialUrl": null
     },
     {
-      "id": 23,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://atlstreetsalive.com"
+      "id": 61,
+      "title": "NOW Festival \u2014 Atlanta Opera",
+      "officialUrl": "https://www.atlantaopera.org"
     },
     {
-      "id": 24,
-      "title": "Chattahoochee Tubing",
-      "officialUrl": "https://coolrivertubing.com"
+      "id": 62,
+      "title": "Atlanta Ice Cream & Wellness Festival",
+      "officialUrl": null
     },
     {
-      "id": 25,
-      "title": "Peachtree Road Race",
-      "officialUrl": "https://peachtreeroadrace.org"
+      "id": 63,
+      "title": "Decatur WatchFest '26",
+      "officialUrl": null
     },
     {
-      "id": 26,
-      "title": "ABG Summer Nights",
-      "officialUrl": "https://atlantabg.org"
+      "id": 64,
+      "title": "Summer Solstice Artwalk",
+      "officialUrl": null
     },
     {
-      "id": 28,
-      "title": "Shaky Knees 2026",
-      "officialUrl": "https://shakykneesmusic.com"
+      "id": 65,
+      "title": "Plazadrome: Citizen Ruth (4K)",
+      "officialUrl": "https://www.plazaatlanta.com/movie/plazadrome-citizen-ruth-4k"
     },
     {
-      "id": 29,
-      "title": "Atlanta Streets Alive",
-      "officialUrl": "https://atlstreetsalive.com"
+      "id": 66,
+      "title": "Juneteenth Celebration",
+      "officialUrl": "https://high.org/event/juneteenth-celebration-2026"
     },
     {
-      "id": 30,
-      "title": "Dad's Garage: ROAD TRIP!",
-      "officialUrl": "https://dadsgarage.com"
+      "id": 67,
+      "title": "Niki in the Garden",
+      "officialUrl": "https://atlantabg.org/calendar/niki-in-the-garden"
+    },
+    {
+      "id": 68,
+      "title": "Frolic at the Juneteenth Parade",
+      "officialUrl": null
+    },
+    {
+      "id": 69,
+      "title": "Music in the Garden \u2014 Lola Ladae",
+      "officialUrl": "https://snugconcerts.org/event/wyldecenter-lolaladae"
+    },
+    {
+      "id": 70,
+      "title": "Summer Party at the Garden",
+      "officialUrl": "https://atlantabg.org/calendar/summer-party"
+    },
+    {
+      "id": 71,
+      "title": "Concert for the Community",
+      "officialUrl": null
+    },
+    {
+      "id": 72,
+      "title": "Family Day: Pioneers of Puppetry",
+      "officialUrl": "https://puppet.org/programs/pioneers-of-puppetry"
+    },
+    {
+      "id": 73,
+      "title": "ATL Beltline Circuit Rideout",
+      "officialUrl": null
+    },
+    {
+      "id": 74,
+      "title": "Man Man",
+      "officialUrl": null
+    },
+    {
+      "id": 75,
+      "title": "POND",
+      "officialUrl": null
+    },
+    {
+      "id": 76,
+      "title": "Kids Garden Scavenger Hunt & Craft",
+      "officialUrl": null
+    },
+    {
+      "id": 77,
+      "title": "Wax'n'Facts 50th Anniversary",
+      "officialUrl": null
+    },
+    {
+      "id": 78,
+      "title": "Atlanta Storytellers: \"The Songs That Shape Us\"",
+      "officialUrl": null
+    },
+    {
+      "id": 79,
+      "title": "Passion Pit",
+      "officialUrl": "https://easternatl.com"
+    },
+    {
+      "id": 80,
+      "title": "DILLSTRADAMUS",
+      "officialUrl": null
+    },
+    {
+      "id": 81,
+      "title": "Toro y Moi",
+      "officialUrl": null
+    },
+    {
+      "id": 86,
+      "title": "Harmonic Breath \u2014 Morning Session",
+      "officialUrl": "https://www.breathsoundmagic.com/media/"
+    },
+    {
+      "id": 87,
+      "title": "Harmonic Breath \u2014 Evening Session",
+      "officialUrl": "https://www.breathsoundmagic.com/media/"
+    },
+    {
+      "id": 82,
+      "title": "The Disco Biscuits",
+      "officialUrl": null
+    },
+    {
+      "id": 85,
+      "title": "Soular Flare",
+      "officialUrl": null
+    },
+    {
+      "id": 84,
+      "title": "St. Lucia",
+      "officialUrl": "https://www.livenation.com/event/vvG1zZ_1KwNTdV/st-lucia"
+    },
+    {
+      "id": 83,
+      "title": "Magic for Adults",
+      "officialUrl": "https://www.themagicofericeaton.com/tour-dates/atlantaga"
+    },
+    {
+      "id": 88,
+      "title": "Amy Ray Band",
+      "officialUrl": "https://eddiesattic.com/schedule/"
+    },
+    {
+      "id": 89,
+      "title": "Jacques Greene",
+      "officialUrl": "https://aisle5atl.com/calendar/"
+    },
+    {
+      "id": 90,
+      "title": "American Football",
+      "officialUrl": "https://www.axs.com/events/1313102/american-football-tickets"
+    },
+    {
+      "id": 91,
+      "title": "Kurt Vile & the Violators",
+      "officialUrl": "https://www.axs.com/events/1400467/kurt-vile-and-the-violators-tickets"
+    },
+    {
+      "id": 92,
+      "title": "feeble little horse \u2014 bitknot Tour",
+      "officialUrl": "https://www.axs.com/events/1458556/feeble-little-horse-bitknot-tour-tickets"
+    },
+    {
+      "id": 93,
+      "title": "TRUTH \u2014 Road to Sound Haven",
+      "officialUrl": "https://www.axs.com/events/1492270/truth-the-road-to-sound-haven-tickets"
+    },
+    {
+      "id": 94,
+      "title": "Band of Horses & Dinosaur Jr.",
+      "officialUrl": "https://www.axs.com/events/1369997/an-evening-with-band-of-horses-and-dinosaur-jr-tickets"
+    },
+    {
+      "id": 95,
+      "title": "Steel Pulse",
+      "officialUrl": "https://www.axs.com/events/1374169/steel-pulse-tickets"
+    },
+    {
+      "id": 96,
+      "title": "Com Truise",
+      "officialUrl": "https://aisle5atl.com/calendar/"
+    },
+    {
+      "id": 97,
+      "title": "clipping. with Open Mike Eagle",
+      "officialUrl": "https://www.axs.com/events/1147908/clipping-tickets"
+    },
+    {
+      "id": 98,
+      "title": "The Dirty Guv'nahs",
+      "officialUrl": "https://www.terminalwestatl.com/calendar/"
+    },
+    {
+      "id": 99,
+      "title": "Kasbo",
+      "officialUrl": "https://www.axs.com/events/1431294/kasbo-tickets"
+    },
+    {
+      "id": 100,
+      "title": "Slow Magic",
+      "officialUrl": "https://speakeasypromo.net/"
+    },
+    {
+      "id": 101,
+      "title": "Channel Tres \u2014 The Enigma Tour",
+      "officialUrl": "https://www.ticketmaster.com/event/0E00649BF54A7880"
+    },
+    {
+      "id": 102,
+      "title": "Atlanta Disco Society XVIII",
+      "officialUrl": "https://www.eventbrite.com/e/atlanta-disco-society-xviii-tickets-1988864710889"
+    },
+    {
+      "id": 103,
+      "title": "smerz",
+      "officialUrl": "https://www.axs.com/events/1417810/smerz-tickets"
+    },
+    {
+      "id": 104,
+      "title": "Galcher Lustwerk \u2014 Wetware Series",
+      "officialUrl": "https://speakeasypromo.net/"
+    },
+    {
+      "id": 105,
+      "title": "Ott",
+      "officialUrl": "https://aisle5atl.com/calendar/"
+    },
+    {
+      "id": 106,
+      "title": "ZHU \u2014 ON THE MOVE",
+      "officialUrl": "https://www.axs.com/events/1425403/zhu-y-on-the-move-tickets"
+    },
+    {
+      "id": 107,
+      "title": "SYML \u2014 Solo in North America",
+      "officialUrl": "https://www.axs.com/events/1412224/syml-solo-in-north-america-tickets"
+    },
+    {
+      "id": 108,
+      "title": "Elevated Rhythms \u2014 Free Outdoor House",
+      "officialUrl": "https://shotgun.live/en/events/er927"
     }
   ],
   "missing_official": [
     {
-      "id": 1,
-      "title": "Patrick Topping",
-      "venue": "District Atlanta"
+      "id": 41,
+      "title": "Tame Impala",
+      "venue": "State Farm Arena"
     },
     {
-      "id": 2,
-      "title": "Shake the Lake",
-      "venue": "Lake Lanier"
+      "id": 49,
+      "title": "MVMT LABS \u2014 Nick Portolese",
+      "venue": "First Existentialist Congregation of Atlanta"
     },
     {
-      "id": 4,
-      "title": "Dino Fest",
-      "venue": "Stone Mountain Park"
+      "id": 52,
+      "title": "Diljit Dosanjh \u2014 Aura World Tour",
+      "venue": "State Farm Arena"
     },
     {
-      "id": 14,
-      "title": "Supertask",
+      "id": 53,
+      "title": "Kali Uchis \u2014 For The Girls Tour",
+      "venue": "Cellairis Amphitheatre at Lakewood"
+    },
+    {
+      "id": 55,
+      "title": "Joji \u2014 SOLARIS Tour",
+      "venue": "State Farm Arena"
+    },
+    {
+      "id": 56,
+      "title": "Madison Beer",
+      "venue": "Coca-Cola Roxy"
+    },
+    {
+      "id": 57,
+      "title": "Juneteenth Atlanta Parade & Music Festival",
+      "venue": "Piedmont Park"
+    },
+    {
+      "id": 58,
+      "title": "Flying Colors Butterfly Festival",
+      "venue": "Chattahoochee Nature Center"
+    },
+    {
+      "id": 59,
+      "title": "Atlanta African Dance & Drum Festival",
+      "venue": "East Point City Annex"
+    },
+    {
+      "id": 60,
+      "title": "Stockbridge Jazz Festival",
+      "venue": "VyStar Amphitheater at The Bridge"
+    },
+    {
+      "id": 62,
+      "title": "Atlanta Ice Cream & Wellness Festival",
+      "venue": "Piedmont Park"
+    },
+    {
+      "id": 63,
+      "title": "Decatur WatchFest '26",
+      "venue": "Downtown Decatur Square"
+    },
+    {
+      "id": 64,
+      "title": "Summer Solstice Artwalk",
+      "venue": "Downtown Decatur"
+    },
+    {
+      "id": 68,
+      "title": "Frolic at the Juneteenth Parade",
+      "venue": "Sweet Auburn"
+    },
+    {
+      "id": 71,
+      "title": "Concert for the Community",
+      "venue": "The Center at CNN Studios"
+    },
+    {
+      "id": 73,
+      "title": "ATL Beltline Circuit Rideout",
+      "venue": "Woody's CheeseSteaks"
+    },
+    {
+      "id": 74,
+      "title": "Man Man",
+      "venue": "The Masquerade \u2014 Purgatory"
+    },
+    {
+      "id": 75,
+      "title": "POND",
       "venue": "Terminal West"
     },
     {
-      "id": 15,
-      "title": "Disclosure DJ Set",
-      "venue": "District Atlanta"
+      "id": 76,
+      "title": "Kids Garden Scavenger Hunt & Craft",
+      "venue": "Pike Nurseries"
     },
     {
-      "id": 7,
-      "title": "Vintage Culture",
-      "venue": "District Atlanta"
+      "id": 77,
+      "title": "Wax'n'Facts 50th Anniversary",
+      "venue": "Variety Playhouse"
     },
     {
-      "id": 9,
-      "title": "Chet Faker",
-      "venue": "The Masquerade"
+      "id": 78,
+      "title": "Atlanta Storytellers: \"The Songs That Shape Us\"",
+      "venue": "Eddie's Attic"
     },
     {
-      "id": 20,
-      "title": "Lake Claire Full Moon Drum Circle",
-      "venue": "Lake Claire Land Trust"
+      "id": 80,
+      "title": "DILLSTRADAMUS",
+      "venue": "Buckhead Theatre"
     },
     {
-      "id": 27,
-      "title": "Empire of the Sun",
-      "venue": "Ameris Bank Amphitheatre"
+      "id": 81,
+      "title": "Toro y Moi",
+      "venue": "Variety Playhouse"
+    },
+    {
+      "id": 82,
+      "title": "The Disco Biscuits",
+      "venue": "Variety Playhouse"
+    },
+    {
+      "id": 85,
+      "title": "Soular Flare",
+      "venue": "MASS Collective"
     }
   ]
 }

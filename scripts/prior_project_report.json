@@ -1,0 +1,658 @@
+{
+  "venues_from_csv": [
+    {
+      "name": "Hell at The Masquerade",
+      "url": "https://www.ticketmaster.com/lords-of-acid-atlanta-georgia-05-14-2026/event/0E006425ED4382CA?camefrom=cfc_masquerade_website",
+      "event_count": 82
+    },
+    {
+      "name": "Purgatory at The Masquerade",
+      "url": "https://www.ticketmaster.com/bad-time-records-tour-2026-kill-atlanta-georgia-06-20-2026/event/0E006392AC558BA3?camefrom=cfc_masquerade_website",
+      "event_count": 57
+    },
+    {
+      "name": "Heaven at The Masquerade",
+      "url": "https://www.ticketmaster.com/spite-atlanta-georgia-06-20-2026/event/0E006391C58C8ED7?camefrom=cfc_masquerade_website",
+      "event_count": 56
+    },
+    {
+      "name": "Altar at The Masquerade",
+      "url": "https://www.ticketmaster.com/event/0E00638BBC48ABF1?camefrom=cfc_masquerade_website",
+      "event_count": 48
+    },
+    {
+      "name": "The Masquerade",
+      "url": "https://www.ticketmaster.com/event/0E00639393536D85?camefrom=cfc_masquerade_website",
+      "event_count": 48
+    },
+    {
+      "name": "Believe Music Hall",
+      "url": "https://wl.seetickets.us/event/hi-im-ghost-wish-lounge-or/674180?afflky=BelieveMusicHall",
+      "event_count": 27
+    },
+    {
+      "name": "Variety Playhouse",
+      "url": "https://variety-playhouse.com",
+      "event_count": 25
+    },
+    {
+      "name": "District Atlanta",
+      "url": "https://www.eventbrite.com/e/rz-saturday-may-30th-2026-district-atlanta-tickets-1976484728027",
+      "event_count": 19
+    },
+    {
+      "name": "The Eastern",
+      "url": "https://www.songkick.com/concerts/42845037-last-dinner-party-at-eastern",
+      "event_count": 18
+    },
+    {
+      "name": "District",
+      "url": "https://www.eventbrite.com/e/sultan-shepard-friday-march-27th-2026-district-atlanta-tickets-1976471713099",
+      "event_count": 14
+    },
+    {
+      "name": "Terminal West",
+      "url": "https://detour.songkick.com/concerts/42953543-drug-church-at-terminal-west",
+      "event_count": 14
+    },
+    {
+      "name": "Masquerade (Heaven)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 9
+    },
+    {
+      "name": "Atlanta Botanical Garden",
+      "url": "https://atlantabg.org/tickets/",
+      "event_count": 6
+    },
+    {
+      "name": "Masquerade (Hell)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 6
+    },
+    {
+      "name": "Plaza Theatre",
+      "url": "https://www.atlantafilmsociety.org/calendar/2026/cinecampatl",
+      "event_count": 6
+    },
+    {
+      "name": "Georgia Aquarium",
+      "url": "https://www.georgiaaquarium.org/tickets/",
+      "event_count": 5
+    },
+    {
+      "name": "Dad's Garage",
+      "url": "https://dadsgarage.com/adventure-playhouse-kids-show",
+      "event_count": 5
+    },
+    {
+      "name": "Fernbank Museum",
+      "url": "https://fernbankmuseum.org/visit/get-tickets/",
+      "event_count": 4
+    },
+    {
+      "name": "Center for Puppetry Arts",
+      "url": "https://puppet.org/visit/buy-tickets/",
+      "event_count": 4
+    },
+    {
+      "name": "Eddie's Attic",
+      "url": "https://dice.fm/event/538ppl-valentour-of-2026-featuring-atticus-roness-elijah-johnston-nolen-durham-and-william-hinson-20th-feb-eddies-attic-decatur-tickets",
+      "event_count": 4
+    },
+    {
+      "name": "Pisces",
+      "url": "https://www.instagram.com/pisces.atl/p/DSFy38iEe9k/",
+      "event_count": 3
+    },
+    {
+      "name": "High Museum of Art",
+      "url": "https://high.org/tickets/",
+      "event_count": 3
+    },
+    {
+      "name": "The Earl",
+      "url": "https://www.eventticketscenter.com/hudson-freeman-atlanta-03-27-2026/7572632/t",
+      "event_count": 3
+    },
+    {
+      "name": "529",
+      "url": "https://www.bandsintown.com/e/1034416195-genitorturers-at-529-bar",
+      "event_count": 3
+    },
+    {
+      "name": "CocuSocial Atlanta",
+      "url": "https://www.groupon.com/deals/cocusocial-21?redemptionLocationId=f14c85f9-5029-bed3-9b7d-01810169ef39",
+      "event_count": 2
+    },
+    {
+      "name": "Tabernacle",
+      "url": "https://www.ticketmaster.com/aj-ghent-his-singing-guitar-atlanta-georgia-07-17-2026/event/0E00637CC570EFC4",
+      "event_count": 2
+    },
+    {
+      "name": "Fox Theatre",
+      "url": "https://www.foxtheatre.org/events",
+      "event_count": 2
+    },
+    {
+      "name": "Masquerade (Purgatory)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 2
+    },
+    {
+      "name": "Dad's Garage Theatre",
+      "url": "https://dadsgarage.com/shows",
+      "event_count": 2
+    },
+    {
+      "name": "Other Location Altar and Heaven at The Masquerade",
+      "url": "https://www.ticketmaster.com/event/0E006351E9DF8B73?camefrom=cfc_masquerade_website",
+      "event_count": 2
+    },
+    {
+      "name": "Other Location Heaven, Hell, and Purgatory at The Masquerade",
+      "url": "https://www.ticketmaster.com/event/0E006392B8B8961A?camefrom=cfc_masquerade_website",
+      "event_count": 2
+    },
+    {
+      "name": "TBA",
+      "url": "https://ra.co/events/2317924",
+      "event_count": 2
+    },
+    {
+      "name": "Laughing Skull Lounge",
+      "url": "https://laughingskulllounge.com/event/open-mic-night-wednesday-january-7-2026-at-800pm/",
+      "event_count": 2
+    },
+    {
+      "name": "Stone Mountain Park",
+      "url": "https://stonemountainpark.com",
+      "event_count": 1
+    },
+    {
+      "name": "Split Horizon Games",
+      "url": "https://www.groupon.com/deals/split-horizon-games",
+      "event_count": 1
+    },
+    {
+      "name": "High Gear Adventures Robbinsville",
+      "url": "https://www.groupon.com/deals/high-gear-adventures-llc-1",
+      "event_count": 1
+    },
+    {
+      "name": "SODO POP SPACE Atlanta",
+      "url": "https://www.groupon.com/deals/sodo-pop-space?redemptionLocationId=05463422-0008-bb1f-e154-0189cea5b073",
+      "event_count": 1
+    },
+    {
+      "name": "Buddy's Indoor Playhouse Smyrna",
+      "url": "https://www.groupon.com/deals/buddy-s-indoor-playhouse?redemptionLocationId=be64ddfe-1952-bfd9-37c8-0166c6f64fbe",
+      "event_count": 1
+    },
+    {
+      "name": "North Atlanta Slingshot",
+      "url": "https://www.groupon.com/deals/north-atlanta-slingshot-rentals?redemptionLocationId=42416ff8-2776-bfd9-37c8-017d969ab5cb",
+      "event_count": 1
+    },
+    {
+      "name": "Slingshot Rental ATL",
+      "url": "https://www.groupon.com/deals/slingshot-rental-atl?redemptionLocationId=2e698bb6-0008-b04f-9d89-0188f83fec2f",
+      "event_count": 1
+    },
+    {
+      "name": "LEGO Discovery Center",
+      "url": "https://www.groupon.com/deals/gl-lego-discovery-center-2-11?redemptionLocationId=3c6625fb-522d-b178-4875-0157e892317b",
+      "event_count": 1
+    },
+    {
+      "name": "Road to Tara Museum",
+      "url": "https://www.groupon.com/deals/road-to-tara-museum-llc?redemptionLocationId=58a61120-4780-b06a-747e-013a8fdea08f",
+      "event_count": 1
+    },
+    {
+      "name": "Metal Shop Watkinsville",
+      "url": "https://www.groupon.com/deals/metal-shop-fantasy-camp-4?redemptionLocationId=5da303fe-4b5c-b06a-747f-0147db3273d6",
+      "event_count": 1
+    },
+    {
+      "name": "Online/Virtual",
+      "url": "https://www.groupon.com/deals/owen-biddle-photography-school-1",
+      "event_count": 1
+    },
+    {
+      "name": "Mambo Dance Nights",
+      "url": "https://www.groupon.com/deals/mambo-dance-nights?redemptionLocationId=60019afe-0008-bdbd-b4a9-0188c7f206be",
+      "event_count": 1
+    },
+    {
+      "name": "Ares Dance Inc",
+      "url": "https://www.groupon.com/deals/ares-dance-inc?redemptionLocationId=fb0e45ff-200d-b099-c72b-016d223ce63f",
+      "event_count": 1
+    },
+    {
+      "name": "Dive Haven Canton",
+      "url": "https://www.groupon.com/deals/dive-haven-2?redemptionLocationId=04bb10fd-1b49-bed3-9b7d-0168d0d5e398",
+      "event_count": 1
+    },
+    {
+      "name": "Hawaii Fluid Art Johns Creek",
+      "url": "https://www.groupon.com/deals/hawaii-fluid-art-johns-creek?redemptionLocationId=cee30df9-000a-bdf8-ce55-0193ba38bbf8",
+      "event_count": 1
+    },
+    {
+      "name": "Noah's Ark Animal Sanctuary",
+      "url": "https://www.groupon.com/deals/noah-s-ark-animal-sanctuary-and-rehabilitation-center-3?redemptionLocationId=226524fd-48b2-b06a-9298-013bead62b83",
+      "event_count": 1
+    },
+    {
+      "name": "Tiny Towne",
+      "url": "https://www.groupon.com/deals/tiny-towne-5?redemptionLocationId=a95fb125-332e-b06a-9298-013a953fed87",
+      "event_count": 1
+    },
+    {
+      "name": "AJ Carriage and Livery",
+      "url": "https://www.groupon.com/deals/aj-carriage-and-livery-4?redemptionLocationId=a1acd2e5-000a-b46d-dc43-019719b28bdf",
+      "event_count": 1
+    },
+    {
+      "name": "Lakepoint Station",
+      "url": "https://www.groupon.com/deals/lakepoint-station-2?redemptionLocationId=60c14afe-21ba-bfdf-8e3a-0156e75c9b72",
+      "event_count": 1
+    },
+    {
+      "name": "The Movement Dance Studio",
+      "url": "https://www.groupon.com/deals/the-movement-dance-studio-2-1?redemptionLocationId=d7cd7b60-0011-bb8a-9671-019017dff2a6",
+      "event_count": 1
+    },
+    {
+      "name": "Atlanta Symphony Hall",
+      "url": "https://www.aso.org/events/detail/home-alone-2",
+      "event_count": 1
+    },
+    {
+      "name": "Lakewood Amphitheatre",
+      "url": "https://www.groupon.com/deals/velocity-driving-24-25?redemptionLocationId=b97cb6f9-0008-b249-1236-0183e668d074",
+      "event_count": 1
+    },
+    {
+      "name": "Buckhead Theatre",
+      "url": "https://www.ticketmaster.com/whose-live-anyway-atlanta-georgia-11-16-2025/event/0E0062A78EF61973",
+      "event_count": 1
+    },
+    {
+      "name": "Masquerade (Coca-Cola Roxy)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 1
+    },
+    {
+      "name": "Masquerade (Altar)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 1
+    },
+    {
+      "name": "Masquerade (Aisle 5)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 1
+    },
+    {
+      "name": "Masquerade (Multiple stages)",
+      "url": "https://www.masqueradeatlanta.com/events",
+      "event_count": 1
+    },
+    {
+      "name": "Aisle 5",
+      "url": "https://eventim.us/a5somatoast",
+      "event_count": 1
+    },
+    {
+      "name": "Drunken Unicorn",
+      "url": "https://ra.co/events/2296589",
+      "event_count": 1
+    },
+    {
+      "name": "Underground",
+      "url": "https://www.ticketfairy.com/event/sub-focus-360-set-presented-by-jungle-bells-15may2026",
+      "event_count": 1
+    }
+  ],
+  "evergreen_candidates_from_csv": [
+    {
+      "name": "Garden Lights Holiday Nights",
+      "venue": "Atlanta Botanical Garden",
+      "category": "$25-$35"
+    },
+    {
+      "name": "High Gear Adventures Motorcycle Tours",
+      "venue": "High Gear Adventures Robbinsville",
+      "category": "Adventure Sports"
+    },
+    {
+      "name": "Mambo Dance Nights Classes",
+      "venue": "Mambo Dance Nights",
+      "category": "Dance Classes"
+    },
+    {
+      "name": "Noah's Ark Animal Sanctuary Tours",
+      "venue": "Noah's Ark Animal Sanctuary",
+      "category": "Family Activities"
+    },
+    {
+      "name": "Home Alone 2 Live in Concert",
+      "venue": "Atlanta Symphony Hall",
+      "category": "Movies in Concert"
+    },
+    {
+      "name": "Thievery Corporation North American Tour 2025",
+      "venue": "Tabernacle",
+      "category": "Electronic Music"
+    },
+    {
+      "name": "An Evening With David Byrne - Who is the Sky Tour",
+      "venue": "Fox Theatre",
+      "category": "Music"
+    },
+    {
+      "name": "All Time Low - Everyone's Talking The World Tour",
+      "venue": "Masquerade (Coca-Cola Roxy)",
+      "category": "Music"
+    },
+    {
+      "name": "INOHA - Across America Tour",
+      "venue": "Masquerade (Purgatory)",
+      "category": "Music"
+    },
+    {
+      "name": "The Lemonheads - Love Chant World Tour",
+      "venue": "Masquerade (Hell)",
+      "category": "Music"
+    },
+    {
+      "name": "SF9 - Love Dawn Tour",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music"
+    },
+    {
+      "name": "Blind Guardian - Somewhere Far Beyond Tour",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music"
+    },
+    {
+      "name": "GAGA NIGHTS - A Lady Gaga Themed Dance Party",
+      "venue": "Masquerade (Hell)",
+      "category": "Music/Dance"
+    },
+    {
+      "name": "Chloe Ament - The Trilogy Tour",
+      "venue": "Masquerade (Altar)",
+      "category": "Music"
+    },
+    {
+      "name": "TOLEDO - Not From OHIO Tour",
+      "venue": "Masquerade (Purgatory)",
+      "category": "Music"
+    },
+    {
+      "name": "EARL SWEATSHIRT - 3L World Tour",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music"
+    },
+    {
+      "name": "Ascension: A Goth Industrial Night",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music/Dance"
+    },
+    {
+      "name": "Glaive - Y'ALL TOUR",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music"
+    },
+    {
+      "name": "Atmosphere - Winter Carnival Tour 2026",
+      "venue": "Masquerade (Heaven)",
+      "category": "Music"
+    },
+    {
+      "name": "Invasion: Christmas Carol - Opening Night",
+      "venue": "Dad's Garage Theatre",
+      "category": "Comedy"
+    },
+    {
+      "name": "Sips Under the Sea: Holidays",
+      "venue": "Georgia Aquarium",
+      "category": "Holiday/Social"
+    },
+    {
+      "name": "Garden Lights, Holiday Nights",
+      "venue": "Atlanta Botanical Garden",
+      "category": "Holiday/Family"
+    },
+    {
+      "name": "Holiday Ride-on Train",
+      "venue": "Atlanta Botanical Garden",
+      "category": "Family"
+    },
+    {
+      "name": "Monster Energy Outbreak Tour Presents...",
+      "venue": "Heaven at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "The Masquerade presents... ENTER AFTERLIFE World Tour 2026",
+      "venue": "Hell at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "Sidepiece v Horny House Tour",
+      "venue": "District",
+      "category": ""
+    },
+    {
+      "name": "2026 HUMP! Film Festival: SPRING LINEUP",
+      "venue": "Plaza Theatre",
+      "category": ""
+    },
+    {
+      "name": "2026 Flower Show: Heirlooms",
+      "venue": "Atlanta Botanical Garden",
+      "category": ""
+    },
+    {
+      "name": "Glow Nights \u2013 Summer 2026",
+      "venue": "Georgia Aquarium",
+      "category": ""
+    },
+    {
+      "name": "YDG - You + Me Forever Tour",
+      "venue": "District Atlanta",
+      "category": ""
+    },
+    {
+      "name": "Sidepiece - Horny House Tour",
+      "venue": "District Atlanta",
+      "category": ""
+    },
+    {
+      "name": "The Martinez Brothers - North America Tour",
+      "venue": "District Atlanta",
+      "category": ""
+    },
+    {
+      "name": "Oppidan - US, CA, EU Tour",
+      "venue": "District Atlanta",
+      "category": ""
+    },
+    {
+      "name": "Beauz - North America Tour",
+      "venue": "District Atlanta",
+      "category": ""
+    },
+    {
+      "name": "Ascension: A Goth Industrial Night",
+      "venue": "Heaven at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "Stan Society: Justin Bieber Night",
+      "venue": "Heaven at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "Emo Night Karaoke",
+      "venue": "Purgatory at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "The Serpents Tour: Starring Nymphia Wind and Plastique Tiara",
+      "venue": "Heaven at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "Club 90's: Heated Rivalry Night",
+      "venue": "Heaven at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "Bad Time Records Tour 2026",
+      "venue": "Purgatory at The Masquerade",
+      "category": ""
+    },
+    {
+      "name": "The Sundogs Present: The Tom Petty Show",
+      "venue": "Variety Playhouse",
+      "category": ""
+    },
+    {
+      "name": "TheatreSports TOURNAMENT 2026",
+      "venue": "Dad's Garage",
+      "category": ""
+    },
+    {
+      "name": "Adventure Playhouse! (Kid\u2019s Show)",
+      "venue": "Dad's Garage",
+      "category": ""
+    },
+    {
+      "name": "Best of Atlanta Comedy Showcase",
+      "venue": "Laughing Skull Lounge",
+      "category": ""
+    },
+    {
+      "name": "Open Mic Night",
+      "venue": "Laughing Skull Lounge",
+      "category": ""
+    },
+    {
+      "name": "Numbers Station Records Label Showcase",
+      "venue": "The Earl",
+      "category": ""
+    },
+    {
+      "name": "Valentour of 2026",
+      "venue": "Eddie's Attic",
+      "category": ""
+    },
+    {
+      "name": "DRAMA - Platonic Romance Tour",
+      "venue": "Terminal West",
+      "category": ""
+    },
+    {
+      "name": "The Midnight LA",
+      "venue": "The Eastern",
+      "category": ""
+    }
+  ],
+  "venue_branding": {
+    "The Eastern": {
+      "logo_url": "https://storage.googleapis.com/cms-org.media.aegpresents.com/venue-rentals/logos/the-eastern.png",
+      "primary_color": "#004B5F",
+      "vibe": "Modern, Industrial, Rooftop, State-of-the-art"
+    },
+    "Terminal West": {
+      "logo_url": "https://storage.googleapis.com/cms-org.media.aegpresents.com/venue-rentals/logos/terminal-west.png",
+      "primary_color": "#E85D04",
+      "vibe": "Industrial-chic, Factory-aesthetic, Intimate, West Midtown"
+    },
+    "Variety Playhouse": {
+      "logo_url": "https://storage.googleapis.com/cms-org.media.aegpresents.com/venue-rentals/logos/variety-playhouse.png",
+      "primary_color": "#C41230",
+      "vibe": "Historic, Eclectic, Theater-style, Little Five Points"
+    },
+    "The Masquerade": {
+      "logo_url": "https://www.masqueradeatlanta.com/wp-content/uploads/2017/10/Logo-Horizontal.png",
+      "primary_color": "#662D91",
+      "vibe": "Alternative, Gritty, Legendary, Multi-level"
+    },
+    "Tabernacle": {
+      "logo_url": "https://assets.livenationcdn.com/uploads/ab900d16-3b3f-4ae9-b914-fcc4d94baeff.png",
+      "primary_color": "#E31837",
+      "vibe": "Ornate, Historic, Iconic, Downtown"
+    },
+    "Coca-Cola Roxy": {
+      "logo_url": "https://assets.livenationcdn.com/uploads/47572a22-f1e4-4b00-a982-3a637ec7cebf.png",
+      "primary_color": "#F40000",
+      "vibe": "Modern, Upscale, The Battery, Energetic"
+    },
+    "District Atlanta": {
+      "logo_url": "https://districtatlanta.com/images/logo.png",
+      "primary_color": "#000000",
+      "vibe": "Immersive, Kinetic, Warehouse, Dance-centric"
+    },
+    "Believe Music Hall": {
+      "logo_url": "https://believeatl.com/wp-content/uploads/2023/07/Believe-Logo.png",
+      "primary_color": "#D4AF37",
+      "vibe": "Spiritual, Production-heavy, EDM-focused, High-energy"
+    },
+    "High Museum of Art": {
+      "logo_url": "https://highmuseum-redesign.s3.amazonaws.com/uploads/2022/07/high-logo.svg",
+      "primary_color": "#000000",
+      "vibe": "Minimalist, Architectural, World-class, Creative"
+    },
+    "Fernbank Museum": {
+      "logo_url": "https://fernbankmuseum.org/media/kugpki3e/fmnh_logorefresh_final_full_color.svg",
+      "primary_color": "#006838",
+      "vibe": "Natural, Educational, Adventure, Immersive"
+    },
+    "Atlanta Botanical Garden": {
+      "logo_url": "https://atlantabg.org/wp-content/uploads/2018/07/logo.svg",
+      "primary_color": "#008542",
+      "vibe": "Serene, Lush, Botanical, Enchanting"
+    }
+  },
+  "scraping_patterns": [
+    {
+      "script": "consolidate_scrape.py",
+      "pattern": "Reads JSON files from results/ folder, maps keys (start_date\u2192Start Date, event_name\u2192Event_Name, etc.), normalizes dates, deduplicates on Event_Name+Venue+Start Date",
+      "notes": "Skips non-event files (distillation_queue, distilled_batch, yt_top_artists)"
+    },
+    {
+      "script": "fetch_assets.py",
+      "pattern": "Downloads images from venue branding JSON (logo_url) and event JSON (image_url), stores in assets/venues/ and assets/events/, cleans filenames, handles jpg/png/svg extensions",
+      "notes": "Uses requests library with User-Agent header, 0.5s throttle between downloads"
+    },
+    {
+      "script": "final_audit.py",
+      "pattern": "Audits Master CSV for generic descriptions (slop keywords: \"live at\", \"presents\", \"show at\"), counts enriched descriptions starting with \"Why Dima likes this\", generates interest score distribution",
+      "notes": "No active scraping \u2014 quality audit only"
+    },
+    {
+      "script": "taste_matcher.py / taste_matcher_v2.py",
+      "pattern": "Matches events to Dima taste profile",
+      "notes": "References TASTE_PROFILE.md"
+    },
+    {
+      "script": "analyze_yt_history.py",
+      "pattern": "Analyzes YouTube history, extracts artist/event interests",
+      "notes": "Outputs to results/yt_top_artists.json"
+    }
+  ],
+  "files_read": [
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/ATL Event List 2025-2026 - Master.csv",
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/planning/venue_branding.json",
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/planning/target_venues.json",
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/consolidate_scrape.py",
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/fetch_assets.py",
+    "/Users/dmitriyperkis/Documents/Coding/Projects/2026-01-24_atl-event-list/final_audit.py"
+  ]
+}

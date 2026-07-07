@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><script data-test-id=js-enabled-script>document.documentElement.classList.add('js-enabled');
+
+    function ios() {
+      let userAgent = window.navigator.userAgent.toLowerCase()
+      let safari = /safari/.test(userAgent)
+      let ios = /iphone|ipod|ipad/.test(userAgent) || (/macintosh/.test(userAgent) && window.navigator.maxTouchPoints > 0)
+
+      return ios && !safari
+    }
+
+    if (ios()) {
+      window._capacitorNative = true
+      window._cordovaNative = true
+    }
+
+    const loadingMessage = [
+      'Popping the popcorn',
+      'Starting the projectors',
+      'Contacting Hollywood',
+      'Negotiating Distribution Deals',
+      'Splicing the Film',
+      'Sweeping the Auditorium'
+    ]
+    function showDelayLoadMessage(attempt = 1) {
+      const loadDelayMessageElement = document.getElementById('indy-load-delay-message')
+
+      if (!loadDelayMessageElement) return
+
+      if (attempt === 1) {
+        loadDelayMessageElement.style.display = "block"
+      } else {
+        loadDelayMessageElement.children[0].textContent = loadingMessage[(attempt - 2) % loadingMessage.length]
+      }
+
+      setTimeout(() => {
+        showDelayLoadMessage(attempt + 1)
+      }, 5000)
+    }
+    setTimeout(() => {
+      showDelayLoadMessage()
+    }, 7500)</script><title>Plaza Theatre</title><meta charset=utf-8><meta name=description content="Check showtimes and buy tickets at your local theater"><meta name=format-detection content="telephone=no"><meta name=msapplication-tap-highlight content=no><meta name=viewport content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,viewport-fit=cover"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><link rel=icon type=image/png sizes=128x128 href="https://indy-systems.imgix.net/wbz43dat4jcablmw31duyutoezj5?fm=png&w=128&h=128&fit=fill&fill=solid&auto=format,compress"><link rel=icon type=image/png sizes=96x96 href="https://indy-systems.imgix.net/wbz43dat4jcablmw31duyutoezj5?fm=png&w=96&h=96&fit=fill&fill=solid&auto=format,compress"><link rel=icon type=image/png sizes=32x32 href="https://indy-systems.imgix.net/wbz43dat4jcablmw31duyutoezj5?fm=png&w=32&h=32&fit=fill&fill=solid&auto=format,compress"><link rel=icon type=image/png sizes=16x16 href="https://indy-systems.imgix.net/wbz43dat4jcablmw31duyutoezj5?fm=png&w=16&h=16&fit=fill&fill=solid&auto=format,compress"><link href=/fontawesome/css/fontawesome.min.css rel=stylesheet><link href=/fontawesome/css/light.min.css rel=stylesheet><link href=/fontawesome/css/solid.min.css rel=stylesheet><link href=/fontawesome/css/brands.min.css rel=stylesheet><link rel=icon type=image/ico href="https://indy-systems.imgix.net/r8gjdbug5y0ez7zl9z4ip7j9vmb4?fm=png&w=32&h=32&fit=fill&fill=solid&auto=format,compress"><link rel="shortcut icon" href="https://indy-systems.imgix.net/wbz43dat4jcablmw31duyutoezj5?fm=png&w=128&h=128&fit=fill&fill=solid&auto=format,compress"><link rel=apple-touch-icon href="https://indy-systems.imgix.net/7z7gxfilmequ0d0xbvyg3hz8z651?fm=png&w=128&h=128&fit=fill&fill=solid&pad=9&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=828&h=1792&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1125&h=2436&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1242&h=2688&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=750&h=1334&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1242&h=2208&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=640&h=1136&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1536&h=2048&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1668&h=2224&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=1668&h=2388&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=apple-touch-startup-image media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?fm=png&w=2048&h=2732&fit=fillmax&fill=solid&pad=60&fill-color=1550a1&bg=1550a1&auto=format,compress"><link rel=stylesheet href=https://use.typekit.net/hwu0dkh.css><style>@font-face {
+      font-family: "bebas-neue";
+      src: url("/fonts/BebasNeue-Regular.ttf") format("opentype");
+      font-display: auto;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    body {
+      font-family: brandon-grotesque, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .text-h1,
+    .text-h2,
+    .text-h3,
+    .text-h4,
+    .text-h5,
+    .text-h6 {
+      font-family: bebas-neue, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .q-header .menu .q-btn {
+      font-family: bebas-neue, sans-serif;
+      font-size: calc(1em + 0.5vmin);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }</style><script defer src=/js/vendor.3100c1c8.js></script><script defer src=/js/app.ff00eb62.js></script><link href=/css/app.35e5f125.css rel=stylesheet></head><body style="background-color: var(--q-background, #ffffff)"><script> (function(){ var s = document.createElement('script'); var h = document.querySelector('head') || document.body; s.src = 'https://acsbapp.com/apps/app/dist/js/app.js'; s.async = true; s.onload = function(){ acsbJS.init({ statementLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, disableBgProcess : false, language : 'en', position : 'right', leadColor : '#b09a41', triggerColor : '#b09a41', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'people', triggerSize : 'medium', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerOffsetX : 10, triggerOffsetY : 85, triggerRadius : '50%' } }); }; h.appendChild(s); })(); </script><div id=q-app-splash-screen class=q-app-splash-screen style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #1550a1;"><div style="height: 100%; width: 100%;"><div style="text-align: center;"><div style="width: 90%; max-width: 600px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);"><img alt=Plaza Theatre src="https://indy-systems.imgix.net/mknbcj0xcskt30xurzzhfixehtx0?w=1200&auto=format,compress" style="width: 100%" id=splash-image></div></div><div id=indy-load-delay-message style="position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; display: none;"><span style="padding: 10px 20px; background-color: #00000066; color: white; font-size: large; font-weight: bold; border-radius: 10px;">Loading...</span></div></div></div><div id=q-app></div></body></html>

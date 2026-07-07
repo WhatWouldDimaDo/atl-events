@@ -1,0 +1,892 @@
+{
+  "date": "2026-05-09",
+  "dry_run": false,
+  "crm_updates": [],
+  "new_contacts_detected": [
+    {
+      "handle": "josephperkis@gmail.com",
+      "message_count_90d": 265,
+      "first_seen": "2026-02-08",
+      "source": "imessage",
+      "name": "Joseph Perkis"
+    },
+    {
+      "handle": "65242",
+      "message_count_90d": 28,
+      "first_seen": "2026-02-16",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+17702659307",
+      "message_count_90d": 19,
+      "first_seen": "2026-03-25",
+      "source": "imessage",
+      "call_count_90d": 1,
+      "name": null
+    },
+    {
+      "handle": "+18622660509",
+      "message_count_90d": 14,
+      "first_seen": "2026-03-27",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+17065408101",
+      "message_count_90d": 12,
+      "first_seen": "2026-02-28",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+19176484806",
+      "message_count_90d": 12,
+      "first_seen": "2026-04-30",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "898287",
+      "message_count_90d": 12,
+      "first_seen": "2026-02-13",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "99123",
+      "message_count_90d": 12,
+      "first_seen": "2026-02-08",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "267826",
+      "message_count_90d": 10,
+      "first_seen": "2026-03-27",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "united_airlines_dsqopxgv_agent@rbm.goog",
+      "message_count_90d": 10,
+      "first_seen": "2026-02-23",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+16304047824",
+      "message_count_90d": 9,
+      "first_seen": "2026-04-24",
+      "source": "imessage",
+      "name": "David ARC - TBD"
+    },
+    {
+      "handle": "+14046183245",
+      "message_count_90d": 8,
+      "first_seen": "2026-03-19",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+18286443911",
+      "message_count_90d": 8,
+      "first_seen": "2026-03-21",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+12566523357",
+      "message_count_90d": 7,
+      "first_seen": "2026-02-19",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+17707158232",
+      "message_count_90d": 6,
+      "first_seen": "2026-04-25",
+      "source": "imessage",
+      "call_count_90d": 1,
+      "name": "Rich Mudafort"
+    },
+    {
+      "handle": "61591",
+      "message_count_90d": 7,
+      "first_seen": "2026-03-23",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+16784397608",
+      "call_count_90d": 7,
+      "first_seen": "2026-03-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17866831565",
+      "message_count_90d": 6,
+      "first_seen": "2026-04-25",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "fedex_delivery_manager_qb0izrvv_agent@rbm.goog",
+      "message_count_90d": 6,
+      "first_seen": "2026-03-17",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+13128471538",
+      "message_count_90d": 4,
+      "first_seen": "2026-02-25",
+      "source": "imessage",
+      "call_count_90d": 1,
+      "name": null
+    },
+    {
+      "handle": "+14043901312",
+      "message_count_90d": 5,
+      "first_seen": "2026-03-19",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+19296950092",
+      "message_count_90d": 4,
+      "first_seen": "2026-04-08",
+      "source": "imessage",
+      "call_count_90d": 1,
+      "name": null
+    },
+    {
+      "handle": "+19294677913",
+      "call_count_90d": 5,
+      "first_seen": "2026-04-02",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14042349302",
+      "message_count_90d": 3,
+      "first_seen": "2026-04-10",
+      "source": "imessage",
+      "call_count_90d": 1,
+      "name": null
+    },
+    {
+      "handle": "+16788342803",
+      "message_count_90d": 4,
+      "first_seen": "2026-04-09",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "42797",
+      "message_count_90d": 4,
+      "first_seen": "2026-03-02",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "91875",
+      "message_count_90d": 4,
+      "first_seen": "2026-03-22",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "paperless_post_fn1neij0_agent@rbm.goog",
+      "message_count_90d": 4,
+      "first_seen": "2026-02-19",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+14046364073",
+      "call_count_90d": 4,
+      "first_seen": "2026-03-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14702859116",
+      "call_count_90d": 4,
+      "first_seen": "2026-02-12",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16232289898",
+      "call_count_90d": 4,
+      "first_seen": "2026-04-20",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16785479303",
+      "call_count_90d": 4,
+      "first_seen": "2026-04-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17704016009",
+      "call_count_90d": 4,
+      "first_seen": "2026-03-10",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19294701307",
+      "call_count_90d": 4,
+      "first_seen": "2026-04-30",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16465409572",
+      "message_count_90d": 3,
+      "first_seen": "2026-03-26",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+17628420544",
+      "message_count_90d": 3,
+      "first_seen": "2026-03-27",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+17705891209",
+      "message_count_90d": 3,
+      "first_seen": "2026-03-13",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+18552146189",
+      "message_count_90d": 3,
+      "first_seen": "2026-02-20",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+19043070436",
+      "message_count_90d": 3,
+      "first_seen": "2026-04-05",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "242733",
+      "message_count_90d": 3,
+      "first_seen": "2026-03-10",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "36726",
+      "message_count_90d": 3,
+      "first_seen": "2026-02-26",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "41368",
+      "message_count_90d": 3,
+      "first_seen": "2026-04-14",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "43771",
+      "message_count_90d": 3,
+      "first_seen": "2026-03-23",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "97962",
+      "message_count_90d": 3,
+      "first_seen": "2026-04-12",
+      "source": "imessage",
+      "name": null
+    },
+    {
+      "handle": "+14706480849",
+      "call_count_90d": 3,
+      "first_seen": "2026-03-30",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14706487946",
+      "call_count_90d": 3,
+      "first_seen": "2026-02-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14707625895",
+      "call_count_90d": 3,
+      "first_seen": "2026-02-17",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17703611930",
+      "call_count_90d": 3,
+      "first_seen": "2026-04-22",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14042579933",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-18",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14043803336",
+      "call_count_90d": 2,
+      "first_seen": "2026-04-02",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14045009125",
+      "call_count_90d": 2,
+      "first_seen": "2026-04-09",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14048731881",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-19",
+      "source": "call",
+      "message_count_90d": 0,
+      "name": null
+    },
+    {
+      "handle": "+15128467950",
+      "call_count_90d": 2,
+      "first_seen": "2026-02-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+15513054854",
+      "call_count_90d": 2,
+      "first_seen": "2026-04-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16782152072",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-31",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16786684688",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-11",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16789448781",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-26",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17705014042",
+      "call_count_90d": 2,
+      "first_seen": "2026-02-12",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17708587540",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-04",
+      "source": "call",
+      "message_count_90d": 0,
+      "name": null
+    },
+    {
+      "handle": "+18009552292",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-30",
+      "source": "call",
+      "message_count_90d": 0,
+      "name": null
+    },
+    {
+      "handle": "+18643346808",
+      "call_count_90d": 2,
+      "first_seen": "2026-04-15",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18778397045",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-20",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17706743027",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-10",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18772472559",
+      "call_count_90d": 2,
+      "first_seen": "2026-03-19",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+12024703718",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-21",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+12144727558",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-18",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+12295946780",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-19",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+12812588032",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-05",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+12812588305",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-05",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14044763921",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14045513626",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-13",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14045514916",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-29",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14045523263",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-24",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14045873201",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-26",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14154804048",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14159807651",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-05",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14703882868",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-20",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14704129060",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-16",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14705332602",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-28",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14705332631",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-24",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14706819942",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-05",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14708599746",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-27",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+15127291593",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-18",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+15132708350",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-15",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+15513406282",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-12",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16198246420",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-18",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16297727422",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-24",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16782669314",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-17",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16783558980",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-19",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16784480712",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-04",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16786666413",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-15",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16787649968",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-03",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16788304821",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-14",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16788502095",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+16789169671",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-17",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17135897067",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-05",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17192059220",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-24",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17328275082",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-24",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17546104533",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-31",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17704634897",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-29",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17707642224",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+17708742561",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-13",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18007896131",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-11",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18174843557",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-12",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18456553925",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-03",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18633618344",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-06",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18669551671",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-06",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18887425877",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-18",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18889346489",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-23",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19082272945",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-27",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19085208711",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-19",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19292983644",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-01",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19295609305",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-08",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19805179569",
+      "call_count_90d": 1,
+      "first_seen": "2026-05-06",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+19807042878",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-20",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+447450315473",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-07",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+13367921816",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-19",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18663465800",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-25",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14048858000",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-26",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+14153868674",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-08",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18002888740",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-12",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18005443716",
+      "call_count_90d": 1,
+      "first_seen": "2026-02-26",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18558143512",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-31",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18662348271",
+      "call_count_90d": 1,
+      "first_seen": "2026-03-10",
+      "source": "call",
+      "name": null
+    },
+    {
+      "handle": "+18885341711",
+      "call_count_90d": 1,
+      "first_seen": "2026-04-02",
+      "source": "call",
+      "name": null
+    }
+  ],
+  "total_matched": 72,
+  "total_changes": 0
+}

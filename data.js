@@ -1,7 +1,7 @@
 // data.js — ATL Events V2 Data Layer
-// Events: Apr–Sep 2026 | Evergreen: 75 activities
+// Events: Apr–Sep 2026 (66 curated) | Evergreen: 110 activities
 
-const TODAY = new Date('2026-04-21');
+const TODAY = new Date('2026-07-06');
 
 const EVENTS = [
   {
@@ -139,7 +139,7 @@ const EVENTS = [
     lineup: ['Supertask'],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://www.axs.com/events/1180694/supertask-tickets', instagramUrl: null,
+    imageUrl: 'images/supertask.jpg', officialUrl: 'https://www.axs.com/events/1180694/supertask-tickets', instagramUrl: null,
     note: 'Solid fallback if Disclosure LIVE sells out. Same night — check Terminal West box office.',
     scoreReasoning: { genreMatch: 78, venueQuality: 85, formatRarity: 65, lineupStrength: 70, valueForMoney: 72 },
     recurring: false, recurringNote: null
@@ -209,7 +209,7 @@ const EVENTS = [
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
     lineup: ['Vintage Culture'],
     setTimes: null,
-    youtubeId: null,
+    youtubeId: 'H3Uka1aALpg',
     imageUrl: 'images/vintage_culture.jpg', officialUrl: 'https://districtatlanta.com/events/2026/vintage-culture-therapy-sessions-friday-may-8th-2026.php', instagramUrl: 'https://instagram.com/vintagecultureofficial',
     note: 'Vintage Culture is one of Brazil\'s biggest exports in the melodic house space. His sound: warm basslines, intricate percussion, layered vocals, and an emotional arc that builds across a long set. Think Lane 8 meeting Disclosure on a São Paulo rooftop. He plays extended sets — District Atlanta\'s layout rewards arriving early for the full journey. Thursday night, 21+, the kind of show that turns a weeknight into a story.',
     scoreReasoning: { genreMatch: 84, venueQuality: 63, formatRarity: 60, lineupStrength: 80, valueForMoney: 68 },
@@ -233,7 +233,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: 'images/center_for_puppetry_arts.gif', officialUrl: 'https://puppet.org', instagramUrl: null,
+    imageUrl: 'images/center_for_puppetry_arts.jpg', officialUrl: 'https://puppet.org', instagramUrl: null,
     note: 'World-class puppet theater with hands-on museum. Dean will be captivated. Book the matinee. Jim Henson collection on site.',
     scoreReasoning: { genreMatch: 35, venueQuality: 68, formatRarity: 72, lineupStrength: 55, valueForMoney: 70 },
     recurring: false, recurringNote: null
@@ -357,7 +357,7 @@ const EVENTS = [
   },
   {
     id: 20,
-    date: '2026-05-22', dateEnd: '2026-05-22', dateStr: 'Fri May 22',
+    date: '2026-05-12', dateEnd: '2026-05-12', dateStr: 'Tue May 12',
     title: 'Lake Claire Full Moon Drum Circle',
     subtitle: 'Monthly · Full moon gathering',
     venue: 'Lake Claire Land Trust', address: 'Lake Claire, Atlanta, GA',
@@ -368,7 +368,7 @@ const EVENTS = [
     environment: 'outdoor', eventType: 'recurring', age: 'All ages',
     time: 'Dusk–10 PM', timeSlot: 'evening', distance: 'ITP',
     urgent: false, urgentNote: null,
-    ticketUrl: null, free: true,
+    ticketUrl: 'https://www.lcclt.org/new-events/7sljklmp5l9fba2', free: true,
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
     lineup: [],
     setTimes: null,
@@ -376,7 +376,7 @@ const EVENTS = [
     imageUrl: 'images/lake_claire_full_moon_drum_circle.jpg', officialUrl: 'https://www.lcclt.org/new-events/7sljklmp5l9fba2', instagramUrl: null,
     note: 'Full moon drum circle at Lake Claire Land Trust. Bring a drum or just show up. Free, open, no experience needed. ATL community ritual.',
     scoreReasoning: { genreMatch: 38, venueQuality: 55, formatRarity: 75, lineupStrength: 25, valueForMoney: 100 },
-    recurring: true, recurringNote: 'Monthly on the full moon'
+    recurring: true, recurringNote: 'Monthly on the full moon. 2026: May 12, Jun 11, Jul 10, Aug 9, Sep 7'
   },
   {
     id: 10,
@@ -393,12 +393,12 @@ const EVENTS = [
     urgent: false, urgentNote: null,
     ticketUrl: 'https://www.atlantajazzfestival.com', free: true,
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
-    lineup: [],
-    setTimes: null,
+    lineup: ['Kamasi Washington', 'The Roots', 'Esperanza Spalding', 'PJ Morton', 'Christian McBride', 'Nate Smith'],
+    setTimes: { 'Kamasi Washington': 'Sat 9 PM', 'The Roots': 'Sun 9 PM', 'Esperanza Spalding': 'Sun 7 PM', 'PJ Morton': 'Mon 9 PM' },
     youtubeId: null,
-    imageUrl: 'images/atlanta_jazz_festival.jpg', officialUrl: 'https://www.atlantajazzfestival.com', instagramUrl: null,
-    note: 'Free outdoor jazz festival in Piedmont Park. Memorial Day Weekend. Family-friendly — bring Dean, lay out a blanket, let the afternoon breathe.',
-    scoreReasoning: { genreMatch: 55, venueQuality: 72, formatRarity: 60, lineupStrength: 65, valueForMoney: 100 },
+    imageUrl: 'images/atlanta_jazz_festival.jpg', officialUrl: 'https://atljazzfest.com', instagramUrl: null,
+    note: 'Free outdoor jazz festival in Piedmont Park. Memorial Day Weekend 3 days. Sat: Kamasi Washington headlining 9 PM. Sun: The Roots + Esperanza Spalding. Mon: PJ Morton. Family-friendly — bring Dean, lay out a blanket, let the afternoon breathe. Largest free jazz festival in the country.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 72, formatRarity: 60, lineupStrength: 88, valueForMoney: 100 },
     recurring: false, recurringNote: null
   },
   {
@@ -414,7 +414,7 @@ const EVENTS = [
     environment: 'outdoor', eventType: 'park', age: 'All ages',
     time: 'Morning', timeSlot: 'morning', distance: 'road-trip',
     urgent: false, urgentNote: 'Peak strawberry season — goes fast in late May',
-    ticketUrl: null, free: false,
+    ticketUrl: 'http://www.facebook.com/jaemorfarms', free: false,
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
     lineup: [],
     setTimes: null,
@@ -466,7 +466,7 @@ const EVENTS = [
     setTimes: '6–10 PM',
     youtubeId: null,
     imageUrl: 'images/fernbank_after_dark.jpg', officialUrl: 'https://fernbankmuseum.org', instagramUrl: null,
-    note: 'Adults-only science night at Fernbank. Themed cocktails, live music, hands-on demos, and the giant atrium to yourselves. Monthly Fridays. Jeannie will love it.',
+    note: 'Adults-only science night at Fernbank. Themed cocktails, live music, hands-on demos, and the giant atrium to yourselves. Monthly Fridays. Perfect for a date night.',
     scoreReasoning: { genreMatch: 45, venueQuality: 78, formatRarity: 75, lineupStrength: 55, valueForMoney: 82 },
     recurring: true, recurringNote: 'Monthly Fridays — check fernbankmuseum.org for dates'
   },
@@ -488,7 +488,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://atlstreetsalive.com', instagramUrl: null,
+    imageUrl: 'images/atlanta_streets_alive.jpg', officialUrl: 'https://atlstreetsalive.com', instagramUrl: null,
     note: 'FIFA World Cup edition of Streets Alive. Car-free Beltline with bikes and strollers. Dean will have a blast on his bike.',
     scoreReasoning: { genreMatch: 28, venueQuality: 70, formatRarity: 60, lineupStrength: 18, valueForMoney: 100 },
     recurring: false, recurringNote: null
@@ -534,7 +534,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://peachtreeroadrace.org', instagramUrl: null,
+    imageUrl: 'images/peachtree_road_race.jpg', officialUrl: 'https://peachtreeroadrace.org', instagramUrl: null,
     note: '60,000 runners. Buckhead to Piedmont Park. World\'s largest 10K. Register early — sells out in hours. Great spectating even if you don\'t run.',
     scoreReasoning: { genreMatch: 28, venueQuality: 72, formatRarity: 68, lineupStrength: 40, valueForMoney: 78 },
     recurring: true, recurringNote: 'Annual July 4th tradition'
@@ -578,7 +578,7 @@ const EVENTS = [
     urgent: false, urgentNote: null,
     ticketUrl: 'https://www.ticketmaster.com/empire-of-the-sun-ask-that-alpharetta-georgia-09-13-2026/event/0E006466AAAEAAE3', free: false,
     membershipIncluded: false, membershipVenue: null, advancePurchase: false,
-    lineup: ['Empire of the Sun'],
+    lineup: ['Empire of the Sun', 'Polo & Pan'],
     setTimes: null,
     youtubeId: 'y6qigQlIFB4',
     imageUrl: 'images/empire_of_the_sun.jpg', officialUrl: 'https://www.livenation.com/event/vvG1zZ_kQnlnlN/empire-of-the-sun-ask-that-god-afterlife-north-american-tour', instagramUrl: 'https://instagram.com/empireofthesunmusic',
@@ -627,7 +627,7 @@ const EVENTS = [
     lineup: [],
     setTimes: null,
     youtubeId: null,
-    imageUrl: null, officialUrl: 'https://atlstreetsalive.com', instagramUrl: null,
+    imageUrl: 'images/atlanta_streets_alive.jpg', officialUrl: 'https://atlstreetsalive.com', instagramUrl: null,
     note: 'Peachtree Street car-free. One of the most scenic Streets Alive routes. Fall weather makes it even better.',
     scoreReasoning: { genreMatch: 28, venueQuality: 72, formatRarity: 58, lineupStrength: 18, valueForMoney: 100 },
     recurring: false, recurringNote: null
@@ -654,6 +654,2041 @@ const EVENTS = [
     note: 'Dad\'s Garage signature long-form improv. ROAD TRIP! is their action-movie parody format — genre-based improv at its best. Multiple dates available. Coordinate with your crew.',
     scoreReasoning: { genreMatch: 40, venueQuality: 65, formatRarity: 75, lineupStrength: 55, valueForMoney: 80 },
     recurring: true, recurringNote: 'Runs Fri–Sat most weekends — check dadsgarage.com for schedule'
+  },
+  {
+    id: 31,
+    date: '2026-05-08', dateEnd: '2026-05-08', dateStr: 'Fri May 8',
+    title: 'Nostalgix',
+    subtitle: 'Bass house at Wish Lounge',
+    venue: 'Believe Music Hall', address: '181 Ralph David Abernathy Blvd SW, Atlanta, GA',
+    lat: 33.7444, lng: -84.4002,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Bass house', 'future bass', 'electronic'],
+    environment: 'indoor', eventType: 'dj', age: '18+',
+    time: '10 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://wl.seetickets.us/event/nostalgix-wish-lounge-or/671956?afflky=BelieveMusicHall', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Nostalgix'],
+    setTimes: null,
+    youtubeId: 'zwVakiX8pPM',
+    imageUrl: 'images/nostalgix.jpg', officialUrl: 'https://believeatl.com/calendar/', instagramUrl: null,
+    note: 'Nostalgix brings her signature bass house sound to Wish Lounge — the smaller, more intimate room inside Believe Music Hall. Same night as Vintage Culture at District. Two solid electronic options for the same Friday.',
+    scoreReasoning: { genreMatch: 74, venueQuality: 65, formatRarity: 50, lineupStrength: 60, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 32,
+    date: '2026-05-13', dateEnd: '2026-05-13', dateStr: 'Tue May 13',
+    title: 'Mac DeMarco',
+    subtitle: null,
+    venue: 'The Eastern', address: '777 Memorial Dr SE, Atlanta, GA',
+    lat: 33.7407, lng: -84.3547,
+    score: 70, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Indie rock', 'slacker rock', 'jangle pop'],
+    environment: 'indoor', eventType: 'live', age: 'All ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.songkick.com/concerts/42667237-mac-demarco-at-eastern', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Mac DeMarco'],
+    setTimes: null,
+    youtubeId: 'wIuBcb2T55Q',
+    imageUrl: 'images/mac_demarco.jpg', officialUrl: 'https://www.easternatlanta.com/', instagramUrl: 'https://instagram.com/macdemarco',
+    note: 'Mac DeMarco at The Eastern — one of the best venues in Atlanta for a live show. His jangly, laid-back guitar work translates perfectly to the room. Tuesday night keeps it low-key. Good date night or small group outing.',
+    scoreReasoning: { genreMatch: 48, venueQuality: 88, formatRarity: 55, lineupStrength: 72, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 33,
+    date: '2026-05-14', dateEnd: '2026-05-14', dateStr: 'Wed May 14',
+    title: 'Lords of Acid',
+    subtitle: 'with Princess Superstar, Tony and The Kiki, & Mz Neon',
+    venue: 'The Masquerade (Hell)', address: '75 MLK Jr Dr SW, Atlanta, GA',
+    lat: 33.7539, lng: -84.3919,
+    score: 68, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Acid house', 'industrial', 'electronic'],
+    environment: 'indoor', eventType: 'live', age: '18+',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.ticketmaster.com/lords-of-acid-atlanta-georgia-05-14-2026/event/0E006425ED4382CA', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Lords of Acid', 'Princess Superstar', 'Tony and The Kiki', 'Mz Neon'],
+    setTimes: null,
+    youtubeId: 'ZHCK8UXqSeo',
+    imageUrl: 'images/lords_of_acid.png', officialUrl: 'https://masqueradeatlanta.com/events/', instagramUrl: null,
+    note: 'Belgian acid house / industrial legends. Lords of Acid invented the sound. Princess Superstar on the same bill adds a New York electroclash dimension. Wednesday night at Hell — the smaller Masquerade room with the best energy for this kind of show.',
+    scoreReasoning: { genreMatch: 70, venueQuality: 60, formatRarity: 72, lineupStrength: 65, valueForMoney: 68 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 34,
+    date: '2026-05-15', dateEnd: '2026-08-30', dateStr: 'Opens Thu May 15',
+    title: 'Amy Sherald: American Sublime',
+    subtitle: 'Mid-career retrospective — largest exhibition of her work to date',
+    venue: 'High Museum of Art', address: '1280 Peachtree St NE, Atlanta, GA',
+    lat: 33.7901, lng: -84.3856,
+    score: 65, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO'],
+    category: 'date', genres: ['Art exhibition', 'contemporary art'],
+    environment: 'indoor', eventType: 'exhibition', age: 'All ages',
+    time: 'Museum hours', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://high.org/tickets/', free: false,
+    membershipIncluded: true, membershipVenue: 'High Museum',
+    advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/amy_sherald.jpg', officialUrl: 'https://high.org/exhibition/amy-sherald-american-sublime/', instagramUrl: null,
+    note: 'Amy Sherald painted Michelle Obama\'s official portrait. This national tour is her largest exhibition — paintings from 2007 to 2024. Runs through August so no rush, but it\'s the kind of show that makes for a strong date night or solo afternoon at the High. Free with membership.',
+    scoreReasoning: { genreMatch: 30, venueQuality: 80, formatRarity: 82, lineupStrength: 70, valueForMoney: 75 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 35,
+    date: '2026-06-01', dateEnd: '2026-08-15', dateStr: 'Summer 2026',
+    title: 'Glow Nights',
+    subtitle: 'Bioluminescence blacklight event at Georgia Aquarium',
+    venue: 'Georgia Aquarium', address: '225 Baker St NW, Atlanta, GA',
+    lat: 33.7634, lng: -84.3951,
+    score: 70, tier: 'B',
+    slots: ['DATE_NIGHT', 'FAMILY_OUTING'],
+    category: 'family', genres: ['Science', 'immersive experience'],
+    environment: 'indoor', eventType: 'exhibition', age: 'All ages',
+    time: 'Evening', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.georgiaaquarium.org/tickets/', free: false,
+    membershipIncluded: true, membershipVenue: 'Georgia Aquarium',
+    advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/glow_nights.jpg', officialUrl: 'https://www.georgiaaquarium.org/', instagramUrl: null,
+    note: 'Evening event highlighting bioluminescence with blacklight theatrics and interactive elements. Works as both a date night and a Dean outing — he\'ll love the glowing jellyfish. Included with Aqua Pass if you have it.',
+    scoreReasoning: { genreMatch: 25, venueQuality: 78, formatRarity: 70, lineupStrength: 40, valueForMoney: 80 },
+    recurring: true, recurringNote: 'Runs summer 2026 — multiple dates available'
+  },
+  {
+    id: 36,
+    date: '2026-06-13', dateEnd: '2026-10-15', dateStr: 'Opens Sat Jun 13',
+    title: 'T. rex: The Ultimate Predator',
+    subtitle: 'Fernbank Museum special exhibition',
+    venue: 'Fernbank Museum', address: '767 Clifton Rd, Atlanta, GA',
+    lat: 33.7735, lng: -84.3278,
+    score: 72, tier: 'B',
+    slots: ['FAMILY_OUTING', 'PAPA_DEAN'],
+    category: 'family', genres: ['Natural history', 'dinosaurs', 'science'],
+    environment: 'indoor', eventType: 'exhibition', age: 'All ages',
+    time: 'Museum hours', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://fernbankmuseum.org/visit/get-tickets/', free: false,
+    membershipIncluded: true, membershipVenue: 'Fernbank Museum',
+    advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/t_rex_fernbank.jpg', officialUrl: 'https://fernbankmuseum.org/', instagramUrl: null,
+    note: 'T. rex exhibition at Fernbank — Dean already loves the permanent dinosaur hall, and this adds a focused exhibit on the most famous predator. Included with Fernbank membership. Perfect Saturday morning with Papa or the full family. Runs through October.',
+    scoreReasoning: { genreMatch: 15, venueQuality: 75, formatRarity: 65, lineupStrength: 50, valueForMoney: 85 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 37,
+    date: '2026-06-13', dateEnd: '2026-06-13', dateStr: 'Sat Jun 13',
+    title: 'The Last Dinner Party',
+    subtitle: 'with Florence Road',
+    venue: 'The Eastern', address: '777 Memorial Dr SE, Atlanta, GA',
+    lat: 33.7407, lng: -84.3547,
+    score: 68, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Indie rock', 'art rock', 'post-punk'],
+    environment: 'indoor', eventType: 'live', age: 'All ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.songkick.com/concerts/42845037-last-dinner-party-at-eastern', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['The Last Dinner Party', 'Florence Road'],
+    setTimes: null,
+    youtubeId: 'UKXIJqT7B2o',
+    imageUrl: 'images/the_last_dinner_party.jpg', officialUrl: 'https://www.easternatlanta.com/', instagramUrl: null,
+    note: 'The Last Dinner Party blew up in 2024 — baroque art-rock with a theatrical edge. They won the BRITs Rising Star. The Eastern is the right room for them. Saturday night, good date or group outing. Florence Road opens.',
+    scoreReasoning: { genreMatch: 45, venueQuality: 88, formatRarity: 60, lineupStrength: 72, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 38,
+    date: '2026-05-15', dateEnd: '2026-05-15', dateStr: 'Fri May 15',
+    title: 'Layton Giordani',
+    subtitle: 'Official Breakaway Afterparty',
+    venue: 'District Atlanta', address: '180 Walker St SW, Atlanta, GA',
+    lat: 33.7490, lng: -84.3890,
+    score: 76, tier: 'A',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Drumcode techno', 'peak-time techno'],
+    environment: 'indoor', eventType: 'dj', age: '21+',
+    time: '10 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://districtatlanta.com/events/2026/layton-giordani-friday-may-15th-2026.php', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Layton Giordani'],
+    setTimes: null,
+    youtubeId: 'l-gwzSMwYQY',
+    imageUrl: 'images/layton_giordani.jpg', officialUrl: 'https://districtatlanta.com/events/', instagramUrl: null,
+    note: 'Layton Giordani is on Adam Beyer\'s Drumcode label — same roster as Patrick Topping. Pure driving techno. This is the official Breakaway Festival afterparty, so the crowd will be primed. District on a Friday for Drumcode techno is exactly the right pairing.',
+    scoreReasoning: { genreMatch: 84, venueQuality: 63, formatRarity: 55, lineupStrength: 72, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 39,
+    date: '2026-06-06', dateEnd: '2026-06-06', dateStr: 'Sat Jun 6',
+    title: 'Said The Sky',
+    subtitle: 'with Mitis',
+    venue: 'The Eastern', address: '777 Memorial Dr SE, Atlanta, GA',
+    lat: 33.7407, lng: -84.3547,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Future bass', 'melodic dubstep', 'pop EDM'],
+    environment: 'indoor', eventType: 'dj', age: 'All ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1312917/said-the-sky-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Said The Sky', 'Mitis', 'zensei'],
+    setTimes: null,
+    youtubeId: 'N-bjVN1yxjA',
+    imageUrl: 'images/said_the_sky.jpg', officialUrl: 'https://www.easternatlanta.com/', instagramUrl: null,
+    note: 'Said The Sky does cinematic, emotional future bass — big drops layered with strings and piano melodies. Mitis is a perfect opener in the same lane. The Eastern is the right room for this kind of production-heavy show. Saturday night, fills the early June gap.',
+    scoreReasoning: { genreMatch: 70, venueQuality: 88, formatRarity: 50, lineupStrength: 68, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 40,
+    date: '2026-07-10', dateEnd: '2026-07-10', dateStr: 'Fri Jul 10',
+    title: 'Sosa',
+    subtitle: 'UK house at District',
+    venue: 'District Atlanta', address: '180 Walker St SW, Atlanta, GA',
+    lat: 33.7490, lng: -84.3890,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['UK house', 'tech house', 'club'],
+    environment: 'indoor', eventType: 'dj', age: '21+',
+    time: '10 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://districtatlanta.com/events/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Sosa'],
+    setTimes: null,
+    youtubeId: '9T28y81aIOI',
+    imageUrl: 'images/sosa.jpg', officialUrl: 'https://districtatlanta.com/events/', instagramUrl: null,
+    note: 'Sosa is a UK house producer riding the wave of the UK club revival — bouncy, percussive house music with garage influences. District on a Friday is the right call for this sound. First quality electronic option in July.',
+    scoreReasoning: { genreMatch: 78, venueQuality: 63, formatRarity: 50, lineupStrength: 62, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 41,
+    date: '2026-07-11', dateEnd: '2026-07-12', dateStr: 'Fri–Sat Jul 11–12',
+    title: 'Tame Impala',
+    subtitle: 'with Djo · Two nights',
+    venue: 'State Farm Arena', address: '1 State Farm Dr, Atlanta, GA',
+    lat: 33.7573, lng: -84.3963,
+    score: 82, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Psychedelic rock', 'electronic rock', 'synth pop'],
+    environment: 'indoor', eventType: 'live', age: 'All ages',
+    time: '7:30 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1324716/tame-impala-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Tame Impala', 'Djo'],
+    setTimes: null,
+    youtubeId: 'utCjuKDXQsE',
+    imageUrl: 'images/tame_impala.jpg', officialUrl: null, instagramUrl: 'https://instagram.com/taborplace',
+    note: 'Tame Impala\'s live production is genuinely world-class — Kevin Parker\'s live show uses confetti cannons, laser harps, and a rotating drum kit. Djo (Joe Keery from Stranger Things) opens with yacht rock–inflected synth pop. Two nights at State Farm — pick one. Arena shows aren\'t intimate but this one earns the scale.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 55, formatRarity: 78, lineupStrength: 90, valueForMoney: 60 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 42,
+    date: '2026-08-01', dateEnd: '2026-08-01', dateStr: 'Sat Aug 1',
+    title: 'Passion Pit',
+    subtitle: null,
+    venue: 'The Eastern', address: '777 Memorial Dr SE, Atlanta, GA',
+    lat: 33.7407, lng: -84.3547,
+    score: 74, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Synthpop', 'indie dance', 'electronic pop'],
+    environment: 'indoor', eventType: 'live', age: 'All ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1345435/passion-pit-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Passion Pit'],
+    setTimes: null,
+    youtubeId: 'T0RvPYRRRbE',
+    imageUrl: 'images/passion_pit.jpg', officialUrl: 'https://www.easternatlanta.com/', instagramUrl: null,
+    note: 'Passion Pit at The Eastern fills the August dead zone. Michael Angelakos writes euphoric, synth-drenched pop — "Sleepyhead" and "Take a Walk" still hit. The Eastern\'s sound system will do justice to the layered production. Saturday night in August, this is the anchor event for the month.',
+    scoreReasoning: { genreMatch: 68, venueQuality: 88, formatRarity: 55, lineupStrength: 72, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 43,
+    date: '2026-08-07', dateEnd: '2026-08-07', dateStr: 'Fri Aug 7',
+    title: 'Pedro Sampaio',
+    subtitle: 'Brazilian house and baile funk',
+    venue: 'District Atlanta', address: '180 Walker St SW, Atlanta, GA',
+    lat: 33.7490, lng: -84.3890,
+    score: 68, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['House', 'baile funk', 'Latin dance'],
+    environment: 'indoor', eventType: 'dj', age: '21+',
+    time: '10 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://districtatlanta.com/events/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Pedro Sampaio'],
+    setTimes: null,
+    youtubeId: 'ZyXVuAvaDxg',
+    imageUrl: 'images/pedro_sampaio.jpg', officialUrl: 'https://districtatlanta.com/events/', instagramUrl: null,
+    note: 'Pedro Sampaio is the biggest DJ in Brazil right now — high-energy baile funk fused with house and Latin dance. District crowd will go hard for this. Friday night in August, fills the gap between Passion Pit and September.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 63, formatRarity: 60, lineupStrength: 68, valueForMoney: 68 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── RECURRING MONTHLY EVENTS ────────────────────────────────────────────
+  {
+    id: 44,
+    date: '2026-04-24', dateEnd: '2026-04-24', dateStr: 'Fri Apr 24',
+    title: 'Critical Mass ATL',
+    subtitle: 'Monthly group bike ride through the city',
+    venue: 'Woodruff Park', address: '91 Peachtree St NW, Atlanta, GA 30303',
+    lat: 33.7535, lng: -84.3879,
+    score: 58, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'group', genres: ['Cycling', 'Community'],
+    environment: 'outdoor', eventType: 'community', age: 'all-ages',
+    time: '6 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/groups/AtlantaCM', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/evergreen/critical_mass_atl.jpg', officialUrl: 'https://www.facebook.com/groups/AtlantaCM', instagramUrl: null,
+    note: 'Last Friday of every month. Hundreds of cyclists take over city streets — no set route, just mass movement. Bring your own bike, show up at Woodruff Park. Solo or with a crew. Community ritual energy.',
+    scoreReasoning: { genreMatch: 40, venueQuality: 55, formatRarity: 72, lineupStrength: 30, valueForMoney: 100 },
+    recurring: true, recurringNote: 'Last Friday monthly. Next: May 29, Jun 26, Jul 31, Aug 28, Sep 25'
+  },
+  {
+    id: 45,
+    date: '2026-04-26', dateEnd: '2026-04-26', dateStr: 'Sun Apr 26',
+    title: 'Five Rhythms Atlanta',
+    subtitle: 'Conscious movement practice',
+    venue: 'Decatur (rotating venues)', address: '465 Boulevard SE, Atlanta, GA',
+    lat: 33.7397, lng: -84.3706,
+    score: 64, tier: 'B',
+    slots: ['SOLO_RESET'],
+    category: 'music', genres: ['Ecstatic Dance', 'Movement'],
+    environment: 'indoor', eventType: 'wellness', age: 'all-ages',
+    time: '4 PM', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://juliestuart5rhythms.com', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/evergreen/five_rhythms.jpg', officialUrl: 'https://juliestuart5rhythms.com', instagramUrl: null,
+    note: 'Ecstatic dance cousin to Sol Dance — movement meditation, no alcohol, DJ-driven. $15-25. Fills the physical reset slot on Fridays and Sundays. No experience needed.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 50, formatRarity: 78, lineupStrength: 45, valueForMoney: 80 },
+    recurring: true, recurringNote: 'Sundays 4–6 PM + Friday evenings. Weekly.'
+  },
+  {
+    id: 46,
+    date: '2026-05-08', dateEnd: '2026-05-08', dateStr: 'Fri May 8',
+    title: 'Castleberry Hill Art Stroll',
+    subtitle: 'Free gallery walk with wine',
+    venue: 'Castleberry Hill', address: 'Walker St & Nelson St SW, Atlanta, GA 30313',
+    lat: 33.7497, lng: -84.3975,
+    score: 62, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'date', genres: ['Art', 'Gallery', 'Community'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.castleberryhill.org', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/castleberry_art_stroll.jpg', officialUrl: 'https://www.castleberryhill.org', instagramUrl: null,
+    note: '2nd Friday of every month. Free gallery walk through Castleberry Hill — open studios, wine, street art. Walking distance between spots. Great date night or group outing with zero planning.',
+    scoreReasoning: { genreMatch: 45, venueQuality: 65, formatRarity: 70, lineupStrength: 40, valueForMoney: 100 },
+    recurring: true, recurringNote: '2nd Friday monthly. Next: Jun 12, Jul 10, Aug 14, Sep 11'
+  },
+  {
+    id: 47,
+    date: '2026-05-02', dateEnd: '2026-05-02', dateStr: 'Sat May 2',
+    title: 'Free Yoga in Piedmont Park',
+    subtitle: 'Outdoor community yoga',
+    venue: 'Piedmont Park', address: 'Piedmont Park, Atlanta, GA 30309',
+    lat: 33.7879, lng: -84.3731,
+    score: 45, tier: 'C',
+    slots: ['SOLO_RESET'],
+    category: 'free', genres: ['Yoga', 'Wellness'],
+    environment: 'outdoor', eventType: 'wellness', age: 'all-ages',
+    time: '10 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://piedmontpark.org', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/free_yoga_piedmont.jpg', officialUrl: 'https://piedmontpark.org', instagramUrl: null,
+    note: 'Free outdoor yoga on Saturday mornings in summer. Chill morning reset in the park. Pairs well with the Green Market. Bring your own mat.',
+    scoreReasoning: { genreMatch: 35, venueQuality: 72, formatRarity: 40, lineupStrength: 20, valueForMoney: 100 },
+    recurring: true, recurringNote: 'Saturdays 10 AM, summer months'
+  },
+
+  // ── NEW ADDITIONS ────────────────────────────────────────────────────────
+  {
+    id: 48,
+    date: '2026-04-25', dateEnd: '2026-04-25', dateStr: 'Sat Apr 25',
+    title: 'RESONATE: Journey of Breath & Sound',
+    subtitle: 'FIRE session — breathwork + live sound immersion',
+    venue: 'Atlanta Friends Meeting', address: '701 West Howard Ave, Decatur, GA 30030',
+    lat: 33.7541, lng: -84.2978,
+    score: 70, tier: 'B',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'wellness', genres: ['Breathwork', 'Sound healing', 'Live music'],
+    environment: 'indoor', eventType: 'wellness', age: 'all-ages',
+    time: '5:30 PM', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: true, urgentNote: 'This Saturday — $55, limited spots',
+    ticketUrl: 'https://resonate-yoga.com', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Benny Silva', 'Maya Lemberg', 'Scott Houston'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/resonate_journey_of_breath_sound.png', officialUrl: 'https://resonate-yoga.com', instagramUrl: null,
+    note: 'Monthly series from Sol Dance — breathwork + live sound immersion. This session\'s theme is FIRE: transformation and burning away what no longer serves. Active breath and vibrant sound (gongs, didgeridoos, rhythmic beats). Co-facilitated by Benny Silva, Maya Lemberg, and Scott Houston. 90-minute container at Atlanta Friends Meeting in Decatur. $55 standard ticket.',
+    scoreReasoning: { genreMatch: 55, venueQuality: 65, formatRarity: 85, lineupStrength: 58, valueForMoney: 52 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 49,
+    date: '2026-04-29', dateEnd: '2026-04-29', dateStr: 'Wed Apr 29',
+    title: 'MVMT LABS — Nick Portolese',
+    subtitle: 'Communal embodiment series · Sol Dance',
+    venue: 'First Existentialist Congregation of Atlanta', address: '470 Candler Park Dr NE, Atlanta, GA 30307',
+    lat: 33.7596, lng: -84.3714,
+    score: 58, tier: 'C',
+    slots: ['SOLO_RESET'],
+    category: 'wellness', genres: ['Movement', 'Embodiment', 'Dance workshop'],
+    environment: 'indoor', eventType: 'wellness', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Nick Portolese'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: null, instagramUrl: null,
+    note: 'Monthly movement lab series by Sol Dance — rotating practitioners. April: Nick Portolese leads a guided movement workshop. A laboratory for presence, movement, and lived experience. Non-Member Presale $20 / Door $25. Free for Tier 2 Sol Dance members, 20% off Tier 1 members.',
+    scoreReasoning: { genreMatch: 42, venueQuality: 60, formatRarity: 72, lineupStrength: 48, valueForMoney: 72 },
+    recurring: true, recurringNote: 'Last Wednesday monthly. Next: May 27, Jun 24'
+  },
+  {
+    id: 50,
+    date: '2026-06-12', dateEnd: '2026-06-12', dateStr: 'Fri Jun 12',
+    title: 'Eyedrum: An Evening of Shorts',
+    subtitle: 'Silent films of the early 20th century with live experimental scores',
+    venue: 'Eyedrum Art & Music Gallery', address: '515 Ralph David Abernathy Blvd SW, Atlanta, GA 30312',
+    lat: 33.7370, lng: -84.4053,
+    score: 82, tier: 'A',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'arts', genres: ['Experimental', 'Silent film', 'Live score', 'Avant-garde'],
+    environment: 'indoor', eventType: 'performance', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://eyedrum.org', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['The Nebulous Orchestra'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/eyedrum_an_evening_of_shorts.png', officialUrl: 'https://eyedrum.org', instagramUrl: 'https://instagram.com/eyedrum',
+    note: 'Eyedrum and The Nebulous Orchestra present early 20th century silent films scored live with experimental music — think Méliès, early avant-garde cinema, performed with contemporary improvised scores. $15. Eyedrum is one of Atlanta\'s most essential underground arts venues; this format almost never happens anywhere. Strong A-tier date night or solo culture pick.',
+    scoreReasoning: { genreMatch: 75, venueQuality: 80, formatRarity: 92, lineupStrength: 70, valueForMoney: 88 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 51,
+    date: '2026-10-30', dateEnd: '2026-10-30', dateStr: 'Fri Oct 30',
+    title: 'Beck — Ride Lonesome Tour',
+    subtitle: null,
+    venue: 'Coca-Cola Roxy', address: '800 Battery Ave NW, Atlanta, GA 30339',
+    lat: 33.8900, lng: -84.4679,
+    score: 82, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Alternative', 'Indie rock', 'Experimental pop'],
+    environment: 'indoor', eventType: 'concert', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'OTP',
+    urgent: true, urgentNote: 'Tickets on sale Fri Apr 24 at 10am — LiveNation',
+    ticketUrl: 'https://livemu.sc/4tt78GI', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Beck'],
+    setTimes: null,
+    youtubeId: 'YgSPaXgAdzE',
+    imageUrl: 'images/beck.jpg', officialUrl: 'https://www.coca-cola-roxy.com', instagramUrl: null,
+    note: 'Beck brings the Ride Lonesome Tour to Coca-Cola Roxy on Halloween Eve. One of the most inventive artists of the last 30 years — from lo-fi folk to Odelay funk-rap to Sea Change orchestral heartbreak to Midnite Vultures dance-floor weirdness. Coca-Cola Roxy is a 3,500-cap amphitheater at the Battery — solid sightlines, good sound. Tickets go on sale Friday April 24 at 10am.',
+    scoreReasoning: { genreMatch: 70, venueQuality: 78, formatRarity: 55, lineupStrength: 92, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 52,
+    date: '2026-05-22', dateEnd: '2026-05-22', dateStr: 'Fri May 22',
+    title: 'Diljit Dosanjh — Aura World Tour',
+    subtitle: null,
+    venue: 'State Farm Arena', address: '1 State Farm Drive, Atlanta, GA 30303',
+    lat: 33.7573, lng: -84.3963,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Punjabi pop', 'Bhangra', 'World'],
+    environment: 'indoor', eventType: 'concert', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.ticketmaster.com/diljit-dosanjh-aura-world-tour-2026/artist/1872035', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Diljit Dosanjh'],
+    setTimes: null,
+    youtubeId: '9wTEmuv6SvU',
+    imageUrl: 'images/diljit_dosanjh.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Diljit Dosanjh Aura World Tour at State Farm Arena. Global Punjabi pop/bhangra superstar — one of the biggest touring artists out of South Asia right now. Arena show. Diverse crowd, high energy.',
+    scoreReasoning: { genreMatch: 45, venueQuality: 80, formatRarity: 70, lineupStrength: 80, valueForMoney: 55 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 53,
+    date: '2026-06-10', dateEnd: '2026-06-10', dateStr: 'Wed Jun 10',
+    title: 'Kali Uchis — For The Girls Tour',
+    subtitle: 'with Mariah the Scientist + Laila',
+    venue: 'Cellairis Amphitheatre at Lakewood', address: '2002 Lakewood Ave SW, Atlanta, GA 30315',
+    lat: 33.7080, lng: -84.3890,
+    score: 80, tier: 'A',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['R&B', 'Latin', 'Indie pop'],
+    environment: 'outdoor', eventType: 'concert', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.songkick.com/concerts/43135951-kali-uchis-at-cellairis-amphitheatre-at-lakewood', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Kali Uchis', 'Mariah the Scientist', 'Laila'],
+    setTimes: null,
+    youtubeId: 'bn_p95HbHoQ',
+    imageUrl: 'images/kali_uchis.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Kali Uchis For The Girls Tour at Lakewood Amphitheatre. Colombian-American R&B/Latin pop — lush, dreamy, genre-fluid. Strong date night pick or group. Support: Mariah the Scientist + Laila. Outdoor summer amphitheatre — one of Atlanta\'s best warm-weather venues.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 75, formatRarity: 60, lineupStrength: 82, valueForMoney: 68 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 54,
+    date: '2026-05-27', dateEnd: '2026-06-07', dateStr: 'May 27–Jun 7',
+    title: 'Atlanta Fringe Festival',
+    subtitle: '12-day multi-venue arts festival · Little 5 Points & East Atlanta',
+    venue: 'Multiple venues — East Atlanta / Little 5 Points', address: 'Little 5 Points, Atlanta, GA',
+    lat: 33.7595, lng: -84.3505,
+    score: 75, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET', 'FAMILY_OUT'],
+    category: 'arts', genres: ['Theater', 'Performance art', 'Comedy', 'Dance', 'Family'],
+    environment: 'indoor', eventType: 'festival', age: 'all-ages',
+    time: 'Various', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://atlantafringe.org', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/atlanta_fringe_festival.jpg', officialUrl: 'https://atlantafringe.org', instagramUrl: null,
+    note: '12-day festival across East Atlanta and Little 5 Points. 51 artist groups, 245+ live acts. Free Kids Fringe programming May 30–31 and Jun 6–7. Free street festival in L5P May 29–31 and Jun 5–7. Great for a solo culture night, date night, or taking Dean to the family programming.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 72, formatRarity: 78, lineupStrength: 60, valueForMoney: 82 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 55,
+    date: '2026-07-02', dateEnd: '2026-07-02', dateStr: 'Wed Jul 2',
+    title: 'Joji — SOLARIS Tour',
+    subtitle: null,
+    venue: 'State Farm Arena', address: '1 State Farm Drive, Atlanta, GA 30303',
+    lat: 33.7573, lng: -84.3963,
+    score: 83, tier: 'A',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Electronic', 'Indie', 'Experimental pop'],
+    environment: 'indoor', eventType: 'concert', age: 'all-ages',
+    time: '6:30 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.ticketmaster.com/joji-solaris-atlanta-georgia-07-02-2026/event/0E006458BC43E553', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Joji'],
+    setTimes: null,
+    youtubeId: 'NgsWGfUlwJI',
+    imageUrl: 'images/joji.png', officialUrl: null, instagramUrl: null,
+    note: 'Joji SOLARIS Tour at State Farm Arena. Electronic/experimental indie — sits in the same sonic territory as Tame Impala. Known for cinematic, emotionally dense sets. Arena scale with an intimate feel. Strong Concert Squad pick for a July weeknight.',
+    scoreReasoning: { genreMatch: 85, venueQuality: 80, formatRarity: 68, lineupStrength: 82, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 56,
+    date: '2026-07-01', dateEnd: '2026-07-01', dateStr: 'Wed Jul 1',
+    title: 'Madison Beer',
+    subtitle: 'with Thuy & Lulu Simon',
+    venue: 'Coca-Cola Roxy', address: '800 Battery Ave SE, Atlanta, GA 30339',
+    lat: 33.8906, lng: -84.4677,
+    score: 72, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Pop', 'Indie pop'],
+    environment: 'indoor', eventType: 'concert', age: 'all-ages',
+    time: '7:30 PM', timeSlot: 'evening', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1295283/madison-beer-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Madison Beer', 'Thuy', 'Lulu Simon'],
+    setTimes: null,
+    youtubeId: 'XFR7v5ix5hU',
+    imageUrl: 'images/madison_beer.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Madison Beer at Coca-Cola Roxy with Thuy + Lulu Simon. Pop with indie sensibilities. Roxy is intimate (3,500-cap) — good sightlines, outdoor amphitheater at the Battery. Mid-week group outing or date night with Jeannie.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 76, formatRarity: 55, lineupStrength: 70, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 57,
+    date: '2026-06-19', dateEnd: '2026-06-21', dateStr: 'Jun 19–21',
+    title: 'Juneteenth Atlanta Parade & Music Festival',
+    subtitle: '14th Annual — Parade, live music, kids activities, international food',
+    venue: 'Piedmont Park', address: 'Piedmont Park, Atlanta, GA',
+    lat: 33.7873, lng: -84.3730,
+    score: 82, tier: 'A',
+    slots: ['FAMILY_OUT', 'GROUP_NIGHT'],
+    category: 'family', genres: ['R&B', 'Hip hop', 'World', 'Festival'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '12 PM–9 PM', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/juneteenth-atlanta-parade-music-festival-14th-annual-tickets-1989175959843', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/juneteenth_parade.jpg', officialUrl: null, instagramUrl: null,
+    note: '14th annual Juneteenth celebration at Piedmont Park. FREE entry. Parade Saturday, live music both days, kids activity areas, international food court, STEM workshops. Can go as a family with Dean or bring the friend group for evening sets. One of the most culturally significant free events of the summer.',
+    scoreReasoning: { genreMatch: 70, venueQuality: 78, formatRarity: 65, lineupStrength: 65, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 58,
+    date: '2026-06-06', dateEnd: '2026-06-07', dateStr: 'Jun 6–7',
+    title: 'Flying Colors Butterfly Festival',
+    subtitle: '27th Annual — Live butterfly encounter, kids workshops, face painting',
+    venue: 'Chattahoochee Nature Center', address: '9135 Willeo Rd, Roswell, GA',
+    lat: 34.0169, lng: -84.3854,
+    score: 78, tier: 'A',
+    slots: ['FAMILY_OUT'],
+    category: 'family', genres: ['Nature', 'Family', 'Kids'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '9 AM–3 PM', timeSlot: 'morning', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://chattnaturecenter.org/events/24th-annual-flying-colors-butterfly-festival/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/flying_colors_butterfly.jpg', officialUrl: null, instagramUrl: null,
+    note: '27th annual butterfly festival at Chattahoochee Nature Center. Kids walk through live butterfly encounter, meet entomologists, face painters, nature crafts, games. ~$25/person, free under 2 (Ruby qualifies). Perfect Dean + Ruby summer morning in Roswell — OTP but worth the drive.',
+    scoreReasoning: { genreMatch: 40, venueQuality: 72, formatRarity: 75, lineupStrength: 55, valueForMoney: 85 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 59,
+    date: '2026-07-17', dateEnd: '2026-07-19', dateStr: 'Jul 17–19',
+    title: 'Atlanta African Dance & Drum Festival',
+    subtitle: '16th Annual — West African dance + drumming workshops, craft market, concert',
+    venue: 'East Point City Annex', address: 'East Point, GA',
+    lat: 33.6796, lng: -84.4394,
+    score: 73, tier: 'B',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['World', 'Percussion', 'African', 'Dance'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '6 PM–7 PM (concert)', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/atlanta-african-dance-and-drum-festival-2026-tickets-1987568891057', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/atlanta_african_dance_drum.jpg', officialUrl: null, instagramUrl: null,
+    note: '16th annual. Three days of West African dance and drumming workshops, craft market, and live concert. Experimental/cultural music angle — completely different from the concert circuit. Great for a solo immersion weekend or group cultural outing.',
+    scoreReasoning: { genreMatch: 68, venueQuality: 62, formatRarity: 82, lineupStrength: 60, valueForMoney: 80 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 60,
+    date: '2026-08-16', dateEnd: '2026-08-17', dateStr: 'Aug 16–17',
+    title: 'Stockbridge Jazz Festival',
+    subtitle: '1st Annual — David Benoit, Norman Brown, Keiko Matsui, Jennifer Holliday, Eric Darius',
+    venue: 'VyStar Amphitheater at The Bridge', address: '4650 North Henry Blvd, Stockbridge, GA',
+    lat: 33.5440, lng: -84.2321,
+    score: 82, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Jazz', 'Smooth jazz', 'R&B'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '6 PM (gates 4 PM)', timeSlot: 'evening', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.ticketmaster.com/vystar-amphitheater-at-the-bridge-tickets-stockbridge/venue/115927', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['David Benoit', 'Norman Brown', 'Keiko Matsui', 'Jennifer Holliday', 'Eric Darius'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: null, instagramUrl: null,
+    note: 'Inaugural Stockbridge Jazz Fest — first annual. Outdoor amphitheater. Hosted by Tommy Davidson (comedy). Strong lineup across both nights. OTP but mid-August evening is worth the drive. 2-night commitment works well for group planning or a dedicated date night.',
+    scoreReasoning: { genreMatch: 80, venueQuality: 70, formatRarity: 78, lineupStrength: 80, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 61,
+    date: '2026-06-10', dateEnd: '2026-06-14', dateStr: 'Jun 10–14',
+    title: 'NOW Festival — Atlanta Opera',
+    subtitle: '10-minute opera competition — new works, experimental',
+    venue: 'Various Atlanta venues', address: 'Atlanta, GA',
+    lat: 33.7490, lng: -84.3880,
+    score: 70, tier: 'B',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'arts', genres: ['Opera', 'Experimental', 'Classical'],
+    environment: 'indoor', eventType: 'festival', age: 'all-ages',
+    time: 'Various', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.atlantaopera.org', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/now_festival_atlanta_opera.png', officialUrl: 'https://www.atlantaopera.org', instagramUrl: null,
+    note: 'Atlanta Opera\'s 10-minute opera competition — new works, experimental format. Five days across multiple venues. Indie/experimental lean on a classical form. Good solo reset or intimate date night with Jeannie — completely different from the rest of the summer lineup.',
+    scoreReasoning: { genreMatch: 58, venueQuality: 72, formatRarity: 88, lineupStrength: 60, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 62,
+    date: '2026-07-25', dateEnd: '2026-07-25', dateStr: 'Sat Jul 25',
+    title: 'Atlanta Ice Cream & Wellness Festival',
+    subtitle: 'Sweet 16th Annual — FREE, Piedmont Park, live music, kids zone',
+    venue: 'Piedmont Park', address: 'Piedmont Park, Atlanta, GA',
+    lat: 33.7873, lng: -84.3730,
+    score: 80, tier: 'A',
+    slots: ['FAMILY_OUT'],
+    category: 'family', genres: ['Family', 'Food', 'Festival', 'Free'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '11 AM–6 PM', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/sweet-16th-annual-atlanta-ice-cream-wellness-festival-tickets-1984716600780', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/atl_ice_cream_wellness.jpg', officialUrl: null, instagramUrl: null,
+    note: '16th annual. FREE. Kids zone, live music, wellness vendors, food trucks — all at Piedmont Park. Perfect low-friction summer Saturday with Dean (3) and Ruby (1). Same walk-up energy as Jazz Fest but much more manageable for a family afternoon.',
+    scoreReasoning: { genreMatch: 45, venueQuality: 78, formatRarity: 60, lineupStrength: 45, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 63,
+    date: '2026-06-11', dateEnd: '2026-07-19', dateStr: 'Jun 11–Jul 19',
+    title: 'Decatur WatchFest \'26',
+    subtitle: 'Free outdoor movie festival — live music, food, games — weekend screenings',
+    venue: 'Downtown Decatur Square', address: 'Decatur Square, Decatur, GA',
+    lat: 33.7748, lng: -84.2963,
+    score: 68, tier: 'B',
+    slots: ['FAMILY_OUT', 'DATE_NIGHT'],
+    category: 'family', genres: ['Film', 'Outdoor', 'Free'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: 'Weekends', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://discoveratlanta.com/events/festivals/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/decatur_watchfest.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Month-long free outdoor movie + music festival in Decatur Square. Drop-in friendly, kid-welcoming, good food nearby. Runs every weekend Jun 11–Jul 19. Low pressure recurring option for summer evenings with kids or as a laid-back group hangout.',
+    scoreReasoning: { genreMatch: 45, venueQuality: 65, formatRarity: 62, lineupStrength: 45, valueForMoney: 98 },
+    recurring: true, recurringNote: 'Every weekend Jun 11–Jul 19'
+  },
+
+  // ── JUNE 18 BATCH ──────────────────────────────────────────────────────────
+  {
+    id: 64,
+    date: '2026-06-18', dateEnd: '2026-06-18', dateStr: 'Thu Jun 18',
+    title: 'Summer Solstice Artwalk',
+    subtitle: 'Community artwalk through Decatur galleries & shops',
+    venue: 'Downtown Decatur', address: 'Downtown Decatur, GA',
+    lat: 33.7748, lng: -84.2963,
+    score: 62, tier: 'B',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'arts', genres: ['Visual Art', 'Community', 'Gallery Walk'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '6 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: true, urgentNote: 'Tonight only',
+    ticketUrl: 'https://www.facebook.com/events/1024475016907324/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/summer_solstice_artwalk.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Decatur Arts Alliance artwalk celebrating the longest nights of summer. Stroll galleries, shops, and pop-ups through downtown Decatur. Free, no plan required — easy solo or date night option.',
+    scoreReasoning: { genreMatch: 50, venueQuality: 65, formatRarity: 65, lineupStrength: 40, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 65,
+    date: '2026-06-18', dateEnd: '2026-06-18', dateStr: 'Thu Jun 18',
+    title: 'Plazadrome: Citizen Ruth (4K)',
+    subtitle: 'Alexander Payne\'s political satire — one-night 4K restoration',
+    venue: 'Videodrome', address: '617 N Highland Ave NE, Atlanta, GA 30306',
+    lat: 33.7750, lng: -84.3520,
+    score: 70, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'film', genres: ['Indie Film', 'Political Satire', '90s Cinema'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '9 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: true, urgentNote: 'One night only — tonight',
+    ticketUrl: 'https://www.plazaatlanta.com/movie/plazadrome-citizen-ruth-4k', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: 'https://www.plazaatlanta.com/movie/plazadrome-citizen-ruth-4k', instagramUrl: null,
+    note: 'Videodrome\'s Plazadrome series brings a brand-new 4K restoration of Alexander Payne\'s sharp 1990s political satire to the big screen for one night. Virginia-Highland neighborhood.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 88, lineupStrength: 50, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── JUNE 19–21 ─────────────────────────────────────────────────────────────
+  {
+    id: 66,
+    date: '2026-06-19', dateEnd: '2026-06-19', dateStr: 'Fri Jun 19',
+    title: 'Juneteenth Celebration',
+    subtitle: 'Art creation, live performances & gallery access — High Museum',
+    venue: 'High Museum of Art', address: '1280 Peachtree St NE, Atlanta, GA 30309',
+    lat: 33.7894, lng: -84.3858,
+    score: 68, tier: 'B',
+    slots: ['FAMILY_OUT', 'DATE_NIGHT'],
+    category: 'arts', genres: ['Cultural Celebration', 'Visual Art', 'Live Performance'],
+    environment: 'indoor', eventType: 'festival', age: 'all-ages',
+    time: '10 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://high.org/event/juneteenth-celebration-2026', free: true,
+    membershipIncluded: true, membershipVenue: 'High Museum of Art', advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: 'https://high.org/event/juneteenth-celebration-2026', instagramUrl: null,
+    note: 'High Museum of Art hosts a free Juneteenth celebration: art creation workshops, live performances, and full access to world-class exhibitions. Free to the public — one of the better free cultural days of the summer.',
+    scoreReasoning: { genreMatch: 55, venueQuality: 85, formatRarity: 68, lineupStrength: 55, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 67,
+    date: '2026-05-09', dateEnd: '2026-09-06', dateStr: 'May 9–Sep 6',
+    title: 'Niki in the Garden',
+    subtitle: 'Fantastical sculptures by Niki de Saint Phalle — ABG 50th anniversary',
+    venue: 'Atlanta Botanical Garden', address: '1345 Piedmont Ave NE, Atlanta, GA 30309',
+    lat: 33.7883, lng: -84.3736,
+    score: 74, tier: 'B',
+    slots: ['FAMILY_OUT', 'DATE_NIGHT', 'PAPA_DEAN'],
+    category: 'arts', genres: ['Sculpture', 'Art Exhibition', 'Botanical Garden'],
+    environment: 'outdoor', eventType: 'museum', age: 'all-ages',
+    time: '9 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://atlantabg.org/calendar/niki-in-the-garden', free: false,
+    membershipIncluded: true, membershipVenue: 'Atlanta Botanical Garden', advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/niki_in_the_garden.jpg', officialUrl: 'https://atlantabg.org/calendar/niki-in-the-garden', instagramUrl: null,
+    note: 'Encore exhibition celebrating ABG\'s 50th anniversary. Vibrant, fantastical sculptures by Niki de Saint Phalle installed throughout the Garden. Included with membership. Perfect recurring option all summer — Dean will love the oversized colorful figures.',
+    scoreReasoning: { genreMatch: 68, venueQuality: 82, formatRarity: 72, lineupStrength: 65, valueForMoney: 88 },
+    recurring: true, recurringNote: 'Open daily through Sep 6 with Garden admission'
+  },
+  {
+    id: 68,
+    date: '2026-06-20', dateEnd: '2026-06-20', dateStr: 'Sat Jun 20',
+    title: 'Frolic at the Juneteenth Parade',
+    subtitle: 'ATL Black Fae Fest — march in fantasy/fae attire',
+    venue: 'Sweet Auburn', address: '432 John Wesley Dobbs Ave NE, Atlanta, GA 30312',
+    lat: 33.7563, lng: -84.3697,
+    score: 52, tier: 'C',
+    slots: ['FAMILY_OUT', 'GROUP_NIGHT'],
+    category: 'cultural', genres: ['Parade', 'Community', 'Cultural Celebration'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '9 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/2642462966149569/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/juneteenth_parade.jpg', officialUrl: null, instagramUrl: null,
+    note: 'ATL Black Fae Fest invites the community to march in the Juneteenth Parade in fantasy/fae-themed attire. Sweet Auburn. Free, casual, family-friendly.',
+    scoreReasoning: { genreMatch: 38, venueQuality: 55, formatRarity: 72, lineupStrength: 30, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 69,
+    date: '2026-06-21', dateEnd: '2026-06-21', dateStr: 'Sun Jun 21',
+    title: 'Music in the Garden — Lola Ladae',
+    subtitle: 'R&B / neo-soul outdoor concert at Wylde Center\'s Oakhurst Garden',
+    venue: 'Wylde Center\'s Oakhurst Garden', address: '435 Oakview Rd, Decatur, GA 30030',
+    lat: 33.7549, lng: -84.2987,
+    score: 68, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['R&B', 'Neo-Soul', 'Outdoor Concert'],
+    environment: 'outdoor', eventType: 'live', age: 'all-ages',
+    time: '6 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://snugconcerts.org/event/wyldecenter-lolaladae', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Lola Ladae'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/music_in_the_garden_lola_ladae.jpeg', officialUrl: 'https://snugconcerts.org/event/wyldecenter-lolaladae', instagramUrl: null,
+    note: 'Enchanting summer evening concert with R&B and neo-soul artist Lola Ladae in Wylde Center\'s beautiful community garden in Oakhurst/Decatur. Snug Concerts series — intimate outdoor setting.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 68, formatRarity: 72, lineupStrength: 58, valueForMoney: 75 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── JUNE 27–30 ─────────────────────────────────────────────────────────────
+  {
+    id: 70,
+    date: '2026-06-27', dateEnd: '2026-06-27', dateStr: 'Sat Jun 27',
+    title: 'Summer Party at the Garden',
+    subtitle: 'Live music, food & summer lighting — Atlanta Botanical Garden',
+    venue: 'Atlanta Botanical Garden', address: '1345 Piedmont Ave NE, Atlanta, GA 30309',
+    lat: 33.7883, lng: -84.3736,
+    score: 72, tier: 'B',
+    slots: ['DATE_NIGHT', 'FAMILY_OUT'],
+    category: 'music', genres: ['Outdoor Party', 'Live Music', 'Garden'],
+    environment: 'outdoor', eventType: 'festival', age: 'all-ages',
+    time: '6 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://atlantabg.org/calendar/summer-party', free: false,
+    membershipIncluded: true, membershipVenue: 'Atlanta Botanical Garden', advancePurchase: true,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/summer_party_at_the_garden.jpg', officialUrl: 'https://atlantabg.org/calendar/summer-party', instagramUrl: null,
+    note: 'Summer evening party at the Botanical Garden with live music, great food, and warm summer lighting throughout the grounds. Garden membership often includes or discounts. Strong date night option.',
+    scoreReasoning: { genreMatch: 60, venueQuality: 82, formatRarity: 62, lineupStrength: 50, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 71,
+    date: '2026-06-30', dateEnd: '2026-06-30', dateStr: 'Tue Jun 30',
+    title: 'Concert for the Community',
+    subtitle: 'Spirit of Atlanta Drum Corps + Atlanta Youth Jazz — free',
+    venue: 'The Center at CNN Studios', address: '190 Marietta St NW, Atlanta, GA',
+    lat: 33.7581, lng: -84.3941,
+    score: 56, tier: 'C',
+    slots: ['FAMILY_OUT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Drum Corps', 'Jazz', 'Community Concert'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/861952436969804/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Spirit of Atlanta Drum and Bugle Corps', 'Atlanta Youth Jazz'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: null, instagramUrl: null,
+    note: 'Free community concert downtown. Spirit of Atlanta Drum & Bugle Corps and Atlanta Youth Jazz. Doors 6pm, performance 7pm. Good family option if downtown works.',
+    scoreReasoning: { genreMatch: 42, venueQuality: 58, formatRarity: 62, lineupStrength: 45, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── JULY ───────────────────────────────────────────────────────────────────
+  {
+    id: 72,
+    date: '2026-07-02', dateEnd: '2026-07-02', dateStr: 'Thu Jul 2',
+    title: 'Family Day: Pioneers of Puppetry',
+    subtitle: 'Lamb Chop, Cookie Monster, Macy\'s parade balloons — Center for Puppetry Arts',
+    venue: 'Center for Puppetry Arts', address: '1404 Spring St NW, Atlanta, GA 30309',
+    lat: 33.7890, lng: -84.3924,
+    score: 68, tier: 'B',
+    slots: ['FAMILY_OUT', 'PAPA_DEAN'],
+    category: 'family', genres: ['Puppetry', 'Children', 'Museum'],
+    environment: 'indoor', eventType: 'museum', age: 'all-ages',
+    time: '9 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://puppet.org/programs/pioneers-of-puppetry', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/family_day_pioneers_of_puppetry.png', officialUrl: 'https://puppet.org/programs/pioneers-of-puppetry', instagramUrl: null,
+    note: 'Center for Puppetry Arts Family Day. Explore Lamb Chop, Cookie Monster, Macy\'s Thanksgiving Parade balloons, and the creators behind them. Dean will be into this. Good Papa+Dean outing.',
+    scoreReasoning: { genreMatch: 55, venueQuality: 72, formatRarity: 75, lineupStrength: 55, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 73,
+    date: '2026-07-05', dateEnd: '2026-07-05', dateStr: 'Sun Jul 5',
+    title: 'ATL Beltline Circuit Rideout',
+    subtitle: 'Group e-scooter cruise along the BeltLine — meet at Woody\'s',
+    venue: 'Woody\'s CheeseSteaks', address: '981 Monroe Dr NE, Atlanta, GA',
+    lat: 33.7812, lng: -84.3674,
+    score: 52, tier: 'C',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'outdoor', genres: ['Recreation', 'BeltLine', 'Community'],
+    environment: 'outdoor', eventType: 'live', age: 'all-ages',
+    time: '3 PM', timeSlot: 'afternoon', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/1659208612026788/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/atl_beltline_rideout.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Group e-scooter ride along the Atlanta BeltLine. Meet at Woody\'s CheeseSteaks in Piedmont Park area. Casual, open to all. Good post-4th of July Sunday activity.',
+    scoreReasoning: { genreMatch: 40, venueQuality: 58, formatRarity: 60, lineupStrength: 30, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 74,
+    date: '2026-07-08', dateEnd: '2026-07-08', dateStr: 'Wed Jul 8',
+    title: 'Man Man',
+    subtitle: 'Carrot On Strings tour + Death Valley Girls — The Masquerade Purgatory',
+    venue: 'The Masquerade — Purgatory', address: '2 Kenny\'s Alley SW, Atlanta, GA 30303',
+    lat: 33.7476, lng: -84.3930,
+    score: 75, tier: 'A',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Indie Rock', 'Art Rock', 'Avant-Garde'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Man Man', 'Death Valley Girls'],
+    setTimes: null,
+    youtubeId: 'KkjNZrAXyIM',
+    imageUrl: 'images/man_man.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Man Man touring behind Carrot On Strings (Sub Pop). Chaotic, theatrical, maximalist indie rock — the kind of band that\'s genuinely better live. Death Valley Girls opening. Masquerade Purgatory is the right size room for this.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 68, formatRarity: 78, lineupStrength: 72, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 75,
+    date: '2026-07-10', dateEnd: '2026-07-10', dateStr: 'Fri Jul 10',
+    title: 'POND',
+    subtitle: 'Psychedelic rock from Perth — Terminal West, all ages',
+    venue: 'Terminal West', address: '887 W Marietta St NW, Suite C, Atlanta, GA',
+    lat: 33.7843, lng: -84.4150,
+    score: 80, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Psychedelic Rock', 'Art Rock', 'Indie'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['POND'],
+    setTimes: null,
+    youtubeId: 'YDNGbXMpVEk',
+    imageUrl: 'images/pond.jpg', officialUrl: null, instagramUrl: 'https://instagram.com/pondofficial',
+    note: 'POND is the Perth psychedelic rock collective spun out of the Tame Impala orbit. Dense, trippy, and surprisingly melodic live. Terminal West is the perfect mid-size venue for this — great sound, good sightlines, strong crowd. Zero Mile Presents.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 80, formatRarity: 75, lineupStrength: 78, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 76,
+    date: '2026-07-11', dateEnd: '2026-07-11', dateStr: 'Sat Jul 11',
+    title: 'Kids Garden Scavenger Hunt & Craft',
+    subtitle: 'Nature hunt + sensory walk + take-home craft — Pike Nurseries, free',
+    venue: 'Pike Nurseries', address: '645 Charlotte Pl NW, Atlanta, GA 30318',
+    lat: 33.7855, lng: -84.4064,
+    score: 60, tier: 'B',
+    slots: ['FAMILY_OUT', 'PAPA_DEAN'],
+    category: 'family', genres: ['Children', 'Nature', 'Crafts'],
+    environment: 'outdoor', eventType: 'live', age: 'all-ages',
+    time: '9 AM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/kids-garden-scavenger-hunt-sensory-walk-craft-tickets-1992012795896', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/kids_garden_scavenger_hunt.png', officialUrl: null, instagramUrl: null,
+    note: 'Free family morning at Pike Nurseries. Kids do a nature scavenger hunt, sensory walk, and take-home craft. Low-stakes weekend morning option — Dean-appropriate.',
+    scoreReasoning: { genreMatch: 50, venueQuality: 55, formatRarity: 58, lineupStrength: 30, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 77,
+    date: '2026-07-19', dateEnd: '2026-07-19', dateStr: 'Sun Jul 19',
+    title: 'Wax\'n\'Facts 50th Anniversary',
+    subtitle: 'Celebrating 50 years of Atlanta\'s beloved independent record store — Variety Playhouse',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA',
+    lat: 33.7649, lng: -84.3509,
+    score: 80, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Live Music', 'Record Store Culture', 'Anniversary'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '6:30 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: null, instagramUrl: null,
+    note: 'Wax\'n\'Facts is Atlanta\'s legendary independent record store, turning 50. Anniversary show at Variety Playhouse. The room will be full of music obsessives — this is the kind of event that has genuine cultural weight in Atlanta. Zero Mile Presents.',
+    scoreReasoning: { genreMatch: 75, venueQuality: 82, formatRarity: 82, lineupStrength: 68, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 78,
+    date: '2026-07-22', dateEnd: '2026-07-22', dateStr: 'Wed Jul 22',
+    title: 'Atlanta Storytellers: "The Songs That Shape Us"',
+    subtitle: 'One-year anniversary show — live storytelling + music at Eddie\'s Attic',
+    venue: 'Eddie\'s Attic', address: '545 N McDonough St, Decatur, GA 30030',
+    lat: 33.7741, lng: -84.2973,
+    score: 66, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'arts', genres: ['Storytelling', 'Live Performance', 'Music'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '6:45 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: [],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/atlanta_storytellers.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Atlanta Storytellers\' one-year anniversary show at Eddie\'s Attic. Theme: music\'s role in shaping our lives. Intimate, personal, well-curated. Eddie\'s Attic is one of the best small rooms in Atlanta. Good date night or solo reset.',
+    scoreReasoning: { genreMatch: 60, venueQuality: 80, formatRarity: 75, lineupStrength: 55, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── AUGUST ─────────────────────────────────────────────────────────────────
+  {
+    id: 79,
+    date: '2026-08-01', dateEnd: '2026-08-01', dateStr: 'Sat Aug 1',
+    title: 'Passion Pit',
+    subtitle: 'The Pretty Penny Tour — The Eastern',
+    venue: 'The Eastern', address: '777 Memorial Drive SE, Atlanta, GA',
+    lat: 33.7433, lng: -84.3613,
+    score: 80, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Indie Pop', 'Synthpop', 'Electropop'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/easternatl', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Passion Pit'],
+    setTimes: null,
+    youtubeId: '5bfseWNmlds',
+    imageUrl: 'images/passion_pit.jpeg', officialUrl: 'https://easternatl.com', instagramUrl: null,
+    note: 'Passion Pit on The Pretty Penny Tour. Right off the BeltLine at The Eastern — great venue. 181 people interested. Dense, euphoric electropop with soaring vocals. Concert Squad and date night both work here. AEG + Zero Mile Presents.',
+    scoreReasoning: { genreMatch: 80, venueQuality: 85, formatRarity: 68, lineupStrength: 78, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 80,
+    date: '2026-08-08', dateEnd: '2026-08-08', dateStr: 'Sat Aug 8',
+    title: 'DILLSTRADAMUS',
+    subtitle: 'Dillon Francis B2B Flosstradamus — Buckhead Theatre',
+    venue: 'Buckhead Theatre', address: '3110 Roswell Rd NE, Atlanta, GA 30305',
+    lat: 33.8386, lng: -84.3757,
+    score: 68, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['EDM', 'Moombahton', 'DJ Set'],
+    environment: 'indoor', eventType: 'dj', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Dillon Francis', 'Flosstradamus'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: null, instagramUrl: null,
+    note: 'Dillon Francis and Flosstradamus collab set. High-energy B2B. Buckhead Theatre works for this crowd. Collectiv Presents + Live Nation. Good if the group is feeling a big EDM night.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 60, lineupStrength: 68, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 81,
+    date: '2026-08-21', dateEnd: '2026-08-21', dateStr: 'Fri Aug 21',
+    title: 'Toro y Moi',
+    subtitle: 'Variety Playhouse — all ages, Zero Mile Presents',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA',
+    lat: 33.7649, lng: -84.3509,
+    score: 84, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Chillwave', 'Indie R&B', 'Psychedelic Pop'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Toro y Moi'],
+    setTimes: null,
+    youtubeId: 'O0_ardwzTrA',
+    imageUrl: 'images/toro_y_moi.jpg', officialUrl: null, instagramUrl: 'https://instagram.com/toroymoiofficial',
+    note: 'Toro y Moi is one of the best live acts in indie — Chaz Bear builds dense, psychedelic, groove-heavy sets that hold a room. Variety Playhouse is the right size venue: intimate enough to feel close, big enough for a real production. Concert Squad event.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 82, formatRarity: 72, lineupStrength: 85, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 86,
+    date: '2026-08-23', dateEnd: '2026-08-23', dateStr: 'Sun Aug 23',
+    title: 'Harmonic Breath — Morning Session',
+    subtitle: 'Breathwork + Live Music + Reiki · Ambient + Studio · 11 AM–2 PM',
+    venue: 'Ambient + Studio', address: '585 Wells St SW, Atlanta, GA 30312',
+    lat: 33.7388, lng: -84.4024,
+    score: 70, tier: 'B',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'wellness', genres: ['Breathwork', 'Sound Healing', 'Live Music'],
+    environment: 'indoor', eventType: 'workshop', age: 'all',
+    time: '11 AM–2 PM', timeSlot: 'morning', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/atlanta-the-morning-harmonic-breath-experience-the-return-home-tickets-1991201342818', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Simon Raphael (didgeridoo/guitar/looping)', 'Eve Smyth (Reiki)'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/harmonic_breath.jpg', officialUrl: 'https://www.breathsoundmagic.com/media/', instagramUrl: null,
+    note: '3-hour immersive breathwork with live healing soundscapes (didgeridoo, classical guitar, looping) + Reiki transmission. ~$89. Intimate, nervous-system focused. Good solo reset or date night with Jeannie. Added from Eventbrite collection — Aug 2026.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 70, formatRarity: 85, lineupStrength: 60, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 87,
+    date: '2026-08-23', dateEnd: '2026-08-23', dateStr: 'Sun Aug 23',
+    title: 'Harmonic Breath — Evening Session',
+    subtitle: 'Breathwork + Live Music + Reiki · Ambient + Studio · 4–7 PM',
+    venue: 'Ambient + Studio', address: '585 Wells St SW, Atlanta, GA 30312',
+    lat: 33.7388, lng: -84.4024,
+    score: 70, tier: 'B',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'wellness', genres: ['Breathwork', 'Sound Healing', 'Live Music'],
+    environment: 'indoor', eventType: 'workshop', age: 'all',
+    time: '4–7 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/atlanta-the-evening-harmonic-breath-experience-the-return-home-tickets-1991206793120', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Simon Raphael (didgeridoo/guitar/looping)', 'Eve Smyth (Reiki)'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/harmonic_breath.jpg', officialUrl: 'https://www.breathsoundmagic.com/media/', instagramUrl: null,
+    note: '3-hour immersive breathwork with live healing soundscapes (didgeridoo, classical guitar, looping) + Reiki transmission. ~$89. Intimate, nervous-system focused. Good solo reset or date night with Jeannie. Added from Eventbrite collection — Aug 2026.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 70, formatRarity: 85, lineupStrength: 60, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 82,
+    date: '2026-08-29', dateEnd: '2026-08-29', dateStr: 'Sat Aug 29',
+    title: 'The Disco Biscuits',
+    subtitle: 'Jam band legends — Variety Playhouse, all ages',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA',
+    lat: 33.7649, lng: -84.3509,
+    score: 74, tier: 'B',
+    slots: ['GROUP_NIGHT'],
+    category: 'music', genres: ['Jam Band', 'Electronic Rock', 'Trance Fusion'],
+    environment: 'indoor', eventType: 'live', age: 'all-ages',
+    time: '8 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: null, free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['The Disco Biscuits'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: 'images/disco_biscuits.jpg', officialUrl: null, instagramUrl: null,
+    note: 'Philadelphia\'s legendary jam band since 1995. Trance-fusion meets improvisational rock — shows run long, crowd is devoted. Good if the group is up for it. Variety Playhouse suits the format.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 82, formatRarity: 68, lineupStrength: 75, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 85,
+    date: '2026-07-05', dateEnd: '2026-07-05', dateStr: 'Sun Jul 5',
+    title: 'Soular Flare',
+    subtitle: 'Live Rhythm Guitar Breathwork · Group Song Creation · Original Music Sharing',
+    venue: 'MASS Collective', address: '2565 Paul Ave NW, Atlanta, GA 30318',
+    lat: 33.7823, lng: -84.4271,
+    score: 68, tier: 'B',
+    slots: ['SOLO_RESET', 'GROUP_NIGHT'],
+    category: 'music', genres: ['acoustic', 'experimental', 'ambient'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '5:00PM', distance: 'ITP',
+    urgent: false, urgentNote: '',
+    ticketUrl: '', free: true, membershipIncluded: false, advancePurchase: false,
+    lineup: [],
+    note: 'Breathwork journey with live guitar, group song creation, original music sharing. 1st Sunday of every month.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 65, formatRarity: 80, lineupStrength: 55, valueForMoney: 90 },
+  },
+
+  {
+    id: 84,
+    date: '2026-08-11', dateEnd: '2026-08-11', dateStr: 'Tue Aug 11',
+    title: 'St. Lucia',
+    subtitle: 'An Evening with St. Lucia — Synth-pop/indie electronic — Buckhead Theatre',
+    venue: 'Buckhead Theatre', address: '3251 Roswell Rd NE, Atlanta, GA 30305',
+    lat: 33.8365, lng: -84.3878,
+    score: 80, tier: 'A',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['synth-pop', 'indie-electronic', 'dream-pop'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00PM', distance: 'ITP',
+    urgent: false, urgentNote: '',
+    ticketUrl: 'https://www.ticketmaster.com/st-lucia-atlanta-georgia-08-11-2026/event/0E0064A4F28FF0F4',
+    free: false, membershipIncluded: false, advancePurchase: true,
+    lineup: ['St. Lucia'],
+    setTimes: null, youtubeId: '7HPMK9Uxq3I',
+    imageUrl: 'images/st_lucia.jpg', officialUrl: 'https://www.livenation.com/event/vvG1zZ_1KwNTdV/st-lucia', instagramUrl: null,
+    note: 'South African synth-pop duo. Atmospheric, danceable, great date-night energy.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 82, formatRarity: 70, lineupStrength: 76, valueForMoney: 74 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── SEPTEMBER ──────────────────────────────────────────────────────────────
+  {
+    id: 83,
+    date: '2026-09-10', dateEnd: '2026-09-10', dateStr: 'Thu Sep 10',
+    title: 'Magic for Adults',
+    subtitle: 'Eric Eaton — 3x Comedy Magician of the Year — The Punchline, 18+',
+    venue: 'The Punchline Comedy Club', address: '3652 Roswell Rd NE, Atlanta, GA',
+    lat: 33.8703, lng: -84.3765,
+    score: 63, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'comedy', genres: ['Magic', 'Comedy', 'Live Performance'],
+    environment: 'indoor', eventType: 'live', age: '18+',
+    time: '7:30 PM', timeSlot: 'evening', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.themagicofericeaton.com/tour-dates/atlantaga', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Eric Eaton'],
+    setTimes: null,
+    youtubeId: null,
+    imageUrl: null, officialUrl: 'https://www.themagicofericeaton.com/tour-dates/atlantaga', instagramUrl: null,
+    note: 'Eric Eaton — 3x Comedy Magician of the Year (CW/NBC/FOX/ABC) — performs adult comedy magic at The Punchline. 18+ event. $39.65. Genuinely popular: 8,300 interested. Surprisingly fun group night.',
+    scoreReasoning: { genreMatch: 55, venueQuality: 68, formatRarity: 80, lineupStrength: 62, valueForMoney: 65 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── JULY (new) ─────────────────────────────────────────────────────────────
+  {
+    id: 88,
+    date: '2026-07-08', dateEnd: '2026-07-08', dateStr: 'Wed Jul 8',
+    title: 'Amy Ray Band',
+    subtitle: 'Indigo Girls — Eddie\'s Attic, Decatur · 9 PM',
+    venue: 'Eddie\'s Attic', address: '515 N McDonough St, Decatur, GA 30030',
+    lat: 33.7731, lng: -84.2963,
+    score: 73, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Folk Rock', 'Americana', 'Indie Folk', 'Roots Rock'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '9:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://dice.fm/event/7dqk27-amy-ray-band-8th-jul-eddies-attic-decatur-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Amy Ray Band'],
+    setTimes: null, youtubeId: 'IfqipYNn3PE',
+    imageUrl: 'images/amy_ray_band.jpg', officialUrl: 'https://eddiesattic.com/schedule/', instagramUrl: null,
+    note: 'Amy Ray (Indigo Girls) solo at Eddie\'s Attic — the most intimate you\'ll ever see a musician at this caliber. One of Atlanta\'s best small rooms. Heartfelt folk/rock. ~$48.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 82, formatRarity: 76, lineupStrength: 76, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 89,
+    date: '2026-07-11', dateEnd: '2026-07-11', dateStr: 'Sat Jul 11',
+    title: 'Jacques Greene',
+    subtitle: 'Speakeasy presents · Aisle 5 · 9 PM',
+    venue: 'Aisle 5', address: '1123 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7611, lng: -84.3508,
+    score: 82, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['House', 'Downtempo', 'Minimal', 'R&B-adjacent Electronic'],
+    environment: 'indoor', eventType: 'dj', age: 'all',
+    time: '9:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://wl.eventim.us/event/jacques-greene/692083?afflky=Aisle5', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Jacques Greene'],
+    setTimes: null, youtubeId: '79J58LlPiAg',
+    imageUrl: 'images/jacques_greene.jpg', officialUrl: 'https://aisle5atl.com/calendar/', instagramUrl: null,
+    note: 'Jacques Greene is a Montreal producer at the intersection of R&B, house, and club music — sophisticated, warm, groove-heavy. Speakeasy at Aisle 5. ~$30. Limited capacity.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 78, formatRarity: 76, lineupStrength: 82, valueForMoney: 83 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 90,
+    date: '2026-07-16', dateEnd: '2026-07-16', dateStr: 'Thu Jul 16',
+    title: 'American Football',
+    subtitle: 'Debut LP in full + IAN SWEET · Variety Playhouse · 8 PM',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7649, lng: -84.3509,
+    score: 83, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Emo', 'Post-Rock', 'Indie Rock', 'Math Rock'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1313102/american-football-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['American Football', 'IAN SWEET'],
+    setTimes: null, youtubeId: '_NfnXdXpjL0',
+    imageUrl: 'images/american_football.jpg', officialUrl: 'https://www.axs.com/events/1313102/american-football-tickets', instagramUrl: null,
+    note: 'American Football performing their landmark 1996 debut LP in full — one of the most influential emo/post-rock records ever made. IAN SWEET opens. $1/ticket goes to immigrant rights orgs.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 88, formatRarity: 90, lineupStrength: 85, valueForMoney: 68 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 91,
+    date: '2026-07-17', dateEnd: '2026-07-17', dateStr: 'Fri Jul 17',
+    title: 'Kurt Vile & the Violators',
+    subtitle: 'Being Dead opens · The Eastern · 8 PM',
+    venue: 'The Eastern', address: '800 Old Flat Shoals Rd SE, Atlanta, GA 30316',
+    lat: 33.7384, lng: -84.3464,
+    score: 84, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Indie Rock', 'Psychedelic Rock', 'Folk Rock', 'Alternative'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1400467/kurt-vile-and-the-violators-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Kurt Vile & the Violators', 'Being Dead'],
+    setTimes: null, youtubeId: '659pppwniXA',
+    imageUrl: 'images/kurt_vile_the_violators.jpg', officialUrl: 'https://www.axs.com/events/1400467/kurt-vile-and-the-violators-tickets', instagramUrl: null,
+    note: 'Kurt Vile is one of the best indie rock live acts working right now — sprawling, psychedelic guitar jams, warm vocals, consistently great sets. The Eastern is the ideal room. Being Dead opens. Zero Mile Presents.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 90, formatRarity: 72, lineupStrength: 85, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 92,
+    date: '2026-07-17', dateEnd: '2026-07-17', dateStr: 'Fri Jul 17',
+    title: 'feeble little horse — bitknot Tour',
+    subtitle: 'Computerwife opens · Variety Playhouse · 8 PM',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7649, lng: -84.3509,
+    score: 80, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Shoegaze', 'Indie Rock', 'Noise Pop', 'Alternative'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1458556/feeble-little-horse-bitknot-tour-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['feeble little horse', 'Computerwife'],
+    setTimes: null, youtubeId: 'mL9pYyYn0dg',
+    imageUrl: 'images/feeble_little_horse.jpg', officialUrl: 'https://www.axs.com/events/1458556/feeble-little-horse-bitknot-tour-tickets', instagramUrl: null,
+    note: 'feeble little horse touring their new LP "bitknot" — Pittsburgh shoegaze trio with a cult following built fast. Dense, noisy, melodic. One of the most buzzed-about indie acts of 2026. Note: same night as Kurt Vile at The Eastern.',
+    scoreReasoning: { genreMatch: 85, venueQuality: 88, formatRarity: 75, lineupStrength: 78, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 93,
+    date: '2026-07-17', dateEnd: '2026-07-17', dateStr: 'Fri Jul 17',
+    title: 'TRUTH — Road to Sound Haven',
+    subtitle: 'Terminal West · 8 PM · 18+',
+    venue: 'Terminal West', address: '887 W Marietta St NW Suite C, Atlanta, GA 30318',
+    lat: 33.7783, lng: -84.4103,
+    score: 70, tier: 'B',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Deep Dubstep', 'Bass Music', 'Experimental Electronic'],
+    environment: 'indoor', eventType: 'live', age: '18+',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1492270/truth-the-road-to-sound-haven-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['TRUTH'],
+    setTimes: null, youtubeId: 'fwmiSf0n9lg',
+    imageUrl: 'images/truth_road_to_sound_haven.jpg', officialUrl: 'https://www.axs.com/events/1492270/truth-the-road-to-sound-haven-tickets', instagramUrl: null,
+    note: 'TRUTH (New Zealand bass music duo) are among the most respected acts in deep dubstep globally — warm, organic sound, not hard. Terminal West on a Friday. Road to Sound Haven warm-up.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 88, formatRarity: 74, lineupStrength: 72, valueForMoney: 70 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 94,
+    date: '2026-07-18', dateEnd: '2026-07-18', dateStr: 'Sat Jul 18',
+    title: 'Band of Horses & Dinosaur Jr.',
+    subtitle: 'Full albums: "Everything All the Time" + "Where You Been" · The Eastern · 8 PM',
+    venue: 'The Eastern', address: '800 Old Flat Shoals Rd SE, Atlanta, GA 30316',
+    lat: 33.7384, lng: -84.3464,
+    score: 85, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Indie Rock', 'Alternative Rock', 'Noise Rock', 'Slowcore'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1369997/an-evening-with-band-of-horses-and-dinosaur-jr-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Band of Horses', 'Dinosaur Jr.'],
+    setTimes: null, youtubeId: 'cMFWFhTFohk',
+    imageUrl: 'images/band_of_horses_dinosaur_jr.jpg', officialUrl: 'https://www.axs.com/events/1369997/an-evening-with-band-of-horses-and-dinosaur-jr-tickets', instagramUrl: null,
+    note: 'Band of Horses plays "Everything All the Time" (20th anniversary) in full; Dinosaur Jr. plays "Where You Been" in full. Two beloved indie acts doing full album sets on the same night — rare double bill.',
+    scoreReasoning: { genreMatch: 83, venueQuality: 90, formatRarity: 92, lineupStrength: 87, valueForMoney: 60 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 95,
+    date: '2026-07-26', dateEnd: '2026-07-26', dateStr: 'Sun Jul 26',
+    title: 'Steel Pulse',
+    subtitle: 'Grammy-winning roots reggae legends · The Eastern · 8 PM',
+    venue: 'The Eastern', address: '800 Old Flat Shoals Rd SE, Atlanta, GA 30316',
+    lat: 33.7384, lng: -84.3464,
+    score: 74, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Roots Reggae', 'Reggae', 'Dub', 'Political Reggae'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1374169/steel-pulse-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Steel Pulse'],
+    setTimes: null, youtubeId: '4nony-xB3tE',
+    imageUrl: 'images/steel_pulse.jpg', officialUrl: 'https://www.axs.com/events/1374169/steel-pulse-tickets', instagramUrl: null,
+    note: 'Steel Pulse are Grammy-winning British roots reggae legends — deeply political, powerful live performers. Sunday night at The Eastern. ~$50–60.',
+    scoreReasoning: { genreMatch: 72, venueQuality: 90, formatRarity: 68, lineupStrength: 82, valueForMoney: 60 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 96,
+    date: '2026-07-31', dateEnd: '2026-07-31', dateStr: 'Fri Jul 31',
+    title: 'Com Truise',
+    subtitle: 'Speakeasy/Wetware · Aisle 5 · 9 PM',
+    venue: 'Aisle 5', address: '1123 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7611, lng: -84.3508,
+    score: 77, tier: 'B',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Synthwave', 'IDM', 'Electro', 'Downtempo'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '9:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://wl.eventim.us/event/com-truise/695539?afflky=Aisle5', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Com Truise'],
+    setTimes: null, youtubeId: 'gjP5vjn-Lac',
+    imageUrl: 'images/com_truise.jpg', officialUrl: 'https://aisle5atl.com/calendar/', instagramUrl: null,
+    note: 'Com Truise is the premier act in hazy analog-inflected synthwave/IDM — like mid-period Boards of Canada through old VHS. Consistently strong live sets. Intimate room. ~$25.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 78, formatRarity: 74, lineupStrength: 76, valueForMoney: 82 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── AUGUST (new) ───────────────────────────────────────────────────────────
+  {
+    id: 97,
+    date: '2026-08-11', dateEnd: '2026-08-11', dateStr: 'Tue Aug 11',
+    title: 'clipping. with Open Mike Eagle',
+    subtitle: 'Pedestrian Deposit opens · Terminal West · 8 PM',
+    venue: 'Terminal West', address: '887 W Marietta St NW Suite C, Atlanta, GA 30318',
+    lat: 33.7783, lng: -84.4103,
+    score: 83, tier: 'A',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Experimental Hip-Hop', 'Noise Rap', 'Avant-Garde'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1147908/clipping-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['clipping.', 'Open Mike Eagle', 'Pedestrian Deposit'],
+    setTimes: null, youtubeId: '3ZAPtFRpuu8',
+    imageUrl: 'images/clipping_open_mike_eagle.jpg', officialUrl: 'https://www.axs.com/events/1147908/clipping-tickets', instagramUrl: null,
+    note: 'clipping. (Daveed Diggs) make some of the most genuinely adventurous hip-hop/noise music alive — loud, disorienting, electrifying live. Open Mike Eagle is a cult-level smart rapper. Rare pairing. Zero Mile Presents. Note: same night as St. Lucia at Buckhead Theatre.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 88, formatRarity: 88, lineupStrength: 82, valueForMoney: 80 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 98,
+    date: '2026-08-21', dateEnd: '2026-08-21', dateStr: 'Fri Aug 21',
+    title: 'The Dirty Guv\'nahs',
+    subtitle: 'Terminal West · 8 PM',
+    venue: 'Terminal West', address: '887 W Marietta St NW Suite C, Atlanta, GA 30318',
+    lat: 33.7783, lng: -84.4103,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Soul', 'Americana', 'Indie Rock', 'Southern Rock'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.jambase.com/show/the-dirty-guvnahs-terminal-west-20260821', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['The Dirty Guv\'nahs'],
+    setTimes: null, youtubeId: '35XZ6cLcPRk',
+    imageUrl: 'images/the_dirty_guv_nahs.jpeg', officialUrl: 'https://www.terminalwestatl.com/calendar/', instagramUrl: null,
+    note: 'Knoxville soul/Americana band with a passionate Southern following. Strong live performers. Terminal West on a Friday in August. Note: same night as Toro y Moi at Variety Playhouse.',
+    scoreReasoning: { genreMatch: 74, venueQuality: 88, formatRarity: 65, lineupStrength: 70, valueForMoney: 78 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 99,
+    date: '2026-08-28', dateEnd: '2026-08-28', dateStr: 'Fri Aug 28',
+    title: 'Kasbo',
+    subtitle: 'Rooftop at The Eastern · 6 PM · 18+',
+    venue: 'The Eastern (Rooftop)', address: '800 Old Flat Shoals Rd SE, Atlanta, GA 30316',
+    lat: 33.7384, lng: -84.3464,
+    score: 77, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Future Bass', 'Indie Electronic', 'Pop EDM'],
+    environment: 'outdoor', eventType: 'live', age: '18+',
+    time: '6:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1431294/kasbo-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Kasbo'],
+    setTimes: null, youtubeId: '9jJ8TVpUIk0',
+    imageUrl: 'images/kasbo.png', officialUrl: 'https://www.axs.com/events/1431294/kasbo-tickets', instagramUrl: null,
+    note: 'Kasbo (Carl Garsbo) on the Rooftop at The Eastern — 6 PM outdoor set on a late-August Friday. His sold-out North American tour shows the demand. Emotional, melodic electronic.',
+    scoreReasoning: { genreMatch: 76, venueQuality: 88, formatRarity: 80, lineupStrength: 72, valueForMoney: 68 },
+    recurring: false, recurringNote: null
+  },
+
+  // ── SEPTEMBER (new) ────────────────────────────────────────────────────────
+  {
+    id: 100,
+    date: '2026-09-03', dateEnd: '2026-09-03', dateStr: 'Thu Sep 3',
+    title: 'Slow Magic',
+    subtitle: 'Speakeasy · Aisle 5 · 8 PM',
+    venue: 'Aisle 5', address: '1123 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7611, lng: -84.3508,
+    score: 74, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Future Bass', 'Indie Electronic', 'Synthpop'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventim.us/event/tickets/687202', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Slow Magic'],
+    setTimes: null, youtubeId: 'RThnb7VUwcY',
+    imageUrl: 'images/slow_magic.jpg', officialUrl: 'https://speakeasypromo.net/', instagramUrl: null,
+    note: 'Slow Magic is a masked Seattle producer/drummer with euphoric emotional electronic live shows — performs all instruments live including drum kit. Speakeasy at Aisle 5. ~$20.',
+    scoreReasoning: { genreMatch: 78, venueQuality: 78, formatRarity: 72, lineupStrength: 70, valueForMoney: 84 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 101,
+    date: '2026-09-04', dateEnd: '2026-09-04', dateStr: 'Fri Sep 4',
+    title: 'Channel Tres — The Enigma Tour',
+    subtitle: 'Buckhead Theatre · 9 PM',
+    venue: 'Buckhead Theatre', address: '3251 Peachtree Rd NE, Atlanta, GA 30305',
+    lat: 33.8365, lng: -84.3878,
+    score: 81, tier: 'A',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['House', 'Funk', 'Disco', 'Electro'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '9:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.ticketmaster.com/event/0E00649BF54A7880', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Channel Tres'],
+    setTimes: null, youtubeId: 'EtNIMvyEIQA',
+    imageUrl: 'images/channel_tres.jpg', officialUrl: 'https://www.ticketmaster.com/event/0E00649BF54A7880', instagramUrl: null,
+    note: 'Channel Tres fuses house, funk, and soul with a magnetism that makes him one of the most compelling live acts in electronic/dance music right now. The Enigma Tour at Buckhead Theatre.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 80, formatRarity: 76, lineupStrength: 82, valueForMoney: 72 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 102,
+    date: '2026-09-12', dateEnd: '2026-09-12', dateStr: 'Sat Sep 12',
+    title: 'Atlanta Disco Society XVIII',
+    subtitle: 'Garden Club at Wild Heaven West End · 10 PM–3 AM · 18+',
+    venue: 'Wild Heaven West End', address: '1010 White St SW, Atlanta, GA 30310',
+    lat: 33.7370, lng: -84.4185,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Disco', 'Funk', 'Soul', 'House'],
+    environment: 'outdoor', eventType: 'dj', age: '18+',
+    time: '10:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventbrite.com/e/atlanta-disco-society-xviii-tickets-1988864710889', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/atlanta_disco_society_xviii.jpg', officialUrl: 'https://www.eventbrite.com/e/atlanta-disco-society-xviii-tickets-1988864710889', instagramUrl: null,
+    note: 'Atlanta Disco Society is a recurring underground dance party with a light-up floor, glamour, and serious disco curation. Garden Club at Wild Heaven is on the BeltLine. Runs until 3 AM.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 72, formatRarity: 78, lineupStrength: 60, valueForMoney: 78 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 103,
+    date: '2026-09-14', dateEnd: '2026-09-14', dateStr: 'Mon Sep 14',
+    title: 'smerz',
+    subtitle: 'Speakeasy · Terminal West · 8 PM',
+    venue: 'Terminal West', address: '887 W Marietta St NW Suite C, Atlanta, GA 30318',
+    lat: 33.7783, lng: -84.4103,
+    score: 80, tier: 'A',
+    slots: ['SOLO_RESET', 'DATE_NIGHT'],
+    category: 'music', genres: ['Electronic Pop', 'Experimental Pop', 'Avant-Garde', 'Computer Music'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1417810/smerz-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['smerz'],
+    setTimes: null, youtubeId: 'bHp3dnAQAFc',
+    imageUrl: 'images/smerz.jpg', officialUrl: 'https://www.axs.com/events/1417810/smerz-tickets', instagramUrl: null,
+    note: 'Norwegian duo smerz sit at the intersection of classical music, computer music, and pop — genuinely unusual and critically celebrated. Presented by Speakeasy. Rare for Atlanta.',
+    scoreReasoning: { genreMatch: 82, venueQuality: 88, formatRarity: 90, lineupStrength: 76, valueForMoney: 80 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 104,
+    date: '2026-09-17', dateEnd: '2026-09-17', dateStr: 'Thu Sep 17',
+    title: 'Galcher Lustwerk — Wetware Series',
+    subtitle: 'Speakeasy/Wetware · Aisle 5 · 8 PM',
+    venue: 'Aisle 5', address: '1123 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7611, lng: -84.3508,
+    score: 82, tier: 'A',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET', 'DATE_NIGHT'],
+    category: 'music', genres: ['Deep House', 'Minimal', 'Afrobeats', 'Downtempo'],
+    environment: 'indoor', eventType: 'dj', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventim.us/event/tickets/692105', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Galcher Lustwerk'],
+    setTimes: null, youtubeId: '7ZmZI7pm4nk',
+    imageUrl: 'images/galcher_lustwerk.jpg', officialUrl: 'https://speakeasypromo.net/', instagramUrl: null,
+    note: 'Galcher Lustwerk has one of the most distinctive sounds in house — deep, smoky, idiosyncratic. Pitchfork: "didn\'t sound like anything else in dance music." Wetware/Speakeasy at Aisle 5. ~$25.',
+    scoreReasoning: { genreMatch: 90, venueQuality: 78, formatRarity: 82, lineupStrength: 80, valueForMoney: 84 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 105,
+    date: '2026-09-24', dateEnd: '2026-09-24', dateStr: 'Thu Sep 24',
+    title: 'Ott',
+    subtitle: 'Speakeasy/Wetware · Aisle 5 · 8 PM',
+    venue: 'Aisle 5', address: '1123 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7611, lng: -84.3508,
+    score: 80, tier: 'A',
+    slots: ['SOLO_RESET', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Psydub', 'Psytrance', 'Glitch Hop', 'Downtempo'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.eventim.us/event/tickets/694590', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['Ott'],
+    setTimes: null, youtubeId: 'RThnb7VUwcY',
+    imageUrl: 'images/ott.png', officialUrl: 'https://aisle5atl.com/calendar/', instagramUrl: null,
+    note: 'Ott is a British producer beloved in psychedelic/electronic circles for his lush organic dub-electronic sound — a Shpongle collaborator with a devoted following. Intimate Aisle 5 show. ~$27–30.',
+    scoreReasoning: { genreMatch: 88, venueQuality: 78, formatRarity: 84, lineupStrength: 78, valueForMoney: 82 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 106,
+    date: '2026-09-25', dateEnd: '2026-09-25', dateStr: 'Fri Sep 25',
+    title: 'ZHU — ON THE MOVE',
+    subtitle: 'The Eastern · 8:30 PM',
+    venue: 'The Eastern', address: '800 Old Flat Shoals Rd SE, Atlanta, GA 30316',
+    lat: 33.7384, lng: -84.3464,
+    score: 82, tier: 'A',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Deep House', 'Synthpop', 'Downtempo', 'Electronic'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:30 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1425403/zhu-y-on-the-move-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['ZHU'],
+    setTimes: null, youtubeId: 'CVvJp3d8xGQ',
+    imageUrl: 'images/zhu.jpg', officialUrl: 'https://www.axs.com/events/1425403/zhu-y-on-the-move-tickets', instagramUrl: null,
+    note: 'ZHU\'s ON THE MOVE tour hits The Eastern — genre-blurring house/electronic live show, hypnotic and high-production. DEF and Zero Mile. September highlight. ~$75.',
+    scoreReasoning: { genreMatch: 85, venueQuality: 90, formatRarity: 74, lineupStrength: 84, valueForMoney: 58 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 107,
+    date: '2026-09-26', dateEnd: '2026-09-26', dateStr: 'Sat Sep 26',
+    title: 'SYML — Solo in North America',
+    subtitle: 'Variety Playhouse · 8 PM',
+    venue: 'Variety Playhouse', address: '1099 Euclid Ave NE, Atlanta, GA 30307',
+    lat: 33.7649, lng: -84.3509,
+    score: 78, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Indie Folk', 'Chamber Pop', 'Alternative', 'Electronic Folk'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.axs.com/events/1412224/syml-solo-in-north-america-tickets', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['SYML'],
+    setTimes: null, youtubeId: 'u75AGy38080',
+    imageUrl: 'images/syml.jpg', officialUrl: 'https://www.axs.com/events/1412224/syml-solo-in-north-america-tickets', instagramUrl: null,
+    note: 'SYML (Brian Fennell) makes achingly beautiful minimalist folk-electronic music. Solo North America tour at Variety Playhouse — ideal low-key Saturday for a date or solo reset. ~$60.',
+    scoreReasoning: { genreMatch: 80, venueQuality: 88, formatRarity: 74, lineupStrength: 74, valueForMoney: 62 },
+    recurring: false, recurringNote: null
+  },
+
+  {
+    id: 108,
+    date: '2026-09-27', dateEnd: '2026-09-27', dateStr: 'Sun Sep 27',
+    title: 'Elevated Rhythms — Free Outdoor House',
+    subtitle: 'East Point City Hall Outdoor · 1–7 PM · Free · All Ages',
+    venue: 'East Point City Hall Outdoor', address: '2757 East Point St, East Point, GA 30344',
+    lat: 33.6795, lng: -84.4399,
+    score: 68, tier: 'C',
+    slots: ['FAMILY_OUT', 'SOLO_RESET', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Deep House', 'Soulful House', 'Afrobeats'],
+    environment: 'outdoor', eventType: 'dj', age: 'all',
+    time: '1:00 PM', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://shotgun.live/en/events/er927', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: null, officialUrl: 'https://shotgun.live/en/events/er927', instagramUrl: null,
+    note: 'Free outdoor deep house/afrobeats daytime Sunday — City of East Point production. Strong community vibes, no door. Short OTP drive (~12 min). Good FAMILY_OUT or SOLO_RESET option.',
+    scoreReasoning: { genreMatch: 80, venueQuality: 60, formatRarity: 72, lineupStrength: 50, valueForMoney: 98 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 117,
+    date: '2026-07-27', dateEnd: '2026-07-27', dateStr: 'Mon Jul 27',
+    title: 'LIVE MUSIC: The Riff Raff',
+    subtitle: 'Hot Jam ATL · Swing + Live Band · 7–10:30 PM · $20',
+    venue: 'Hot Jam Atlanta', address: '520 Northside Dr SW, Atlanta, GA 30310',
+    lat: 33.7409, lng: -84.4080,
+    score: 72, tier: 'B',
+    slots: ['DATE_NIGHT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Swing', 'Jazz', 'Live Music', 'Dancing'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '7:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.hotjamatlanta.com/register', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: true,
+    lineup: ['The Riff Raff'],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/hot_jam_riff_raff.jpg', officialUrl: 'https://www.facebook.com/events/2091362218430026/', instagramUrl: null,
+    note: 'Hot Jam ATL swing dance event — live band The Riff Raff + Progressive Series dance classes. No partner required. $20 GA. Westside venue. Great date night.',
+    scoreReasoning: { genreMatch: 68, venueQuality: 70, formatRarity: 80, lineupStrength: 65, valueForMoney: 78 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 118,
+    date: '2026-10-24', dateEnd: '2026-10-24', dateStr: 'Sat Oct 24',
+    title: 'The Pixel Man Airshow',
+    subtitle: 'Gainesville Airport · WWII Warbirds + Jets · 10 AM–2 PM',
+    venue: 'Gainesville Airport', address: '1137 Aviation Way, Gainesville, GA 30501',
+    lat: 34.2728, lng: -83.8294,
+    score: 78, tier: 'B',
+    slots: ['FAMILY_OUT', 'PAPA_DEAN'],
+    category: 'family', genres: ['Aviation', 'Airshow'],
+    environment: 'outdoor', eventType: 'festival', age: 'all',
+    time: '10:00 AM', distance: 'road-trip',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/908635765536642/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: null, officialUrl: 'https://www.facebook.com/events/908635765536642/', instagramUrl: null,
+    note: 'One-time airshow at Gainesville Airport — WWII Warbirds, fighter jets, helicopters. 135 people interested. ~1hr drive OTP. Dean would go absolutely feral for this.',
+    scoreReasoning: { genreMatch: 70, venueQuality: 72, formatRarity: 92, lineupStrength: 75, valueForMoney: 85 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 109,
+    date: '2026-07-07', dateEnd: '2026-07-07', dateStr: 'Tue Jul 7',
+    title: 'Industry Night & Blues Jam',
+    subtitle: 'Blind Willie\'s · Marvelous Marvin & The Sharks host · 8 PM',
+    venue: 'Blind Willie\'s', address: '828 N Highland Ave NE, Atlanta, GA 30306',
+    lat: 33.7831, lng: -84.3615,
+    score: 67, tier: 'C',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Blues', 'Live Music'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/1378983077000477/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Marvelous Marvin', 'The Sharks'],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/blind_willies_blues_jam.jpg', officialUrl: 'https://www.facebook.com/events/1378983077000477/', instagramUrl: null,
+    note: 'Monthly industry night blues jam at Blind Willie\'s — one of Atlanta\'s last true blues bars in Virginia-Highland. Host band features Patrick Vining, Kenny Shaffler, Travis Peek, and Marvelous Marvin on bass.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 75, lineupStrength: 60, valueForMoney: 78 },
+    recurring: true, recurringNote: 'Monthly blues jam'
+  },
+  {
+    id: 110,
+    date: '2026-07-11', dateEnd: '2026-07-11', dateStr: 'Sat Jul 11',
+    title: 'THE HUMAN DJ',
+    subtitle: 'Roaring Social Decatur · Piano, trumpet & organ · 6–9 PM',
+    venue: 'Roaring Social Decatur', address: '101 W Ponce de Leon Ave, Decatur, GA 30030',
+    lat: 33.7730, lng: -84.2960,
+    score: 64, tier: 'C',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Jazz', 'Live Music', 'Interactive'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '6:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/845695851632684/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['The Human DJ'],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/the_human_dj.jpg', officialUrl: 'https://www.facebook.com/events/845695851632684/', instagramUrl: null,
+    note: 'Live musician playing piano, trumpet & organ — interactive upbeat performance at Roaring Social Decatur. Recurring monthly Saturdays. Good date night or group hangout.',
+    scoreReasoning: { genreMatch: 60, venueQuality: 65, formatRarity: 70, lineupStrength: 58, valueForMoney: 72 },
+    recurring: true, recurringNote: 'Recurring monthly Saturdays'
+  },
+  {
+    id: 111,
+    date: '2026-07-12', dateEnd: '2026-07-12', dateStr: 'Sun Jul 12',
+    title: 'Concerts by the Springs',
+    subtitle: 'Heritage Sandy Springs · Free Outdoor Series · 5–9 PM',
+    venue: 'Heritage Sandy Springs', address: '6110 Blue Stone Rd, Atlanta, GA 30328',
+    lat: 33.9300, lng: -84.3750,
+    score: 61, tier: 'C',
+    slots: ['FAMILY_OUT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Live Music'],
+    environment: 'outdoor', eventType: 'live', age: 'all',
+    time: '5:00 PM', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/2057719084792633/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/concerts_by_the_springs.jpg', officialUrl: 'https://www.facebook.com/events/2057719084792633/', instagramUrl: null,
+    note: 'City of Sandy Springs free outdoor concert series — easygoing summer evening format. OTP but free and family-friendly. Recurring: May 3, Jun 14, Jul 12, Aug 2.',
+    scoreReasoning: { genreMatch: 55, venueQuality: 58, formatRarity: 55, lineupStrength: 50, valueForMoney: 95 },
+    recurring: true, recurringNote: 'May–Aug, roughly monthly'
+  },
+  {
+    id: 112,
+    date: '2026-07-12', dateEnd: '2026-07-12', dateStr: 'Sun Jul 12',
+    title: 'Old Time Jam Session',
+    subtitle: 'Lost Druid Brewery · 2nd & 3rd Sundays · 4–6:15 PM · Free',
+    venue: 'The Lost Druid Brewery & Distillery', address: '2866 Washington St, Avondale Estates, GA 30002',
+    lat: 33.7697, lng: -84.2797,
+    score: 65, tier: 'C',
+    slots: ['FAMILY_OUT', 'GROUP_NIGHT'],
+    category: 'music', genres: ['Old Time', 'Folk', 'Acoustic'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '4:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/1415845336601989/', free: true,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/old_time_jam_lost_druid.png', officialUrl: 'https://www.facebook.com/events/1415845336601989/', instagramUrl: null,
+    note: 'Casual family-style old-time jam at Lost Druid in Avondale Estates. 2nd & 3rd Sundays monthly. Participatory — bring instruments. Free.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 68, formatRarity: 72, lineupStrength: 50, valueForMoney: 95 },
+    recurring: true, recurringNote: '2nd & 3rd Sundays monthly'
+  },
+  {
+    id: 113,
+    date: '2026-07-15', dateEnd: '2026-07-15', dateStr: 'Wed Jul 15',
+    title: 'Plazadrome: Dead Mountaineer\'s Hotel (1979)',
+    subtitle: 'Plaza Atlanta · Deaf Crocodile pop-up 8 PM · Film 9 PM',
+    venue: 'Plaza Atlanta', address: '1049 Ponce de Leon Ave NE, Atlanta, GA 30306',
+    lat: 33.7666, lng: -84.3636,
+    score: 72, tier: 'B',
+    slots: ['DATE_NIGHT', 'SOLO_RESET'],
+    category: 'arts', genres: ['Arthouse Cinema', 'Soviet Sci-Fi'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '8:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/1536968248147887/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: [],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/plazadrome_dead_mountaineer.jpg', officialUrl: 'https://www.facebook.com/events/1536968248147887/', instagramUrl: null,
+    note: 'Plazadrome screening of the 1979 Estonian Soviet sci-fi cult film. Deaf Crocodile 4K/Blu-ray pop-up at 8 PM, screening at 9 PM. Special Wednesday date moved due to The Odyssey opening.',
+    scoreReasoning: { genreMatch: 68, venueQuality: 80, formatRarity: 85, lineupStrength: 55, valueForMoney: 75 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 114,
+    date: '2026-07-17', dateEnd: '2026-07-17', dateStr: 'Fri Jul 17',
+    title: 'Styx & Chicago: The Windy Cities Tour',
+    subtitle: 'Ameris Bank Amphitheatre · 7 PM',
+    venue: 'Ameris Bank Amphitheatre', address: '2200 Encore Pkwy, Alpharetta, GA 30009',
+    lat: 34.0723, lng: -84.2929,
+    score: 70, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['Classic Rock', 'Arena Rock'],
+    environment: 'outdoor', eventType: 'live', age: 'all',
+    time: '7:00 PM', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/727277226540773/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Styx', 'Chicago'],
+    setTimes: null, youtubeId: 'e5MAg_yWsq8',
+    imageUrl: 'images/styx.jpg', officialUrl: 'https://www.facebook.com/events/727277226540773/', instagramUrl: null,
+    note: 'Classic rock co-headliner — nostalgia bill for Chicago and Styx fans. OTP at Ameris Bank Amphitheatre in Alpharetta.',
+    scoreReasoning: { genreMatch: 62, venueQuality: 72, formatRarity: 58, lineupStrength: 75, valueForMoney: 60 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 115,
+    date: '2026-07-21', dateEnd: '2026-07-21', dateStr: 'Tue Jul 21',
+    title: 'Men At Work & Toad the Wet Sprocket',
+    subtitle: 'Cobb Energy Centre · with Shonen Knife · 7 PM',
+    venue: 'Cobb Energy Performing Arts Centre', address: '2800 Cobb Galleria Pkwy, Atlanta, GA 30339',
+    lat: 33.8831, lng: -84.4697,
+    score: 72, tier: 'B',
+    slots: ['GROUP_NIGHT', 'DATE_NIGHT'],
+    category: 'music', genres: ['New Wave', 'Alternative Rock', 'Pop Rock'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '7:00 PM', distance: 'OTP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/3392576090881754/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Men At Work', 'Toad the Wet Sprocket', 'Shonen Knife'],
+    setTimes: null, youtubeId: 'XfR9iY5y94s',
+    imageUrl: 'images/men_at_work.png', officialUrl: 'https://www.facebook.com/events/3392576090881754/', instagramUrl: null,
+    note: 'Summer 2026 nostalgia bill — Colin Hay-led Men At Work headlining with Toad the Wet Sprocket and Shonen Knife. OTP at Cobb Energy.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 70, formatRarity: 62, lineupStrength: 72, valueForMoney: 62 },
+    recurring: false, recurringNote: null
+  },
+  {
+    id: 116,
+    date: '2026-07-25', dateEnd: '2026-07-25', dateStr: 'Sat Jul 25',
+    title: 'Blair Crimmins and The Hookers',
+    subtitle: 'Northside Tavern · 10 PM',
+    venue: 'Northside Tavern', address: '1058 Howell Mill Rd NW, Atlanta, GA 30318',
+    lat: 33.7835, lng: -84.4063,
+    score: 69, tier: 'B',
+    slots: ['GROUP_NIGHT', 'SOLO_RESET'],
+    category: 'music', genres: ['Ragtime', 'Jazz', 'Blues', 'Americana'],
+    environment: 'indoor', eventType: 'live', age: 'all',
+    time: '10:00 PM', distance: 'ITP',
+    urgent: false, urgentNote: null,
+    ticketUrl: 'https://www.facebook.com/events/958938813845258/', free: false,
+    membershipIncluded: false, membershipVenue: null, advancePurchase: false,
+    lineup: ['Blair Crimmins and The Hookers'],
+    setTimes: null, youtubeId: null,
+    imageUrl: 'images/blair_crimmins.jpg', officialUrl: 'https://www.facebook.com/events/958938813845258/', instagramUrl: null,
+    note: 'Local Atlanta ragtime/jazz/blues institution. Blair Crimmins has been a staple of Atlanta\'s live music scene. Late show at Northside Tavern.',
+    scoreReasoning: { genreMatch: 65, venueQuality: 70, formatRarity: 72, lineupStrength: 68, valueForMoney: 72 },
+    recurring: false, recurringNote: null
   }
 ];
 
@@ -670,7 +2705,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: '1345 Piedmont Ave NE, Atlanta, GA', lat: 33.7904, lng: -84.3730,
-    url: 'https://atlantabg.org', notes: 'Member. Go early AM on weekdays for quiet hours.'
+    url: 'https://atlantabg.org', imageUrl: 'images/evergreen/atlanta_botanical_garden.jpg', notes: 'Member. Go early AM on weekdays for quiet hours.'
   },
   {
     id: 'e02', name: 'Fernbank Museum', emoji: '🦕',
@@ -681,7 +2716,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '767 Clifton Rd NE, Atlanta, GA', lat: 33.7813, lng: -84.3227,
-    url: 'https://fernbankmuseum.org', notes: 'Member. Rainy day default. Dean could go weekly.'
+    url: 'https://fernbankmuseum.org', imageUrl: 'images/evergreen/fernbank_museum.jpg', notes: 'Member. Rainy day default. Dean could go weekly.'
   },
   {
     id: 'e03', name: 'Zoo Atlanta', emoji: '🦒',
@@ -692,7 +2727,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '800 Cherokee Ave SE, Atlanta, GA', lat: 33.7349, lng: -84.3717,
-    url: 'https://zooatlanta.org', notes: 'Member. Go early morning. Skip weekends in summer.'
+    url: 'https://zooatlanta.org', imageUrl: 'images/evergreen/zoo_atlanta.jpg', notes: 'Member. Go early morning. Skip weekends in summer.'
   },
   {
     id: 'e04', name: 'Atlanta History Center', emoji: '🏛️',
@@ -703,7 +2738,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 4,
     address: '130 West Paces Ferry Rd NW, Atlanta, GA', lat: 33.8383, lng: -84.3866,
-    url: 'https://atlantahistorycenter.com', notes: 'Member. Best for slower, more reflective family outings.'
+    url: 'https://atlantahistorycenter.com', imageUrl: 'images/evergreen/atlanta_history_center.jpg', notes: 'Member. Best for slower, more reflective family outings.'
   },
   {
     id: 'e05', name: 'Beltline + Krog Street Market', emoji: '🚲',
@@ -714,7 +2749,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Krog Street Market, 99 Krog St NE, Atlanta, GA', lat: 33.7540, lng: -84.3590,
-    url: 'https://beltline.org/trails/eastside-trail/', notes: 'Free. Zero planning required. Walk to Beltline from home in 20 min.'
+    url: 'https://beltline.org/trails/eastside-trail/', imageUrl: 'images/evergreen/beltline_krog_street_market.jpg', notes: 'Free. Zero planning required. Walk to Beltline from home in 20 min.'
   },
   {
     id: 'e06', name: 'Chattahoochee Nature Center', emoji: '🦅',
@@ -725,7 +2760,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: '9135 Willeo Rd, Roswell, GA', lat: 33.9477, lng: -84.4669,
-    url: 'https://chattnaturecenter.org', notes: 'Great for a half-day trip north of the city.'
+    url: 'https://chattnaturecenter.org', imageUrl: 'images/evergreen/chattahoochee_nature_center.png', notes: 'Great for a half-day trip north of the city.'
   },
   {
     id: 'e07', name: 'Children\'s Museum of Atlanta', emoji: '🧩',
@@ -736,7 +2771,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 3,
     address: '275 Centennial Olympic Park Dr NW, Atlanta, GA', lat: 33.7613, lng: -84.3867,
-    url: 'https://childrensmuseumatlanta.org', notes: 'Rainy day. Dean will go full chaos mode in the water table.'
+    url: 'https://childrensmuseumatlanta.org', imageUrl: 'images/evergreen/children_s_museum_of_atlanta.png', notes: 'Rainy day. Dean will go full chaos mode in the water table.'
   },
   {
     id: 'e08', name: 'Sloomoo Institute', emoji: '🌈',
@@ -747,7 +2782,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 5, parentScore: 3,
     address: '990 Marietta St NW, Atlanta, GA', lat: 33.7900, lng: -84.3840,
-    url: 'https://sloomooinstitute.com/atlanta', notes: 'Advance tickets. Toddler-specific slots available.'
+    url: 'https://sloomooinstitute.com/atlanta', imageUrl: 'images/evergreen/sloomoo_institute.jpg', notes: 'Advance tickets. Toddler-specific slots available.'
   },
   {
     id: 'e09', name: 'LEGO Discovery Center', emoji: '🧱',
@@ -758,7 +2793,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 5, parentScore: 3,
     address: '3500 Peachtree Rd NE, Atlanta, GA', lat: 33.8600, lng: -84.3570,
-    url: 'https://legodiscoverycenter.com/atlanta', notes: 'Book online. Worth the trip on a bad weather weekend.'
+    url: 'https://legodiscoverycenter.com/atlanta', imageUrl: 'images/evergreen/lego_discovery_center.jpg', notes: 'Book online. Worth the trip on a bad weather weekend.'
   },
   {
     id: 'e27', name: 'Georgia Aquarium', emoji: '🐋',
@@ -769,7 +2804,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '225 Baker St NW, Atlanta, GA', lat: 33.7631, lng: -84.3950,
-    url: 'https://georgiaaquarium.org', notes: 'Book tickets online. Go weekday morning to avoid crowds. Whale shark tank alone is worth the trip.'
+    url: 'https://georgiaaquarium.org', imageUrl: 'images/evergreen/georgia_aquarium.jpg', notes: 'Book tickets online. Go weekday morning to avoid crowds. Whale shark tank alone is worth the trip.'
   },
   {
     id: 'e28', name: 'Centennial Olympic Park Splash Pad', emoji: '⛲',
@@ -780,7 +2815,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '265 Park Ave W NW, Atlanta, GA', lat: 33.7607, lng: -84.3921,
-    url: 'https://centennialpark.com/plan-your-visit/', notes: 'Free. Splash pad open late spring through summer. Bring a change of clothes.'
+    url: 'https://centennialpark.com/plan-your-visit/', imageUrl: 'images/evergreen/centennial_olympic_park_splash_pad.png', notes: 'Free. Splash pad open late spring through summer. Bring a change of clothes.'
   },
   {
     id: 'e29', name: 'MLK National Historic Site', emoji: '✊',
@@ -791,7 +2826,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 5,
     address: '450 Auburn Ave NE, Atlanta, GA', lat: 33.7552, lng: -84.3713,
-    url: 'https://nps.gov/malu', notes: 'Free. Birth home tours free but capacity-limited — arrive early.'
+    url: 'https://nps.gov/malu', imageUrl: 'images/evergreen/mlk_national_historic_site.jpg', notes: 'Free. Birth home tours free but capacity-limited — arrive early.'
   },
   {
     id: 'e30', name: 'Arabia Mountain Trail', emoji: '🪨',
@@ -802,7 +2837,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 4, parentScore: 5,
     address: 'Arabia Mountain National Heritage Area, Lithonia, GA', lat: 33.6706, lng: -84.0964,
-    url: 'https://arabiaalliance.org', notes: 'Go early morning in spring. Bring water and trail shoes. Wildflowers are incredible March–May.'
+    url: 'https://arabiaalliance.org', imageUrl: 'images/evergreen/arabia_mountain_trail.jpg', notes: 'Go early morning in spring. Bring water and trail shoes. Wildflowers are incredible March–May.'
   },
   {
     id: 'e31', name: 'Sweetwater Creek State Park', emoji: '🌊',
@@ -813,7 +2848,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 4, parentScore: 5,
     address: '1750 Mt Vernon Rd, Lithia Springs, GA', lat: 33.7715, lng: -84.6304,
-    url: 'https://gastateparks.org/SweetwaterCreek', notes: '$5 parking pass. Factory ruins loop is 2.2 miles and manageable with a carrier.'
+    url: 'https://gastateparks.org/SweetwaterCreek', imageUrl: 'images/evergreen/sweetwater_creek_state_park.jpg', notes: '$5 parking pass. Factory ruins loop is 2.2 miles and manageable with a carrier.'
   },
   {
     id: 'e32', name: 'Center for Puppetry Arts', emoji: '🎭',
@@ -824,7 +2859,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 4,
     address: '1404 Spring St NW, Atlanta, GA', lat: 33.7929, lng: -84.3855,
-    url: 'https://puppet.org', notes: 'Book the matinee. Interactive build-a-puppet workshop available.'
+    url: 'https://puppet.org', imageUrl: 'images/evergreen/center_for_puppetry_arts.jpg', notes: 'Book the matinee. Interactive build-a-puppet workshop available.'
   },
   {
     id: 'e33', name: 'Kennesaw Mountain Hike', emoji: '⛰️',
@@ -835,7 +2870,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 5,
     address: '900 Kennesaw Mountain Dr, Kennesaw, GA', lat: 33.9696, lng: -84.5801,
-    url: 'https://nps.gov/kemo', notes: 'Free. Drive summit road or hike to top (2.2 miles). Go early in summer.'
+    url: 'https://nps.gov/kemo', imageUrl: 'images/evergreen/kennesaw_mountain_hike.jpg', notes: 'Free. Drive summit road or hike to top (2.2 miles). Go early in summer.'
   },
   {
     id: 'e34', name: 'PDK Airport Plane Watching', emoji: '✈️',
@@ -846,7 +2881,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: 'PDK Airport, 1997 Airport Rd, Chamblee, GA', lat: 33.8754, lng: -84.3021,
-    url: 'https://www.dekalbcountyga.gov/airports/dekalb-peachtree-airport', notes: 'Park on Clairmont Rd side. Jets + props taking off every few minutes. 30 min of pure Dean magic.'
+    url: 'https://www.dekalbcountyga.gov/airports/dekalb-peachtree-airport', imageUrl: 'images/evergreen/pdk_airport_plane_watching.png', notes: 'Park on Clairmont Rd side. Jets + props taking off every few minutes. 30 min of pure Dean magic.'
   },
   {
     id: 'e35', name: 'Freedom Park Trail', emoji: '🌳',
@@ -857,7 +2892,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Freedom Park, Atlanta, GA', lat: 33.7640, lng: -84.3540,
-    url: 'https://beltline.org/trails/freedom-park-trail/', notes: 'Connect to Carter Center and Inman Park. Flat enough for a stroller run.'
+    url: 'https://beltline.org/trails/freedom-park-trail/', imageUrl: 'images/evergreen/freedom_park_trail.jpg', notes: 'Connect to Carter Center and Inman Park. Flat enough for a stroller run.'
   },
 
   // ── PAPA + DEAN ──────────────────────────────────────────────────────────
@@ -870,7 +2905,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: 'Various — neighborhood', lat: 33.7843, lng: -84.3601,
-    url: null, notes: 'Pure joy activation. Follow with donuts for maximum effect.'
+    url: null, imageUrl: 'images/evergreen/car_wash_tunnel.jpg', notes: 'Pure joy activation. Follow with donuts for maximum effect.'
   },
   {
     id: 'e11', name: 'Morningside Library + Donuts', emoji: '📚',
@@ -881,7 +2916,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
     deanScore: 4, parentScore: 5,
     address: '1117 Johnson Rd NE, Atlanta, GA', lat: 33.7968, lng: -84.3477,
-    url: 'https://www.fulcolibrary.org/branches/morningside/', notes: 'Not Sundays. Morning/afternoon only. Check storytime schedule.'
+    url: 'https://www.fulcolibrary.org/branches/morningside/', imageUrl: 'images/evergreen/car_wash_tunnel.jpg', imageUrl: 'images/evergreen/morningside_library_donuts.png', notes: 'Not Sundays. Morning/afternoon only. Check storytime schedule.'
   },
   {
     id: 'e12', name: 'Neighborhood Playground Run', emoji: '🛝',
@@ -892,7 +2927,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: 'Virginia-Highland / 30306', lat: 33.7843, lng: -84.3601,
-    url: 'https://www.atlantaga.gov/government/departments/parks-recreation/park-listing', notes: 'Rotate: Sydney Marcus → Noble Park → OFW Park → Orme Park.'
+    url: 'https://www.atlantaga.gov/government/departments/parks-recreation/park-listing', imageUrl: 'images/evergreen/neighborhood_playground_run.jpg', notes: 'Rotate: Sydney Marcus → Noble Park → OFW Park → Orme Park.'
   },
   {
     id: 'e36', name: 'Chick-fil-A + Playground', emoji: '🐔',
@@ -903,7 +2938,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 4,
     address: 'Various CFA locations', lat: 33.7843, lng: -84.3601,
-    url: 'https://www.chick-fil-a.com', notes: 'Go off-peak (10–11 AM or 2–4 PM) to avoid lunch rush. Indoor play structure available at most locations.'
+    url: 'https://www.chick-fil-a.com', imageUrl: 'images/evergreen/chick_fil_a_playground.jpg', notes: 'Go off-peak (10–11 AM or 2–4 PM) to avoid lunch rush. Indoor play structure available at most locations.'
   },
   {
     id: 'e37', name: 'DeKalb Farmers Market', emoji: '🥭',
@@ -914,7 +2949,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 5,
     address: '3000 E Ponce de Leon Ave, Decatur, GA', lat: 33.7742, lng: -84.2963,
-    url: 'https://dekalbfarmersmarket.com', notes: 'Go weekday morning. Free mango samples. No phone inside.'
+    url: 'https://dekalbfarmersmarket.com', imageUrl: 'images/evergreen/dekalb_farmers_market.jpg', notes: 'Go weekday morning. Free mango samples. No phone inside.'
   },
   {
     id: 'e38', name: 'Trains at Centennial Park', emoji: '🚂',
@@ -925,7 +2960,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: 'Centennial Olympic Park, Atlanta, GA', lat: 33.7607, lng: -84.3921,
-    url: 'https://centennialpark.com/plan-your-visit/', notes: 'Check seasonal operation. Combine with splash pad next door for a full morning.'
+    url: 'https://centennialpark.com/plan-your-visit/', imageUrl: 'images/evergreen/trains_at_centennial_park.png', notes: 'Check seasonal operation. Combine with splash pad next door for a full morning.'
   },
 
   // ── SOLO RESET ────────────────────────────────────────────────────────────
@@ -938,7 +2973,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: 'Brook Run Park, 4770 N Peachtree Rd, Dunwoody, GA', lat: 33.9572, lng: -84.3379,
-    url: 'https://soldancemovement.com', notes: '2nd Sunday monthly, 12–4 PM. No phones, no alcohol required.'
+    url: 'https://soldancemovement.com', imageUrl: 'images/evergreen/sol_dance_ecstatic_dance.jpg', notes: '2nd Sunday monthly, 12–4 PM. No phones, no alcohol required.',
+    availability: 'scheduled', availabilityNote: '2nd Sunday monthly'
   },
   {
     id: 'e14', name: 'Five Rhythms', emoji: '🌊',
@@ -949,7 +2985,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '465 Boulevard SE, Atlanta, GA', lat: 33.7397, lng: -84.3706,
-    url: 'https://juliestuart5rhythms.com', notes: 'Sundays 4–6 PM + Fridays. No experience needed.'
+    url: 'https://juliestuart5rhythms.com', imageUrl: 'images/evergreen/five_rhythms.jpg', notes: 'Sundays 4–6 PM + Fridays. No experience needed.',
+    availability: 'scheduled', availabilityNote: 'Sundays 4 PM + Fridays'
   },
   {
     id: 'e15', name: 'ABG Quiet Hours (Early AM)', emoji: '☀️',
@@ -960,7 +2997,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '1345 Piedmont Ave NE, Atlanta, GA', lat: 33.7904, lng: -84.3730,
-    url: 'https://atlantabg.org', notes: 'Member perk. Best 7–9 AM on weekdays. Japanese Garden is the destination.'
+    url: 'https://atlantabg.org', imageUrl: 'images/evergreen/abg_quiet_hours_early_am.jpg', notes: 'Member perk. Best 7–9 AM on weekdays. Japanese Garden is the destination.'
   },
   {
     id: 'e16', name: 'High Museum — Second Sundays', emoji: '🎨',
@@ -971,7 +3008,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '1280 Peachtree St NE, Atlanta, GA', lat: 33.7902, lng: -84.3853,
-    url: 'https://high.org', notes: 'Second Sunday of each month. Free. Go early to beat the crowd.'
+    url: 'https://high.org', imageUrl: 'images/evergreen/high_museum_second_sundays.jpg', notes: 'Second Sunday of each month. Free. Go early to beat the crowd.'
   },
   {
     id: 'e39', name: 'Oakland Cemetery Morning Walk', emoji: '🌺',
@@ -982,7 +3019,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '248 Oakland Ave SE, Atlanta, GA', lat: 33.7490, lng: -84.3700,
-    url: 'https://oaklandcemetery.com', notes: 'Free entry. Best on a weekday morning. Seasonal gardens are exceptional.'
+    url: 'https://oaklandcemetery.com', imageUrl: 'images/evergreen/oakland_cemetery_morning_walk.png', notes: 'Free entry. Best on a weekday morning. Seasonal gardens are exceptional.',
+    availability: 'scheduled', availabilityNote: '2nd Sunday monthly'
   },
   {
     id: 'e40', name: 'Emory Carlos Museum', emoji: '🏺',
@@ -993,7 +3031,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '571 S Kilgo Cir, Atlanta, GA', lat: 33.7948, lng: -84.3222,
-    url: 'https://carlos.emory.edu', notes: 'Free. Closed Monday. Often quiet on weekday mornings. Meditative experience.'
+    url: 'https://carlos.emory.edu', imageUrl: 'images/evergreen/emory_carlos_museum.jpg', notes: 'Free. Closed Monday. Often quiet on weekday mornings. Meditative experience.'
   },
   {
     id: 'e41', name: 'Stone Summit Climbing', emoji: '🧗',
@@ -1004,7 +3042,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '3820 Greenbriar Pkwy SW, Atlanta, GA', lat: 33.7273, lng: -84.4700,
-    url: 'https://stonesummit.com', notes: 'Best early weekday morning. Rentals available.'
+    url: 'https://stonesummit.com', imageUrl: 'images/evergreen/stone_summit_climbing.jpg', notes: 'Best early weekday morning. Rentals available.'
   },
   {
     id: 'e42', name: 'Piedmont Park Early Run', emoji: '🏃',
@@ -1015,7 +3053,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: 'Piedmont Park, Atlanta, GA', lat: 33.7869, lng: -84.3734,
-    url: 'https://piedmontpark.org', notes: 'Saturday morning = Green Market. Sunday = quieter for running. Park opens at 6 AM.'
+    url: 'https://piedmontpark.org', imageUrl: 'images/evergreen/piedmont_park_early_run.png', notes: 'Saturday morning = Green Market. Sunday = quieter for running. Park opens at 6 AM.'
   },
 
   // ── DATE NIGHT ────────────────────────────────────────────────────────────
@@ -1028,7 +3066,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '1198 Howell Mill Rd NW, Atlanta, GA', lat: 33.7951, lng: -84.4105,
-    url: 'https://starprovisions.com/restaurants/bacchanalia', notes: 'Book 2+ weeks ahead. The best table in Atlanta.'
+    url: 'https://starprovisions.com/restaurants/bacchanalia', imageUrl: 'images/evergreen/bacchanalia.png', notes: 'Book 2+ weeks ahead. The best table in Atlanta.'
   },
   {
     id: 'e18', name: 'Little Bear', emoji: '🐻',
@@ -1039,7 +3077,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '61 Krog St NE, Atlanta, GA', lat: 33.7521, lng: -84.3598,
-    url: 'https://www.littlebearatl.com', notes: 'Book 1 week out on OpenTable. Weeknights easier than weekends.'
+    url: 'https://www.littlebearatl.com', imageUrl: 'images/evergreen/little_bear.gif', notes: 'Book 1 week out on OpenTable. Weeknights easier than weekends.'
   },
   {
     id: 'e19', name: 'Fox Theatre', emoji: '🎭',
@@ -1050,7 +3088,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '660 Peachtree St NE, Atlanta, GA', lat: 33.7728, lng: -84.3860,
-    url: 'https://foxtheatre.org', notes: 'Best for a special occasion — book when the right tour comes through.'
+    url: 'https://foxtheatre.org', imageUrl: 'images/evergreen/fox_theatre.jpg', notes: 'Best for a special occasion — book when the right tour comes through.'
   },
   {
     id: 'e20', name: 'Fernbank After Dark', emoji: '🔭',
@@ -1061,7 +3099,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '767 Clifton Rd NE, Atlanta, GA', lat: 33.7813, lng: -84.3227,
-    url: 'https://fernbankmuseum.org', notes: 'Monthly Friday evenings. 21+. Jeannie would love this.'
+    url: 'https://fernbankmuseum.org', imageUrl: 'images/evergreen/fernbank_after_dark.jpg', notes: 'Monthly Friday evenings. 21+. Great date night.',
+    availability: 'scheduled', availabilityNote: 'Monthly Fridays'
   },
   {
     id: 'e21', name: 'Ponce City Market Rooftop', emoji: '🎡',
@@ -1072,7 +3111,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: '675 Ponce De Leon Ave NE, Atlanta, GA', lat: 33.7723, lng: -84.3632,
-    url: 'https://poncecitymarket.com/skyline-park/', notes: 'No reservation. Easy walk-up. Views are worth it even without the rides.'
+    url: 'https://poncecitymarket.com/skyline-park/', imageUrl: 'images/evergreen/ponce_city_market_rooftop.jpg', notes: 'No reservation. Easy walk-up. Views are worth it even without the rides.'
   },
   {
     id: 'e43', name: 'Tiny Lou\'s', emoji: '🍸',
@@ -1083,7 +3122,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '789 Ponce De Leon Ave NE, Atlanta, GA', lat: 33.7713, lng: -84.3498,
-    url: 'https://tinylousatl.com', notes: 'Walk-in or reservation. Order the negroni. Live jazz nights are special.'
+    url: 'https://tinylousatl.com', imageUrl: 'images/evergreen/tiny_lou_s.jpg', notes: 'Walk-in or reservation. Order the negroni. Live jazz nights are special.'
   },
   {
     id: 'e44', name: 'Ladybird Grove & Mess Hall', emoji: '🌿',
@@ -1094,7 +3133,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '684 John Lewis Freedom Pkwy NE, Atlanta, GA', lat: 33.7745, lng: -84.3610,
-    url: 'https://ladybirdatl.com', notes: 'Walk-up only. Go before sunset for the golden hour views. Cash or card.'
+    url: 'https://ladybirdatl.com', imageUrl: 'images/evergreen/ladybird_grove_mess_hall.png', notes: 'Walk-up only. Go before sunset for the golden hour views. Cash or card.'
   },
   {
     id: 'e45', name: 'Sun in My Belly', emoji: '🥞',
@@ -1105,7 +3144,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '2161 College Ave NE, Atlanta, GA', lat: 33.7495, lng: -84.3470,
-    url: 'https://suninmybelly.com', notes: 'Walk-in on weekdays. Small wait on weekends — worth it.'
+    url: 'https://suninmybelly.com', imageUrl: 'images/evergreen/sun_in_my_belly.png', notes: 'Walk-in on weekdays. Small wait on weekends — worth it.'
   },
   {
     id: 'e46', name: 'Alliance Theatre', emoji: '🎭',
@@ -1116,7 +3155,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '1280 Peachtree St NE, Atlanta, GA', lat: 33.7902, lng: -84.3853,
-    url: 'https://alliancetheatre.org', notes: 'Book 1–2 weeks out. Often does dinner + show packages with nearby restaurants.'
+    url: 'https://alliancetheatre.org', imageUrl: 'images/evergreen/alliance_theatre.webp', notes: 'Book 1–2 weeks out. Often does dinner + show packages with nearby restaurants.'
   },
   {
     id: 'e47', name: 'Eddie\'s Attic', emoji: '🎸',
@@ -1127,7 +3166,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '515 N McDonough St, Decatur, GA', lat: 33.7748, lng: -84.2963,
-    url: 'https://eddiesattic.com', notes: 'Check calendar for shows. Balcony table is worth the reservation fee.'
+    url: 'https://eddiesattic.com', imageUrl: 'images/evergreen/eddie_s_attic.jpg', notes: 'Check calendar for shows. Balcony table is worth the reservation fee.'
   },
 
   // ── GROUP / SOCIAL ────────────────────────────────────────────────────────
@@ -1140,7 +3179,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '1170 Howell Mill Rd NW, Atlanta, GA', lat: 33.7903, lng: -84.4120,
-    url: 'https://ormsbysatl.com', notes: 'Great for 6–12 people. No reservation for billiards tables.'
+    url: 'https://ormsbysatl.com', imageUrl: 'images/evergreen/ormsby_s.jpg', notes: 'Great for 6–12 people. No reservation for billiards tables.'
   },
   {
     id: 'e23', name: 'Lake Claire Drum Circle', emoji: '🥁',
@@ -1151,7 +3190,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: 'Lake Claire Land Trust, Atlanta, GA', lat: 33.7666, lng: -84.3306,
-    url: 'https://www.lakeclairelandtrust.org', notes: 'Full moon monthly. Free, open, no experience needed.'
+    url: 'https://www.lakeclairelandtrust.org', imageUrl: 'images/evergreen/lake_claire_drum_circle.jpg', notes: 'Full moon monthly. Free, open, no experience needed.'
   },
   {
     id: 'e24', name: 'Krog Street Market (Evening)', emoji: '🔥',
@@ -1162,7 +3201,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '99 Krog St NE, Atlanta, GA', lat: 33.7540, lng: -84.3590,
-    url: 'https://krogstreetmarket.com', notes: 'Zero planning. Text a few people and go. Works any night.'
+    url: 'https://krogstreetmarket.com', imageUrl: 'images/evergreen/krog_street_market_evening.png', notes: 'Zero planning. Text a few people and go. Works any night.'
   },
   {
     id: 'e25', name: 'Axe Throwing (The Battery)', emoji: '🪓',
@@ -1173,7 +3212,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: 'The Battery, 800 Battery Ave SE, Atlanta, GA', lat: 33.8906, lng: -84.4683,
-    url: 'https://www.burythehatchet.com/locations/atlanta/', notes: 'Book ahead. Best for 6–10 people. Good for out-of-town visitors.'
+    url: 'https://www.burythehatchet.com/locations/atlanta/', imageUrl: 'images/evergreen/axe_throwing_the_battery.jpg', notes: 'Book ahead. Best for 6–10 people. Good for out-of-town visitors.'
   },
   {
     id: 'e26', name: 'Stone Summit (Rock Climbing)', emoji: '🧗',
@@ -1184,7 +3223,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '3820 Greenbriar Pkwy SW, Atlanta, GA', lat: 33.7273, lng: -84.4700,
-    url: 'https://stonesummit.com', notes: 'Best early weekday morning. Rentals available.'
+    url: 'https://stonesummit.com', imageUrl: 'images/evergreen/stone_summit_rock_climbing.jpg', notes: 'Best early weekday morning. Rentals available.'
   },
   {
     id: 'e48', name: 'Dad\'s Garage Comedy Night', emoji: '😂',
@@ -1195,7 +3234,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '569 Ezzard St SE, Atlanta, GA', lat: 33.7349, lng: -84.3635,
-    url: 'https://dadsgarage.com', notes: 'Check schedule for ROAD TRIP!, Quick & Dirty, and genre nights. Book ahead on weekends.'
+    url: 'https://dadsgarage.com', imageUrl: 'images/evergreen/dad_s_garage_comedy_night.png', notes: 'Check schedule for ROAD TRIP!, Quick & Dirty, and genre nights. Book ahead on weekends.'
   },
   {
     id: 'e49', name: 'Laughing Skull Lounge', emoji: '🎤',
@@ -1206,7 +3245,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '878 Peachtree St NE, Atlanta, GA', lat: 33.7798, lng: -84.3842,
-    url: 'https://laughingskulllounge.com', notes: 'Book ahead for good seats. Friday/Saturday shows sell fast.'
+    url: 'https://laughingskulllounge.com', imageUrl: 'images/evergreen/laughing_skull_lounge.webp', notes: 'Book ahead for good seats. Friday/Saturday shows sell fast.'
   },
   {
     id: 'e50', name: 'Braves Game at Truist Park', emoji: '⚾',
@@ -1217,7 +3256,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 3,
     address: '755 Battery Ave SE, Marietta, GA', lat: 33.8906, lng: -84.4683,
-    url: 'https://mlb.com/braves', notes: 'Battery area pregame is genuinely great. Go for the experience, not baseball specifically.'
+    url: 'https://mlb.com/braves', imageUrl: 'images/evergreen/braves_game_at_truist_park.jpg', notes: 'Battery area pregame is genuinely great. Go for the experience, not baseball specifically.'
   },
   {
     id: 'e51', name: 'Topgolf Midtown', emoji: '⛳',
@@ -1228,7 +3267,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '1001 Phillip Lee Dr SW, Atlanta, GA', lat: 33.7726, lng: -84.4320,
-    url: 'https://topgolf.com/us/atlanta', notes: 'Walk-in ok but wait times can be 1–2 hrs on weekends. Book a bay in advance.'
+    url: 'https://topgolf.com/us/atlanta', imageUrl: 'images/evergreen/topgolf_midtown.jpg', notes: 'Walk-in ok but wait times can be 1–2 hrs on weekends. Book a bay in advance.'
   },
   {
     id: 'e52', name: 'Painted Pin (Bowling + Games)', emoji: '🎳',
@@ -1239,7 +3278,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: '737 Miami Cir NE, Atlanta, GA', lat: 33.8440, lng: -84.3578,
-    url: 'https://paintedpin.com', notes: 'Reserve a lane in advance. Happy hour on weeknights. Good for groups of 6–10.'
+    url: 'https://paintedpin.com', imageUrl: 'images/evergreen/painted_pin_bowling_games.jpg', notes: 'Reserve a lane in advance. Happy hour on weeknights. Good for groups of 6–10.'
   },
   {
     id: 'e53', name: 'Virginia Highland Bar Crawl', emoji: '🍺',
@@ -1250,7 +3289,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: 'Virginia-Highland, Atlanta, GA', lat: 33.7843, lng: -84.3601,
-    url: 'https://vahi.org', notes: 'Start at Murphy\'s. End at Hand in Hand. Zero coordination needed.'
+    url: 'https://vahi.org', imageUrl: 'images/evergreen/virginia_highland_bar_crawl.png', notes: 'Start at Murphy\'s. End at Hand in Hand. Zero coordination needed.'
   },
   {
     id: 'e54', name: 'Manuel\'s Tavern Pub Trivia', emoji: '🧠',
@@ -1261,7 +3300,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '602 N Highland Ave NE, Atlanta, GA', lat: 33.7693, lng: -84.3543,
-    url: 'https://manuelstavern.com', notes: 'Tuesday trivia nights. Arrive early for seating. $2 trivia entry.'
+    url: 'https://manuelstavern.com', imageUrl: 'images/evergreen/manuel_s_tavern_pub_trivia.png', notes: 'Tuesday trivia nights. Arrive early for seating. $2 trivia entry.'
   },
   {
     id: 'e55', name: 'Chattahoochee River Tubing', emoji: '🛟',
@@ -1272,7 +3311,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: 'Cool River Tubing, 8760 Roswell Rd, Sandy Springs, GA', lat: 33.9383, lng: -84.3716,
-    url: 'https://coolrivertubing.com', notes: 'No reservations, first-come. Go early on summer weekends — fills up by noon.'
+    url: 'https://coolrivertubing.com', imageUrl: 'images/evergreen/chattahoochee_river_tubing.png', notes: 'No reservations, first-come. Go early on summer weekends — fills up by noon.'
   },
   {
     id: 'e56', name: 'Red Top Mountain State Park', emoji: '🌲',
@@ -1283,7 +3322,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 5,
     address: '50 Lodge Rd SE, Cartersville, GA', lat: 34.1540, lng: -84.7090,
-    url: 'https://gastateparks.org/RedTopMountain', notes: 'Kayak rentals at the marina. 12-mile trail network. Good early summer before heat peaks.'
+    url: 'https://gastateparks.org/RedTopMountain', imageUrl: 'images/evergreen/red_top_mountain_state_park.jpg', notes: 'Kayak rentals at the marina. 12-mile trail network. Good early summer before heat peaks.'
   },
   {
     id: 'e57', name: 'Beltline ArtWalk (1st Friday)', emoji: '🖼️',
@@ -1294,7 +3333,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 4,
     address: 'Atlanta Beltline Eastside Trail', lat: 33.7540, lng: -84.3590,
-    url: 'https://beltline.org/events/artwalk/', notes: '1st Friday monthly. Jun 5, Jul 3, Aug 7, Sep 4. Walk from Krog to Piedmont Park.'
+    url: 'https://beltline.org/events/artwalk/', imageUrl: 'images/evergreen/beltline_artwalk_1st_friday.jpg', notes: '1st Friday monthly. Jun 5, Jul 3, Aug 7, Sep 4. Walk from Krog to Piedmont Park.'
   },
   {
     id: 'e58', name: 'Escape Room (Escapology)', emoji: '🔐',
@@ -1305,7 +3344,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '3393 Peachtree Rd NE, Atlanta, GA', lat: 33.8509, lng: -84.3618,
-    url: 'https://escapology.com/en/atlanta', notes: 'Book ahead. Pick a 60-min room for first-timers. Intermediate difficulty recommended.'
+    url: 'https://escapology.com/en/atlanta', imageUrl: 'images/evergreen/escape_room_escapology.jpg', notes: 'Book ahead. Pick a 60-min room for first-timers. Intermediate difficulty recommended.'
   }
 ,  {
     id: 'e59', name: 'Yellow River Wildlife Sanctuary', emoji: '🦌',
@@ -1316,7 +3355,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '4525 US Highway 78, Lilburn, GA 30047', lat: 33.8007, lng: -84.0986,
-    url: 'https://yellowriverwildlife.com', notes: '~30 min from VaHi. Bring quarters for feed machines. Weekday mornings are nearly empty. Deer wander freely — Dean can feed them by hand.'
+    url: 'https://yellowriverwildlife.com', imageUrl: 'images/evergreen/yellow_river_wildlife_sanctuary.jpg', notes: '~30 min from VaHi. Bring quarters for feed machines. Weekday mornings are nearly empty. Deer wander freely — Dean can feed them by hand.'
   }
 ,  {
     id: 'e60', name: 'Morningside Farmers Market', emoji: '🍓',
@@ -1327,7 +3366,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: '1080 E Rock Springs Rd NE, Atlanta, GA 30306', lat: 33.7969, lng: -84.3479,
-    url: 'https://morningsidemarket.com', notes: 'Saturday mornings, year-round. Walk from the house. Great coffee from the vendors. Combine with Revolution Donuts for peak Dean satisfaction.'
+    url: 'https://morningsidemarket.com', imageUrl: 'images/evergreen/morningside_farmers_market.jpg', notes: 'Saturday mornings, year-round. Walk from the house. Great coffee from the vendors. Combine with Revolution Donuts for peak Dean satisfaction.',
+    availability: 'scheduled', availabilityNote: 'Saturdays 8 AM-noon'
   }
 ,  {
     id: 'e61', name: 'Chefs + Farmers Market at Pullman Yards', emoji: '🌽',
@@ -1338,7 +3378,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 4,
     address: '225 Rogers St NE, Atlanta, GA 30317', lat: 33.7482, lng: -84.342,
-    url: 'https://pullmanyards.com/market', notes: 'Saturday mornings year-round. 10 min from home. Park on Rogers St. Combine with a BeltLine walk east.'
+    url: 'https://pullmanyards.com/market', imageUrl: 'images/evergreen/chefs_farmers_market_at_pullman_yards.png', notes: 'Saturday mornings year-round. 10 min from home. Park on Rogers St. Combine with a BeltLine walk east.',
+    availability: 'scheduled', availabilityNote: 'Saturdays year-round'
   }
 ,  {
     id: 'e62', name: 'Peachtree Road Farmers Market', emoji: '🥕',
@@ -1349,7 +3390,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 4,
     address: '2744 Peachtree Rd NW, Atlanta, GA 30305', lat: 33.839, lng: -84.387,
-    url: 'https://peachtreeroadfarmersmarket.com', notes: 'Saturdays year-round, 8 AM–12 PM. Solid produce + baked goods. Add a stop at Highland Bakery for a full morning.'
+    url: 'https://peachtreeroadfarmersmarket.com', imageUrl: 'images/evergreen/peachtree_road_farmers_market.png', notes: 'Saturdays year-round, 8 AM–12 PM. Solid produce + baked goods. Add a stop at Highland Bakery for a full morning.',
+    availability: 'scheduled', availabilityNote: 'Saturdays year-round'
   }
 ,  {
     id: 'e63', name: 'Home Depot Kids Workshop', emoji: '🔨',
@@ -1360,7 +3402,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 5,
     address: '630 Ponce De Leon Ave NE, Atlanta, GA 30308', lat: 33.7733, lng: -84.3607,
-    url: 'https://homedepot.com/workshops/kids', notes: 'First Saturday of each month, 9 AM. Register online in advance — fills up fast. Dean gets to keep what he builds. 3–12 years old.'
+    url: 'https://homedepot.com/workshops/kids', imageUrl: 'images/evergreen/home_depot_kids_workshop.png', notes: 'First Saturday of each month, 9 AM. Register online in advance — fills up fast. Dean gets to keep what he builds. 3–12 years old.'
   }
 ,  {
     id: 'e64', name: 'Lowe\'s Build & Grow Workshop', emoji: '🪚',
@@ -1371,7 +3413,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 4,
     address: '1025 Virginia Ave NE, Atlanta, GA 30306', lat: 33.7681, lng: -84.3437,
-    url: 'https://lowes.com/l/about/build-and-grow', notes: 'Check lowes.com for schedule — less frequent than Home Depot but worth bookmarking. Ages 5–12. Dean takes construction-themed activities very seriously.'
+    url: 'https://lowes.com/l/about/build-and-grow', imageUrl: 'images/evergreen/lowe_s_build_grow_workshop.png', notes: 'Check lowes.com for schedule — less frequent than Home Depot but worth bookmarking. Ages 5–12. Dean takes construction-themed activities very seriously.'
   }
 ,  {
     id: 'e65', name: 'Tiny Towne Mini Car Driving', emoji: '🚗',
@@ -1382,7 +3424,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: false,
     deanScore: 5, parentScore: 5,
     address: '6670 Peachtree Industrial Blvd, Peachtree Corners, GA 30092', lat: 33.9626, lng: -84.2178,
-    url: 'https://tinytowne.com', notes: '~25 min from VaHi. Book online. Ages 3–8. Multiple sessions available. Papa goes along on foot while Dean drives — genuinely fun to watch.'
+    url: 'https://tinytowne.com', imageUrl: 'images/evergreen/tiny_towne_mini_car_driving.jpg', notes: '~25 min from VaHi. Book online. Ages 3–8. Multiple sessions available. Papa goes along on foot while Dean drives — genuinely fun to watch.'
   }
 ,  {
     id: 'e66', name: 'Buddy\'s Indoor Playhouse', emoji: '🧸',
@@ -1393,7 +3435,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 3,
     address: '875 Concord Rd SE, Smyrna, GA 30080', lat: 33.8612, lng: -84.5177,
-    url: 'https://buddysplayhouse.com', notes: '~30 min west of VaHi. Good all-ages indoor play. Check website for age-specific hours. Bring socks.'
+    url: 'https://buddysplayhouse.com', imageUrl: 'images/evergreen/buddy_s_indoor_playhouse.jpg', notes: '~30 min west of VaHi. Good all-ages indoor play. Check website for age-specific hours. Bring socks.'
   }
 ,  {
     id: 'e67', name: 'Boomerang ATL', emoji: '🎢',
@@ -1404,7 +3446,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 3,
     address: '560 Amsterdam Ave NE, Unit A, Atlanta, GA 30306', lat: 33.7791, lng: -84.3568,
-    url: 'https://boomerangatl.com', notes: '5 min drive. Book online for toddler jump sessions. Socks required. Good birthday party venue to know about.'
+    url: 'https://boomerangatl.com', imageUrl: 'images/evergreen/boomerang_atl.jpg', notes: '5 min drive. Book online for toddler jump sessions. Socks required. Good birthday party venue to know about.'
   }
 ,  {
     id: 'e68', name: 'Noah\'s Ark Animal Sanctuary', emoji: '🦁',
@@ -1415,18 +3457,18 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '712 LG Griffin Rd, Locust Grove, GA 30248', lat: 33.3447, lng: -84.1077,
-    url: 'https://noahs-ark.org', notes: '~45 min south via I-75. Book tours in advance — fills up. Guided tour format, not self-guided. Full family outing.'
+    url: 'https://noahs-ark.org', imageUrl: 'images/evergreen/noah_s_ark_animal_sanctuary.jpg', notes: '~45 min south via I-75. Book tours in advance — fills up. Guided tour format, not self-guided. Full family outing.'
   }
 ,  {
     id: 'e69', name: 'Sweetwater 420 Fest', emoji: '🎸',
-    category: 'group', description: 'Atlanta\'s signature April music + craft beer festival. 4 days, multiple stages, eclectic lineup (Umphrey\'s, Thievery Corporation, reggae, electronic). Dima went in 2026 with Jeannie and called it one of the best weekends of the year. Annual tradition worth protecting.',
+    category: 'group', description: 'Atlanta\'s signature April music + craft beer festival. 4 days, multiple stages, eclectic lineup (Umphrey\'s, Thievery Corporation, reggae, electronic). Annual tradition worth protecting — four days of great music and easy vibes.',
     effort: 'medium', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'seasonal',
     duration: 'full-day', groupSize: 'group',
     free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: 'Centennial Olympic Park Dr NW, Atlanta, GA 30313', lat: 33.7607, lng: -84.3948,
-    url: 'https://sweetwater420fest.com', notes: 'Annual April festival. Tickets sell out — sign up for early access. Sunday day pass is the value move. Invite Craig, Davis, Jeannie.'
+    url: 'https://sweetwater420fest.com', imageUrl: 'images/evergreen/sweetwater_420_fest.jpg', notes: 'Annual April festival. Tickets sell out — sign up for early access. Sunday day pass is the value move. Annual April festival. Sunday day pass is the value move.'
   }
 ,  {
     id: 'e70', name: 'Atlanta Dogwood Festival', emoji: '🌸',
@@ -1437,7 +3479,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 4,
     address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
-    url: 'https://dogwood.org', notes: 'Annual, mid-April. Free admission. Walk from home via the trail or drive and park on Monroe. Go morning to beat crowds.'
+    url: 'https://dogwood.org', imageUrl: 'images/evergreen/atlanta_dogwood_festival.jpg', notes: 'Annual, mid-April. Free admission. Walk from home via the trail or drive and park on Monroe. Go morning to beat crowds.'
   }
 ,  {
     id: 'e71', name: 'Virginia-Highland Summerfest', emoji: '🌞',
@@ -1448,7 +3490,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: 'North Highland Ave NE, Virginia-Highland, Atlanta, GA 30306', lat: 33.7843, lng: -84.3601,
-    url: 'https://vahi.org/summerfest', notes: 'Annual, mid-June. Free. Walk to it. Text the VaHi families — everyone shows up. Live music across multiple stages.'
+    url: 'https://vahi.org/summerfest', imageUrl: 'images/evergreen/virginia_highland_summerfest.png', notes: 'Annual, mid-June. Free. Walk to it. Text the VaHi families — everyone shows up. Live music across multiple stages.'
   }
 ,  {
     id: 'e72', name: 'Dragon Con Parade', emoji: '🐉',
@@ -1459,7 +3501,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: 'Peachtree St NW, Downtown Atlanta, GA 30303', lat: 33.7663, lng: -84.3867,
-    url: 'https://dragoncon.org', notes: 'Labor Day Saturday morning. Parade starts 10 AM. Grab a spot on Peachtree between Marietta and Baker. Stroller-accessible on sidewalks.'
+    url: 'https://dragoncon.org', imageUrl: 'images/evergreen/dragon_con_parade.png', notes: 'Labor Day Saturday morning. Parade starts 10 AM. Grab a spot on Peachtree between Marietta and Baker. Stroller-accessible on sidewalks.'
   }
 ,  {
     id: 'e73', name: 'Candler Park Music Festival', emoji: '🎵',
@@ -1470,7 +3512,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: 'Candler Park, 1500 McLendon Ave NE, Atlanta, GA 30307', lat: 33.7621, lng: -84.3355,
-    url: 'https://candlerparkmusicfestival.org', notes: 'Annual October festival. Free. Walk or bike from VaHi. Invite Craig, Feldman, Ben. This is the easy crew-assembly event.'
+    url: 'https://candlerparkmusicfestival.org', imageUrl: 'images/evergreen/candler_park_music_festival.jpg', notes: 'Annual October festival. Free. Walk or bike from VaHi. Free entry. Easy crew-assembly event.'
   }
 ,  {
     id: 'e74', name: 'Critical Mass ATL', emoji: '🚴',
@@ -1481,7 +3523,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: 'Woodruff Park, 91 Peachtree St NW, Atlanta, GA 30303', lat: 33.7535, lng: -84.3879,
-    url: 'https://www.facebook.com/groups/AtlantaCM', notes: 'Last Friday of every month. Bring your own bike. Show up at Woodruff Park around 8 PM. Solo or with a crew — both work.'
+    url: 'https://www.facebook.com/groups/AtlantaCM', imageUrl: 'images/evergreen/critical_mass_atl.jpg', notes: 'Last Friday of every month. Bring your own bike. Show up at Woodruff Park around 8 PM. Solo or with a crew — both work.',
+    availability: 'scheduled', availabilityNote: 'Last Friday monthly'
   }
 ,  {
     id: 'e75', name: 'The Moth StorySLAM Atlanta', emoji: '🎤',
@@ -1492,7 +3535,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '84 Luckie St NW, Atlanta, GA 30303', lat: 33.7592, lng: -84.3924,
-    url: 'https://themoth.org/atlanta', notes: 'Monthly. Check themoth.org for dates and themes. Doors 6:30 PM. Get there early for good seats. Bring a story if you\'re feeling brave.'
+    url: 'https://themoth.org/atlanta', imageUrl: 'images/evergreen/the_moth_storyslam_atlanta.png', notes: 'Monthly. Check themoth.org for dates and themes. Doors 6:30 PM. Get there early for good seats. Bring a story if you\'re feeling brave.'
   }
 ,  {
     id: 'e76', name: 'Full Moon Drum Circle (Lake Claire)', emoji: '🌕',
@@ -1503,7 +3546,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 3, parentScore: 4,
     address: 'Lake Claire Community Land Trust, Atlanta, GA 30307', lat: 33.7666, lng: -84.3306,
-    url: 'https://lakeclairelandtrust.org', notes: 'Full moon monthly — check moon calendar. Starts after dark. Bring something to sit on. 20 min walk from VaHi via the BeltLine.'
+    url: 'https://lakeclairelandtrust.org', imageUrl: 'images/evergreen/full_moon_drum_circle_lake_claire.jpg', notes: 'Full moon monthly — check moon calendar. Starts after dark. Bring something to sit on. 20 min walk from VaHi via the BeltLine.',
+    availability: 'scheduled', availabilityNote: 'Monthly, full moon'
   }
 ,  {
     id: 'e77', name: 'Terminal West', emoji: '🎶',
@@ -1514,7 +3558,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '887 W Marietta St NW, Atlanta, GA 30318', lat: 33.7881, lng: -84.4045,
-    url: 'https://terminalwestatl.com/events', notes: 'Check calendar monthly. Book early for big acts — sellouts happen fast. Best sound in the city at this capacity.'
+    url: 'https://terminalwestatl.com/events', imageUrl: 'images/evergreen/terminal_west.png', notes: 'Check calendar monthly. Book early for big acts — sellouts happen fast. Best sound in the city at this capacity.'
   }
 ,  {
     id: 'e78', name: 'The Eastern', emoji: '🔊',
@@ -1525,7 +3569,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '395 Moreland Ave NE, Atlanta, GA 30307', lat: 33.7491, lng: -84.3458,
-    url: 'https://easternatl.com/events', notes: 'Check calendar monthly. Parking on Moreland. Best electronic/indie shows in the city at this size. High ROI per babysitter hour.'
+    url: 'https://easternatl.com/events', imageUrl: 'images/evergreen/the_eastern.png', notes: 'Check calendar monthly. Parking on Moreland. Best electronic/indie shows in the city at this size. High ROI per babysitter hour.'
   }
 ,  {
     id: 'e79', name: 'Variety Playhouse', emoji: '🎷',
@@ -1536,7 +3580,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '1099 Euclid Ave NE, Atlanta, GA 30307', lat: 33.7596, lng: -84.3467,
-    url: 'https://variety-playhouse.com/events', notes: 'Check calendar. All-ages, easy parking off Euclid. 15 min from home. Great for Polyrhythmics, Bonobo, Khruangbin-type acts.'
+    url: 'https://variety-playhouse.com/events', imageUrl: 'images/evergreen/variety_playhouse.png', notes: 'Check calendar. All-ages, easy parking off Euclid. 15 min from home. Great for Polyrhythmics, Bonobo, Khruangbin-type acts.'
   }
 ,  {
     id: 'e80', name: 'Believe Music Hall', emoji: '💃',
@@ -1547,7 +3591,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '200 Centennial Olympic Park Dr NW, Atlanta, GA 30313', lat: 33.7612, lng: -84.3957,
-    url: 'https://believeatl.com/events', notes: 'Check for Day Shift events (daytime format, 30+ crowd) — much lower activation energy. Regular Iris Presents bookings. Monitor for headliners.'
+    url: 'https://believeatl.com/events', imageUrl: 'images/evergreen/believe_music_hall.png', notes: 'Check for Day Shift events (daytime format, 30+ crowd) — much lower activation energy. Regular Iris Presents bookings. Monitor for headliners.'
   }
 ,  {
     id: 'e81', name: 'Tabernacle Atlanta', emoji: '🏛️',
@@ -1558,18 +3602,18 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '152 Luckie St NW, Atlanta, GA 30303', lat: 33.759, lng: -84.3927,
-    url: 'https://tabernacleatl.com/events', notes: 'Good seating and floor options. Parking at nearby decks. The architecture alone makes every show feel special.'
+    url: 'https://tabernacleatl.com/events', imageUrl: 'images/evergreen/tabernacle_atlanta.jpg', notes: 'Good seating and floor options. Parking at nearby decks. The architecture alone makes every show feel special.'
   }
 ,  {
     id: 'e82', name: 'Beetlecat', emoji: '🦪',
-    category: 'date', description: 'Inman Park oyster bar and coastal kitchen on North Highland. Raw bar, craft cocktails, gorgeous patio. The right restaurant for a slow Saturday brunch or a weeknight date when you want good food without the Bacchanalia commitment. Jeannie approved.',
+    category: 'date', description: 'Inman Park oyster bar and coastal kitchen on North Highland. Raw bar, craft cocktails, gorgeous patio. The right restaurant for a slow Saturday brunch or a weeknight date when you want good food without the Bacchanalia commitment.',
     effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
     duration: '2hr', groupSize: 'couple',
     free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 2, parentScore: 5,
     address: '299 North Highland Ave NE, Atlanta, GA 30307', lat: 33.7612, lng: -84.3546,
-    url: 'https://beetlecatatl.com', notes: 'OpenTable reservation recommended. Brunch on weekends is the move. 10 min from home. Combine with a BeltLine walk after.'
+    url: 'https://beetlecatatl.com', imageUrl: 'images/evergreen/beetlecat.jpg', notes: 'OpenTable reservation recommended. Brunch on weekends is the move. 10 min from home. Combine with a BeltLine walk after.'
   }
 ,  {
     id: 'e83', name: 'Monday Night Brewing (West End)', emoji: '🍺',
@@ -1580,18 +3624,18 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '933 Lee St SW, Atlanta, GA 30310', lat: 33.7364, lng: -84.4077,
-    url: 'https://mondaynightbrewing.com', notes: 'The Garage is the outdoor taproom on Lee St. 15 min from VaHi. Great Thursday evening format. Pair with a food truck.'
+    url: 'https://mondaynightbrewing.com', imageUrl: 'images/evergreen/monday_night_brewing_west_end.webp', notes: 'The Garage is the outdoor taproom on Lee St. 15 min from VaHi. Great Thursday evening format. Pair with a food truck.'
   }
 ,  {
     id: 'e84', name: 'Velvet Note Jazz Club', emoji: '🎺',
-    category: 'date', description: 'Intimate jazz supper club in Alpharetta — one of the best listening rooms in the Southeast. Full dinner service, world-class jazz bookings, low-key sophistication. A bit of a drive but worth it for a special occasion with Jeannie.',
+    category: 'date', description: 'Intimate jazz supper club in Alpharetta — one of the best listening rooms in the Southeast. Full dinner service, world-class jazz bookings, low-key sophistication. A bit of a drive but worth it for a special occasion.',
     effort: 'low', distance: 'OTP', timeOfDay: 'evening', bestDays: 'any',
     duration: '3hr', groupSize: 'couple',
     free: false, cost: '$$$', membershipIncluded: false, membershipVenue: null,
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '4075 Old Milton Pkwy, Alpharetta, GA 30005', lat: 34.0687, lng: -84.2991,
-    url: 'https://thevelvetnote.com', notes: '~40 min north. Reserve well in advance — this place is small and fills up. Dinner + show format. Anniversary-level experience.'
+    url: 'https://thevelvetnote.com', imageUrl: 'images/evergreen/velvet_note_jazz_club.jpg', notes: '~40 min north. Reserve well in advance — this place is small and fills up. Dinner + show format. Anniversary-level experience.'
   }
 ,  {
     id: 'e85', name: 'Kayaking on the Chattahoochee', emoji: '🛶',
@@ -1602,7 +3646,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: 'Island Ford Unit, 1978 Island Ford Pkwy, Sandy Springs, GA 30350', lat: 33.9772, lng: -84.3582,
-    url: 'https://nps.gov/chat', notes: 'Kayak rentals at High Country Outfitters (Sandy Springs). Flatwater paddling. Go weekday morning for solitude. National recreation area — parking fee applies.'
+    url: 'https://nps.gov/chat', imageUrl: 'images/evergreen/kayaking_on_the_chattahoochee.jpg', notes: 'Kayak rentals at High Country Outfitters (Sandy Springs). Flatwater paddling. Go weekday morning for solitude. National recreation area — parking fee applies.'
   }
 ,  {
     id: 'e86', name: 'Atlanta BeltLine Trail Run', emoji: '🏃',
@@ -1613,7 +3657,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: 'Atlanta BeltLine Eastside Trail, Atlanta, GA 30306', lat: 33.7665, lng: -84.3553,
-    url: 'https://beltline.org', notes: 'Access from Krog Street. Run north to Piedmont Park. Connect to Freedom Park for extra miles. Best before 7:30 AM on weekdays.'
+    url: 'https://beltline.org', imageUrl: 'images/evergreen/atlanta_beltline_trail_run.jpg', notes: 'Access from Krog Street. Run north to Piedmont Park. Connect to Freedom Park for extra miles. Best before 7:30 AM on weekdays.'
   }
 ,  {
     id: 'e87', name: 'Stone Mountain Park (Train + Splash Pad)', emoji: '🚂',
@@ -1624,7 +3668,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '1000 Robert E. Lee Blvd, Stone Mountain, GA 30083', lat: 33.8088, lng: -84.1499,
-    url: 'https://stonemountainpark.com', notes: 'Buy the adventure pass online. Train ride is the anchor activity for Dean. Splash pad open Memorial Day–Labor Day. Go on a weekday morning.'
+    url: 'https://stonemountainpark.com', imageUrl: 'images/evergreen/stone_mountain_park_train_splash_pad.png', notes: 'Buy the adventure pass online. Train ride is the anchor activity for Dean. Splash pad open Memorial Day–Labor Day. Go on a weekday morning.'
   }
 ,  {
     id: 'e88', name: 'Atlanta Science Festival Exploration Expo', emoji: '🔬',
@@ -1635,7 +3679,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
-    url: 'https://atlantasciencefestival.org', notes: 'Annual March festival. Free. Walk from home. The Exploration Expo at Piedmont Park is the main event — 150+ interactive exhibits.'
+    url: 'https://atlantasciencefestival.org', imageUrl: 'images/evergreen/atlanta_science_festival_exploration_expo.png', notes: 'Annual March festival. Free. Walk from home. The Exploration Expo at Piedmont Park is the main event — 150+ interactive exhibits.'
   }
 ,  {
     id: 'e89', name: 'Fulton County Library Storytime', emoji: '📖',
@@ -1646,18 +3690,19 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: '1117 Johnson Rd NE, Atlanta, GA 30306', lat: 33.7968, lng: -84.3477,
-    url: 'https://afpls.org', notes: 'Morningside Branch has Tuesday and Thursday storytime. Check schedule online. Follow with donuts at Revolution for the classic loop.'
+    url: 'https://afpls.org', imageUrl: 'images/evergreen/fulton_county_library_storytime.png', notes: 'Morningside Branch has Tuesday and Thursday storytime. Check schedule online. Follow with donuts at Revolution for the classic loop.'
   }
 ,  {
     id: 'e90', name: 'Strawberry Picking at Jaemor Farms', emoji: '🍓',
-    category: 'family', description: 'U-pick strawberry farm 1.5 hours north. Early May is peak. Dean walking the rows with a bucket, eating more than he picks. The Feldmans come too. This is the spring family tradition worth the drive.',
+    category: 'family', description: 'U-pick strawberry farm 1.5 hours north. Early May is peak. Kids walking the rows with a bucket, eating more than they pick. This is the spring family tradition worth the drive.',
     effort: 'medium', distance: 'OTP', timeOfDay: 'morning', bestDays: 'seasonal',
     duration: 'half-day', groupSize: 'family',
     free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
     ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: '5340 Cornelia Hwy, Alto, GA 30510', lat: 34.4629, lng: -83.5837,
-    url: 'https://jaemorfarms.com', notes: '1.5 hr north via 985. Strawberry season late April–May. Call ahead for u-pick availability. The Feldmans are the go-to invite. Follow with lunch in Gainesville on the way back.'
+    url: 'https://jaemorfarms.com', imageUrl: 'images/evergreen/strawberry_picking_at_jaemor_farms.jpg', notes: '1.5 hr north via 985. Strawberry season late April–May. Call ahead for u-pick availability. Call ahead for u-pick availability. Follow with lunch in Gainesville on the way back.',
+    availability: 'seasonal', availabilityNote: 'Late Apr-May'
   }
 ,  {
     id: 'e91', name: 'Apple Picking in Blue Ridge', emoji: '🍎',
@@ -1668,7 +3713,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
     deanScore: 4, parentScore: 5,
     address: '8660 Blue Ridge Dr, Blue Ridge, GA 30513', lat: 34.8648, lng: -84.3282,
-    url: 'https://mercier-orchards.com', notes: '~1.5 hr north via 575. September–October season. Buy cider donuts. The family did it last August and Dima counts it as a core memory.'
+    url: 'https://mercier-orchards.com', imageUrl: 'images/evergreen/apple_picking_in_blue_ridge.jpg', notes: '~1.5 hr north via 575. September–October season. Buy cider donuts. The family did it last August and Dima counts it as a core memory.',
+    availability: 'seasonal', availabilityNote: 'Sep-Oct'
   }
 ,  {
     id: 'e92', name: 'Pumpkin Patch Farm Visit', emoji: '🎃',
@@ -1679,7 +3725,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '7220 Spout Springs Rd, Flowery Branch, GA 30542', lat: 34.1874, lng: -83.9165,
-    url: 'https://bbsplantfarm.com', notes: 'BB\'s Plant Farm in Flowery Branch (~50 min). October season. Corn maze + pumpkin picking. Invite the Feldmans for a group trip.'
+    url: 'https://bbsplantfarm.com', imageUrl: 'images/evergreen/pumpkin_patch_farm_visit.jpg', notes: 'BB\'s Plant Farm in Flowery Branch (~50 min). October season. Corn maze + pumpkin picking. Great for a group trip with friends.'
   }
 ,  {
     id: 'e93', name: 'Outdoor Movie Night (Atlantic Station)', emoji: '🎬',
@@ -1690,7 +3736,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: '1380 Atlantic Dr NW, Atlanta, GA 30363', lat: 33.792, lng: -84.4052,
-    url: 'https://atlanticstation.com/events', notes: 'Summer series, June–August. Free. Bring a blanket and snacks. Check schedule at atlanticstation.com. Dean stays up late, considers this a treat.'
+    url: 'https://atlanticstation.com/events', imageUrl: 'images/evergreen/outdoor_movie_night_atlantic_station.jpg', notes: 'Summer series, June–August. Free. Bring a blanket and snacks. Check schedule at atlanticstation.com. Dean stays up late, considers this a treat.',
+    availability: 'seasonal', availabilityNote: 'October'
   }
 ,  {
     id: 'e94', name: 'Plaza Theatre', emoji: '🎞️',
@@ -1701,7 +3748,8 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '1049 Ponce de Leon Ave NE, Atlanta, GA 30306', lat: 33.7726, lng: -84.3487,
-    url: 'https://plazaatlanta.com', notes: 'Walk from home. Check their calendar for midnight screenings and festivals. No reserved seating — show up 20 min early.'
+    url: 'https://plazaatlanta.com', imageUrl: 'images/evergreen/plaza_theatre.jpg', notes: 'Walk from home. Check their calendar for midnight screenings and festivals. No reserved seating — show up 20 min early.',
+    availability: 'seasonal', availabilityNote: 'Summer months'
   }
 ,  {
     id: 'e95', name: 'Atlanta Symphony Orchestra', emoji: '🎻',
@@ -1712,7 +3760,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: '1280 Peachtree St NE, Atlanta, GA 30309', lat: 33.7902, lng: -84.3853,
-    url: 'https://aso.org/events', notes: 'Check fall season announcement in August. Pops series is more accessible for casual nights. Pre-show dinner at Ecco next door.'
+    url: 'https://aso.org/events', imageUrl: 'images/evergreen/atlanta_symphony_orchestra.jpg', notes: 'Check fall season announcement in August. Pops series is more accessible for casual nights. Pre-show dinner at Ecco next door.'
   }
 ,  {
     id: 'e96', name: 'District Atlanta', emoji: '🎧',
@@ -1723,7 +3771,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '180 Walker St SW, Atlanta, GA 30313', lat: 33.7474, lng: -84.3968,
-    url: 'https://districtatlanta.com/events', notes: 'Check 19hz.info for underground listings. Arrive by midnight for the peak set. Fri–Sat only. Babysitter + Lyft = the right logistics model.'
+    url: 'https://districtatlanta.com/events', imageUrl: 'images/evergreen/district_atlanta.png', notes: 'Check 19hz.info for underground listings. Arrive by midnight for the peak set. Fri–Sat only. Babysitter + Lyft = the right logistics model.'
   }
 ,  {
     id: 'e97', name: 'Highland Yoga', emoji: '🧘',
@@ -1734,7 +3782,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '842 North Highland Ave NE, Atlanta, GA 30306', lat: 33.7806, lng: -84.356,
-    url: 'https://highland-yoga.com', notes: 'Walk from home. Power Flow is the Dima class. HY community newsletter is worth subscribing to for connected events.'
+    url: 'https://highland-yoga.com', imageUrl: 'images/evergreen/highland_yoga.jpeg', notes: 'Walk from home. Power Flow is the Dima class. HY community newsletter is worth subscribing to for connected events.'
   }
 ,  {
     id: 'e98', name: 'Decatur Square', emoji: '☕',
@@ -1745,7 +3793,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Decatur Square, Decatur, GA 30030', lat: 33.7748, lng: -84.2963,
-    url: 'https://decaturga.com', notes: '10 min from VaHi. Toy shop → Decatur Toy Park (playground) → Dancing Goats Coffee. The route Dima has done twice. Works in all weather.'
+    url: 'https://decaturga.com', imageUrl: 'images/evergreen/decatur_square.jpg', notes: '10 min from VaHi. Toy shop → Decatur Toy Park (playground) → Dancing Goats Coffee. The route Dima has done twice. Works in all weather.'
   }
 ,  {
     id: 'e99', name: 'Switchyards (Co-Working / Focus Escape)', emoji: '💻',
@@ -1756,7 +3804,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '973 N Highland Ave NE, Atlanta, GA 30306', lat: 33.7861, lng: -84.3554,
-    url: 'https://switchyards.com', notes: 'Member. Also Toco Hills (2205 Lavista Rd) and Old Fourth Ward locations. Great for deep work blocks when home feels chaotic.'
+    url: 'https://switchyards.com', imageUrl: 'images/evergreen/switchyards_co_working_focus_escape.jpg', notes: 'Member. Also Toco Hills (2205 Lavista Rd) and Old Fourth Ward locations. Great for deep work blocks when home feels chaotic.'
   }
 ,  {
     id: 'e100', name: 'Ponce City Market Food Hall', emoji: '🌮',
@@ -1767,7 +3815,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '675 Ponce De Leon Ave NE, Atlanta, GA 30308', lat: 33.7723, lng: -84.3632,
-    url: 'https://poncecitymarket.com', notes: 'Walk or bike from home. The toy piano is near the main entrance — Dean will find it. Combine with BeltLine south for a 2hr morning out.'
+    url: 'https://poncecitymarket.com', imageUrl: 'images/evergreen/ponce_city_market_food_hall.jpg', notes: 'Walk or bike from home. The toy piano is near the main entrance — Dean will find it. Combine with BeltLine south for a 2hr morning out.'
   }
 ,  {
     id: 'e101', name: 'St. Patrick\'s Day Parade', emoji: '☘️',
@@ -1778,7 +3826,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Peachtree St NE, Midtown Atlanta, GA 30309', lat: 33.7817, lng: -84.3839,
-    url: 'https://atlantastpatsparade.com', notes: 'Annual, Saturday before/on March 17. Free. Park in Midtown and walk to a spot on Peachtree. Stroller-accessible. Get there 30 min early for a good sidewalk position.'
+    url: 'https://atlantastpatsparade.com', imageUrl: 'images/evergreen/st_patrick_s_day_parade.jpg', notes: 'Annual, Saturday before/on March 17. Free. Park in Midtown and walk to a spot on Peachtree. Stroller-accessible. Get there 30 min early for a good sidewalk position.'
   }
 ,  {
     id: 'e102', name: 'Sauna / Spa Day (Rejuvenation Spa)', emoji: '🛁',
@@ -1789,7 +3837,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '2000 Powers Ferry Rd SE, Marietta, GA 30067', lat: 33.9135, lng: -84.468,
-    url: 'https://rejuvenationspa.com', notes: 'Check for Korean day spas as well — SpaJa (Johns Creek) or Jeju Sauna (Duluth) are strong options for longer sauna-focused visits.'
+    url: 'https://rejuvenationspa.com', imageUrl: 'images/evergreen/sauna_spa_day_rejuvenation_spa.jpg', notes: 'Check for Korean day spas as well — SpaJa (Johns Creek) or Jeju Sauna (Duluth) are strong options for longer sauna-focused visits.'
   }
 ,  {
     id: 'e103', name: 'Atlanta Film Festival', emoji: '🎥',
@@ -1800,7 +3848,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 4,
     address: 'Various venues, Atlanta, GA 30308', lat: 33.7726, lng: -84.3487,
-    url: 'https://atlantafilmfestival.com', notes: 'Annual, mid-April. 10-day festival across multiple venues. Tickets by screening. Check their website in March for full lineup.'
+    url: 'https://atlantafilmfestival.com', imageUrl: 'images/evergreen/atlanta_film_festival.jpeg', notes: 'Annual, mid-April. 10-day festival across multiple venues. Tickets by screening. Check their website in March for full lineup.'
   }
 ,  {
     id: 'e104', name: 'Fernbank Museum — Orkin Discovery Zone', emoji: '🦋',
@@ -1811,7 +3859,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '767 Clifton Rd NE, Atlanta, GA 30307', lat: 33.7813, lng: -84.3227,
-    url: 'https://fernbankmuseum.org/orkin-discovery-zone', notes: 'Member — walk in. New as of 2026. Go weekday morning to avoid crowds. Dean will need more than one visit to exhaust this exhibit.'
+    url: 'https://fernbankmuseum.org/orkin-discovery-zone', imageUrl: 'images/evergreen/fernbank_museum_orkin_discovery_zone.jpg', notes: 'Member — walk in. New as of 2026. Go weekday morning to avoid crowds. Dean will need more than one visit to exhaust this exhibit.'
   }
 ,  {
     id: 'e105', name: 'Kite Flying at Piedmont Park', emoji: '🪁',
@@ -1822,7 +3870,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7869, lng: -84.3734,
-    url: 'https://piedmontpark.org', notes: 'Buy a $6 kite at Target. The active oval is the best open field. Spring and fall have the best wind. This is a perfect Dima-Dean morning.'
+    url: 'https://piedmontpark.org', imageUrl: 'images/evergreen/kite_flying_at_piedmont_park.png', notes: 'Buy a $6 kite at Target. The active oval is the best open field. Spring and fall have the best wind. This is a perfect Dima-Dean morning.'
   }
 ,  {
     id: 'e106', name: 'Illuminarium Atlanta', emoji: '🌌',
@@ -1833,7 +3881,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 4,
     address: '550 Somerset Terrace NE, Atlanta, GA 30306', lat: 33.7599, lng: -84.3649,
-    url: 'https://atlanta.illuminarium.com', notes: 'Book online. 15 min from home. Check what theme is running before booking — Space and Safari are the strongest. ~60 min experience.'
+    url: 'https://atlanta.illuminarium.com', imageUrl: 'images/evergreen/illuminarium_atlanta.jpg', notes: 'Book online. 15 min from home. Check what theme is running before booking — Space and Safari are the strongest. ~60 min experience.'
   }
 ,  {
     id: 'e107', name: 'Inman Park Festival & Tour of Homes', emoji: '🏡',
@@ -1844,7 +3892,7 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 3, parentScore: 4,
     address: 'Inman Park, Atlanta, GA 30307', lat: 33.7575, lng: -84.3571,
-    url: 'https://inmanparkfestival.org', notes: 'Annual, late April. Free. Walk or BeltLine from home. The parade is Saturday morning — go early. Festival continues all weekend.'
+    url: 'https://inmanparkfestival.org', imageUrl: 'images/evergreen/inman_park_festival_tour_of_homes.webp', notes: 'Annual, late April. Free. Walk or BeltLine from home. The parade is Saturday morning — go early. Festival continues all weekend.'
   }
 ,  {
     id: 'e108', name: 'Chastain Park Amphitheatre', emoji: '🎼',
@@ -1855,7 +3903,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
     deanScore: 1, parentScore: 5,
     address: '4469 Stella Dr NW, Atlanta, GA 30327', lat: 33.8794, lng: -84.3849,
-    url: 'https://cadencebankamphitheatre.com/events', notes: 'BYO food and wine is the key feature. Lawn chairs for back lawn. Book tables up front for an elevated experience. Summer season May–October.'
+    url: 'https://cadencebankamphitheatre.com/events', imageUrl: 'images/evergreen/chastain_park_amphitheatre.jpg', notes: 'BYO food and wine is the key feature. Lawn chairs for back lawn. Book tables up front for an elevated experience. Summer season May–October.'
   }
 ,  {
     id: 'e109', name: 'Alpaca Farm Visit (Georgia)', emoji: '🦙',
@@ -1866,7 +3914,7 @@ const EVERGREEN = [
     ticketsRequired: true, papaFriendly: false, rubyFriendly: true,
     deanScore: 4, parentScore: 4,
     address: 'Maplewood Farm Alpacas, 680 Maplewood Farm Dr, Canton, GA 30115', lat: 34.2553, lng: -84.4927,
-    url: 'https://maplewoodfarmalpacas.com', notes: '~45 min north via 575. Book visits through the website. Combine with a Canton stop on the way back. Weekend only.'
+    url: 'https://maplewoodfarmalpacas.com', imageUrl: 'images/evergreen/alpaca_farm_visit_georgia.jpg', notes: '~45 min north via 575. Book visits through the website. Combine with a Canton stop on the way back. Weekend only.'
   }
 ,  {
     id: 'e110', name: 'Atlanta Streets Alive', emoji: '🚶',
@@ -1877,6 +3925,364 @@ const EVERGREEN = [
     ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
     deanScore: 5, parentScore: 5,
     address: 'Various routes, Atlanta, GA (HQ: 100 Peachtree St NW)', lat: 33.7559, lng: -84.3884,
-    url: 'https://atlantastreetsalive.com', notes: '2026 dates: Apr 19, May 31, Jun 14, Sep 27, Oct 18, Nov 8. Free. Bring Dean\'s bike or scooter. Best family format in the city.'
+    url: 'https://atlantastreetsalive.com', imageUrl: 'images/evergreen/atlanta_streets_alive.jpg', notes: '2026 dates: Apr 19, May 31, Jun 14, Sep 27, Oct 18, Nov 8. Free. Bring Dean\'s bike or scooter. Best family format in the city.'
+  },
+  {
+    id: 'e111', name: 'Grant Park Farmers Market', emoji: '🥬',
+    category: 'family', description: 'Sunday morning farmers market in Grant Park. Local farms, live music, playground steps away. Dean-friendly morning outing with Papa potential. Free entry.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: '547 Park Ave SE, Atlanta, GA 30312', lat: 33.7400, lng: -84.3710,
+    url: 'https://cfmatl.org/grant-park/', imageUrl: 'images/evergreen/grant_park_farmers_market.jpg', notes: 'Sundays 9 AM – 1 PM, Apr–Dec. Playground is adjacent. Good Papa + Dean Sunday anchor.',
+    availability: 'scheduled', availabilityNote: 'Sundays 9 AM-1 PM, Apr-Dec'
+  },
+  {
+    id: 'e112', name: 'Piedmont Park Green Market', emoji: '🌽',
+    category: 'family', description: 'Saturdays at Piedmont Park. 50+ vendors — produce, baked goods, prepared food, flowers. The biggest weekly market ITP. Combine with park time for a full morning.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'family',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 3, parentScore: 4,
+    address: '400 Park Dr NE, Atlanta, GA 30306', lat: 33.7879, lng: -84.3731,
+    url: 'https://piedmontpark.org/events/green-market/', imageUrl: 'images/evergreen/piedmont_green_market.jpg', notes: 'Saturdays 9 AM – 1 PM, Mar–Dec. 50+ vendors. Pair with playground or a Beltline walk.',
+    availability: 'seasonal', availabilityNote: 'Saturdays Mar-Dec'
+  },
+  {
+    id: 'e113', name: 'Red Light Café', emoji: '🎷',
+    category: 'date', description: 'VaHi live music room with an open jazz jam every Wednesday and regular comedy nights. No cover for the jam. Intimate, unpretentious, and chronically underrated.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'weekday',
+    duration: '2hr', groupSize: 'couple',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: '553 W Amsterdam Ave NE, Atlanta, GA 30306', lat: 33.7840, lng: -84.3580,
+    url: 'https://redlightcafe.com', imageUrl: 'images/evergreen/red_light_cafe_jazz.jpg', notes: 'Wednesdays 8 PM. No cover. Intimate jazz room. Walk-in, zero planning.',
+    availability: 'scheduled', availabilityNote: 'Selected dates Apr-Nov'
+  },
+  {
+    id: 'e114', name: 'ATLPTN Group Rides', emoji: '🚴',
+    category: 'group', description: 'Atlanta Party Network — themed social bike rides through the city. More party energy than Critical Mass. Rotating routes, DJ on a bike trailer, glow sticks. Follow their Instagram for dates.',
+    effort: 'medium', distance: 'ITP', timeOfDay: 'evening', bestDays: 'weekend',
+    duration: '3hr', groupSize: 'group',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: 'Various start points, Atlanta, GA', lat: 33.7550, lng: -84.3880,
+    url: 'https://instagram.com/atlptn', imageUrl: 'images/evergreen/atlptn_group_rides.jpg', notes: 'Check @atlptn on Instagram for ride dates. Bring your own bike. Themed party rides — glow, costumes, music.',
+    availability: 'scheduled', availabilityNote: 'Check @atlptn for dates'
+  },
+  {
+    id: 'e115', name: 'Castleberry Hill Art Stroll', emoji: '🎨',
+    category: 'date', description: '2nd Friday gallery walk through Castleberry Hill. Open studios, wine, street art, and walking between galleries. Free, zero planning, walkable. A standing date night or group outing.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'weekend',
+    duration: '2hr', groupSize: 'couple',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: 'Walker St & Nelson St SW, Atlanta, GA 30313', lat: 33.7497, lng: -84.3975,
+    url: 'https://www.castleberryhill.org', imageUrl: 'images/evergreen/castleberry_art_stroll.jpg', notes: '2nd Friday monthly, 7–10 PM. Free. Walking distance between galleries. Wine at every stop.',
+    availability: 'scheduled', availabilityNote: '2nd Friday monthly'
+  },
+  {
+    id: 'e116', name: 'Free Yoga in Piedmont Park', emoji: '🧘',
+    category: 'solo', description: 'Free outdoor yoga on Saturday mornings in Piedmont Park during summer. Bring your own mat. Pairs perfectly with the Green Market. The lowest-barrier solo reset on the calendar.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'solo',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 4,
+    address: 'Piedmont Park, Atlanta, GA 30309', lat: 33.7879, lng: -84.3731,
+    url: 'https://piedmontpark.org', imageUrl: 'images/evergreen/free_yoga_piedmont.jpg', notes: 'Saturdays 10 AM, summer months. BYO mat. Pair with Green Market for a full morning.',
+    availability: 'seasonal', availabilityNote: 'Saturdays, summer'
+  },
+  {
+    id: 'e117', name: 'Old Fourth Ward Park', emoji: '🌳',
+    category: 'family', description: 'The heart of the O4W neighborhood. Great lawn for picnics, splash pad for kids, Beltline access, and a dog park. One of the best free outdoor hours in Atlanta.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: '1-2hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '981 Dallas St NE, Atlanta, GA 30306', lat: 33.7623, lng: -84.3575,
+    url: 'https://beltline.org', imageUrl: 'images/evergreen/old_fourth_ward_park.jpg', notes: 'Splash pad is seasonal (summer). Dog park on the south side. Walk the Beltline north from here toward Ponce City Market.'
+  },
+  {
+    id: 'e118', name: 'Bar Taco Inman Park', emoji: '🌮',
+    category: 'group', description: 'Casual, open-air taco spot on Edgewood with a great patio and strong margaritas. A reliable social anchor in Inman Park — good for groups, dates, or solo.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '1-2hr', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
+    deanScore: 3, parentScore: 4,
+    address: '803 Edgewood Ave NE, Atlanta, GA 30307', lat: 33.7558, lng: -84.3640,
+    url: 'https://bartaco.com', imageUrl: 'images/evergreen/bar_taco_inman_park.jpg', notes: 'Street tacos and frozen margarita. Patio is the move in spring and fall. Counter order.'
+  },
+  {
+    id: 'e119', name: 'Brick Store Pub', emoji: '🍺',
+    category: 'group', description: 'Decatur\'s definitive beer bar. Four floors, 30+ drafts, classic pub food. A place worth driving to. Works for a focused beer night or a casual group dinner.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'group',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 2, parentScore: 5,
+    address: '125 E Court Square, Decatur, GA 30030', lat: 33.7745, lng: -84.2965,
+    url: 'https://brickstore.com', imageUrl: 'images/evergreen/brick_store_pub.jpg', notes: 'Best beer list in metro Atlanta. Third floor is the Belgian room — low ceilings, hushed, serious. Jeff Ader birthday territory.'
+  },
+  {
+    id: 'e120', name: 'Muchacho', emoji: '☕',
+    category: 'solo', description: 'Edgewood Ave café with excellent coffee and Mexican-inspired food. A morning solo reset, a remote work spot, or a casual date lunch.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'solo',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
+    deanScore: 2, parentScore: 4,
+    address: '802 Edgewood Ave NE, Atlanta, GA 30307', lat: 33.7557, lng: -84.3643,
+    url: 'https://muchacho.menu', imageUrl: 'images/evergreen/muchacho.jpg', notes: 'Cortado and a breakfast taco. Fills up fast on weekends — go early. Good laptop spot on weekdays.'
+  },
+  {
+    id: 'e121', name: 'Talat Market', emoji: '🍜',
+    category: 'date', description: 'Thai-inspired small plates from a James Beard–nominated chef. No reservations, cash or Venmo, worth any wait. One of the most interesting meals in Atlanta.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '112 Ormond St NE, Atlanta, GA 30307', lat: 33.7548, lng: -84.3573,
+    url: 'https://talatmarket.com', imageUrl: 'images/evergreen/talat_market.jpg', notes: 'No reservations. Arrive before 6 PM or expect a wait. Cash or Venmo only.'
+  },
+  {
+    id: 'e122', name: 'Clermont Lounge', emoji: '🎭',
+    category: 'group', description: 'Atlanta\'s most legendary dive bar. Basement of a historic hotel — live DJ, regular burlesque, memorably weird. A rite of passage for any serious Atlantan.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'group',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 0, parentScore: 4,
+    address: '789 Ponce De Leon Ave NE, Atlanta, GA 30306', lat: 33.7790, lng: -84.3587,
+    url: 'https://clermontlounge.net', imageUrl: 'images/evergreen/clermont_lounge.jpg', notes: 'Cash bar. Open late. The vibe is the point, not the drinks. Best with a group that\'s game for anything.'
+  },
+  {
+    id: 'e123', name: 'Varuni Napoli', emoji: '🍕',
+    category: 'date', description: 'Certified Neapolitan pizza on Monroe Drive — blistered char, proper Naples technique, excellent wine. One of Atlanta\'s best pizza destinations and a strong date-night anchor.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '1.5hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
+    deanScore: 3, parentScore: 5,
+    address: '1540 Monroe Dr NE, Atlanta, GA 30324', lat: 33.7986, lng: -84.3744,
+    url: 'https://varuni.us', imageUrl: 'images/evergreen/varuni_napoli.jpg', notes: 'Reservations recommended on weekends. Classic Margherita is the move. Wood-fired oven certified by the VPN Association.'
+  },
+  {
+    id: 'e124', name: 'Whiskey Bird', emoji: '🥃',
+    category: 'group', description: 'Asian-inflected small plates and a deep whiskey list on Memorial Drive. Strong cocktail program, lively bar scene. Good for groups or a date that wants more than just wine.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'any',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '817 Memorial Dr SE, Atlanta, GA 30316', lat: 33.7459, lng: -84.3567,
+    url: 'https://whiskeybird.com', imageUrl: 'images/evergreen/whiskey_bird.jpg', notes: 'Chicken wings and a Japanese whisky. Patio is solid. Ask for the rotating cocktail list.'
+  },
+  {
+    id: 'e125', name: 'Little Rey', emoji: '🌮',
+    category: 'family', description: 'Fast-casual Mexican by the Rey family in Inman Park. Great tacos, easy patio. A strong weekday lunch or Saturday family outing that doesn\'t require planning.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: '659 Auburn Ave NE, Atlanta, GA 30312', lat: 33.7575, lng: -84.3746,
+    url: 'https://littlereyatl.com', imageUrl: 'images/evergreen/little_rey.jpg', notes: 'Order at the counter. Chips and queso for the table. Outdoor seating works for kids.'
+  },
+  {
+    id: 'e126', name: 'Ash Coffee', emoji: '☕',
+    category: 'family', description: 'Pastry-forward neighborhood café with excellent croissants and a calm weekend morning vibe. A solid stop with a toddler before the rest of the day starts.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '45min', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 4,
+    address: '469 Edgewood Ave SE, Atlanta, GA 30312', lat: 33.7527, lng: -84.3640,
+    url: 'https://ashcoffeeatl.com', imageUrl: 'images/evergreen/ash_coffee.jpg', notes: 'Croissants sell out. Get there before 10 AM on weekends. Small space — go early or try a weekday.'
+  },
+  {
+    id: 'e127', name: 'Revolution Doughnuts', emoji: '🍩',
+    category: 'family', description: 'Inman Park doughnut shop with creative flavors and consistently great old-fashioneds. The essential kid stop in any Inman Park morning.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '30min', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '749 Moreland Ave SE, Atlanta, GA 30316', lat: 33.7493, lng: -84.3590,
+    url: 'https://revolutiondoughnuts.com', imageUrl: 'images/evergreen/revolution_doughnuts.jpg', notes: 'Favorites sell out by 10 AM on weekends. Old fashioned and any seasonal special. Short stop, not a sit-down.'
+  },
+  {
+    id: 'e128', name: 'Double Zero Pizza', emoji: '🍕',
+    category: 'date', description: 'Upscale Neapolitan near Emory with 00-flour dough and a wood fire. Quieter than the Antico scene — better for a proper sit-down pizza dinner.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '1.5hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
+    deanScore: 3, parentScore: 4,
+    address: '1577 N Decatur Rd NE, Atlanta, GA 30307', lat: 33.7939, lng: -84.3265,
+    url: 'https://doublezeroatl.com', imageUrl: 'images/evergreen/double_zero_pizza.jpg', notes: 'Near Emory. Neighborhood feel, good wine list for a pizza spot. Reservations recommended weekends.'
+  },
+  {
+    id: 'e129', name: 'Lullwater Park', emoji: '🌿',
+    category: 'family', description: 'Quiet conservation area near Emory with a stream, wooden bridges, and dense canopy. Off the tourist radar. The closest Atlanta gets to a real forest walk inside the city.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '1463 Clifton Rd NE, Atlanta, GA 30307', lat: 33.7899, lng: -84.3275,
+    url: 'https://emory.edu', imageUrl: 'images/evergreen/lullwater_park.jpg', notes: 'Free and open to the public. Peaceful creek trail with footbridges — stroller-accessible. Pair with an Emory campus walk.'
+  },
+  {
+    id: 'e130', name: 'Gusto on Ponce', emoji: '🍽️',
+    category: 'date', description: 'Relaxed Italian-American on Ponce with solid pasta and a good wine list. Neighborhood restaurant energy — not a scene, just good food and conversation.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: false,
+    deanScore: 2, parentScore: 4,
+    address: '1011 Ponce De Leon Ave NE, Atlanta, GA 30306', lat: 33.7762, lng: -84.3562,
+    url: 'https://gustoonponce.com', imageUrl: 'images/evergreen/gusto_on_ponce.jpg', notes: 'Reservations recommended. Smaller space, good for conversation. Pasta and wine focus.'
+  },
+  {
+    id: 'e131', name: 'Beltline at Krog Street', emoji: '🛤️',
+    category: 'family', description: 'The most animated stretch of the Beltline — grassy hills behind Krog, art murals, and an open field near the Patagonia store. Zero barrier entry, maximum vibe.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: '1-2hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '381 Krog St NE, Atlanta, GA 30307', lat: 33.7513, lng: -84.3587,
+    url: 'https://beltline.org', imageUrl: 'images/evergreen/beltline_krog_hills.jpg', notes: 'Park at Krog or walk from Inman Park. Kids run the hills. Grab food from Krog Street Market after.'
+  },
+  {
+    id: 'e132', name: 'General Muir', emoji: '🥐',
+    category: 'family', description: 'Jewish deli at Emory Point with exceptional bagels, matzo ball soup, and smoked fish plates. The kind of breakfast that anchors a Saturday morning.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'weekend',
+    duration: '1hr', groupSize: 'any',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 5,
+    address: '1540 Avenue Pl NE, Atlanta, GA 30329', lat: 33.8001, lng: -84.3275,
+    url: 'https://thegeneralmuir.com', imageUrl: 'images/evergreen/general_muir.jpg', notes: 'Bagel with lox. Weekend waits are real. Weekday lunch is underrated and calm.'
+  },
+  {
+    id: 'e133', name: 'Daily Chew', emoji: '🥞',
+    category: 'family', description: 'Low-key neighborhood breakfast and lunch spot. Solid eggs, good coffee, and the unhurried energy of a place that knows what it is.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 4, parentScore: 3,
+    address: '240 N Highland Ave NE, Atlanta, GA 30307', lat: 33.7681, lng: -84.3580,
+    url: 'https://thedailychew.com', imageUrl: 'images/evergreen/daily_chew.jpg', notes: 'Neighborhood crowd, cash-friendly. Good weekday breakfast when you want quick and easy.'
+  },
+  {
+    id: 'e134', name: 'Zonolite Park', emoji: '🌲',
+    category: 'family', description: 'Hidden neighborhood park in the Druid Hills area with a small creek, woods, and a playground. Low traffic, genuinely quiet. A gem most Atlantans don\'t know.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 3,
+    address: '1370 Zonolite Rd NE, Atlanta, GA 30306', lat: 33.7975, lng: -84.3520,
+    url: 'https://atlantaga.gov', imageUrl: 'images/evergreen/zonolite_park.jpg', notes: 'Small but genuinely pleasant. Creek trail is kid-friendly. Go when you want a park without the Piedmont Park crowd.'
+  },
+  {
+    id: 'e135', name: 'Daniel Johnson Nature Preserve', emoji: '🌿',
+    category: 'solo', description: 'Quiet urban nature preserve in Buckhead with a creek, mature forest, and rugged trails. Underused and worth it for a solo reset or longer family walk.',
+    effort: 'medium', distance: 'ITP', timeOfDay: 'morning', bestDays: 'any',
+    duration: '1.5hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 3, parentScore: 4,
+    address: '600 Birchwood Rd NE, Atlanta, GA 30319', lat: 33.8490, lng: -84.3435,
+    url: 'https://atlantaga.gov', imageUrl: 'images/evergreen/daniel_johnson_preserve.jpg', notes: 'Trail gets muddy after rain. Creek crossings. Good for a 45-min rugged walk inside the city. Dogs welcome.'
+  },
+  {
+    id: 'e136', name: 'Victory Sandwich Bar', emoji: '🥪',
+    category: 'group', description: 'Inman Park dive with creative sandwiches, cheap beer, and a large outdoor area. Zero pretension, maximum casual energy.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: false, rubyFriendly: false,
+    deanScore: 3, parentScore: 4,
+    address: '913 Bernina Ave NE, Atlanta, GA 30307', lat: 33.7512, lng: -84.3554,
+    url: 'https://victorysandwichbar.com', imageUrl: 'images/evergreen/victory_sandwich_bar.jpg', notes: 'Get the Conquistador or whatever special is on the board. Big outdoor area — good for groups.'
+  },
+  {
+    id: 'e137', name: 'Delbar', emoji: '🌙',
+    category: 'date', description: 'Elevated Persian in Inman Park with a moody atmosphere and genuinely distinctive menu. Lamb dishes, saffron cocktails, excellent bread. One of Atlanta\'s most interesting dinners.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'evening', bestDays: 'any',
+    duration: '2hr', groupSize: 'couple',
+    free: false, cost: '$$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 1, parentScore: 5,
+    address: '709 Edgewood Ave NE, Atlanta, GA 30307', lat: 33.7558, lng: -84.3629,
+    url: 'https://delbaratl.com', imageUrl: 'images/evergreen/delbar.jpg', notes: 'Reservations essential. Lamb chops and the saffron cocktail are standouts. Low light, intimate space.'
+  },
+  {
+    id: 'e138', name: 'O4W Skatepark + Beltline Bridge', emoji: '🛹',
+    category: 'family', description: 'The outdoor skatepark in Old Fourth Ward pairs with nearby Beltline bridge views — a genuinely cool Atlanta urban moment. Let the kids watch skaters while you take in the city.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'any',
+    duration: '1hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 3,
+    address: '830 Willoughby Way NE, Atlanta, GA 30312', lat: 33.7623, lng: -84.3530,
+    url: 'https://beltline.org', imageUrl: 'images/evergreen/o4w_skatepark.jpg', notes: 'Toddlers can safely watch skaters from the edges. Beltline bridge nearby has good skyline views. Free parking on Willoughby.'
+  },
+  {
+    id: 'e139', name: 'Plaza Fiesta', emoji: '🎪',
+    category: 'family', description: 'Latin shopping mall on Buford Hwy with a food court full of regional Mexican and Central American spots, a kids playground, and weekend energy that feels nothing like a mall.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: '1.5hr', groupSize: 'any',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '4166 Buford Hwy NE, Atlanta, GA 30345', lat: 33.8390, lng: -84.3127,
+    url: 'https://plazafiesta.net', imageUrl: 'images/evergreen/plaza_fiesta.jpg', notes: 'Regional Mexican, pupusas, agua frescas from the food court. Kids playground is free. Weekend is the best time to go.'
+  },
+  {
+    id: 'e140', name: '57th Fighter Group', emoji: '✈️',
+    category: 'family', description: 'WWII-themed restaurant adjacent to DeKalb-Peachtree Airport. Watch small planes land from the patio. A quirky Atlanta hidden gem that kids absolutely love.',
+    effort: 'low', distance: 'OTP', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: '1.5hr', groupSize: 'any',
+    free: false, cost: '$$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 4,
+    address: '3829 Clairmont Rd, Atlanta, GA 30341', lat: 33.8788, lng: -84.3015,
+    url: 'https://57thfightergroup.com', imageUrl: 'images/evergreen/57th_fighter_group.jpg', notes: 'Sit on the patio — planes land every 5-10 minutes. Solid American food. Go for the experience. Parking is easy.'
+  },
+  {
+    id: 'e141', name: 'Claremont Pool', emoji: '🏊',
+    category: 'family', description: 'Neighborhood pool in Morningside/Virginia-Highland. Membership included — just show up.',
+    effort: 'low', distance: 'neighborhood', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: '2hr', groupSize: 'any',
+    free: true, cost: null, membershipIncluded: true, membershipVenue: 'Claremont Pool',
+    ticketsRequired: false, papaFriendly: true, rubyFriendly: true,
+    deanScore: 5, parentScore: 5,
+    address: 'Claremont Rd NE, Atlanta, GA 30306', lat: 33.7860, lng: -84.3540,
+    url: null, imageUrl: null, notes: 'Membership pool — no ticket needed. Walkable from Morningside Place. Go on a weekday afternoon for low crowds.'
+  },
+  {
+    id: 'e142', name: 'Beats on the Block', emoji: '🎧',
+    category: 'social', description: 'Outdoor EDM/DJ event at Park Tavern — open-air under the Atlanta skyline with vendors, flow artists, and dance community.',
+    effort: 'low', distance: 'ITP', timeOfDay: 'afternoon', bestDays: 'weekend',
+    duration: 'half-day', groupSize: 'group',
+    free: false, cost: '$', membershipIncluded: false, membershipVenue: null,
+    ticketsRequired: true, papaFriendly: false, rubyFriendly: false,
+    deanScore: 2, parentScore: 4,
+    address: 'Park Tavern, 500 10th St NE, Atlanta, GA 30309', lat: 33.7826, lng: -84.3741,
+    url: 'https://bit.ly/botbjuly', imageUrl: null, notes: 'Season 3, Ep 3 — Jul 25, 2:00 PM–11 PM. Live DJs, food vendors, bar, vendor market, flow artists. After-party TBA. Recurring series by Atlanta EDM & Connect Atlanta.'
   }
 ];

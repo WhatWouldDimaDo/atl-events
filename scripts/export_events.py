@@ -37,6 +37,35 @@ def js_to_json(block: str) -> str:
     Strategy: walk char-by-char to handle strings correctly,
     then fix unquoted keys and trailing commas on the non-string parts.
     """
+    # Step 0: Remove JS comments (// and /* */) first
+    # Handle // comments (single-line)
+    out_lines = []
+    for line in block.split('\n'):
+        # Find // outside of strings
+        in_string = False
+        quote_char = None
+        for i, c in enumerate(line):
+            if c in ('"', "'") and (i == 0 or line[i-1] != '\\'):
+                if not in_string:
+                    in_string = True
+                    quote_char = c
+                elif c == quote_char:
+                    in_string = False
+            elif c == '/' and not in_string and i + 1 < len(line) and line[i + 1] == '/':
+                # Found // outside string, truncate line here
+                line = line[:i]
+                break
+        out_lines.append(line)
+    block = '\n'.join(out_lines)
+
+    # Handle /* */ block comments
+    while '/*' in block:
+        start = block.find('/*')
+        end = block.find('*/', start)
+        if end == -1:
+            raise ValueError("Unclosed /* comment in EVENTS block")
+        block = block[:start] + ' ' + block[end + 2:]
+
     # Step 1: Convert single-quoted JS strings to double-quoted JSON strings.
     # Walk char-by-char so we don't break on embedded quotes.
     out = []

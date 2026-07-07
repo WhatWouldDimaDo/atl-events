@@ -17,7 +17,7 @@ from pathlib import Path
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR = PROJECT_DIR / "scripts"
 EVENTS_JSON = SCRIPTS_DIR / "events.json"
-SAE_FILE = Path.home() / "Documents/Coding/Projects/personal-crm/derived/social_activation_engine.md"
+SAE_FILE = Path.home() / "Documents/Coding/Projects/2026-04-18_Personal-CRM/derived/social_activation_engine.md"
 
 # CRM JSON fallback paths
 CRM_DB = Path.home() / "Documents/Brain/02_Areas/Friends/crm_database.json"
@@ -38,9 +38,9 @@ TIER_MULT = {1: 3, 2: 2, 3: 1}
 
 # Lead time: how far in advance an event needs to be for this slot type
 LEAD_TIME_DAYS = {
-    "GROUP_NIGHT": 10,
-    "DATE_NIGHT": 5,
-    "FAMILY_OUT": 5,
+    "GROUP_NIGHT": 7,
+    "DATE_NIGHT": 3,
+    "FAMILY_OUT": 3,
     "LAST_MINUTE": 0,
     "SOLO_RESET": 0,
 }

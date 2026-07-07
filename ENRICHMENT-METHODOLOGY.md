@@ -128,13 +128,69 @@ All external image URLs from Phases 2 and 5 were downloaded to local `images/` d
 
 **17 images downloaded**, 1 rejected (Supertask 205x115px — too small for hero treatment)
 
-### Apply Phase
+### Phase 6: Songkick Artist Images
 
-Regex-based patching of `data.js` (JavaScript object literal, not JSON):
-1. Find event block by `id: N,` pattern
-2. Within that block, match `fieldName: null` or `fieldName: 'old value'`
-3. Replace with `fieldName: 'new value'`
-4. 47/47 fields patched, 0 failures
+For artists blocked by AXS (403), Ticketmaster (401), or events with no officialUrl, Songkick is the most reliable image source.
+
+**Pattern:** Search `"ARTIST NAME site:songkick.com"`, fetch the artist page, extract `og:image`.
+**URL format:** `http://images.sk-static.com/images/media/img/col4/TIMESTAMP-ARTISTID.jpg`
+
+Confirmed working for: Beck, Diljit Dosanjh, Kali Uchis, Joji, Madison Beer, Toro y Moi, Disco Biscuits, Styx, Men At Work, Blair Crimmins, Supertask, American Football, Kurt Vile, feeble little horse, TRUTH, Band of Horses, Steel Pulse, Com Truise, clipping., Kasbo, ZHU, smerz, SYML, Channel Tres, Galcher Lustwerk, Man Man, POND, Jacques Greene, Passion Pit, Amy Ray Band, Dirty Guv'nahs.
+
+**AXS workaround:** AXS blocks all urllib fetches with 403. Never retry — go directly to Songkick.
+
+**Eventbrite relative og:image:** Eventbrite's og:image is a relative `/e/_next/image?url=...` path. Decode the URL parameter to get the real CDN URL: `https://cdn.evbuc.com/images/[id]/[orgid]/1/original.[date]`
+
+### Phase 7: YouTube ID Research
+
+No automated phase exists yet. Use a research agent or WebSearch:
+```
+"[ARTIST] official music video site:youtube.com"
+```
+Extract the 11-character video ID from the URL. Batch lookups via a single agent call are fastest.
+
+YouTube IDs confirmed for: American Football (`_NfnXdXpjL0`), Kurt Vile (`659pppwniXA`), feeble little horse (`mL9pYyYn0dg`), TRUTH (`fwmiSf0n9lg`), Band of Horses (`cMFWFhTFohk`), Steel Pulse (`4nony-xB3tE`), clipping. (`3ZAPtFRpuu8`), Kasbo (`9jJ8TVpUIk0`), ZHU (`CVvJp3d8xGQ`), smerz (`bHp3dnAQAFc`), SYML (`u75AGy38080`), Channel Tres (`EtNIMvyEIQA`), Com Truise (`gjP5vjn-Lac`), Slow Magic (`RThnb7VUwcY`), Galcher Lustwerk (`7ZmZI7pm4nk`), Beck (`YgSPaXgAdzE`), Diljit Dosanjh (`9wTEmuv6SvU`), Kali Uchis (`bn_p95HbHoQ`), Joji (`NgsWGfUlwJI`), Madison Beer (`XFR7v5ix5hU`), Passion Pit (`5bfseWNmlds`), Toro y Moi (`O0_ardwzTrA`), St. Lucia (`7HPMK9Uxq3I`), Amy Ray (`IfqipYNn3PE`), Jacques Greene (`79J58LlPiAg`), Dirty Guv'nahs (`35XZ6cLcPRk`), Styx (`e5MAg_yWsq8`), Men At Work (`XfR9iY5y94s`), Man Man (`KkjNZrAXyIM`), POND (`YDNGbXMpVEk`).
+
+### Apply Phase — CRITICAL: Use Block-Scoped Parser
+
+⚠️ **Do NOT use `enrich_events.py --apply` for manual patches without understanding the alignment risk.**
+
+Events in data.js are **not in strict ID order** — ids 86/87 appear before 82/83/84/85. Simple regex `id: N,.*?imageUrl:` with DOTALL can jump event boundaries and patch the wrong event. Confirmed incident: `st_lucia.jpg` (id 84) landed on Magic for Adults (id 83) in Jul 2026 session.
+
+**Use this block-scoped function for any manual patching:**
+
+```python
+import re
+
+def patch_event_field(js, eid, field, value):
+    """Patch a single field in a specific event block — safe for out-of-order IDs."""
+    m = re.search(rf'(?<!\d)id:\s*{eid},', js)
+    if not m: return js, False
+    start = m.start()
+    next_event = re.search(r'\n  [{\]]', js[start+10:])
+    end = start + 10 + next_event.start() if next_event else len(js)
+    block = js[start:end]
+    new_block, n = re.subn(
+        rf"({re.escape(field)}:\s*)(?:null|'[^']*')",
+        rf"\g<1>'{value}'",
+        block, count=1
+    )
+    return js[:start] + new_block + js[end:], n > 0
+
+# Usage example — batch patch
+js = open('data.js').read()
+patches = [(90, 'imageUrl', 'images/american_football.jpg'), ...]
+for eid, field, value in patches:
+    js, ok = patch_event_field(js, eid, field, value)
+    print(f'[{eid}] {field}: {"✓" if ok else "MISS"}')
+open('data.js', 'w').write(js)
+```
+
+**Always verify after patching:**
+```bash
+python3 scripts/export_events.py
+python3 -c "import json; e=json.load(open('scripts/events.json')); [print(x['id'],x.get('imageUrl')) for x in e if x['id'] in [84,83,90]]"
+```
 
 ---
 

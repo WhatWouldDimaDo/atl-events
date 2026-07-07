@@ -1,5 +1,5 @@
 /* ============================================================
-   ATL Events V2 — app.js
+   ATL Radar — app.js
    Wizard · Agenda Calendar · Events Grid + Drawers · Map · Evergreen
 ============================================================ */
 
@@ -188,20 +188,19 @@ function scoreDots(n, max=5) {
 function renderEventCard(ev, idx) {
   const delay    = Math.min(idx * 0.04, 0.30);
   const catEmoji = CAT_EMOJI[ev.category] || '📍';
-  const catLabel = CAT_LABEL[ev.category] || ev.category;
 
-  // Image strip: local image → YouTube thumbnail → styled poster fallback
-  const imgHtml = ev.imageUrl
-    ? `<div class="ev-img-wrap"><img class="ev-img" src="${ev.imageUrl}" alt="${ev.title}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="ev-img-fallback cat-${ev.category}" style="display:none">${catEmoji}</div></div>`
+  // Thumbnail: local image → YouTube → category emoji
+  const thumbInner = ev.imageUrl
+    ? `<img src="${ev.imageUrl}" alt="" loading="lazy">`
     : ev.youtubeId
-    ? `<div class="ev-img-wrap"><img class="ev-img" src="https://img.youtube.com/vi/${ev.youtubeId}/maxresdefault.jpg" alt="${ev.title}" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${ev.youtubeId}/hqdefault.jpg'"><div class="ev-img-fallback cat-${ev.category}" style="display:none">${catEmoji}</div></div>`
-    : `<div class="ev-img-poster cat-${ev.category}"><div class="ev-poster-content"><div class="ev-poster-emoji">${catEmoji}</div><div class="ev-poster-title">${ev.title}</div><div class="ev-poster-venue">${ev.venue}</div></div></div>`;
+    ? `<img src="https://img.youtube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">`
+    : catEmoji;
 
   // RSVP badge class
   const rsvpSignal = getRSVP(ev.id);
   const rsvpClass = rsvpSignal ? ` rsvp-${rsvpSignal}` : '';
 
-  // Tags with emojis
+  // Peek tags
   const urgTag  = ev.urgent ? `<span class="tag urgent">⚡ Act Now</span>` : '';
   const freeTag = ev.free   ? `<span class="tag free">💸 Free</span>` : '';
   const ageTag  = `<span class="tag">${AGE_EMOJI[ev.age] || ev.age}</span>`;
@@ -213,99 +212,43 @@ function renderEventCard(ev, idx) {
   const recTag  = ev.recurring ? `<span class="tag">↺ Recurring</span>` : '';
 
   const buyBtn = ev.ticketUrl
-    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener" class="btn-sm btn-buy${ev.tier==='S'?' amber-btn':''}" onclick="event.stopPropagation()">${ev.tier==='S'?'Buy S-Tier →':'Buy Tickets →'}</a>`
+    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener" class="btn-sm btn-buy" onclick="event.stopPropagation()">Buy Tickets →</a>`
     : '';
 
-  // Drawer sections
-  const ytSection = ev.youtubeId ? `
-    <div>
-      <div class="drawer-section-label">Watch</div>
-      <div class="yt-wrap" id="yt-${ev.id}">
-        <div class="yt-placeholder" data-ytid="${ev.youtubeId}" onclick="loadYT(${ev.id},'${ev.youtubeId}')">
-          <img class="yt-thumb-bg" src="https://img.youtube.com/vi/${ev.youtubeId}/hqdefault.jpg" alt="" loading="lazy">
-          <div class="play-icon">▶</div>
-        </div>
-        <div class="yt-label">${ev.title}</div>
-      </div>
-    </div>` : '';
-
-  const lineupSection = (ev.lineup && ev.lineup.length) ? `
-    <div class="lineup-block">
-      <div class="drawer-section-label">Lineup</div>
-      ${ev.lineup.map((a, i) => {
-        const st = ev.setTimes ? ev.setTimes.split(' · ')[i] || '' : '';
-        return `<div class="lineup-artist"><span>${a}</span>${st ? `<span class="set-time">${st}</span>` : ''}</div>`;
-      }).join('')}
-    </div>` : '';
-
-  const radarSection = ev.scoreReasoning ? `
-    <div class="radar-wrap">
-      <div class="drawer-section-label">Score Breakdown</div>
-      <div class="radar-canvas-wrap"><canvas id="radar-${ev.id}" width="220" height="220"></canvas></div>
-    </div>` : '';
-
-  const linksSection = (ev.officialUrl || ev.instagramUrl) ? `
-    <div class="drawer-links">
-      ${ev.officialUrl ? `<a href="${ev.officialUrl}" target="_blank" rel="noopener" class="drawer-link" onclick="event.stopPropagation()">🎟 Tickets / Info</a>` : ''}
-      ${ev.instagramUrl ? `<a href="${ev.instagramUrl}" target="_blank" rel="noopener" class="drawer-link" onclick="event.stopPropagation()">📷 Instagram</a>` : ''}
-    </div>` : '';
-
-  const noteInDrawer = `<div class="drawer-note">${ev.note}</div>`;
-
-  const rsvpSection = INTERNAL ? `
-    <div>
-      <div class="drawer-section-label">Going?</div>
-      <div id="rsvp-${ev.id}">${rsvpButtonsHTML(ev.id)}</div>
-    </div>` : '';
-
-  const shareText = `${ev.title} — ${ev.dateStr} @ ${ev.venue}`.replace(/'/g, "\\'");
-  const shareBtn = `<button class="share-btn" onclick="navigator.clipboard.writeText('${shareText}');this.textContent='Copied!';setTimeout(()=>this.textContent='Share',1200);event.stopPropagation()">Share</button>`;
+  const rsvpSection = INTERNAL
+    ? `<div id="rsvp-${ev.id}" onclick="event.stopPropagation()">${rsvpButtonsHTML(ev.id)}</div>`
+    : '';
 
   return `
     <div class="event-card tier-${ev.tier}${ev.urgent?' urgent-ev':''}${rsvpClass}"
-         style="animation-delay:${delay}s; cursor:pointer;"
+         style="animation-delay:${delay}s"
          data-id="${ev.id}" data-category="${ev.category}"
          data-slots="${ev.slots.join(',')}" data-tier="${ev.tier}"
-         data-free="${ev.free}" data-score="${ev.score}" data-date="${ev.date}"
-         onclick="toggleDrawer(${ev.id})">
+         data-free="${ev.free}" data-score="${ev.score}" data-date="${ev.date}">
 
-      ${imgHtml}
-
-      <div class="ev-card-header">
-        <div class="ev-top-row">
-          <div class="ev-meta">
-            <div class="ev-cat-date-row">
-              <span class="ev-cat-badge cat-${ev.category}">${catEmoji} ${catLabel}</span>
-              <span class="ev-date${ev.tier==='S'?' amber':''}">${ev.dateStr}${ev.time ? ' · '+ev.time : ''}</span>
-            </div>
-            <div class="ev-title">${ev.title}</div>
-            ${ev.subtitle ? `<div class="ev-subtitle">${ev.subtitle}</div>` : ''}
-            <div class="ev-venue">📍 ${ev.venue}</div>
-          </div>
-          <div class="tier-score-block">
-            <div class="tier-badge ${ev.tier}">${ev.tier}</div>
-            <div class="score-num-big">${ev.score}</div>
-          </div>
+      <div class="er-collapsed" onclick="togglePeek(${ev.id})">
+        <div class="er-thumb cat-${ev.category}">${thumbInner}</div>
+        <div class="er-main">
+          <div class="er-title">${ev.title}${ev.subtitle ? `<span class="er-sub"> — ${ev.subtitle}</span>` : ''}</div>
+          <div class="er-meta">${ev.dateStr}${ev.time ? ' · '+ev.time : ''} · 📍 ${ev.venue}</div>
         </div>
-        <div class="ev-tags">${urgTag}${freeTag}${ageTag}${envTag}${genreTags}${distTag}${recTag}</div>
-        <div class="ev-footer-row">
-          <button class="expand-btn" aria-expanded="false" onclick="event.stopPropagation();toggleDrawer(${ev.id})">
-            Details <span class="arrow">▾</span>
-          </button>
-          ${buyBtn}
+        <div class="er-right">
+          ${ev.urgent ? `<span class="er-urgent-dot"></span>` : ''}
+          ${topScoreAxis(ev)}
+          <span class="er-score tier-${ev.tier}">${ev.score}</span>
+          <span class="er-chevron">›</span>
         </div>
       </div>
 
-      <div class="ev-drawer" id="drawer-${ev.id}">
-        <div class="ev-drawer-inner">
-          ${noteInDrawer}
+      <div class="er-peek">
+        <div class="er-peek-inner">
+          <div class="ev-tags">${urgTag}${freeTag}${ageTag}${envTag}${genreTags}${distTag}${recTag}</div>
+          <div class="er-note">${ev.note}</div>
           ${rsvpSection}
-          ${ytSection}
-          ${lineupSection}
-          ${radarSection}
-          ${linksSection}
-          ${ev.recurringNote ? `<div class="recurring-note">↺ ${ev.recurringNote}</div>` : ''}
-          <div class="drawer-footer">${shareBtn}</div>
+          <div class="er-actions">
+            ${buyBtn}
+            <button class="btn-sm btn-details" onclick="openDetails(${ev.id});event.stopPropagation()">Full Details →</button>
+          </div>
         </div>
       </div>
     </div>`;
@@ -313,11 +256,14 @@ function renderEventCard(ev, idx) {
 
 function renderGrid(events) {
   const grid = document.getElementById('events-grid');
+  const showMoreBtn = document.getElementById('show-more-btn');
   if (!events.length) {
     grid.innerHTML = '<div class="no-results">No events match the current filters.</div>';
+    if (showMoreBtn) showMoreBtn.style.display = 'none';
     return;
   }
   grid.innerHTML = events.map((ev, i) => renderEventCard(ev, i)).join('');
+  if (showMoreBtn) showMoreBtn.style.display = 'none';
 }
 
 function applyEventFilters() {
@@ -335,7 +281,13 @@ function applyEventFilters() {
   });
 
   if (activeSort === 'score') filtered.sort((a, b) => b.score - a.score);
-  else filtered.sort((a, b) => a.date.localeCompare(b.date));
+  else filtered.sort((a, b) => {
+    const dc = a.date.localeCompare(b.date);
+    if (dc !== 0) return dc;
+    if (a.urgent && !b.urgent) return -1;
+    if (!a.urgent && b.urgent) return 1;
+    return b.score - a.score;
+  });
 
   renderGrid(filtered);
 
@@ -346,6 +298,7 @@ function applyEventFilters() {
       card.classList.toggle('wizard-dim', ev && !wizardEventFilter(ev));
     });
   }
+  renderSurpriseStrip(filtered);
 }
 
 document.querySelectorAll('.chip[data-filter]').forEach(btn => {
@@ -371,20 +324,327 @@ document.getElementById('sort-score').addEventListener('click', () => {
   activeSort = 'score'; applyEventFilters();
 });
 
-// ─── DRAWER TOGGLE ─────────────────────────────────────────────────────────
-function toggleDrawer(id) {
-  const card   = document.querySelector(`.event-card[data-id="${id}"]`);
-  const drawer = document.getElementById(`drawer-${id}`);
-  if (!card || !drawer) return;
-  const isOpen = card.classList.contains('open');
-  card.classList.toggle('open', !isOpen);
-  const btn = card.querySelector('.expand-btn');
-  if (btn) btn.setAttribute('aria-expanded', String(!isOpen));
-  if (!isOpen && !renderedRadars.has(id)) {
-    const ev = EVENTS.find(e => e.id === id);
-    if (ev && ev.scoreReasoning) requestAnimationFrame(() => renderRadar(ev));
-    renderedRadars.add(id);
+// ─── CALENDAR + SHARE HELPERS ────────────────────────────────────────────
+function parseEventTime(dateStr, timeStr) {
+  const d = dateStr.replace(/-/g, '');
+  if (!timeStr || /all day|afternoon|morning|noon/i.test(timeStr)) {
+    return { start: d, allDay: true };
   }
+  const m = timeStr.match(/(\d+)(?::(\d+))?\s*(AM|PM)/i);
+  if (!m) return { start: d, allDay: true };
+  let h = parseInt(m[1]);
+  const min = m[2] ? parseInt(m[2]) : 0;
+  if (/PM/i.test(m[3]) && h < 12) h += 12;
+  if (/AM/i.test(m[3]) && h === 12) h = 0;
+  const hh = String(h).padStart(2,'0'), mm = String(min).padStart(2,'0');
+  const eh = Math.min(h + 2, 23);
+  return { start: `${d}T${hh}${mm}00`, end: `${d}T${String(eh).padStart(2,'0')}${mm}00` };
+}
+
+function generateICS(evId) {
+  const ev = EVENTS.find(e => e.id === evId);
+  if (!ev) return;
+  const { start, end, allDay } = parseEventTime(ev.date, ev.time);
+  const dtStart = allDay ? `DTSTART;VALUE=DATE:${start}` : `DTSTART:${start}`;
+  const dtEnd   = allDay ? `DTEND;VALUE=DATE:${end || start}` : `DTEND:${end}`;
+  const loc = ev.address ? `${ev.venue}\\, ${ev.address}` : ev.venue;
+  const desc = `Score: ${ev.score}${ev.ticketUrl ? '\\nTickets: ' + ev.ticketUrl : ''}`;
+  const ics = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ATL Radar//EN',
+    'BEGIN:VEVENT',
+    dtStart, dtEnd,
+    `SUMMARY:${ev.title}${ev.subtitle ? ' — ' + ev.subtitle : ''}`,
+    `LOCATION:${loc}`,
+    `DESCRIPTION:${desc}`,
+    ev.ticketUrl ? `URL:${ev.ticketUrl}` : '',
+    'END:VEVENT', 'END:VCALENDAR'
+  ].filter(Boolean).join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `${ev.title.replace(/[^a-zA-Z0-9]/g,'-')}.ics`; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function generateGCalUrl(ev) {
+  const { start, end, allDay } = parseEventTime(ev.date, ev.time);
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: ev.title + (ev.subtitle ? ' — ' + ev.subtitle : ''),
+    dates: allDay ? `${start}/${start}` : `${start}/${end}`,
+    location: ev.address ? `${ev.venue}, ${ev.address}` : ev.venue,
+    details: ev.ticketUrl ? `Tickets: ${ev.ticketUrl}` : ev.note ? ev.note.slice(0,200) : ''
+  });
+  return `https://www.google.com/calendar/render?${params.toString()}`;
+}
+
+function copyEventShare(evId) {
+  const ev = EVENTS.find(e => e.id === evId);
+  if (!ev) return;
+  const parts = [`${ev.title} — ${ev.dateStr} @ ${ev.venue}`];
+  if (ev.ticketUrl) parts.push(ev.ticketUrl);
+  navigator.clipboard.writeText(parts.join('\n'));
+  const btn = document.querySelector(`.share-btn[data-id="${evId}"]`);
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Share', 1400); }
+}
+
+function topScoreAxis(ev) {
+  if (!ev.scoreReasoning) return '';
+  const axes = [
+    ['Genre Match', ev.scoreReasoning.genreMatch],
+    ['Venue', ev.scoreReasoning.venueQuality],
+    ['Rare Format', ev.scoreReasoning.formatRarity],
+    ['Lineup', ev.scoreReasoning.lineupStrength],
+    ['Value', ev.scoreReasoning.valueForMoney]
+  ].sort((a,b) => b[1] - a[1]);
+  return axes[0][1] >= 90 ? `<span class="er-axis-star">★ ${axes[0][0]}</span>` : '';
+}
+
+function renderSurpriseStrip(filtered) {
+  const strip = document.getElementById('surprise-strip');
+  if (!strip) return;
+  if (!wizard.when && !wizard.who && !wizard.vibe) { strip.style.display = 'none'; return; }
+  const filteredIds = new Set(filtered.map(e => e.id));
+  const surprises = EVENTS
+    .filter(ev => new Date(ev.date) >= SITE_TODAY && !filteredIds.has(ev.id) && ev.score >= 70)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+  if (!surprises.length) { strip.style.display = 'none'; return; }
+  strip.style.display = 'block';
+  strip.innerHTML = `<div class="surprise-label">🎲 Outside your filter — you might like:</div>
+    <div class="surprise-cards">${surprises.map(ev => `
+      <div class="surprise-card" onclick="openBottomSheet(${ev.id})">
+        <span class="surprise-title">${ev.title}</span>
+        <span class="surprise-meta">${ev.dateStr}</span>
+        <span class="er-score tier-${ev.tier}">${ev.score}</span>
+      </div>`).join('')}
+    </div>`;
+}
+
+// ─── MOBILE BOTTOM SHEET ──────────────────────────────────────────────────
+const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+function buildBottomSheetHTML(ev) {
+  const catEmoji = CAT_EMOJI[ev.category] || '📍';
+  const catLabel = CAT_LABEL[ev.category] || ev.category;
+
+  const imgHtml = ev.imageUrl
+    ? `<img class="bs-hero-img" src="${ev.imageUrl}" alt="${ev.title}">`
+    : ev.youtubeId
+    ? `<img class="bs-hero-img" src="https://img.youtube.com/vi/${ev.youtubeId}/maxresdefault.jpg" alt="${ev.title}" onerror="this.src='https://img.youtube.com/vi/${ev.youtubeId}/hqdefault.jpg'">`
+    : '';
+
+  const urgTag  = ev.urgent ? `<span class="tag urgent">⚡ Act Now</span>` : '';
+  const freeTag = ev.free   ? `<span class="tag free">💸 Free</span>` : '';
+  const ageTag  = `<span class="tag">${AGE_EMOJI[ev.age] || ev.age}</span>`;
+  const envTag  = ev.environment === 'outdoor'
+    ? `<span class="tag outdoor">🌿 Outdoor</span>`
+    : `<span class="tag indoor">🏠 Indoor</span>`;
+  const genreTags = ev.genres.slice(0, 3).map(g => `<span class="tag">${g}</span>`).join('');
+
+  const buyBtn = ev.ticketUrl
+    ? `<a href="${ev.ticketUrl}" target="_blank" rel="noopener" class="btn-sm btn-buy" onclick="event.stopPropagation()">Buy Tickets →</a>`
+    : '';
+
+  const ytSection = ev.youtubeId ? `
+    <div class="bs-section">
+      <div class="drawer-section-label">Watch</div>
+      <div class="yt-wrap" id="bs-yt-${ev.id}">
+        <div class="yt-placeholder" onclick="loadBsYT(${ev.id},'${ev.youtubeId}')">
+          <img class="yt-thumb-bg" src="https://img.youtube.com/vi/${ev.youtubeId}/hqdefault.jpg" alt="" loading="lazy">
+          <div class="play-icon">▶</div>
+        </div>
+      </div>
+    </div>` : '';
+
+  const lineupSection = (ev.lineup && ev.lineup.length) ? `
+    <div class="bs-section">
+      <div class="drawer-section-label">Lineup</div>
+      ${ev.lineup.map((a, i) => {
+        const st = ev.setTimes ? ev.setTimes.split(' · ')[i] || '' : '';
+        return `<div class="lineup-artist"><span>${a}</span>${st ? `<span class="set-time">${st}</span>` : ''}</div>`;
+      }).join('')}
+    </div>` : '';
+
+  const radarSection = ev.scoreReasoning ? `
+    <div class="bs-section radar-wrap">
+      <div class="drawer-section-label">Score Breakdown</div>
+      <div class="radar-canvas-wrap"><canvas id="bs-radar-${ev.id}" width="220" height="220"></canvas></div>
+    </div>` : '';
+
+  const linksSection = (ev.officialUrl || ev.instagramUrl) ? `
+    <div class="bs-section drawer-links">
+      ${ev.officialUrl ? `<a href="${ev.officialUrl}" target="_blank" rel="noopener" class="drawer-link">🎟 Tickets / Info</a>` : ''}
+      ${ev.instagramUrl ? `<a href="${ev.instagramUrl}" target="_blank" rel="noopener" class="drawer-link">📷 Instagram</a>` : ''}
+    </div>` : '';
+
+  const rsvpSection = INTERNAL ? `
+    <div class="bs-section">
+      <div class="drawer-section-label">Going?</div>
+      <div id="bs-rsvp-${ev.id}">${rsvpButtonsHTML(ev.id)}</div>
+    </div>` : '';
+
+  const gcalUrl = generateGCalUrl(ev);
+  const calSection = `
+    <div class="bs-section bs-cal-section">
+      <div class="drawer-section-label">Add to Calendar</div>
+      <div class="bs-cal-btns">
+        <a href="${gcalUrl}" target="_blank" rel="noopener" class="btn-sm btn-cal">Google Cal</a>
+        <button class="btn-sm btn-cal" onclick="generateICS(${ev.id})">Download .ics</button>
+      </div>
+    </div>`;
+
+  return `
+    ${imgHtml ? `<div class="bs-hero">${imgHtml}</div>` : ''}
+    <div class="bs-header">
+      <div class="bs-cat-row">
+        <span class="ev-cat-badge cat-${ev.category}">${catEmoji} ${catLabel}</span>
+        <span class="bs-date-pill">${ev.dateStr}${ev.time ? ' · '+ev.time : ''}</span>
+      </div>
+      <div class="bs-title">${ev.title}</div>
+      ${ev.subtitle ? `<div class="bs-subtitle">${ev.subtitle}</div>` : ''}
+      <div class="bs-venue">📍 ${ev.venue}</div>
+      <div class="ev-tags" style="margin-top:8px">${urgTag}${freeTag}${ageTag}${envTag}${genreTags}</div>
+    </div>
+    <div class="bs-actions">
+      ${buyBtn}
+      <button class="share-btn" data-id="${ev.id}" onclick="copyEventShare(${ev.id})">Share</button>
+    </div>
+    <div class="bs-body">
+      <div class="bs-section"><div class="drawer-note">${ev.note}</div></div>
+      ${rsvpSection}
+      ${calSection}
+      ${ytSection}
+      ${lineupSection}
+      ${radarSection}
+      ${linksSection}
+      ${ev.recurringNote ? `<div class="bs-section recurring-note">↺ ${ev.recurringNote}</div>` : ''}
+    </div>`;
+}
+
+function loadBsYT(evId, ytId) {
+  const wrap = document.getElementById(`bs-yt-${evId}`);
+  if (!wrap) return;
+  wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen loading="lazy"></iframe>`;
+}
+
+let bsCurrentId = null;
+
+function openBottomSheet(id) {
+  const ev = EVENTS.find(e => e.id === id);
+  if (!ev) return;
+  bsCurrentId = id;
+  const overlay = document.getElementById('bs-overlay');
+  const content = document.getElementById('bs-content');
+  content.innerHTML = buildBottomSheetHTML(ev);
+  content.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+  });
+  if (ev.scoreReasoning) {
+    requestAnimationFrame(() => {
+      const canvas = document.getElementById(`bs-radar-${ev.id}`);
+      if (canvas) {
+        new Chart(canvas, {
+          type: 'radar',
+          data: {
+            labels: ['Genre\nMatch', 'Venue\nQuality', 'Format\nRarity', 'Lineup\nStrength', 'Value\nfor Money'],
+            datasets: [{
+              data: [ev.scoreReasoning.genreMatch, ev.scoreReasoning.venueQuality, ev.scoreReasoning.formatRarity, ev.scoreReasoning.lineupStrength, ev.scoreReasoning.valueForMoney],
+              backgroundColor: ev.tier==='S' ? 'rgba(245,158,11,0.18)' : ev.tier==='A' ? 'rgba(139,92,246,0.18)' : 'rgba(20,184,166,0.15)',
+              borderColor: ev.tier==='S' ? '#F59E0B' : ev.tier==='A' ? '#8B5CF6' : '#14B8A6',
+              borderWidth: 1.5,
+              pointBackgroundColor: ev.tier==='S' ? '#F59E0B' : ev.tier==='A' ? '#8B5CF6' : '#14B8A6',
+              pointRadius: 3,
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: {display:false}, tooltip: {callbacks:{label: c => ` ${c.raw}`}} },
+            scales: { r: {
+              min:0, max:100, beginAtZero:true,
+              ticks: {display:false, stepSize:25},
+              pointLabels: {color:'#94A3B8', font:{size:9}},
+              grid: {color:'rgba(255,255,255,0.06)'},
+              angleLines: {color:'rgba(255,255,255,0.06)'}
+            }}
+          }
+        });
+      }
+    });
+  }
+}
+
+function closeBottomSheet() {
+  const overlay = document.getElementById('bs-overlay');
+  if (!overlay.classList.contains('active')) return;
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  bsCurrentId = null;
+}
+
+// Backdrop click
+document.getElementById('bs-overlay')?.addEventListener('click', e => {
+  if (e.target.id === 'bs-overlay') closeBottomSheet();
+});
+
+// ESC key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && bsCurrentId !== null) closeBottomSheet();
+});
+
+// Swipe-to-dismiss on handle
+(function initBsSwipe() {
+  const sheet = document.getElementById('bs-sheet');
+  const handle = sheet?.querySelector('.bs-handle');
+  if (!sheet || !handle) return;
+  let startY = 0, currentY = 0, dragging = false;
+
+  handle.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+    currentY = startY;
+    dragging = true;
+    sheet.style.transition = 'none';
+  }, { passive: true });
+
+  sheet.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    currentY = e.touches[0].clientY;
+    const dy = Math.max(0, currentY - startY);
+    sheet.style.transform = `translateY(${dy}px)`;
+  }, { passive: true });
+
+  sheet.addEventListener('touchend', () => {
+    if (!dragging) return;
+    dragging = false;
+    sheet.style.transition = '';
+    const dy = currentY - startY;
+    if (dy > 100) {
+      closeBottomSheet();
+    }
+    sheet.style.transform = '';
+  });
+})();
+
+// ─── ROW PEEK + DETAIL ────────────────────────────────────────────────────
+function togglePeek(id) {
+  const card = document.querySelector(`.event-card[data-id="${id}"]`);
+  if (!card) return;
+  card.classList.toggle('peeked');
+}
+
+function openDetails(id) {
+  openBottomSheet(id);
+}
+
+// kept for backward compat (jumpToEvent, calendar pill clicks)
+function toggleDrawer(id) {
+  togglePeek(id);
 }
 
 function loadYT(evId, ytId) {
@@ -539,34 +799,69 @@ function applyCalendarHighlight() {
 }
 
 // ─── LEAFLET MAP ───────────────────────────────────────────────────────────
+let atlMap = null;
+const mapMarkers = []; // {marker, layer:'events'|'evergreen', category:string}
+
 function initMap() {
-  const map = L.map('atl-map', { center:[33.775,-84.39], zoom:12, zoomControl:true, attributionControl:false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map);
+  atlMap = L.map('atl-map', { center:[33.775,-84.39], zoom:12, zoomControl:true, attributionControl:false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(atlMap);
   function makeIcon(color) {
     return L.divIcon({ className:'', html:`<div style="width:14px;height:14px;background:${color};border:2px solid rgba(255,255,255,0.6);border-radius:50%;box-shadow:0 0 8px ${color}55;"></div>`, iconSize:[14,14], iconAnchor:[7,7] });
   }
-  const tc = { S:'#F59E0B', A:'#8B5CF6', B:'#14B8A6', C:'#4B5563' };
+  const catColors = { music:'#F59E0B', family:'#22C55E', date:'#EC4899', group:'#8B5CF6', comedy:'#FBBF24', social:'#06B6D4', outdoor:'#14B8A6', free:'#60A5FA' };
+  function evColor(ev) { return catColors[ev.category] || '#94A3B8'; }
   EVENTS.filter(ev => new Date(ev.date) >= SITE_TODAY && ev.lat).forEach(ev => {
-    const m = L.marker([ev.lat,ev.lng],{icon:makeIcon(tc[ev.tier]||'#8B5CF6')}).addTo(map);
-    m.bindPopup(`<div class="popup-title">${ev.title}</div><div class="popup-sub">${ev.venue} · ${ev.dateStr}</div><span class="popup-tier ${ev.tier}">Tier ${ev.tier} · ${ev.score}</span>${ev.ticketUrl?`<a href="${ev.ticketUrl}" target="_blank" class="popup-link">Get Tickets →</a>`:''}`);
+    const m = L.marker([ev.lat,ev.lng],{icon:makeIcon(evColor(ev))}).addTo(atlMap);
+    m.bindPopup(`<div class="popup-title">${ev.title}</div><div class="popup-sub">${ev.venue} · ${ev.dateStr}</div><span class="popup-tier ${ev.tier}">${ev.score}</span>${ev.ticketUrl?`<a href="${ev.ticketUrl}" target="_blank" class="popup-link">Get Tickets →</a>`:''}`);
+    mapMarkers.push({marker:m, layer:'events', category:ev.category});
   });
   EVERGREEN.filter(eg => eg.lat).forEach(eg => {
-    const m = L.marker([eg.lat,eg.lng],{icon:makeIcon('#10B981')}).addTo(map);
+    const m = L.marker([eg.lat,eg.lng],{icon:makeIcon('#10B981')}).addTo(atlMap);
     m.bindPopup(`<div class="popup-title">${eg.emoji} ${eg.name}</div><div class="popup-sub">${eg.description.slice(0,80)}…</div><span class="popup-tier EG">${eg.membershipIncluded?`Member · ${eg.membershipVenue}`:eg.free?'Free':eg.cost||''}</span>${eg.url?`<a href="${eg.url}" target="_blank" class="popup-link">Learn more →</a>`:''}`);
+    mapMarkers.push({marker:m, layer:'evergreen', category:eg.category});
   });
   const legend = L.control({position:'bottomright'});
   legend.onAdd = () => {
     const div = L.DomUtil.create('div');
-    div.innerHTML = `<div style="background:rgba(13,13,25,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:11px;color:#94A3B8;line-height:1.9"><div style="color:#E2E8F0;font-weight:700;margin-bottom:4px;font-size:10px;letter-spacing:.08em">MAP LEGEND</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F59E0B;margin-right:6px"></span>S-Tier</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#8B5CF6;margin-right:6px"></span>A-Tier</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#14B8A6;margin-right:6px"></span>B-Tier</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10B981;margin-right:6px"></span>Evergreen</div></div>`;
+    div.innerHTML = `<div style="background:rgba(13,13,25,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:11px;color:#94A3B8;line-height:1.9"><div style="color:#E2E8F0;font-weight:700;margin-bottom:4px;font-size:10px;letter-spacing:.08em">EVENT TYPE</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#F59E0B;margin-right:6px"></span>🎵 Music</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#EC4899;margin-right:6px"></span>💑 Date Night</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#8B5CF6;margin-right:6px"></span>👥 Group</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#22C55E;margin-right:6px"></span>👨‍👧 Family</div><div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10B981;margin-right:6px"></span>🌿 Evergreen</div></div>`;
     return div;
   };
-  legend.addTo(map);
+  legend.addTo(atlMap);
+
+  // Filter controls
+  document.querySelectorAll('.map-toggle').forEach(btn => {
+    btn.addEventListener('click', () => { btn.classList.toggle('active'); applyMapFilters(); });
+  });
+  document.querySelectorAll('.map-cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.map-cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyMapFilters();
+    });
+  });
+}
+
+function applyMapFilters() {
+  const showEvents = document.querySelector('.map-toggle[data-layer="events"]')?.classList.contains('active');
+  const showEvergreen = document.querySelector('.map-toggle[data-layer="evergreen"]')?.classList.contains('active');
+  const activeCat = document.querySelector('.map-cat-btn.active')?.dataset.cat || 'all';
+
+  mapMarkers.forEach(({marker, layer, category}) => {
+    const layerOk = (layer === 'events' && showEvents) || (layer === 'evergreen' && showEvergreen);
+    const catOk = activeCat === 'all' || category === activeCat;
+    if (layerOk && catOk) {
+      if (!atlMap.hasLayer(marker)) atlMap.addLayer(marker);
+    } else {
+      if (atlMap.hasLayer(marker)) atlMap.removeLayer(marker);
+    }
+  });
 }
 
 // ─── EVERGREEN SECTION ─────────────────────────────────────────────────────
-let activeEgCat  = 'all';
-let activeEgTime = 'any';
-let activeEgDay  = 'any';
+let activeEgCat   = 'all';
+let activeEgTime  = 'any';
+let activeEgDay   = 'any';
+let activeEgAvail = 'all';
 const openEgCards = new Set();
 
 function buildEvergreenGrid() {
@@ -584,11 +879,16 @@ function buildEvergreenGrid() {
 
     const notesHtml = eg.notes ? `<div class="eg-notes">${eg.notes}</div>` : '';
     const urlHtml = eg.url ? `<a href="${eg.url}" target="_blank" rel="noopener" class="eg-link" onclick="event.stopPropagation()">Visit website →</a>` : '';
+    const imgHtml = eg.imageUrl ? `<div class="eg-img"><img src="${eg.imageUrl}" alt="${eg.name}" loading="lazy"></div>` : '';
+
+    const availIcon = eg.availability === 'seasonal' ? '🌸' : eg.availability === 'scheduled' ? '🗓' : null;
+    const availTag = availIcon && eg.availabilityNote ? `<span class="eg-tag eg-avail-tag">${availIcon} ${eg.availabilityNote}</span>` : '';
 
     return `
       <div class="eg-card" data-id="${eg.id}" data-category="${eg.category}"
            data-effort="${eg.effort}" data-distance="${eg.distance}"
            data-timeofday="${eg.timeOfDay}" data-bestdays="${eg.bestDays||'any'}"
+           data-availability="${eg.availability||'year-round'}"
            onclick="toggleEgCard('${eg.id}')">
         <div class="eg-card-top">
           <div class="eg-emoji">${eg.emoji}</div>
@@ -599,9 +899,9 @@ function buildEvergreenGrid() {
         </div>
         <div class="eg-name">${eg.name}</div>
         <div class="eg-desc">${eg.description}</div>
-        <div class="eg-meta">${memTag}${freeTag}${costTag}${effortTag}${distTag}${timeTag}</div>
-        <div class="eg-expand-indicator">▾ More info</div>
+        <div class="eg-meta">${availTag}${memTag}${freeTag}${costTag}${effortTag}${distTag}${timeTag}</div>
         <div class="eg-drawer">
+          ${imgHtml}
           ${notesHtml}
           ${urlHtml}
           ${eg.address ? `<div class="eg-address">📍 ${eg.address}</div>` : ''}
@@ -615,8 +915,6 @@ function toggleEgCard(id) {
   if (!card) return;
   const isOpen = card.classList.contains('open');
   card.classList.toggle('open', !isOpen);
-  const ind = card.querySelector('.eg-expand-indicator');
-  if (ind) ind.textContent = isOpen ? '▾ More info' : '▴ Less';
 }
 
 function applyEvergreenFilter() {
@@ -630,6 +928,7 @@ function applyEvergreenFilter() {
     let show = (activeEgCat === 'all' || cat === activeEgCat);
     if (show && activeEgTime !== 'any') show = (tod === activeEgTime || tod === 'anytime');
     if (show && activeEgDay  !== 'any') show = (days === activeEgDay  || days === 'any');
+    if (show && activeEgAvail !== 'all') show = (card.dataset.availability === activeEgAvail);
     if (show && eg && !egMatchesSearch(eg)) show = false;
 
     card.classList.toggle('hidden', !show);
@@ -662,6 +961,12 @@ document.querySelectorAll('.eg-chip-day').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.eg-chip-day').forEach(b => b.classList.remove('active'));
     btn.classList.add('active'); activeEgDay = btn.dataset.day; applyEvergreenFilter();
+  });
+});
+document.querySelectorAll('.eg-chip-avail').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.eg-chip-avail').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active'); activeEgAvail = btn.dataset.avail; applyEvergreenFilter();
   });
 });
 
@@ -707,18 +1012,23 @@ function initSearchModal() {
     allResults = [...evMatches.map(ev=>({type:'event',ev})), ...egMatches.map(eg=>({type:'eg',eg}))];
     if (!allResults.length) { results.innerHTML = '<div class="search-empty-hint">No results found</div>'; return; }
 
-    const tierBg = { S:'rgba(245,158,11,0.22);color:var(--amber)', A:'rgba(139,92,246,0.22);color:var(--purple)', B:'rgba(20,184,166,0.15);color:var(--teal)', C:'rgba(75,85,99,0.15);color:var(--text-dim)' };
+    function scoreBadgeStyle(score) {
+      if (score >= 90) return 'rgba(245,158,11,0.22);color:var(--amber)';
+      if (score >= 75) return 'rgba(139,92,246,0.22);color:var(--purple)';
+      if (score >= 60) return 'rgba(20,184,166,0.15);color:var(--teal)';
+      return 'rgba(75,85,99,0.15);color:var(--text-dim)';
+    }
     let html = '';
     if (evMatches.length) {
       html += `<div class="search-section-label">Upcoming Events</div>`;
       evMatches.forEach((ev, i) => {
-        const bg = tierBg[ev.tier]||tierBg.C;
+        const bg = scoreBadgeStyle(ev.score);
         const img = ev.imageUrl
           ? `<img class="search-result-img" src="${ev.imageUrl}" alt="" loading="lazy">`
           : ev.youtubeId
           ? `<img class="search-result-img" src="https://img.youtube.com/vi/${ev.youtubeId}/mqdefault.jpg" alt="" loading="lazy">`
           : `<div class="search-result-fallback cat-${ev.category}">${CAT_EMOJI[ev.category]||'📍'}</div>`;
-        html += `<div class="search-result-item" data-idx="${i}" onclick="selectSearchResult(${i})">${img}<div class="search-result-info"><div class="search-result-title">${ev.title}</div><div class="search-result-sub">${ev.venue} · ${ev.dateStr}</div></div><span class="search-result-badge" style="background:${bg.split(';')[0]};${bg.split(';')[1]}">${ev.tier} ${ev.score}</span></div>`;
+        html += `<div class="search-result-item" data-idx="${i}" onclick="selectSearchResult(${i})">${img}<div class="search-result-info"><div class="search-result-title">${ev.title}</div><div class="search-result-sub">${ev.venue} · ${ev.dateStr}</div></div><span class="search-result-badge" style="background:${bg.split(';')[0]};${bg.split(';')[1]}">${ev.score}</span></div>`;
       });
     }
     if (egMatches.length) {
@@ -744,10 +1054,11 @@ function initSearchModal() {
       setTimeout(() => {
         let card = document.querySelector(`.eg-card[data-id="${r.eg.id}"]`);
         if (card && card.classList.contains('hidden')) {
-          activeEgCat = 'all'; activeEgTime = 'any'; activeEgDay = 'any';
+          activeEgCat = 'all'; activeEgTime = 'any'; activeEgDay = 'any'; activeEgAvail = 'all';
           document.querySelectorAll('.eg-chip').forEach(b => b.classList.toggle('active', b.dataset.cat==='all'));
           document.querySelectorAll('.eg-chip-time').forEach(b => b.classList.toggle('active', b.dataset.time==='any'));
           document.querySelectorAll('.eg-chip-day').forEach(b => b.classList.toggle('active', b.dataset.day==='any'));
+          document.querySelectorAll('.eg-chip-avail').forEach(b => b.classList.toggle('active', b.dataset.avail==='all'));
           applyEvergreenFilter();
           card = document.querySelector(`.eg-card[data-id="${r.eg.id}"]`);
         }
@@ -809,7 +1120,7 @@ function buildWizardPreview() {
       <div class="wiz-mini-info">
         <div class="wiz-mini-title">${ev.title}</div>
         <div class="wiz-mini-meta">
-          <span class="wiz-mini-tier tier-${ev.tier}">${ev.tier}</span>
+          <span class="wiz-mini-tier tier-${ev.tier}">${ev.score}</span>
           <span class="wiz-mini-date">${ev.dateStr}</span>
         </div>
       </div>
@@ -821,11 +1132,29 @@ function buildWizardPreview() {
 const bttBtn = document.getElementById('back-to-top');
 if (bttBtn) bttBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
-// ─── SCROLL: PROGRESS + NAV + BACK-TO-TOP ──────────────────────────────────
+// ─── MAP FAB (mobile) ───────────────────────────────────────────────────────
+const mapFab = document.getElementById('map-fab');
+if (mapFab) {
+  mapFab.addEventListener('click', () => {
+    const mapSection = document.getElementById('map-section');
+    if (mapSection) {
+      mapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      mapSection.classList.add('highlight-flash');
+      setTimeout(() => mapSection.classList.remove('highlight-flash'), 1800);
+    }
+  });
+}
+
+// ─── SCROLL: PROGRESS + NAV + BACK-TO-TOP + MAP FAB ────────────────────────
 window.addEventListener('scroll', () => {
   const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
   document.getElementById('progress').style.width = pct + '%';
   if (bttBtn) bttBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
+  if (mapFab) {
+    const mapEl = document.getElementById('map-section');
+    const mapVisible = mapEl && window.scrollY >= mapEl.offsetTop - window.innerHeight && window.scrollY <= mapEl.offsetTop + mapEl.offsetHeight;
+    mapFab.classList.toggle('visible', window.scrollY > window.innerHeight * 0.3 && !mapVisible);
+  }
   // Nav: compress links to emoji once hero is scrolled past
   document.getElementById('site-nav')?.classList.toggle('scrolled', window.scrollY > 80);
   const sections = ['wizard','events','map-section','evergreen','taste'];
@@ -867,7 +1196,7 @@ function updateHeroStats() {
 
   // S+A tier
   const elSA = document.getElementById('stat-sa-count');
-  if (elSA) elSA.textContent = upcoming.filter(e => e.tier==='S'||e.tier==='A').length;
+  if (elSA) elSA.textContent = upcoming.filter(e => e.score >= 75).length;
 
   // RSVP count (internal only)
   if (INTERNAL) {
@@ -889,9 +1218,46 @@ document.addEventListener('DOMContentLoaded', () => {
   buildCalendar();
   initCalendarNav();
   initSearch();
+
   buildEvergreenGrid();
   applyEvergreenFilter();
   initMap();
   initSearchModal();
   document.getElementById('wizard-results-bar').style.display = 'none';
+
+  // Hero stat: "Top Picks" click → jump to events sorted by score
+  const saCard = document.getElementById('stat-sa-count')?.closest('.stat-card');
+  if (saCard) {
+    saCard.style.cursor = 'pointer';
+    saCard.title = 'Click to sort by score';
+    saCard.addEventListener('click', () => {
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('sort-score').classList.add('active');
+      activeSort = 'score';
+      applyEventFilters();
+      document.getElementById('events').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  // Mobile wizard toggle
+  const wizMobileToggle = document.getElementById('wizard-mobile-toggle');
+  if (wizMobileToggle) {
+    wizMobileToggle.addEventListener('click', () => {
+      const wrap = document.querySelector('.wizard-wrap');
+      const isOpen = wrap.classList.toggle('mobile-open');
+      wizMobileToggle.classList.toggle('open', isOpen);
+    });
+  }
+
+  // Sticky wizard results bar detection
+  const wizBar = document.getElementById('wizard-results-bar');
+  if (wizBar && 'IntersectionObserver' in window) {
+    const sentinel = document.createElement('div');
+    sentinel.style.height = '1px';
+    wizBar.parentNode.insertBefore(sentinel, wizBar);
+    new IntersectionObserver(([e]) => {
+      wizBar.classList.toggle('stuck', !e.isIntersecting && wizBar.style.display !== 'none');
+    }, { threshold: 0 }).observe(sentinel);
+  }
+
 });

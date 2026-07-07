@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0c14" />
+  <meta name="description" content="Where to pick strawberries near Atlanta in 2026 — scored, compared, and ready to book." />
+  <title>ATL Radar — Strawberry Picking Guide 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Page-local overrides ── */
+    .guide-hero {
+      padding: 64px 24px 48px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .guide-eyebrow {
+      font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px; font-weight: 600;
+    }
+    .guide-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 7vw, 60px);
+      line-height: 1.05; letter-spacing: .03em; margin-bottom: 16px;
+    }
+    .guide-headline em { color: var(--teal); font-style: normal; }
+    .guide-sub {
+      color: var(--text-muted); font-size: 16px; max-width: 540px; margin: 0 auto 32px;
+    }
+    .guide-meta {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      color: var(--text-dim); font-size: 13px;
+    }
+    .guide-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Winner banner ── */
+    .winner-banner {
+      background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(20,184,166,0.04));
+      border: 1px solid rgba(20,184,166,0.25);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      max-width: 860px; margin: 0 auto 48px;
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+    .winner-emoji { font-size: 40px; flex-shrink: 0; margin-top: 2px; }
+    .winner-text h2 { font-size: 20px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+    .winner-text p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .winner-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .btn-primary {
+      background: var(--teal); color: #000; font-weight: 700; font-size: 13px;
+      padding: 8px 18px; border-radius: 8px; text-decoration: none; white-space: nowrap;
+    }
+    .btn-secondary {
+      background: rgba(20,184,166,0.12); color: var(--teal); font-weight: 600; font-size: 13px;
+      padding: 8px 18px; border-radius: 8px; text-decoration: none;
+      border: 1px solid rgba(20,184,166,0.25); white-space: nowrap;
+    }
+
+    /* ── Section wrapper ── */
+    .guide-section {
+      max-width: 860px; margin: 0 auto; padding: 0 24px 56px;
+    }
+    .section-label {
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); font-weight: 600; margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--text);
+    }
+
+    /* ── Farm cards ── */
+    .farm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .farm-grid { grid-template-columns: 1fr; } }
+
+    .farm-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+    .farm-card.winner { border-color: rgba(20,184,166,0.35); }
+    .farm-card.runner-up { opacity: 0.8; }
+    .farm-img {
+      width: 100%; height: 180px; object-fit: cover;
+      background: var(--bg-elevated);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; color: var(--text-dim);
+    }
+    .farm-img img { width: 100%; height: 100%; object-fit: cover; }
+    .farm-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--teal); color: #000;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .runner-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(75,85,99,0.8); color: var(--text-muted);
+      font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .farm-body { padding: 18px 20px 20px; }
+    .farm-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .farm-name a { color: var(--text); text-decoration: none; }
+    .farm-name a:hover { color: var(--teal); }
+    .farm-location { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+    .farm-location a { color: var(--text-dim); font-size: 11px; margin-left: 6px; text-decoration: none; border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+    .farm-location a:hover { color: var(--teal); border-color: rgba(20,184,166,0.3); }
+    .farm-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+    }
+    .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--text-dim); font-weight: 600; }
+    .stat-value { font-size: 14px; color: var(--text); font-weight: 600; margin-top: 2px; }
+    .farm-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .farm-tag {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 11px; padding: 3px 10px; border-radius: 20px;
+    }
+    .farm-warning {
+      background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 8px; padding: 10px 14px; font-size: 13px; color: var(--amber);
+      margin-top: 14px; display: flex; gap: 8px; align-items: flex-start;
+    }
+
+    /* ── Photo gallery ── */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 640px) { .photo-gallery { grid-template-columns: 1fr 1fr; } }
+    .photo-gallery img {
+      width: 100%; height: 150px; object-fit: cover;
+      border-radius: 8px; background: var(--bg-elevated);
+    }
+    .photo-gallery img:first-child {
+      height: 190px;
+      grid-row: span 1;
+    }
+    @media (max-width: 640px) {
+      .photo-gallery img:first-child { height: 150px; grid-column: span 2; }
+    }
+
+    /* ── Score bars ── */
+    .score-section { margin-bottom: 48px; }
+    .score-row {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 12px;
+    }
+    .score-label { font-size: 13px; color: var(--text-muted); width: 200px; flex-shrink: 0; }
+    .score-bars { display: flex; gap: 6px; flex: 1; }
+    .score-bar {
+      height: 22px; border-radius: 4px; flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; letter-spacing: .04em;
+    }
+    .bar-sb { background: rgba(20,184,166,0.75); color: #000; }
+    .bar-jf { background: rgba(139,92,246,0.5); color: var(--text); }
+    .bar-empty { background: var(--bg-elevated); }
+    .score-legend { display: flex; gap: 20px; margin-bottom: 16px; font-size: 12px; color: var(--text-muted); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 5px; }
+
+    /* ── More farms ── */
+    .more-farms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .more-farm-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .mf-img {
+      width: 100%; height: 130px;
+      background: var(--bg-elevated);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+    }
+    .mf-img img { width: 100%; height: 100%; object-fit: cover; }
+    .mf-body { padding: 14px 16px 16px; }
+    .mf-name { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .mf-name a { color: var(--text); text-decoration: none; }
+    .mf-name a:hover { color: var(--teal); }
+    .mf-loc { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .mf-loc a { color: var(--text-dim); font-size: 11px; text-decoration: none; border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px; }
+    .mf-loc a:hover { color: var(--teal); }
+    .mf-row { font-size: 12px; color: var(--text-muted); padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+    .mf-row:last-of-type { border-bottom: none; }
+    .mf-row span:last-child { color: var(--text); font-weight: 600; }
+    .mf-note { font-size: 12px; color: var(--amber); margin-top: 10px; background: rgba(245,158,11,0.07); padding: 7px 10px; border-radius: 6px; }
+
+    /* ── Logistics ── */
+    .logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .logistics-grid { grid-template-columns: 1fr; } }
+
+    .logistics-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 18px 20px;
+    }
+    .logistics-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .logistics-card ul { list-style: none; }
+    .logistics-card li {
+      font-size: 13px; color: var(--text-muted); padding: 5px 0;
+      border-bottom: 1px solid var(--border); display: flex; gap: 10px;
+    }
+    .logistics-card li:last-child { border-bottom: none; }
+    .logistics-card li .li-icon { flex-shrink: 0; }
+
+    /* ── Nearby with images ── */
+    .nearby-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .nearby-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .nc-img {
+      width: 100%; height: 120px;
+      background: var(--bg-elevated);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+    }
+    .nc-img img { width: 100%; height: 100%; object-fit: cover; }
+    .nc-body { padding: 14px 16px 16px; }
+    .nc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .nc-emoji { font-size: 18px; }
+    .nc-name { font-size: 14px; font-weight: 700; }
+    .nc-name a { color: var(--text); text-decoration: none; }
+    .nc-name a:hover { color: var(--teal); }
+    .nc-dist { font-size: 12px; color: var(--teal); margin-bottom: 6px; }
+    .nc-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .nc-links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .nc-link {
+      font-size: 11px; color: var(--teal); text-decoration: none;
+      padding: 3px 9px; border: 1px solid rgba(20,184,166,0.25);
+      border-radius: 20px; font-weight: 600;
+    }
+    .nc-link:hover { background: rgba(20,184,166,0.1); }
+
+    /* ── Timeline ── */
+    .day-plan {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 28px;
+    }
+    .day-plan h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--teal); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 36px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--border);
+    }
+    .tl-item { display: flex; gap: 16px; margin-bottom: 20px; position: relative; }
+    .tl-time {
+      width: 72px; flex-shrink: 0;
+      font-size: 12px; font-weight: 700; color: var(--teal);
+      padding-top: 2px; text-align: right;
+    }
+    .tl-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--teal); border: 2px solid var(--bg-card);
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .tl-content .tl-label { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+    .tl-content .tl-note { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Cost table ── */
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .cost-table th {
+      text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--text-dim); font-weight: 600; padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cost-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    .cost-table tr:last-child td { border-bottom: none; font-weight: 700; color: var(--text); }
+    .cost-table td:last-child { text-align: right; color: var(--text); }
+
+    /* ── Divider ── */
+    .section-divider {
+      border: none; border-top: 1px solid var(--border);
+      max-width: 860px; margin: 0 auto 48px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand"><em>ATL</em> Radar</a>
+    <ul class="nav-links">
+      <li><a href="/">← Events</a></li>
+      <li><a href="/guides.html">Guides</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="guide-hero">
+  <div class="guide-eyebrow">🍓 Deep Dive · May 2026</div>
+  <h1 class="guide-headline">Strawberry Picking <em>Near ATL</em></h1>
+  <p class="guide-sub">Every U-pick farm within 90 min of Atlanta — scored, compared, and road-tested for families with toddlers.</p>
+  <div class="guide-meta">
+    <span>📍 From 30306</span>
+    <span>👶 Toddler + newborn</span>
+    <span>📅 Season: late Apr – mid May</span>
+    <span>🗓 Target date: Sun May 3</span>
+  </div>
+</section>
+
+<!-- ── WINNER BANNER ── -->
+<div style="max-width:860px;margin:0 auto;padding:0 24px 40px;">
+  <div class="winner-banner">
+    <div class="winner-emoji">🏆</div>
+    <div class="winner-text">
+      <h2>Southern Belle Farm — McDonough, GA</h2>
+      <p>45 min straight down I-75. Open Sundays 1–6 PM. Confirmed peak season Apr–May 2026. 4.7/5 on TripAdvisor (205 reviews) — #1 thing to do in McDonough. Travelers' Choice winner. Best toddler activity lineup of any U-pick farm in the metro (30+ attractions). Skip Jaemor's 80-min drive with two babies in the car.</p>
+      <div class="winner-actions">
+        <a href="https://southernbellefarm.com" target="_blank" class="btn-primary">southernbellefarm.com</a>
+        <a href="https://maps.google.com/maps?saddr=30306&daddr=1658+Turner+Church+Rd+McDonough+GA+30252" target="_blank" class="btn-secondary">📍 Directions from 30306</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── FARM COMPARISON ── -->
+<div class="guide-section">
+  <div class="section-label">Top Two · Scored Head-to-Head</div>
+  <div class="section-title">The main contenders</div>
+  <div class="farm-grid">
+
+    <!-- Southern Belle -->
+    <div class="farm-card winner">
+      <div class="farm-badge">✓ Recommended</div>
+      <div class="farm-img">
+        <img src="https://www.southernbellefarm.com/wp-content/uploads/2021/05/Southern-Belle-Strawberries.png"
+             onerror="this.parentElement.innerHTML='🍓'" alt="Southern Belle Farm strawberries" />
+      </div>
+      <div class="farm-body">
+        <div class="farm-name"><a href="https://southernbellefarm.com" target="_blank">Southern Belle Farm</a></div>
+        <div class="farm-location">
+          1658 Turner Church Rd, McDonough, GA 30252
+          <a href="https://maps.google.com/?q=1658+Turner+Church+Rd+McDonough+GA+30252" target="_blank">📍 Map</a>
+        </div>
+        <div class="farm-stats">
+          <div class="stat-item">
+            <div class="stat-label">Drive from 30306</div>
+            <div class="stat-value">~45 min</div>
+          </div>
+          <div class="stat-item" style="grid-column:span 2;">
+            <div class="stat-label">Hours (Picking &amp; Market · Closed Mondays)</div>
+            <div class="stat-value" style="font-size:13px;line-height:1.7;">
+              Tue–Fri: 9am–5pm &nbsp;·&nbsp; Sat: 10am–6pm &nbsp;·&nbsp; Sun: 1pm–6pm
+              <span style="font-size:11px;color:var(--text-dim);font-weight:400;display:block;">Last entry to u-pick patch 1 hour before closing</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Admission</div>
+            <div class="stat-value">$1/person patch entry</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Picking Cost</div>
+            <div class="stat-value">$14.95 half-gal · $19.95 gal</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Barnyard Activities</div>
+            <div class="stat-value">$17.95 online · $20.95 gate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Kids 2 &amp; under</div>
+            <div class="stat-value">FREE</div>
+          </div>
+        </div>
+        <div class="farm-tags">
+          <span class="farm-tag">🐄 Cow train</span>
+          <span class="farm-tag">🏀 Jumping pillows</span>
+          <span class="farm-tag">🐖 Petting barn</span>
+          <span class="farm-tag">🚜 Tractor ride</span>
+          <span class="farm-tag">🛝 Tube slides</span>
+          <span class="farm-tag">🐷 Pig races</span>
+          <span class="farm-tag">💎 Gem mining</span>
+          <span class="farm-tag">🛒 Country Market</span>
+          <span class="farm-tag">🍦 Strawberry ice cream</span>
+        </div>
+        <div class="farm-warning">
+          <span>⚠️</span>
+          <span>Strollers don't fit strawberry rows. Bring a baby carrier for the field. No bags/backpacks in u-pick area. Strollers fine everywhere else.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jaemor -->
+    <div class="farm-card runner-up">
+      <div class="runner-badge">Runner-up</div>
+      <div class="farm-img">
+        <img src="https://www.jaemorfarms.com/wp-content/uploads/2025/03/strawberries-rtv-1024x683.jpeg"
+             onerror="this.parentElement.innerHTML='🍓'" alt="Jaemor Farms" />
+      </div>
+      <div class="farm-body">
+        <div class="farm-name"><a href="https://jaemorfarms.com" target="_blank">Jaemor Farms</a></div>
+        <div class="farm-location">
+          5340 Cornelia Hwy, Alto, GA 30510
+          <a href="https://maps.google.com/?q=5340+Cornelia+Hwy+Alto+GA+30510" target="_blank">📍 Map</a>
+        </div>
+        <div class="farm-stats">
+          <div class="stat-item">
+            <div class="stat-label">Drive from 30306</div>
+            <div class="stat-value">~80 min</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Sunday Hours</div>
+            <div class="stat-value">12 PM – 5 PM</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Admission</div>
+            <div class="stat-value">$6/adult · kids 2 &amp; under free</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Picking Cost</div>
+            <div class="stat-value">$20/gallon box (required)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Heritage</div>
+            <div class="stat-value">6-gen family farm, since 1912</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">On-site Food</div>
+            <div class="stat-value">Full Eatery + Bakery</div>
+          </div>
+        </div>
+        <div class="farm-tags">
+          <span class="farm-tag">🏪 Farm market</span>
+          <span class="farm-tag">🥛 Milkshakes</span>
+          <span class="farm-tag">🥗 The Eatery</span>
+          <span class="farm-tag">🎮 Farm games</span>
+          <span class="farm-tag">🌄 Scenic N. GA drive</span>
+        </div>
+        <div class="farm-warning" style="background:rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.2);color:var(--purple);">
+          <span>ℹ️</span>
+          <span>80-min drive each way = 2.5+ hrs in the car with a toddler + newborn. Great farm, wrong day for this group.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Southern Belle photo gallery -->
+  <div style="margin-top:20px;">
+    <div class="photo-gallery">
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2021/05/Southern-Belle-Strawberries.png"
+           onerror="this.style.display='none'" alt="U-pick strawberry field" />
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2017/08/jumping-pillow.jpg"
+           onerror="this.style.display='none'" alt="Jumping pillows" />
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2017/08/attrCowTrain.jpg"
+           onerror="this.style.display='none'" alt="Cow train" />
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2021/03/Belles-Barnstormer-Slide.jpg"
+           onerror="this.style.display='none'" alt="Barnstormer slide" />
+      <img src="https://www.southernbellefarm.com/wp-content/uploads/2019/01/Copy-of-Southern-Belle-Blog-Portrait-Image-5.png"
+           onerror="this.style.display='none'" alt="Country market" />
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── SCORE COMPARISON ── -->
+<div class="guide-section score-section">
+  <div class="section-label">How they scored</div>
+  <div class="section-title">Scoring breakdown</div>
+
+  <div class="score-legend">
+    <span><span class="legend-dot" style="background:rgba(20,184,166,0.75)"></span>Southern Belle</span>
+    <span><span class="legend-dot" style="background:rgba(139,92,246,0.5)"></span>Jaemor Farms</span>
+  </div>
+
+  <div class="score-row">
+    <div class="score-label">Sunday availability (25%)</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:5">5 / 5</div>
+      <div class="score-bar bar-jf" style="flex:5">5 / 5</div>
+    </div>
+  </div>
+  <div class="score-row">
+    <div class="score-label">Drive time (20%)</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:4">4 / 5</div>
+      <div class="score-bar bar-jf" style="flex:2">2 / 5</div>
+      <div class="score-bar bar-empty" style="flex:3"></div>
+    </div>
+  </div>
+  <div class="score-row">
+    <div class="score-label">Toddler activities (20%)</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:5">5 / 5</div>
+      <div class="score-bar bar-jf" style="flex:3">3 / 5</div>
+      <div class="score-bar bar-empty" style="flex:2"></div>
+    </div>
+  </div>
+  <div class="score-row">
+    <div class="score-label">Season reliability (15%)</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:5">5 / 5</div>
+      <div class="score-bar bar-jf" style="flex:5">5 / 5</div>
+    </div>
+  </div>
+  <div class="score-row">
+    <div class="score-label">Reviews + reputation (10%)</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:5">5 / 5</div>
+      <div class="score-bar bar-jf" style="flex:4">4 / 5</div>
+      <div class="score-bar bar-empty" style="flex:1"></div>
+    </div>
+  </div>
+  <div class="score-row" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+    <div class="score-label" style="font-weight:700;color:var(--text)">Weighted Total</div>
+    <div class="score-bars">
+      <div class="score-bar bar-sb" style="flex:47;font-size:12px">Southern Belle — 4.70</div>
+      <div class="score-bar bar-jf" style="flex:38;font-size:12px">Jaemor — 3.80</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── MORE FARMS ── -->
+<div class="guide-section">
+  <div class="section-label">Also within 90 min</div>
+  <div class="section-title">More farms worth knowing</div>
+  <div class="more-farms-grid">
+
+    <!-- Warbington Farms -->
+    <div class="more-farm-card">
+      <div class="mf-img">🍓</div>
+      <div class="mf-body">
+        <div class="mf-name"><a href="https://www.warbingtonfarms.com" target="_blank">Warbington Farms</a></div>
+        <div class="mf-loc">
+          5555 Crow Rd, Cumming, GA 30041
+          <a href="https://maps.google.com/?q=5555+Crow+Rd+Cumming+GA+30041" target="_blank">📍 Map</a>
+        </div>
+        <div class="mf-row"><span>Drive from 30306</span><span>~40 min north (GA-400)</span></div>
+        <div class="mf-row"><span>Hours</span><span>Call weekly — varies by crop</span></div>
+        <div class="mf-row"><span>Admission</span><span>Free</span></div>
+        <div class="mf-row"><span>Picking cost</span><span>Online presale required (Fri 3pm)</span></div>
+        <div class="mf-row"><span>Kids activities</span><span>Fun Park included</span></div>
+        <div class="mf-row"><span>Season</span><span>Through early June</span></div>
+        <div class="mf-note">⚠️ Online presale tickets required on weekends — opens Friday at 3pm. Walk-ins very limited.</div>
+      </div>
+    </div>
+
+    <!-- LCCL Strawberry Farm -->
+    <div class="more-farm-card">
+      <div class="mf-img">
+        <img src="https://lcclstrawberryfarm.com/wp-content/uploads/2013/04/slide01-580x170.jpg"
+             onerror="this.parentElement.innerHTML='🍓'" alt="LCCL Strawberry Farm" />
+      </div>
+      <div class="mf-body">
+        <div class="mf-name"><a href="https://lcclstrawberryfarm.com" target="_blank">LCCL Strawberry Farm</a></div>
+        <div class="mf-loc">
+          3743 Old Dalton Rd, Rome, GA 30165
+          <a href="https://maps.google.com/?q=3743+Old+Dalton+Rd+Rome+GA+30165" target="_blank">📍 Map</a>
+        </div>
+        <div class="mf-row"><span>Drive from 30306</span><span>~75 min NW (I-75 / US-411)</span></div>
+        <div class="mf-row"><span>Hours</span><span>~10am–5pm (call ahead)</span></div>
+        <div class="mf-row"><span>Admission</span><span>Free</span></div>
+        <div class="mf-row"><span>Picking cost</span><span>$1.50/lb u-pick · $2.50/lb pre-picked</span></div>
+        <div class="mf-row"><span>Kids activities</span><span>Train rides $1/ride (weekends)</span></div>
+        <div class="mf-row"><span>Payment</span><span>Cash or check only</span></div>
+        <div class="mf-note">⚠️ Cash/checks only. No card. Budget-friendly pick for a weekday trip.</div>
+      </div>
+    </div>
+
+    <!-- Dickey Farms -->
+    <div class="more-farm-card">
+      <div class="mf-img">
+        <img src="https://cdn.shopify.com/s/files/1/0535/9557/0353/files/IMG_1573_1.jpg?v=1742844770"
+             onerror="this.parentElement.innerHTML='🍑'" alt="Dickey Farms" />
+      </div>
+      <div class="mf-body">
+        <div class="mf-name"><a href="https://gapeaches.com/pages/strawberries" target="_blank">Dickey Farms</a></div>
+        <div class="mf-loc">
+          3440 Musella Rd, Musella, GA 31301
+          <a href="https://maps.google.com/?q=3440+Musella+Rd+Musella+GA+31301" target="_blank">📍 Map</a>
+        </div>
+        <div class="mf-row"><span>Drive from 30306</span><span>~78 min SW (I-75 South)</span></div>
+        <div class="mf-row"><span>Hours</span><span>Call ahead (flexible)</span></div>
+        <div class="mf-row"><span>Admission</span><span>Free</span></div>
+        <div class="mf-row"><span>Picking cost</span><span>$2.75/lb</span></div>
+        <div class="mf-row"><span>Bonus</span><span>Strawberry ice cream + shortcake on-site</span></div>
+        <div class="mf-row"><span>Heritage</span><span>127-year-old peach + strawberry farm</span></div>
+        <div class="mf-note">Best combined with peach season stop. Iconic GA farm — the ice cream is worth the drive.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── DAY PLAN ── -->
+<div class="guide-section">
+  <div class="section-label">Sunday May 3 · Full Day Plan</div>
+  <div class="section-title">How the day looks</div>
+  <div class="day-plan">
+    <h3>🍓 Southern Belle Farm — May 3 · Leave at 8 AM</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">8:00 AM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Leave 30306</div>
+          <div class="tl-note">I-75 South via the Connector. Pack carriers, cooler, snacks, extra clothes. ~45 min drive.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">8:50 AM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Breakfast — Truett's Grill, McDonough</div>
+          <div class="tl-note">1950s Chick-fil-A diner by founder Truett Cathy. Extended menu, familiar food for the toddlers, high chairs, fast. 1785 Jonesboro Rd, McDonough.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">9:30 AM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Head to Noah's Ark Animal Sanctuary — 15 min</div>
+          <div class="tl-note">712 LG Griffin Rd, Locust Grove. Opens 10am. Grab coffee and stall for 30 min if early.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:00 AM</div>
+        <div class="tl-dot" style="background:var(--amber);"></div>
+        <div class="tl-content">
+          <div class="tl-label">Noah's Ark opens — paved paths, stroller-accessible</div>
+          <div class="tl-note">Tigers, bears, wolves, lions on paved self-guided paths. $5/person. Kids 12 &amp; under free. Plan ~2 hrs.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:15 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Leave Noah's Ark → Southern Belle (15 min)</div>
+          <div class="tl-note">Buy activity tickets online before you arrive — $17.95/adult. Gate price is $20.95.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:45 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Arrive Southern Belle — get organized</div>
+          <div class="tl-note">Park, load carriers, grab water. Gates open at 1pm sharp — be at the entrance ready to go.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">1:00 PM</div>
+        <div class="tl-dot" style="background:var(--teal);border-color:#0c0c14;width:14px;height:14px;margin-top:3px;"></div>
+        <div class="tl-content">
+          <div class="tl-label">Gates open — straight to the strawberry field</div>
+          <div class="tl-note">Leave strollers at the edge. Baby carriers in. Toddlers will eat half of what they pick. That's the plan.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2:15 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Barnyard activities</div>
+          <div class="tl-note">Cow train, jumping pillows, Barnstormer slide, petting barn, pig races. Toddlers could run this for 90 min.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">3:30 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-label">Country Market + Mimi's ice cream</div>
+          <div class="tl-note">Homemade strawberry ice cream is famous. Pick up jams, fresh produce for the week. Load cooler.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">4:00 PM</div>
+        <div class="tl-dot" style="background:var(--purple);"></div>
+        <div class="tl-content">
+          <div class="tl-label">Head home — I-75 North</div>
+          <div class="tl-note">Home by ~4:45 PM. Plenty of time before bedtime. Berries straight into the fridge — don't wash until ready to eat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── COST BREAKDOWN ── -->
+<div class="guide-section">
+  <div class="section-label">Budget</div>
+  <div class="section-title">Cost for two families</div>
+  <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px;">4 adults · 2 toddlers (~2 yrs) · 2 newborns. Kids 2 &amp; under are free for admission and activities.</p>
+  <table class="cost-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Who</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Noah's Ark admission</td>
+        <td>4 adults</td>
+        <td>$20</td>
+      </tr>
+      <tr>
+        <td>Truett's Grill breakfast (estimate)</td>
+        <td>4 adults</td>
+        <td>$50</td>
+      </tr>
+      <tr>
+        <td>U-Pick field admission</td>
+        <td>4 adults</td>
+        <td>$4</td>
+      </tr>
+      <tr>
+        <td>Picking (2 gallons — plenty for both families)</td>
+        <td>Shared</td>
+        <td>$40</td>
+      </tr>
+      <tr>
+        <td>Barnyard activities — buy online ($17.95/person)</td>
+        <td>4 adults (kids FREE)</td>
+        <td>$72</td>
+      </tr>
+      <tr>
+        <td>Country Market snacks / ice cream / jams</td>
+        <td>Estimate</td>
+        <td>$30</td>
+      </tr>
+      <tr>
+        <td><strong>Full day — Noah's Ark + farm + barnyard</strong></td>
+        <td></td>
+        <td><strong>~$216</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Farm only (no barnyard, no Noah's Ark)</strong></td>
+        <td></td>
+        <td><strong>~$74</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── WHAT TO BRING ── -->
+<div class="guide-section">
+  <div class="section-label">Logistics</div>
+  <div class="section-title">What to bring</div>
+  <div class="logistics-grid">
+    <div class="logistics-card">
+      <h4>👶 For the kids</h4>
+      <ul>
+        <li><span class="li-icon">🎒</span> Baby carrier (essential — strollers can't enter rows)</li>
+        <li><span class="li-icon">👗</span> Change of clothes — strawberries stain everything</li>
+        <li><span class="li-icon">🧴</span> Sunscreen — field is fully exposed</li>
+        <li><span class="li-icon">👒</span> Sun hats for toddlers</li>
+        <li><span class="li-icon">🧃</span> Extra snacks and water bottles</li>
+      </ul>
+    </div>
+    <div class="logistics-card">
+      <h4>✅ Day-of checklist</h4>
+      <ul>
+        <li><span class="li-icon">📱</span> Check southernbellefarm.com banner morning of May 3 — fields can close early if picked out</li>
+        <li><span class="li-icon">📞</span> Call 770-288-2582 morning-of to confirm field is open</li>
+        <li><span class="li-icon">🎟️</span> Buy activity tickets online — saves $3/person vs. gate</li>
+        <li><span class="li-icon">👟</span> Closed-toe shoes — expect dirt, possibly damp rows</li>
+        <li><span class="li-icon">💳</span> Card or cash — gate + market</li>
+        <li><span class="li-icon">🧊</span> Cooler in the car — berries in summer heat = mush</li>
+        <li><span class="li-icon">⏰</span> Last entry to u-pick patch is 5pm (1 hr before 6pm close) — plan to be in the field no later than 4:30pm</li>
+      </ul>
+    </div>
+    <div class="logistics-card">
+      <h4>🚗 Getting there from 30306</h4>
+      <ul>
+        <li><span class="li-icon">🛣️</span> Head to I-75 South via the Downtown Connector</li>
+        <li><span class="li-icon">🚦</span> Exit 216 (Hwy 155 / McDonough) → ~5 min east to Turner Church Rd</li>
+        <li><span class="li-icon">⏱️</span> ~45 min, 35 miles</li>
+        <li><span class="li-icon">🅿️</span> Free parking, large lot on arrival</li>
+        <li><span class="li-icon">📍</span> <a href="https://maps.google.com/maps?saddr=30306&daddr=1658+Turner+Church+Rd+McDonough+GA+30252" target="_blank" style="color:var(--teal)">Get directions from 30306 →</a></li>
+      </ul>
+    </div>
+    <div class="logistics-card">
+      <h4>🍓 Picking tips</h4>
+      <ul>
+        <li><span class="li-icon">🔴</span> Deep red all the way up, firm but gives slightly — that's ripe</li>
+        <li><span class="li-icon">🚫</span> White shoulders = not ready; soft/mushy = overripe</li>
+        <li><span class="li-icon">✂️</span> Twist and pull, don't yank the plant</li>
+        <li><span class="li-icon">🧺</span> One gallon fills a flat of quarts — more than you think</li>
+        <li><span class="li-icon">😄</span> Toddlers will eat 30% of what they pick. That's fine.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ── NEARBY ── -->
+<div class="guide-section" id="nearby">
+  <div class="section-label">Around Southern Belle Farm</div>
+  <div class="section-title">What's nearby</div>
+  <div class="nearby-grid">
+
+    <div class="nearby-card">
+      <div class="nc-img">
+        <img src="https://images.squarespace-cdn.com/content/v1/689f3e705270672338461210/6d71be8e-d2ea-4004-89cf-cbaeca8cec49/Doc+-+Tiger-4.jpg"
+             onerror="this.parentElement.innerHTML='🦁'" alt="Noah's Ark tiger" />
+      </div>
+      <div class="nc-body">
+        <div class="nc-header"><div class="nc-emoji">🦁</div><div class="nc-name"><a href="https://www.noahs-ark.org" target="_blank">Noah's Ark Animal Sanctuary</a></div></div>
+        <div class="nc-dist">📍 15 min south · 712 LG Griffin Rd, Locust Grove · <a href="https://maps.google.com/?q=712+LG+Griffin+Rd+Locust+Grove+GA+30248" target="_blank" style="color:var(--teal);font-size:11px;">Map</a></div>
+        <div class="nc-desc">1,500+ animals — tigers, wolves, bears, lions, monkeys. Paved self-guided paths, stroller-friendly. $5 adults, kids 12 &amp; under free. Open Tue–Sun 10am–4pm (last ticket 3pm).</div>
+        <div class="nc-links">
+          <a href="https://www.noahs-ark.org" target="_blank" class="nc-link">Website</a>
+          <a href="https://maps.google.com/?q=712+LG+Griffin+Rd+Locust+Grove+GA+30248" target="_blank" class="nc-link">📍 Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nearby-card">
+      <div class="nc-img">🍗</div>
+      <div class="nc-body">
+        <div class="nc-header"><div class="nc-emoji">🥤</div><div class="nc-name"><a href="https://www.yelp.com/biz/truetts-grill-mcdonough" target="_blank">Truett's Grill</a></div></div>
+        <div class="nc-dist">📍 10 min · 1785 Jonesboro Rd, McDonough · <a href="https://maps.google.com/?q=1785+Jonesboro+Rd+McDonough+GA+30253" target="_blank" style="color:var(--teal);font-size:11px;">Map</a></div>
+        <div class="nc-desc">1950s-style Chick-fil-A diner concept by founder Truett Cathy. Extended menu beyond standard CFA, milkshakes, familiar food for toddlers. High chairs. Perfect family breakfast stop.</div>
+        <div class="nc-links">
+          <a href="https://maps.google.com/?q=1785+Jonesboro+Rd+McDonough+GA+30253" target="_blank" class="nc-link">📍 Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nearby-card">
+      <div class="nc-img">
+        <img src="https://gastateparks.org/sites/default/files/styles/locationslidestyle/public/parks/locationslideshow/panola-mountain-rock-banner_0.jpg"
+             onerror="this.parentElement.innerHTML='🏔️'" alt="Panola Mountain" />
+      </div>
+      <div class="nc-body">
+        <div class="nc-header"><div class="nc-emoji">🏔️</div><div class="nc-name"><a href="https://gastateparks.org/PanolaMountain" target="_blank">Panola Mountain State Park</a></div></div>
+        <div class="nc-dist">📍 20 min north · 2620 GA-155, Stockbridge · <a href="https://maps.google.com/?q=2620+GA-155+Stockbridge+GA+30281" target="_blank" style="color:var(--teal);font-size:11px;">Map</a></div>
+        <div class="nc-desc">100-acre granite monadnock with easy hiking, birding, geocaching, tree climbing. Stroller-accessible entry areas. Good for the toddler if energy allows after the farm — on the way home.</div>
+        <div class="nc-links">
+          <a href="https://gastateparks.org/PanolaMountain" target="_blank" class="nc-link">Website</a>
+          <a href="https://maps.google.com/?q=2620+GA-155+Stockbridge+GA+30281" target="_blank" class="nc-link">📍 Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nearby-card">
+      <div class="nc-img">🏘️</div>
+      <div class="nc-body">
+        <div class="nc-header"><div class="nc-emoji">🍦</div><div class="nc-name">McDonough Square</div></div>
+        <div class="nc-dist">📍 12 min · Downtown McDonough · <a href="https://maps.google.com/?q=McDonough+Square+McDonough+GA" target="_blank" style="color:var(--teal);font-size:11px;">Map</a></div>
+        <div class="nc-desc">Historic walkable town square with Scoops ice cream, local restaurants, and shaded paths. Nice end-of-day stroll before the drive home. Easy parking, stroller-friendly sidewalks.</div>
+        <div class="nc-links">
+          <a href="https://maps.google.com/?q=McDonough+Square+McDonough+GA" target="_blank" class="nc-link">📍 Directions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer style="text-align:center;padding:40px 24px;color:var(--text-dim);font-size:13px;">
+  <a href="/" style="color:var(--text-dim);text-decoration:none;">← Back to ATL Radar</a>
+  <span style="margin:0 12px">·</span>
+  <a href="/guides.html" style="color:var(--text-dim);text-decoration:none;">All Guides</a>
+  <span style="margin:0 12px">·</span>
+  Built Apr 2026
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('progress');
+    if (!el) return;
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    el.style.width = Math.min(pct, 100) + '%';
+  });
+</script>
+</body>
+</html>

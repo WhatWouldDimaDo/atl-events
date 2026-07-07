@@ -1,0 +1,730 @@
+{
+  "scan_metadata": {
+    "source_archive": "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/",
+    "scan_date": "2026-04-21",
+    "directories_scanned": [
+      "planning/",
+      "Archive/2025-11-12-original-export/"
+    ],
+    "purpose": "Venue refresh strategies, scraping playbooks, and categorization from prior ATL event list project"
+  },
+  "venue_refresh_tiers": {
+    "tier1_weekly_high_priority": [
+      {
+        "name": "Terminal West",
+        "url": "https://www.axs.com/events/",
+        "category": "Music Venue",
+        "scraping_method": "AXS Event Calendar Partner",
+        "notes": "Primary ticketing via AXS. Core of social calendar. High volume of electronic/indie music.",
+        "status": "active"
+      },
+      {
+        "name": "The Eastern",
+        "url": "https://theeasternatlanta.com/",
+        "category": "Music Venue",
+        "scraping_method": "AXS Event Calendar Partner",
+        "notes": "Direct scraping via AXS. Verified venue preference. Electronic, indie, big gigantic style acts.",
+        "status": "active"
+      },
+      {
+        "name": "Variety Playhouse",
+        "url": "https://variety-playhouse.com/events/",
+        "category": "Music Venue",
+        "scraping_method": "Direct HTML (manual fallback if 403)",
+        "notes": "403 Forbidden encountered. Pivot to third-party sources: concerts50.com, concertlands.com. High priority for downtempo electronic.",
+        "status": "requires_fallback"
+      },
+      {
+        "name": "The Masquerade",
+        "url": "https://masqueradeatlanta.com/events/",
+        "category": "Multi-Stage Club",
+        "scraping_method": "Direct HTML parsing (minimal list view data)",
+        "notes": "Successfully fetched via webfetch. Multiple stages (Heaven, Hell, Purgatory, Altar). Enrichment requires individual event page visits.",
+        "status": "active_with_enrichment"
+      },
+      {
+        "name": "District Atlanta",
+        "url": "https://www.eventbrite.com/",
+        "category": "Club/Electronic Venue",
+        "scraping_method": "Eventbrite API Partner Search",
+        "notes": "Eventbrite ticketing partner. Electronic/hip-hop focus.",
+        "status": "active"
+      },
+      {
+        "name": "Believe Music Hall",
+        "url": "https://www.irisatlanta.com/",
+        "category": "Music Venue",
+        "scraping_method": "Iris Presents Ticketing Partner",
+        "notes": "Iris Presents partnership. Electronic/house music focus.",
+        "status": "active"
+      }
+    ],
+    "tier2_biweekly_culture_family": [
+      {
+        "name": "High Museum of Art",
+        "url": "https://high.org/",
+        "category": "Museum - Art",
+        "scraping_method": "Direct HTML or Museum API",
+        "notes": "Exhibitions & Jazz Fridays. Family-friendly. Intellectual enrichment focus.",
+        "status": "active"
+      },
+      {
+        "name": "Fernbank Museum",
+        "url": "https://fernbankmuseum.org/",
+        "category": "Museum - Natural History",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "After Dark events & Special Exhibits. Interactive family content. Verified data source recovered Jun-Aug 2026.",
+        "status": "active"
+      },
+      {
+        "name": "Atlanta Botanical Garden",
+        "url": "https://atlantabg.org/",
+        "category": "Gardens - Seasonal",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "Seasonal events. Family adventure focused. Garden Lights immersive experience.",
+        "status": "active"
+      },
+      {
+        "name": "Georgia Aquarium",
+        "url": "https://www.georgiaaquarium.org/",
+        "category": "Aquarium - Family & 21+ Nights",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "Kids Free September events. 21+ Nights. Family-friendly. Verified data recovered Jun-Aug 2026.",
+        "status": "active"
+      },
+      {
+        "name": "Fox Theatre",
+        "url": "https://www.foxtheatre.org/",
+        "category": "Theater - Broadway/Series",
+        "scraping_method": "Broadway Across America or direct HTML",
+        "notes": "Broadway and series programming. Selective inclusion based on taste profile.",
+        "status": "active"
+      },
+      {
+        "name": "Center for Puppetry Arts",
+        "url": "https://puppet.org/shows",
+        "category": "Theater - Family/Adult Shows",
+        "scraping_method": "Direct HTML parsing",
+        "notes": "Adult & family shows. Workshop programming. Interactive experiences for children.",
+        "status": "active"
+      }
+    ],
+    "tier3_monthly_comedy_jazz_intimate": [
+      {
+        "name": "Dad's Garage",
+        "url": "https://dadsgarage.com/shows",
+        "category": "Comedy - Improv/Theater",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "Improv and comedy. Family workshops available. Intellectual humor focus.",
+        "status": "active"
+      },
+      {
+        "name": "Laughing Skull Lounge",
+        "url": "https://www.laughingskullatlanta.com/",
+        "category": "Comedy - Stand-up",
+        "scraping_method": "Direct HTML or Facebook events",
+        "notes": "Stand-up comedy venue. Observational/intellectual comedians preferred.",
+        "status": "active"
+      },
+      {
+        "name": "Eddie's Attic",
+        "url": "https://www.eddiesattic.com/",
+        "category": "Music - Acoustic/Folk",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "Acoustic and folk performances. Intimate venue. Date night friendly.",
+        "status": "active"
+      },
+      {
+        "name": "Blind Willie's",
+        "url": "https://www.blindwillies.com/",
+        "category": "Music - Blues",
+        "scraping_method": "Direct HTML or Facebook events",
+        "notes": "Live blues venue. Jazz fusion acts. Intimate setting.",
+        "status": "active"
+      },
+      {
+        "name": "The Earl",
+        "url": "https://www.theearlatl.com/",
+        "category": "Music - Indie/Rock",
+        "scraping_method": "Direct HTML calendar",
+        "notes": "Indie and rock programming. Also hosts DJ nights (dub/hip-hop/world music).",
+        "status": "active"
+      },
+      {
+        "name": "529",
+        "url": "https://www.529atlanta.com/",
+        "category": "Music - Indie/Experimental",
+        "scraping_method": "Direct HTML or Songkick partner",
+        "notes": "Experimental and indie programming. Underground music focus.",
+        "status": "active"
+      }
+    ],
+    "tier4_discovery_underground_aggregators": [
+      {
+        "name": "19hz.info",
+        "url": "https://19hz.info/eventlisting_Atlanta.php",
+        "category": "Electronic Music Aggregator",
+        "scraping_method": "HTML parsing (table-based listings)",
+        "notes": "Underground electronic events. Best source for techno/house/dub. Verified active source.",
+        "status": "active"
+      },
+      {
+        "name": "Resident Advisor (RA.co)",
+        "url": "https://ra.co/",
+        "category": "Electronic Music Aggregator",
+        "scraping_method": "RA.co Web Scraping or API (if available)",
+        "notes": "Club, techno, house, electronic culture. Global events with Atlanta filter.",
+        "status": "active"
+      },
+      {
+        "name": "Songkick",
+        "url": "https://www.songkick.com/metro/26330-atlanta",
+        "category": "Concert Aggregator",
+        "scraping_method": "API or Songkick widget parsing",
+        "notes": "Concert aggregator. Fallback for venues with 403 blocks. Multi-genre.",
+        "status": "fallback_venue"
+      },
+      {
+        "name": "Bandsintown",
+        "url": "https://www.bandsintown.com/",
+        "category": "Concert Aggregator",
+        "scraping_method": "API or widget parsing",
+        "notes": "Artist-focused concert aggregator. Good for discovering artist tour dates.",
+        "status": "fallback_artist"
+      },
+      {
+        "name": "Plaza Theatre",
+        "url": "https://www.plazaatlanta.com/",
+        "category": "Indie Film - Cult/Art Cinema",
+        "scraping_method": "Direct HTML parsing",
+        "notes": "Cult film screenings. Art/experimental films. Independent theater. Verified active.",
+        "status": "active"
+      },
+      {
+        "name": "Lunchbox",
+        "url": "https://lunchboxatl.com/",
+        "category": "Underground Techno Club",
+        "scraping_method": "Facebook events or direct listing",
+        "notes": "Underground electronic venue. Techno focus. May require manual discovery.",
+        "status": "active"
+      }
+    ]
+  },
+  "scraping_strategies": [
+    {
+      "source": "AXS (Ticketing Partner)",
+      "method": "Direct AXS event calendar for Terminal West, The Eastern, Variety Playhouse",
+      "success": true,
+      "implementation": "Search AXS.com by venue name, extract events matching date range",
+      "notes": "Reliable. Handles dates, prices, ticket links, basic descriptions. No poster images in JSON API.",
+      "venues_served": ["Terminal West", "The Eastern", "Variety Playhouse"]
+    },
+    {
+      "source": "Eventbrite",
+      "method": "Search Eventbrite for District Atlanta events and promoters",
+      "success": true,
+      "implementation": "Query Eventbrite by venue or promoter name, extract event JSON payload",
+      "notes": "Eventbrite includes descriptions, images (og:image), and full details. Good poster source.",
+      "venues_served": ["District Atlanta"]
+    },
+    {
+      "source": "Iris Presents / Ticketmaster",
+      "method": "Ticketmaster backend for Iris Presents promotions (Believe Music Hall)",
+      "success": true,
+      "implementation": "Search Ticketmaster by promoter/venue, parse event listing",
+      "notes": "Reliable. Ticketmaster has robust event data and images.",
+      "venues_served": ["Believe Music Hall"]
+    },
+    {
+      "source": "Direct Venue HTML (The Masquerade)",
+      "method": "Webfetch + markdown parsing of /events/ page",
+      "success": true,
+      "implementation": "Use webfetch to retrieve events page, parse HTML table or listing, extract event names and dates",
+      "notes": "Successfully extracted event names, dates, venue stages. Requires follow-up visit to individual event pages for rich descriptions and images.",
+      "enrichment_required": true
+    },
+    {
+      "source": "Direct Venue HTML (Variety Playhouse)",
+      "method": "Direct scraping via webfetch",
+      "success": false,
+      "implementation": "Attempted webfetch to variety-playhouse.com/events/",
+      "error": "403 Forbidden",
+      "fallback": "Pivot to third-party concert aggregators: concerts50.com, concertlands.com, Songkick, Bandsintown",
+      "notes": "Block appears to be anti-bot protection. Third-party sources have historical data."
+    },
+    {
+      "source": "19hz.info",
+      "method": "Direct HTML table parsing from eventlisting_Atlanta.php",
+      "success": true,
+      "implementation": "Parse HTML table, extract event name, date, venue, price, link",
+      "notes": "Best source for underground electronic/techno/house/dub. Actively curated. High-quality venue data.",
+      "data_quality": "high"
+    },
+    {
+      "source": "Resident Advisor (RA.co)",
+      "method": "Web scraping or API (check RA.co terms)",
+      "success": "conditional",
+      "implementation": "Filter by Atlanta, parse event listings with date range",
+      "notes": "Global club/electronic culture database. May have API restrictions. Web scraping may be viable.",
+      "data_quality": "high"
+    },
+    {
+      "source": "Fallback: Songkick / Bandsintown (403 Venues)",
+      "method": "Aggregator search for venue name or artist",
+      "success": true,
+      "implementation": "Search aggregator by venue or promoter name, extract events",
+      "notes": "Works when direct venue scraping is blocked. Less detailed than direct sources but reliable.",
+      "use_case": "Fallback for Variety Playhouse and similar blocked venues"
+    },
+    {
+      "source": "Facebook Events (Backup)",
+      "method": "Facebook public event listings",
+      "success": "conditional",
+      "implementation": "Search venue name on Facebook, retrieve public event listing",
+      "notes": "Useful for underground/smaller venues. May include images and descriptions.",
+      "venues": ["Laughing Skull Lounge", "Blind Willie's", "Lunchbox"]
+    },
+    {
+      "source": "Asset Collection (Posters)",
+      "method": "og:image tag extraction from ticket link pages",
+      "success": true,
+      "implementation": "Fetch poster URL from Eventbrite/AXS/Ticketmaster event page og:image meta tag",
+      "notes": "Fallback strategy if event poster not found in direct scrape. Requires secondary HTTP request.",
+      "automation": "fetch_assets.py handles batch downloading"
+    },
+    {
+      "source": "Venue Branding Assets",
+      "method": "Manual collection + CDN verification",
+      "success": true,
+      "implementation": "Visit official venue websites, collect logo_url, primary_color (hex), font_family. Log to venue_branding.json",
+      "notes": "High-res PNG/SVG preferred. Verified URLs from official CDNs. Populated for 11 top venues.",
+      "result": "planning/venue_branding.json with complete styling metadata"
+    }
+  ],
+  "csv_data_summary": {
+    "file_1_sheet1": {
+      "path": "Archive/2025-11-12-original-export/ATL Event List 2025 - Sheet1.csv",
+      "type": "Family & Evergreen Activities",
+      "record_count": "19+ rows",
+      "columns": [
+        "Venue_Name",
+        "Program_Type",
+        "Program_Name",
+        "Schedule",
+        "Age_Range",
+        "Cost_Structure",
+        "Description",
+        "Seasonal_Notes",
+        "Link"
+      ],
+      "key_venues": [
+        "Center for Puppetry Arts",
+        "Stone Mountain Park",
+        "Dad's Garage Theatre",
+        "Fulton County Libraries",
+        "Zoo Atlanta",
+        "Children's Museum of Atlanta"
+      ],
+      "use_case": "Recurring family activities, weekday programming, free/low-cost options"
+    },
+    "file_2_expanded": {
+      "path": "Archive/2025-11-12-original-export/Atlanta Events Hub - Expanded Through October 2025.csv",
+      "type": "Curated Event List with Personal Scoring",
+      "record_count": "19+ rows (Aug-Oct 2025 snapshot)",
+      "columns": [
+        "Sub_Category",
+        "Price_Range",
+        "Interest_Score (1-10)",
+        "Category",
+        "Venue",
+        "Family_Level",
+        "Event_Name",
+        "Date",
+        "Notes (Rich descriptions with setlist history)",
+        "Link"
+      ],
+      "interest_score_mapping": {
+        "9_10": "Perfect match - Dima's taste profile (downtempo, world fusion, ambient)",
+        "7_8": "Good fit - Electronic/indie with strong appeal",
+        "6": "Decent option - Secondary interest or experimental"
+      },
+      "sample_high_score_events": [
+        {
+          "event": "Emancipator + Vctre",
+          "venue": "Variety Playhouse",
+          "date": "2025-08-01",
+          "score": 10,
+          "reason": "Perfect match - downtempo electronic, attended venue, setlist history provided"
+        },
+        {
+          "event": "Beats Antique",
+          "venue": "Center Stage Theatre",
+          "date": "2025-08-02",
+          "score": 10,
+          "reason": "World fusion electronic with belly dance, matches world music + electronic taste"
+        },
+        {
+          "event": "Tycho",
+          "venue": "The Caverns (Pelham, TN)",
+          "date": "2025-08-15 to 08-16",
+          "score": 9,
+          "reason": "Ambient electronic perfection, road trip venue, instrumental, gorgeous visuals"
+        },
+        {
+          "event": "Pachyman & MNDSGN",
+          "venue": "The Earl",
+          "date": "2025-10-04",
+          "score": 9,
+          "reason": "Dub/hip-hop/world music fusion - perfect genre combination"
+        }
+      ]
+    },
+    "file_3_aug_oct": {
+      "path": "Archive/2025-11-12-original-export/ATL Event List 2025 - ATL Events Aug-Oct.csv",
+      "type": "Master Event Listing with Enrichment",
+      "record_count": "19+ rows (Aug-Oct 2025 snapshot)",
+      "columns": [
+        "Start Date",
+        "End",
+        "Event_Name",
+        "Venue",
+        "Going (RSVP status)",
+        "Interested",
+        "Category",
+        "Sub_Category",
+        "Price_Range",
+        "Family_Level",
+        "Link",
+        "Add to Calendar (emoji)",
+        "Spotify Link (emoji)",
+        "Tickets or More Info",
+        "Notes (Rich description)"
+      ],
+      "enrichment_features": {
+        "descriptions": "Rich marketing copy with setlist history, timing info, artist comparison, recent tour data",
+        "timing_details": "Doors, show start time, expected duration, stage count (for multi-stage venues)",
+        "artist_links": "Spotify link column for music integration",
+        "family_context": "Family_Level column for filtering family vs 18+/21+ events",
+        "personalization": "Notes reference Dima's taste profile and venue attendance history"
+      }
+    }
+  },
+  "venue_categorization": {
+    "by_music_genre": {
+      "electronic_downtempo_ambient": [
+        "Terminal West",
+        "The Eastern",
+        "Believe Music Hall",
+        "19hz.info (aggregator)",
+        "Resident Advisor (aggregator)",
+        "Lunchbox",
+        "The Masquerade (Hell stage)"
+      ],
+      "indie_rock_alternative": [
+        "Variety Playhouse",
+        "The Eastern",
+        "The Earl",
+        "529"
+      ],
+      "comedy_improv": [
+        "Dad's Garage Theatre",
+        "Laughing Skull Lounge"
+      ],
+      "jazz_blues_acoustic": [
+        "Blind Willie's",
+        "Eddie's Attic",
+        "High Museum Jazz Fridays"
+      ]
+    },
+    "by_venue_type": {
+      "large_music_venues": [
+        "Terminal West",
+        "The Eastern",
+        "Variety Playhouse"
+      ],
+      "multi_stage_clubs": [
+        "The Masquerade",
+        "District Atlanta",
+        "Believe Music Hall"
+      ],
+      "intimate_comedy_live": [
+        "Dad's Garage",
+        "Laughing Skull Lounge",
+        "Eddie's Attic",
+        "Blind Willie's",
+        "The Earl",
+        "529"
+      ],
+      "cultural_institutions": [
+        "High Museum of Art",
+        "Fernbank Museum",
+        "Georgia Aquarium",
+        "Atlanta Botanical Garden",
+        "Fox Theatre",
+        "Center for Puppetry Arts",
+        "Plaza Theatre"
+      ],
+      "outdoor_parks": [
+        "Stone Mountain Park",
+        "Atlanta Botanical Garden"
+      ]
+    },
+    "by_family_friendliness": {
+      "all_ages": [
+        "Terminal West",
+        "The Eastern",
+        "Variety Playhouse",
+        "The Masquerade",
+        "District Atlanta",
+        "High Museum",
+        "Fernbank Museum",
+        "Georgia Aquarium",
+        "Atlanta Botanical Garden",
+        "Fox Theatre",
+        "Center for Puppetry Arts",
+        "Dad's Garage (select shows)",
+        "Stone Mountain Park",
+        "Zoo Atlanta"
+      ],
+      "adults_only_21_plus": [
+        "Echo Room",
+        "Southern Feedstore",
+        "Plaza Theatre",
+        "Believe Music Hall (some shows)"
+      ],
+      "18_plus": [
+        "Lunchbox",
+        "The Earl (some shows)"
+      ]
+    }
+  },
+  "batch_scraping_playbook": {
+    "batch_a_big_three_electronic": {
+      "priority": "Highest",
+      "reason": "Core of social calendar, high volume of relevant events, reliable scraping sources",
+      "venues": [
+        "Terminal West",
+        "The Eastern",
+        "Variety Playhouse",
+        "District Atlanta",
+        "The Masquerade",
+        "Believe Music Hall"
+      ],
+      "workflow": [
+        "Reconnaissance: Identify events/calendar page, check HTML structure",
+        "Extraction: AXS/Eventbrite/Direct HTML → JSON intermediate",
+        "Enrichment: Add descriptions, Spotify links, interest scores, images",
+        "Logging: Record technical method in SCRAPING_TECHNICAL_LOG.md"
+      ],
+      "expected_events": "100-150 events (Jan-Aug 2026)"
+    },
+    "batch_b_culture_museums_family": {
+      "priority": "High",
+      "reason": "Daytime activities, intellectual enrichment, family planning",
+      "venues": [
+        "High Museum of Art",
+        "Fernbank Museum",
+        "Atlanta Botanical Garden",
+        "Georgia Aquarium",
+        "Fox Theatre",
+        "Center for Puppetry Arts"
+      ],
+      "workflow": [
+        "Direct HTML calendar extraction",
+        "Seasonal event filtering (e.g., Garden Lights, Kids Free September)",
+        "Family_Level tagging",
+        "Image/poster collection from official sources"
+      ],
+      "expected_events": "50-100 events"
+    },
+    "batch_c_comedy_jazz_intimate": {
+      "priority": "Medium",
+      "reason": "Date nights, unique experiences, curated taste match",
+      "venues": [
+        "Dad's Garage",
+        "Laughing Skull Lounge",
+        "Eddie's Attic",
+        "Blind Willie's",
+        "The Earl",
+        "529"
+      ],
+      "workflow": [
+        "Direct HTML or Facebook event scraping",
+        "Fallback to Songkick/Bandsintown for blocked venues",
+        "Rich description enrichment (tone, vibe, comparable artists)",
+        "Link collection (ticket platforms vary by venue)"
+      ],
+      "expected_events": "50-75 events"
+    },
+    "batch_d_discovery_underground": {
+      "priority": "Medium-Low",
+      "reason": "Finding hidden gems, expanded genres, gap filling",
+      "sources": [
+        "19hz.info",
+        "Resident Advisor (RA.co)",
+        "Plaza Theatre",
+        "Lunchbox"
+      ],
+      "workflow": [
+        "Aggregate scraping: 19hz.info HTML table parsing",
+        "RA.co API or web scraping (check terms)",
+        "Keyword filtering by genre/vibe preference",
+        "Deduplication against Batches A-C"
+      ],
+      "expected_events": "30-50 additional underground events"
+    }
+  },
+  "enrichment_pipeline": {
+    "taste_matcher_workflow": {
+      "input": "Raw event data from scraping (marketing copy, artist name, venue, date, price)",
+      "process": [
+        {
+          "step": "Prepare",
+          "action": "Batch events for LLM enrichment, group by category"
+        },
+        {
+          "step": "Apply",
+          "action": "Use taste_matcher_v2.py CLI to generate enriched descriptions"
+        },
+        {
+          "step": "Distillation",
+          "action": "Rewrite descriptions with Dima's TASTE_PROFILE.md context"
+        },
+        {
+          "step": "Scoring",
+          "action": "Generate interest_score (1-5) based on genre/artist affinity"
+        }
+      ],
+      "output": "description_distilled, interest_score, media_link (Spotify/YouTube)"
+    },
+    "taste_profile_context": {
+      "high_priority_genres": [
+        "Downtempo",
+        "Organic House",
+        "Liquid DnB",
+        "Melodic Techno",
+        "IDM",
+        "Ambient",
+        "Orchestral Electronic Crossovers",
+        "Modern Jazz/Fusion",
+        "Afrobeat",
+        "Latin Alternative",
+        "Blackgaze / Shoegaze"
+      ],
+      "verified_favorite_artists": [
+        "Bonobo",
+        "Tycho",
+        "Lane 8",
+        "Nora En Pure",
+        "RÜFÜS DU SOL",
+        "Four Tet",
+        "Floating Points",
+        "Fred again..",
+        "Jamie xx",
+        "Khruangbin",
+        "Glass Animals",
+        "Tame Impala",
+        "Vulfpeck",
+        "Aterciopelados",
+        "Sudan Archives"
+      ],
+      "anti_preferences": [
+        "Generic Top 40 Pop",
+        "Mumble Rap / Generic Trap",
+        "Modern Country / Radio Country",
+        "Heavy Metal / Screamo (unless legendary)"
+      ],
+      "keyword_boosters": [
+        "Orchestral Electronic",
+        "Intimate & Artistic",
+        "Immersive / Visuals",
+        "Cult / Art Cinema",
+        "Downtempo / Melodic House",
+        "Anjunadeep sound"
+      ]
+    },
+    "asset_collection_strategy": {
+      "event_posters": {
+        "priority": "High",
+        "method": "Extract image_url during scrape, fallback to og:image from ticket page",
+        "storage": "/assets/events/{YYYY-MM-DD}_{Event_Name_Slug}.jpg",
+        "automation": "fetch_assets.py downloads batch to prevent agent timeouts"
+      },
+      "venue_branding": {
+        "priority": "Medium",
+        "data_points": [
+          "logo_url (High-res PNG/SVG)",
+          "primary_color (Hex code)",
+          "font_family (Header font)"
+        ],
+        "storage": "/assets/venues/{Venue_Name_Slug}_logo.png",
+        "log_output": "planning/venue_branding.json",
+        "verified_count": "13 high-quality logos collected"
+      }
+    }
+  },
+  "error_handling_and_fallbacks": {
+    "403_forbidden_strategy": {
+      "step_1": "Log the blocking venue and URL to MANUAL_BROWSER_TASKS.md",
+      "step_2_pivot_1": "Search Songkick or Bandsintown for venue/artist events",
+      "step_2_pivot_2": "Search Facebook public event listings",
+      "step_3_fail": "If still inaccessible, flag for manual browser agent review",
+      "rule": "Do NOT hallucinate data. Log it for later manual collection.",
+      "example_venues": [
+        "Variety Playhouse (recovered via concert aggregators)"
+      ]
+    },
+    "missing_poster_images": {
+      "step_1": "Check event JSON API payload for image field",
+      "step_2": "Fallback to og:image from ticket link page",
+      "step_3": "Use venue logo as placeholder",
+      "storage_standard": "/assets/events/ with descriptive naming"
+    },
+    "minimal_description_data": {
+      "example": "The Masquerade list view provides minimal details",
+      "solution": "Require follow-up visit to individual event pages for enrichment",
+      "implementation": "Secondary scraping pass after initial list extraction"
+    }
+  },
+  "files_read": [
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/REFRESH_PLAN_JAN_AUG_2026.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/MANUAL_BROWSER_TASKS.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/SCRAPING_TECHNICAL_LOG.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/REMEDIATION_LOG_JAN_2026.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/planning/TASTE_PROFILE.md",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/ATL Event List 2025 - Sheet1.csv",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/Atlanta Events Hub - Expanded Through October 2025.csv",
+    "/Users/dmitriyperkis/Documents/Brain/04_Archive/Projects/2025-12-06_ATL-Event-List/Archive/2025-11-12-original-export/ATL Event List 2025 - ATL Events Aug-Oct.csv"
+  ],
+  "key_findings": {
+    "best_performing_sources": [
+      "AXS event calendar (Terminal West, The Eastern, Variety Playhouse)",
+      "19hz.info (Underground electronic music aggregator)",
+      "Direct HTML scraping (The Masquerade, museums, venues with public calendars)",
+      "Eventbrite (District Atlanta, multi-promoter venues)"
+    ],
+    "blocked_sources": [
+      "Variety Playhouse (403 Forbidden) — use concert aggregators as fallback"
+    ],
+    "most_valuable_enrichment": [
+      "Setlist history (from setlist.fm or artist pages)",
+      "Timing details (door times, show duration, stage count)",
+      "Artist comparisons (to Dima's verified favorites)",
+      "Venue attendance history (personal context)"
+    ],
+    "venue_refresh_frequency": {
+      "tier_1_weekly": "Terminal West, The Eastern (daily/weekly updates via AXS)",
+      "tier_2_biweekly": "Museums, cultural institutions (seasonal/quarterly updates)",
+      "tier_3_monthly": "Comedy/intimate venues (bi-weekly event listings)",
+      "tier_4_discovery": "Aggregators (19hz.info, RA.co) continuously updated"
+    },
+    "critical_metadata_to_preserve": [
+      "interest_score (1-5 personalization)",
+      "description_distilled (taste-matched narrative)",
+      "venue_logo_url and primary_color (visual branding)",
+      "image_url (event poster for UI)",
+      "ticket_link (active ticketing URL)",
+      "media_link (Spotify artist or YouTube trailer)"
+    ]
+  }
+}
